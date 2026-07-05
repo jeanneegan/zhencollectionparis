@@ -2,11 +2,26 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { getCurrentDialoguePath } from "@/app/dialogue/data";
+
+const dialoguePath = getCurrentDialoguePath();
 
 const items = [
-  { href: "/artists/willy-le-nalbaut", label: "Willy", match: "/artists/willy-le-nalbaut" },
-  { href: "/", label: "对话", match: "/" },
-  { href: "/artists/su-hong", label: "苏泓", match: "/artists/su-hong" },
+  {
+    href: "/artists/willy-le-nalbaut",
+    label: "Willy",
+    isActive: (path: string) => path === "/artists/willy-le-nalbaut",
+  },
+  {
+    href: dialoguePath,
+    label: "对话",
+    isActive: (path: string) => path.startsWith("/dialogue"),
+  },
+  {
+    href: "/artists/su-hong",
+    label: "苏泓",
+    isActive: (path: string) => path === "/artists/su-hong",
+  },
 ] as const;
 
 export function MobileNav() {
@@ -18,8 +33,8 @@ export function MobileNav() {
       className="fixed inset-x-0 bottom-0 z-50 border-t border-stone-200 bg-white/95 backdrop-blur-sm md:hidden"
     >
       <div className="mx-auto grid max-w-lg grid-cols-3">
-        {items.map(({ href, label, match }) => {
-          const active = pathname === match;
+        {items.map(({ href, label, isActive }) => {
+          const active = isActive(pathname);
 
           return (
             <Link
