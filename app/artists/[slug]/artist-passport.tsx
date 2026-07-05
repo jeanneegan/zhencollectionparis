@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { SiteBrandLink } from "@/app/components/site-brand-link";
 import { SiteFooter } from "@/app/components/site-footer";
+import { SiteNav } from "@/app/components/site-nav";
 import { type ArtistProfile, type Locale, t } from "./data";
 
 const labels: Record<
@@ -250,10 +251,10 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
   return (
     <div className="min-h-screen bg-stone-50 text-stone-900">
       <header className="border-b border-stone-200 bg-white/80 backdrop-blur-sm">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-10">
-          <SiteBrandLink />
-          <div className="flex items-center gap-6 md:gap-10">
-            <nav className="hidden gap-8 text-[11px] font-medium uppercase tracking-[0.15em] text-stone-400 sm:flex">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-5 md:px-10">
+          <SiteBrandLink className="shrink-0" />
+          <div className="flex shrink-0 items-center gap-4 md:gap-6">
+            <nav className="hidden gap-8 text-[11px] font-medium uppercase tracking-[0.15em] text-stone-400 lg:flex">
               <span className="text-stone-900">{l.navArtist}</span>
               <span>{l.navWorks}</span>
               <span>{l.navExhibitions}</span>
@@ -261,6 +262,7 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
             <LanguageSwitcher locale={locale} onChange={setLocale} />
           </div>
         </div>
+        <SiteNav wide />
       </header>
 
       {/* Hero */}

@@ -6,15 +6,19 @@ import { getSiteNavItems } from "./site-nav-config";
 
 const items = getSiteNavItems();
 
-export function MobileNav() {
+export function SiteNav({ wide = false }: { wide?: boolean }) {
   const pathname = usePathname();
 
   return (
     <nav
-      aria-label="Navigation mobile"
-      className="fixed inset-x-0 bottom-0 z-50 border-t border-stone-200 bg-white/95 backdrop-blur-sm md:hidden"
+      aria-label="Navigation principale"
+      className="hidden border-t border-stone-200 bg-white/80 md:block"
     >
-      <div className="mx-auto grid max-w-lg grid-cols-3">
+      <div
+        className={`mx-auto grid grid-cols-3 px-6 ${
+          wide ? "max-w-7xl md:px-10" : "max-w-3xl"
+        }`}
+      >
         {items.map(({ href, labelFr, labelZh, isDialogue, isActive }) => {
           const active = isActive(pathname);
           const mutedClass =
@@ -28,11 +32,11 @@ export function MobileNav() {
             <Link
               key={href}
               href={href}
-              className={`flex min-h-14 flex-col items-center justify-center gap-0.5 px-2 transition-colors ${
+              className={`flex min-h-12 flex-col items-center justify-center gap-0.5 px-2 transition-colors ${
                 isDialogue
                   ? active
                     ? "bg-[#5a2323] text-white"
-                    : "bg-white text-stone-600 hover:bg-stone-50 hover:text-stone-900"
+                    : "text-stone-600 hover:bg-stone-50 hover:text-stone-900"
                   : active
                     ? "bg-stone-900 text-white"
                     : "text-stone-600 hover:bg-stone-50 hover:text-stone-900"
