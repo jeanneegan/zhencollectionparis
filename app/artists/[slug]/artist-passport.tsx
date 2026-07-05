@@ -4,12 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { SiteBrandLink } from "@/app/components/site-brand-link";
+import { SiteFooter } from "@/app/components/site-footer";
 import { type ArtistProfile, type Locale, t } from "./data";
 
 const labels: Record<
   Locale,
   {
-    brand: string;
     passport: string;
     navArtist: string;
     navWorks: string;
@@ -52,11 +52,9 @@ const labels: Record<
     collectorRecognition: string;
     curatorMediaRecognition: string;
     publicResonance: string;
-    footerTagline: string;
   }
 > = {
   zh: {
-    brand: "巴黎臻藏",
     passport: "Passeport Artiste · 艺术家护照",
     navArtist: "艺术家",
     navWorks: "作品",
@@ -101,10 +99,8 @@ const labels: Record<
     curatorMediaRecognition:
       "Reconnaissance curateurs / médias · 策展人与媒体认可",
     publicResonance: "Résonance publique · 公众共鸣",
-    footerTagline: "巴黎 × 中国 · Conversations · Rencontres",
   },
   fr: {
-    brand: "Zhen Collection Paris",
     passport: "Passeport Artiste · 艺术家护照",
     navArtist: "Artistes",
     navWorks: "Œuvres",
@@ -149,10 +145,8 @@ const labels: Record<
     curatorMediaRecognition:
       "Reconnaissance curateurs / médias · 策展人与媒体认可",
     publicResonance: "Résonance publique · 公众共鸣",
-    footerTagline: "Paris × Chine · 巴黎 × 中国 · Conversations · Rencontres",
   },
   en: {
-    brand: "Zhen Collection Paris",
     passport: "Artist Passport",
     navArtist: "Artists",
     navWorks: "Works",
@@ -195,7 +189,6 @@ const labels: Record<
     collectorRecognition: "Collector Recognition",
     curatorMediaRecognition: "Curator / Media Recognition",
     publicResonance: "Public Resonance",
-    footerTagline: "Paris × China · Conversations · Rencontres",
   },
 };
 
@@ -784,14 +777,7 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
         </div>
       </section>
 
-      <footer className="border-t border-stone-200 bg-white">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-10 md:flex-row md:px-10">
-          <p className="text-[11px] uppercase tracking-[0.2em] text-stone-400">
-            {l.brand} · Zhen Collection Paris
-          </p>
-          <p className="text-[11px] text-stone-400">{l.footerTagline}</p>
-        </div>
-      </footer>
+      <SiteFooter wide />
     </div>
   );
 }
