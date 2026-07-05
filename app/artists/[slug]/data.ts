@@ -107,8 +107,7 @@ const willyLeNalbaut: ArtistProfile = {
     en: "Oil painting · wood panel and canvas",
   },
   representedBy: "Artiste indépendant · Galerie ArtLim' · La Volonté 93",
-  portrait:
-    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=1600&fit=crop",
+  portrait: "/artists/willy-le-nalbaut/portrait.jpg",
   tagline: {
     zh: "一种属于我的现实主义——荒诞剧场里，动物、神祇与日常物件在同一平面",
     fr: "Un réalisme à ma manière — théâtre absurde où animaux, divinités et objets banals coexistent",
