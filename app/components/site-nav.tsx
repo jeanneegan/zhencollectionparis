@@ -12,7 +12,7 @@ export function SiteNav({ wide = false }: { wide?: boolean }) {
   return (
     <nav
       aria-label="Navigation principale"
-      className="hidden border-t border-stone-200 bg-white/80 md:block"
+      className="hidden border-t border-stone-200 bg-white/95 backdrop-blur-sm md:block"
     >
       <div
         className={`mx-auto grid grid-cols-3 px-6 ${

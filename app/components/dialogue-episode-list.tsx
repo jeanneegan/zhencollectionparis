@@ -1,23 +1,63 @@
 import Link from "next/link";
+import type { Locale } from "@/app/artists/[slug]/data";
 import {
   type DialogueEpisode,
   formatEpisodeMonth,
 } from "@/app/dialogue/data";
 
-function episodeStatusLabel(episode: DialogueEpisode): string {
+function episodeStatusLabel(
+  episode: DialogueEpisode,
+  locale: Locale,
+): string {
+  if (locale === "en") {
+    if (episode.isCurrent) return "Current";
+    if (episode.status === "upcoming") return "Coming soon";
+    return "Archive";
+  }
   if (episode.isCurrent) return "En cours · 当期";
   if (episode.status === "upcoming") return "À venir · 即将发布";
   return "Archives · 往期";
+}
+
+function episodeMeta(item: DialogueEpisode, locale: Locale): string {
+  const month = formatEpisodeMonth(item.month, locale);
+  if (locale === "en") {
+    return `Episode ${item.episode} · ${month}`;
+  }
+  if (locale === "zh") {
+    return `Épisode ${item.episode} · 第${item.episode}期 · ${month}`;
+  }
+  return `Épisode ${item.episode} · 第${item.episode}期 · ${month}`;
+}
+
+function episodeTitle(item: DialogueEpisode, locale: Locale): React.ReactNode {
+  if (locale === "en") return item.title.en;
+  if (locale === "zh") {
+    return (
+      <>
+        {item.title.zh}{" "}
+        <span className="text-stone-600">{item.title.fr}</span>
+      </>
+    );
+  }
+  return (
+    <>
+      {item.title.fr}{" "}
+      <span className="text-stone-600">{item.title.zh}</span>
+    </>
+  );
 }
 
 export function DialogueEpisodeList({
   episodes,
   serifClassName = "",
   highlightCurrent = true,
+  locale = "fr",
 }: {
   episodes: DialogueEpisode[];
   serifClassName?: string;
   highlightCurrent?: boolean;
+  locale?: Locale;
 }) {
   return (
     <ul className="divide-y divide-stone-200 border-y border-stone-200">
@@ -34,14 +74,12 @@ export function DialogueEpisodeList({
             >
               <div className="min-w-0 text-left">
                 <p className="text-[10px] tracking-[0.15em] text-stone-400">
-                  Épisode {item.episode} · 第{item.episode}期 ·{" "}
-                  {formatEpisodeMonth(item.month, "zh")}
+                  {episodeMeta(item, locale)}
                 </p>
                 <p
                   className={`${serifClassName} mt-1 text-base text-stone-900`}
                 >
-                  {item.title.fr}{" "}
-                  <span className="text-stone-600">{item.title.zh}</span>
+                  {episodeTitle(item, locale)}
                 </p>
               </div>
               <span
@@ -53,7 +91,7 @@ export function DialogueEpisodeList({
                       : "text-stone-500"
                 }`}
               >
-                {episodeStatusLabel(item)}
+                {episodeStatusLabel(item, locale)}
               </span>
             </Link>
           </li>

@@ -250,7 +250,7 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
 
   return (
     <div className="min-h-screen bg-stone-50 text-stone-900">
-      <header className="border-b border-stone-200 bg-white/80 backdrop-blur-sm">
+      <header className="sticky top-0 z-50 border-b border-stone-200 bg-white/95 backdrop-blur-sm">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-5 md:px-10">
           <SiteBrandLink className="shrink-0" />
           <div className="flex shrink-0 items-center gap-4 md:gap-6">
