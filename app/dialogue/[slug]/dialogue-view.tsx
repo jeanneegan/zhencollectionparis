@@ -36,7 +36,14 @@ const labels: Record<
     suHongToWilly: string;
     observerQuestions: string;
     publicMessages: string;
+    publicMessagesScope: string;
+    participate: string;
+    participateNote: string;
+    participateLink: string;
     works: string;
+    collectionInquiry: string;
+    collectionNote: string;
+    collectionLink: string;
     answerPending: string;
   }
 > = {
@@ -49,7 +56,17 @@ const labels: Record<
     suHongToWilly: "Su Hong → Willy Le Nalbaut｜苏泓向 Willy 提问",
     observerQuestions: "Questions des observateurs｜观察者提问",
     publicMessages: "Messages du public｜公众留言",
+    publicMessagesScope:
+      "Pour cette épisode uniquement · 针对本期内容的留言",
+    participate: "Participer au dialogue｜报名对话",
+    participateNote:
+      "Postulez pour rejoindre un dialogue futur · 申请参与未来对话（艺术家、观察者或公众）",
+    participateLink: "Candidater · 前往报名",
     works: "Œuvres sélectionnées｜作品",
+    collectionInquiry: "Collection inquiry · 收藏咨询",
+    collectionNote:
+      "对该期对话相关作品有收藏意向 · Demande de collection pour les œuvres présentées",
+    collectionLink: "Demander · 咨询收藏",
     answerPending: "Réponse · 回答 · À venir",
   },
   fr: {
@@ -61,7 +78,17 @@ const labels: Record<
     suHongToWilly: "Su Hong → Willy Le Nalbaut｜苏泓向 Willy 提问",
     observerQuestions: "Questions des observateurs｜观察者提问",
     publicMessages: "Messages du public｜公众留言",
+    publicMessagesScope:
+      "Pour cette épisode uniquement · 针对本期内容的留言",
+    participate: "Participer au dialogue｜报名对话",
+    participateNote:
+      "Postulez pour rejoindre un dialogue futur · 申请参与未来对话（艺术家、观察者或公众）",
+    participateLink: "Candidater · 前往报名",
     works: "Œuvres sélectionnées｜作品",
+    collectionInquiry: "Collection inquiry · 收藏咨询",
+    collectionNote:
+      "对该期对话相关作品有收藏意向 · Demande de collection pour les œuvres présentées",
+    collectionLink: "Demander · 咨询收藏",
     answerPending: "Réponse · 回答 · À venir",
   },
   en: {
@@ -72,7 +99,15 @@ const labels: Record<
     suHongToWilly: "Su Hong → Willy Le Nalbaut",
     observerQuestions: "Observer Questions",
     publicMessages: "Public Messages",
+    publicMessagesScope: "For this episode only",
+    participate: "Join a Dialogue",
+    participateNote:
+      "Apply to participate in a future dialogue as an artist, observer, or member of the public",
+    participateLink: "Apply",
     works: "Selected Works",
+    collectionInquiry: "Collection Inquiry",
+    collectionNote: "Interested in collecting works featured in this dialogue",
+    collectionLink: "Inquire",
     answerPending: "Answer · Coming soon",
   },
 };
@@ -335,9 +370,28 @@ export function DialogueView({
           </div>
         </section>
 
-        <section className="mt-16 border border-dashed border-stone-300 bg-stone-50/30 px-6 py-8">
-          <SectionLabel>{l.publicMessages}</SectionLabel>
+        <section className="mt-16 border border-stone-200 bg-white px-6 py-8">
+          <SectionLabel>{l.participate}</SectionLabel>
           <p className="mt-6 text-center text-sm leading-[1.9] text-stone-600">
+            {l.participateNote}
+          </p>
+          <div className="mt-6 flex justify-center">
+            <Link
+              href="/participer"
+              className="inline-flex items-center gap-2 rounded-full border border-stone-300 px-6 py-2.5 text-xs font-medium tracking-[0.12em] text-stone-700 transition-colors hover:border-stone-900 hover:text-stone-900"
+            >
+              {l.participateLink}
+              <span aria-hidden>→</span>
+            </Link>
+          </div>
+        </section>
+
+        <section className="mt-10 border border-dashed border-stone-300 bg-stone-50/30 px-6 py-8">
+          <SectionLabel>{l.publicMessages}</SectionLabel>
+          <p className="mt-4 text-center text-xs tracking-wide text-stone-400">
+            {l.publicMessagesScope}
+          </p>
+          <p className="mt-4 text-center text-sm leading-[1.9] text-stone-600">
             {t(episode.publicParticipation.note, locale)}
           </p>
           {episode.publicParticipation.open ? (
@@ -385,6 +439,24 @@ export function DialogueView({
                 </Link>
               </figure>
             ))}
+          </div>
+
+          <div className="mx-auto mt-16 max-w-md border border-stone-200 px-6 py-8 text-center">
+            <p className="text-[11px] font-medium tracking-[0.15em] text-stone-400">
+              {l.collectionInquiry}
+            </p>
+            <p className="mt-4 text-sm leading-[1.9] text-stone-600">
+              {l.collectionNote}
+            </p>
+            <div className="mt-6 flex justify-center">
+              <Link
+                href="/collection"
+                className="inline-flex items-center gap-2 rounded-full border border-stone-300 px-6 py-2.5 text-xs font-medium tracking-[0.12em] text-stone-700 transition-colors hover:border-stone-900 hover:text-stone-900"
+              >
+                {l.collectionLink}
+                <span aria-hidden>→</span>
+              </Link>
+            </div>
           </div>
         </section>
       </main>

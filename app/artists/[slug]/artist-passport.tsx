@@ -20,12 +20,8 @@ const labels: Record<
     nationality: string;
     practice: string;
     representedBy: string;
-    contact: string;
     education: string;
     representation: string;
-    email: string;
-    website: string;
-    wechat: string;
     since: string;
     whyChinaFrance: string;
     china: string;
@@ -47,6 +43,9 @@ const labels: Record<
     publicQuestions: string;
     openQuestion: string;
     selectedWorks: string;
+    collectionInquiry: string;
+    collectionNote: string;
+    collectionLink: string;
     professionalReputation: string;
     galleryRecognition: string;
     collectorRecognition: string;
@@ -65,12 +64,8 @@ const labels: Record<
     nationality: "国籍",
     practice: "艺术实践",
     representedBy: "代理画廊",
-    contact: "Contact · 联系方式",
     education: "Formation · 教育背景",
     representation: "Représentation · 代理画廊",
-    email: "邮箱",
-    website: "网站",
-    wechat: "微信",
     since: "自",
     whyChinaFrance:
       "Pourquoi la Chine / Pourquoi la France｜为什么中国 / 为什么法国",
@@ -93,6 +88,10 @@ const labels: Record<
     publicQuestions: "公众开放问题",
     openQuestion: "开放提问",
     selectedWorks: "Œuvres sélectionnées｜作品",
+    collectionInquiry: "Collection inquiry · 收藏咨询",
+    collectionNote:
+      "对该艺术家的作品有收藏意向 · Demande de collection pour cet artiste",
+    collectionLink: "Demander · 咨询收藏",
     professionalReputation: "Réputation professionnelle｜职业声誉",
     galleryRecognition: "Reconnaissance des galeries · 画廊认可",
     collectorRecognition: "Reconnaissance des collectionneurs · 藏家认可",
@@ -111,12 +110,8 @@ const labels: Record<
     nationality: "Nationalité",
     practice: "Pratique artistique",
     representedBy: "Galerie représentante",
-    contact: "Contact · 联系方式",
     education: "Formation · 教育背景",
     representation: "Représentation · 代理画廊",
-    email: "E-mail",
-    website: "Site web",
-    wechat: "WeChat",
     since: "Depuis",
     whyChinaFrance:
       "Pourquoi la Chine / Pourquoi la France｜为什么中国 / 为什么法国",
@@ -139,6 +134,10 @@ const labels: Record<
     publicQuestions: "Questions ouvertes du public",
     openQuestion: "Question ouverte",
     selectedWorks: "Œuvres sélectionnées｜作品",
+    collectionInquiry: "Collection inquiry · 收藏咨询",
+    collectionNote:
+      "对该艺术家的作品有收藏意向 · Demande de collection pour cet artiste",
+    collectionLink: "Demander · 咨询收藏",
     professionalReputation: "Réputation professionnelle｜职业声誉",
     galleryRecognition: "Reconnaissance des galeries · 画廊认可",
     collectorRecognition: "Reconnaissance des collectionneurs · 藏家认可",
@@ -157,12 +156,8 @@ const labels: Record<
     nationality: "Nationality",
     practice: "Practice",
     representedBy: "Represented By",
-    contact: "Contact",
     education: "Education",
     representation: "Representation",
-    email: "Email",
-    website: "Website",
-    wechat: "WeChat",
     since: "Since",
     whyChinaFrance: "Why China / Why France",
     china: "China",
@@ -184,6 +179,9 @@ const labels: Record<
     publicQuestions: "Open Public Questions",
     openQuestion: "Open Question",
     selectedWorks: "Selected Works",
+    collectionInquiry: "Collection Inquiry",
+    collectionNote: "Interested in collecting works by this artist",
+    collectionLink: "Inquire",
     professionalReputation: "Professional Reputation",
     galleryRecognition: "Gallery Recognition",
     collectorRecognition: "Collector Recognition",
@@ -342,67 +340,9 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
         </div>
       </section>
 
-      {/* Contact · Education · Representation */}
+      {/* Education · Representation */}
       <section className="mx-auto max-w-7xl px-6 py-20 md:px-10">
-        <div className="grid grid-cols-1 gap-16 md:grid-cols-3 md:gap-12">
-          <div>
-            <SectionTitle>{l.contact}</SectionTitle>
-            <ul className="mt-8 space-y-4">
-              <li>
-                <p className="text-[11px] uppercase tracking-[0.12em] text-stone-400">
-                  {l.email}
-                </p>
-                <p className="mt-1 text-sm text-stone-700">
-                  {artist.contact.email}
-                </p>
-              </li>
-              {artist.contact.phone ? (
-                <li>
-                  <p className="text-[11px] uppercase tracking-[0.12em] text-stone-400">
-                    {locale === "zh"
-                      ? "电话"
-                      : locale === "fr"
-                        ? "Téléphone"
-                        : "Phone"}
-                  </p>
-                  <p className="mt-1 text-sm text-stone-700">
-                    {artist.contact.phone}
-                  </p>
-                </li>
-              ) : null}
-              {artist.contact.website ? (
-                <li>
-                  <p className="text-[11px] uppercase tracking-[0.12em] text-stone-400">
-                    {l.website}
-                  </p>
-                  <p className="mt-1 text-sm text-stone-700">
-                    {artist.contact.website}
-                  </p>
-                </li>
-              ) : null}
-              {artist.contact.instagram ? (
-                <li>
-                  <p className="text-[11px] uppercase tracking-[0.12em] text-stone-400">
-                    Instagram
-                  </p>
-                  <p className="mt-1 text-sm text-stone-700">
-                    {artist.contact.instagram}
-                  </p>
-                </li>
-              ) : null}
-              {artist.contact.wechat ? (
-                <li>
-                  <p className="text-[11px] uppercase tracking-[0.12em] text-stone-400">
-                    {l.wechat}
-                  </p>
-                  <p className="mt-1 text-sm text-stone-700">
-                    {artist.contact.wechat}
-                  </p>
-                </li>
-              ) : null}
-            </ul>
-          </div>
-
+        <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-12">
           <div>
             <SectionTitle>{l.education}</SectionTitle>
             <ul className="mt-8 space-y-6">
@@ -668,6 +608,24 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
               </div>
             </article>
           ))}
+        </div>
+
+        <div className="mt-16 border border-stone-200 bg-stone-50/30 px-6 py-10 text-center md:px-10">
+          <p className="text-[11px] font-medium tracking-[0.15em] text-stone-400">
+            {l.collectionInquiry}
+          </p>
+          <p className="mx-auto mt-4 max-w-md text-sm leading-[1.9] text-stone-600">
+            {l.collectionNote}
+          </p>
+          <div className="mt-6 flex justify-center">
+            <Link
+              href={`/collection?artist=${artist.slug}`}
+              className="inline-flex items-center gap-2 rounded-full border border-stone-300 px-6 py-2.5 text-xs font-medium tracking-[0.12em] text-stone-700 transition-colors hover:border-stone-900 hover:text-stone-900"
+            >
+              {l.collectionLink}
+              <span aria-hidden>→</span>
+            </Link>
+          </div>
         </div>
       </section>
 

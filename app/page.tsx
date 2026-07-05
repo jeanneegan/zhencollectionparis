@@ -146,6 +146,31 @@ export default function Home() {
             </Link>
           </div>
         </section>
+
+        <section className="mt-16 border border-stone-200 px-6 py-10 text-center md:px-10 md:py-12">
+          <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-stone-400">
+            Participer au dialogue
+          </p>
+          <p className="mt-1 text-[10px] tracking-[0.2em] text-stone-400">
+            报名对话
+          </p>
+          <p className="mx-auto mt-6 max-w-md text-sm leading-[1.9] text-stone-600">
+            艺术家、观察者或公众提问者均可申请参与巴黎臻藏的对话项目。
+          </p>
+          <p className="mx-auto mt-2 max-w-md text-sm leading-[1.9] text-stone-500">
+            Artistes, observateurs ou public — postulez pour rejoindre un
+            dialogue futur.
+          </p>
+          <div className="mt-8 flex justify-center">
+            <Link
+              href="/participer"
+              className="inline-flex items-center gap-2 rounded-full border border-stone-300 px-6 py-2.5 text-xs font-medium tracking-[0.12em] text-stone-700 transition-colors hover:border-stone-900 hover:text-stone-900"
+            >
+              Candidater · 前往报名
+              <span aria-hidden>→</span>
+            </Link>
+          </div>
+        </section>
       </main>
 
       <SiteFooter />
