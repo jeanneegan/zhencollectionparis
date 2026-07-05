@@ -36,7 +36,11 @@ export type DialogueEpisode = {
     note: LocalizedText;
   };
   artists: [string, string];
-  featuredWorks: { artistSlug: string; artworkId: string }[];
+  featuredWorks: {
+    artistSlug: string;
+    artworkId: string;
+    displayAspect?: [number, number];
+  }[];
   isCurrent: boolean;
 };
 
@@ -116,7 +120,11 @@ export const episodes: DialogueEpisode[] = [
     },
     artists: ["willy-le-nalbaut", "su-hong"],
     featuredWorks: [
-      { artistSlug: "willy-le-nalbaut", artworkId: "3" },
+      {
+        artistSlug: "willy-le-nalbaut",
+        artworkId: "3",
+        displayAspect: [1024, 659],
+      },
       { artistSlug: "su-hong", artworkId: "6" },
     ],
     isCurrent: true,

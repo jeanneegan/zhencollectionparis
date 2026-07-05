@@ -167,11 +167,21 @@ export default async function DialoguePage({ params }: PageProps) {
   }
 
   const featured = episode.featuredWorks
-    .map(({ artistSlug, artworkId }) => {
+    .map(({ artistSlug, artworkId, displayAspect }) => {
       const artist = getArtistBySlug(artistSlug);
       const artwork = artist?.artworks.find((a) => a.id === artworkId);
       if (!artist || !artwork) return null;
-      return { artist, artwork };
+
+      const aspectMatch = artwork.dimensions.match(
+        /(\d+(?:\.\d+)?)\s*×\s*(\d+(?:\.\d+)?)/,
+      );
+      const aspect: [number, number] = displayAspect
+        ? displayAspect
+        : aspectMatch
+          ? [Number(aspectMatch[1]), Number(aspectMatch[2])]
+          : [4, 3];
+
+      return { artist, artwork, aspect };
     })
     .filter(Boolean);
 
@@ -252,21 +262,29 @@ export default async function DialoguePage({ params }: PageProps) {
           <h2 className="text-center text-[11px] font-medium uppercase tracking-[0.2em] text-stone-400">
             Œuvres · 作品
           </h2>
-          <div className="mt-10 grid grid-cols-1 gap-12 md:grid-cols-2">
+          <div className="mt-10 grid grid-cols-1 gap-16 md:grid-cols-2">
             {featured.map((item) =>
               item ? (
-                <figure key={`${item.artist.slug}-${item.artwork.id}`}>
+                <figure
+                  key={`${item.artist.slug}-${item.artwork.id}`}
+                  className="mx-auto flex w-full max-w-md flex-col items-center"
+                >
                   <Link
                     href={`/artists/${item.artist.slug}`}
-                    className="group block"
+                    className="group block w-full"
                   >
-                    <div className="relative aspect-[4/3] overflow-hidden bg-stone-100">
+                    <div
+                      className="relative mx-auto w-full overflow-hidden bg-stone-100"
+                      style={{
+                        aspectRatio: `${item.aspect[0]} / ${item.aspect[1]}`,
+                      }}
+                    >
                       <Image
                         src={item.artwork.image}
                         alt={t(item.artwork.title, "fr")}
                         fill
-                        className="object-contain object-center transition-transform group-hover:scale-[1.02]"
-                        sizes="(max-width: 768px) 100vw, 400px"
+                        className="object-contain object-center transition-transform group-hover:scale-[1.01]"
+                        sizes="(max-width: 768px) 100vw, 448px"
                       />
                     </div>
                     <figcaption className="mt-4 text-center">
