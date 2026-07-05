@@ -22,6 +22,7 @@ const labels: Record<
     contact: string;
     contactLabel: string;
     education: string;
+    educationTitle: string;
     representation: string;
     email: string;
     website: string;
@@ -57,7 +58,7 @@ const labels: Record<
 > = {
   zh: {
     brand: "巴黎臻藏",
-    passport: "Artist Passport · 艺术家护照",
+    passport: "Passeport Artiste · 艺术家护照",
     navArtist: "艺术家",
     navWorks: "作品",
     navExhibitions: "展览",
@@ -68,19 +69,21 @@ const labels: Record<
     practice: "艺术实践",
     representedBy: "代理画廊",
     contact: "联系方式",
-    contactLabel: "Contact",
+    contactLabel: "Contact · 联系方式",
     education: "教育背景",
-    representation: "Representation",
+    educationTitle: "Formation · 教育背景",
+    representation: "Représentation · 代理画廊",
     email: "邮箱",
     website: "网站",
     wechat: "微信",
     since: "自",
-    whyChinaFrance: "Why China / Why France｜为什么中国 / 为什么法国",
+    whyChinaFrance:
+      "Pourquoi la Chine / Pourquoi la France｜为什么中国 / 为什么法国",
     china: "中国",
     france: "法国",
-    whyCreate: "Why Create｜为什么创作？",
-    philosophy: "Artistic Philosophy｜创作理念",
-    exhibitions: "Exhibitions｜展览",
+    whyCreate: "Pourquoi créer ?｜为什么创作？",
+    philosophy: "Philosophie artistique｜创作理念",
+    exhibitions: "Expositions｜展览",
     year: "年份",
     exhibition: "展览",
     venue: "场馆",
@@ -88,18 +91,19 @@ const labels: Record<
     type: "类型",
     solo: "个展",
     group: "群展",
-    careerTimeline: "Career Timeline｜职业时间轴",
-    conversation: "Conversation｜巴黎臻藏对话",
+    careerTimeline: "Chronologie professionnelle｜职业时间轴",
+    conversation: "Dialogue Zhen Collection · 巴黎臻藏对话",
     sharedQuestion: "共同问题",
     artistAnswer: "艺术家回答",
     publicQuestions: "公众开放问题",
     openQuestion: "开放提问",
-    selectedWorks: "Selected Works｜作品",
-    professionalReputation: "Professional Reputation｜职业声誉",
-    galleryRecognition: "Gallery Recognition",
-    collectorRecognition: "Collector Recognition",
-    curatorMediaRecognition: "Curator / Media Recognition",
-    publicResonance: "Public Resonance",
+    selectedWorks: "Œuvres sélectionnées｜作品",
+    professionalReputation: "Réputation professionnelle｜职业声誉",
+    galleryRecognition: "Reconnaissance des galeries · 画廊认可",
+    collectorRecognition: "Reconnaissance des collectionneurs · 藏家认可",
+    curatorMediaRecognition:
+      "Reconnaissance curateurs / médias · 策展人与媒体认可",
+    publicResonance: "Résonance publique · 公众共鸣",
     footerTagline: "巴黎 × 中国 · Conversations · Rencontres",
   },
   fr: {
@@ -117,18 +121,18 @@ const labels: Record<
     contact: "Contact",
     contactLabel: "Contact",
     education: "Formation",
-    representation: "Representation",
+    educationTitle: "Formation",
+    representation: "Représentation",
     email: "E-mail",
     website: "Site web",
     wechat: "WeChat",
     since: "Depuis",
-    whyChinaFrance:
-      "Why China / Why France｜Pourquoi la Chine / Pourquoi la France",
+    whyChinaFrance: "Pourquoi la Chine / Pourquoi la France",
     china: "Chine",
     france: "France",
-    whyCreate: "Why Create｜Pourquoi créer ?",
-    philosophy: "Artistic Philosophy｜Philosophie artistique",
-    exhibitions: "Exhibitions｜Expositions",
+    whyCreate: "Pourquoi créer ?",
+    philosophy: "Philosophie artistique",
+    exhibitions: "Expositions",
     year: "Année",
     exhibition: "Exposition",
     venue: "Lieu",
@@ -136,18 +140,18 @@ const labels: Record<
     type: "Type",
     solo: "Solo",
     group: "Collectif",
-    careerTimeline: "Career Timeline｜Chronologie professionnelle",
-    conversation: "Conversation｜Dialogue Zhen Collection",
+    careerTimeline: "Chronologie professionnelle",
+    conversation: "Dialogue Zhen Collection",
     sharedQuestion: "Question commune",
     artistAnswer: "Réponse de l'artiste",
     publicQuestions: "Questions ouvertes du public",
     openQuestion: "Question ouverte",
-    selectedWorks: "Selected Works｜Œuvres sélectionnées",
-    professionalReputation: "Professional Reputation｜Réputation professionnelle",
-    galleryRecognition: "Gallery Recognition",
-    collectorRecognition: "Collector Recognition",
-    curatorMediaRecognition: "Curator / Media Recognition",
-    publicResonance: "Public Resonance",
+    selectedWorks: "Œuvres sélectionnées",
+    professionalReputation: "Réputation professionnelle",
+    galleryRecognition: "Reconnaissance des galeries",
+    collectorRecognition: "Reconnaissance des collectionneurs",
+    curatorMediaRecognition: "Reconnaissance curateurs / médias",
+    publicResonance: "Résonance publique",
     footerTagline: "Paris × Chine · Conversations · Rencontres",
   },
   en: {
@@ -165,6 +169,7 @@ const labels: Record<
     contact: "Contact",
     contactLabel: "Contact",
     education: "Education",
+    educationTitle: "Education",
     representation: "Representation",
     email: "Email",
     website: "Website",
@@ -253,7 +258,7 @@ function LanguageSwitcher({
 }
 
 export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
-  const [locale, setLocale] = useState<Locale>("zh");
+  const [locale, setLocale] = useState<Locale>("fr");
   const l = labels[locale];
 
   return (
@@ -418,10 +423,10 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
 
           <div>
             <SectionLabel>{l.education}</SectionLabel>
-            <SectionTitle>Education</SectionTitle>
+            <SectionTitle>{l.educationTitle}</SectionTitle>
             <ul className="mt-8 space-y-6">
               {artist.education.map((item) => (
-                <li key={`${item.year}-${t(item.institution, "en")}`}>
+                <li key={`${item.year}-${t(item.institution, "fr")}`}>
                   <p className="text-[11px] tabular-nums text-stone-400">
                     {item.year}
                   </p>
@@ -534,7 +539,7 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
             <tbody>
               {artist.exhibitions.map((exhibition) => (
                 <tr
-                  key={`${exhibition.year}-${t(exhibition.title, "en")}`}
+                  key={`${exhibition.year}-${t(exhibition.title, "fr")}`}
                   className="border-b border-stone-100"
                 >
                   <td className="py-5 pr-8 tabular-nums text-sm text-stone-400">
@@ -754,7 +759,7 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
               {artist.professionalReputation.curatorMediaRecognition.map(
                 (item) => (
                   <figure
-                    key={t(item.source, "en")}
+                    key={t(item.source, "fr")}
                     className="flex flex-col gap-4 border-l-2 border-stone-200 pl-6 md:flex-row md:items-start md:gap-12"
                   >
                     <p className="shrink-0 text-[11px] font-medium uppercase tracking-[0.12em] text-stone-400 md:w-36">
@@ -776,7 +781,7 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
             <div className="mt-8 space-y-6">
               {artist.professionalReputation.publicResonance.map((item) => (
                 <figure
-                  key={t(item.source, "en")}
+                  key={t(item.source, "fr")}
                   className="flex flex-col gap-4 border-l-2 border-stone-200 pl-6 md:flex-row md:items-start md:gap-12"
                 >
                   <p className="shrink-0 text-[11px] font-medium uppercase tracking-[0.12em] text-stone-400 md:w-36">
