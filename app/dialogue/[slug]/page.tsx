@@ -161,10 +161,8 @@ export default async function DialoguePage({ params }: PageProps) {
   }
 
   const [willySlug, suHongSlug] = episode.artists;
-  const willy = getArtistBySlug(willySlug);
-  const suHong = getArtistBySlug(suHongSlug);
 
-  if (!willy || !suHong) {
+  if (!getArtistBySlug(willySlug) || !getArtistBySlug(suHongSlug)) {
     notFound();
   }
 
@@ -262,12 +260,12 @@ export default async function DialoguePage({ params }: PageProps) {
                     href={`/artists/${item.artist.slug}`}
                     className="group block"
                   >
-                    <div className="relative aspect-[4/5] overflow-hidden bg-stone-100">
+                    <div className="relative aspect-[4/3] overflow-hidden bg-stone-100">
                       <Image
                         src={item.artwork.image}
                         alt={t(item.artwork.title, "fr")}
                         fill
-                        className="object-cover object-center transition-transform group-hover:scale-[1.02]"
+                        className="object-contain object-center transition-transform group-hover:scale-[1.02]"
                         sizes="(max-width: 768px) 100vw, 400px"
                       />
                     </div>
@@ -288,59 +286,6 @@ export default async function DialoguePage({ params }: PageProps) {
                 </figure>
               ) : null,
             )}
-          </div>
-        </section>
-
-        <section className="mt-16 border-t border-stone-200 pt-12">
-          <div className="grid grid-cols-1 items-start gap-10 md:grid-cols-[1fr_auto_1fr] md:gap-6">
-            <Link
-              href={`/artists/${willy.slug}`}
-              className="group flex flex-col items-center text-center transition-opacity hover:opacity-80"
-            >
-              <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-stone-400">
-                Artiste français
-              </p>
-              <div className="relative mt-5 aspect-square w-full max-w-[180px] overflow-hidden bg-stone-100">
-                <Image
-                  src={willy.portrait}
-                  alt={t(willy.name, "fr")}
-                  fill
-                  className="object-cover object-center grayscale group-hover:grayscale-0"
-                  sizes="180px"
-                />
-              </div>
-              <p className="mt-4 text-sm tracking-wide text-stone-900">
-                Willy Le Nalbaut
-              </p>
-            </Link>
-
-            <div className="hidden items-center justify-center md:flex">
-              <span className="text-2xl font-light text-stone-300">×</span>
-            </div>
-            <div className="flex justify-center md:hidden">
-              <span className="text-2xl font-light text-stone-300">×</span>
-            </div>
-
-            <Link
-              href={`/artists/${suHong.slug}`}
-              className="group flex flex-col items-center text-center transition-opacity hover:opacity-80"
-            >
-              <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-stone-400">
-                Artiste chinoise
-              </p>
-              <div className="relative mt-5 aspect-square w-full max-w-[180px] overflow-hidden bg-stone-100">
-                <Image
-                  src={suHong.portrait}
-                  alt={t(suHong.name, "fr")}
-                  fill
-                  className="object-cover object-center grayscale group-hover:grayscale-0"
-                  sizes="180px"
-                />
-              </div>
-              <p className="mt-4 text-sm tracking-wide text-stone-900">
-                苏泓 Su Hong
-              </p>
-            </Link>
           </div>
         </section>
       </main>

@@ -116,7 +116,7 @@ export const episodes: DialogueEpisode[] = [
     },
     artists: ["willy-le-nalbaut", "su-hong"],
     featuredWorks: [
-      { artistSlug: "willy-le-nalbaut", artworkId: "6" },
+      { artistSlug: "willy-le-nalbaut", artworkId: "3" },
       { artistSlug: "su-hong", artworkId: "6" },
     ],
     isCurrent: true,

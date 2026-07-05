@@ -466,8 +466,8 @@ const willyLeNalbaut: ArtistProfile = {
     {
       id: "3",
       title: {
-        zh: "L'âne a ses raisons que les sabots ignorent.",
-        fr: "L'âne a ses raisons que les sabots ignorent.",
+        zh: "L'âne à ses raisons que les sabots ignorent.",
+        fr: "L'âne à ses raisons que les sabots ignorent.",
         en: "The donkey has its reasons that hooves ignore.",
       },
       year: 2025,
