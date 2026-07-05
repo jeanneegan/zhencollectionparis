@@ -15,6 +15,7 @@ export type ArtistProfile = {
   tagline: LocalizedText;
   contact: {
     email: string;
+    phone?: string;
     website: string;
     instagram: string;
     wechat: string;
@@ -581,9 +582,500 @@ const willyLeNalbaut: ArtistProfile = {
   },
 };
 
+const suHong: ArtistProfile = {
+  slug: "su-hong",
+  name: {
+    zh: "苏泓",
+    fr: "Su Hong",
+    en: "Su Hong",
+  },
+  birthYear: 1983,
+  birthplace: {
+    zh: "中国 · 河北",
+    fr: "Chine · Hebei",
+    en: "China · Hebei",
+  },
+  currentCity: {
+    zh: "北京",
+    fr: "Pékin",
+    en: "Beijing",
+  },
+  nationality: {
+    zh: "中国",
+    fr: "Chinoise",
+    en: "Chinese",
+  },
+  practice: {
+    zh: "数字绘画 · 绘画 · 视觉艺术 · 美术指导",
+    fr: "Peinture numérique · Peinture · Arts visuels · Direction artistique",
+    en: "Digital Painting · Painting · Visual Arts · Art Direction",
+  },
+  representedBy: "独立艺术家",
+  portrait: "/artists/su-hong/portrait.png",
+  tagline: {
+    zh: "以潜意识感知现实，呈现纯粹表现主义的高级灰世界",
+    fr: "Percevoir la réalité par l'inconscient — un monde de gris raffiné et d'expressionnisme pur",
+    en: "Perceiving reality through the subconscious — a refined gray world of pure expressionism",
+  },
+  contact: {
+    email: "Xianye0606@126.com",
+    phone: "18600112621",
+    website: "",
+    instagram: "",
+    wechat: "",
+  },
+  education: [
+    {
+      year: "2007",
+      institution: {
+        zh: "中央美术学院",
+        fr: "Central Academy of Fine Arts",
+        en: "Central Academy of Fine Arts",
+      },
+      degree: {
+        zh: "毕业",
+        fr: "Diplôme",
+        en: "Graduate",
+      },
+      city: { zh: "北京", fr: "Pékin", en: "Beijing" },
+    },
+  ],
+  galleries: [
+    {
+      name: "今日美术馆",
+      city: { zh: "北京", fr: "Pékin", en: "Beijing" },
+      role: {
+        zh: "合作展览",
+        fr: "Exposition partenaire",
+        en: "Partner exhibition",
+      },
+      since: "2012",
+    },
+    {
+      name: "时代美术馆",
+      city: { zh: "北京", fr: "Pékin", en: "Beijing" },
+      role: {
+        zh: "合作展览",
+        fr: "Exposition partenaire",
+        en: "Partner exhibition",
+      },
+      since: "2023",
+    },
+    {
+      name: "半岛美术馆",
+      city: { zh: "上海", fr: "Shanghai", en: "Shanghai" },
+      role: {
+        zh: "合作展览",
+        fr: "Exposition partenaire",
+        en: "Partner exhibition",
+      },
+      since: "2024",
+    },
+  ],
+  whyCreate: {
+    zh: "2010年开始独立艺术创作。我借鉴中华民族传统艺术形式的创作思路，与现代绘画材料技法相结合——水墨画般黑白灰的简约、留白的想象空间、印章痕迹与传统纹样的载入，构建出一种传统结构后现代的呈现形式。",
+    fr: "Depuis 2010, je crée de manière indépendante en empruntant aux formes traditionnelles chinoises et en les associant aux matériaux contemporains — la sobriété noir-blanc-gris, le vide composé, les traces de sceau et les motifs traditionnels.",
+    en: "Since 2010 I have worked independently, drawing on traditional Chinese artistic forms and combining them with contemporary materials — the restraint of ink-like tones, composed emptiness, seal traces, and traditional ornament.",
+  },
+  whyChinaFrance: {
+    china: {
+      zh: "我对装饰类纹样一直很有兴趣——器具、服饰、装潢中的结构提供了很多信息。从独立创作之初，我便逐渐把花纹元素融入作品。《纹饰系列》正是这一方向的集中呈现：以中华古典纹样承载个体对世界的认知。",
+      fr: "Je m'intéresse depuis longtemps aux motifs décoratifs — objets, costumes, ornements. Dès mes débuts, j'ai intégré ces éléments à mes œuvres. La série « Ornements » en est la condensation : porter par la tradition chinoise une perception individuelle du monde.",
+      en: "I have long been drawn to decorative patterns — on objects, garments, and interiors. From the start of my independent practice, I wove these elements into my work. The 'Ornament' series concentrates this direction.",
+    },
+    france: {
+      zh: "表现主义绘画兴起于二十世纪初欧洲，是对旧有思想与行为模式强烈改变的诉求。我的作品介乎写实与抽象之间，以浓郁色彩与多样绘画手法体现「个体的我」对整体世界的认知——这与欧洲表现主义传统形成对话，而非简单引用。",
+      fr: "L'expressionnisme européen du début du XXe siècle exprimait une rupture avec les anciens modèles. Mes œuvres, entre figuration et abstraction, dialoguent avec cette tradition par la couleur et la subjectivité — non par simple citation.",
+      en: "European Expressionism at the turn of the twentieth century sought to break old modes of thought. My work, between representation and abstraction, enters dialogue with that tradition through color and subjectivity — not through mere quotation.",
+    },
+  },
+  philosophy: {
+    zh: "我关注对现实潜意识层面的感受，作品呈现纯粹表现主义。色彩、造型、纹样来自意识的随机性——世界由无数独立小概念构成，人类社会亦如此。作品不强调清晰光影结构，以简单色彩与造型塑造「高级灰」的世界；图形图象看似凌乱复杂，却构成统一整体，映射真实世界的复杂性。",
+    fr: "Je m'intéresse à la perception inconsciente du réel ; mon œuvre relève de l'expressionnisme pur. Couleur, forme et motif naissent du hasard de la conscience. Sans structure lumineuse nette, je modèle un monde de « gris raffiné » — des graphismes apparemment chaotiques qui forment un tout unifié.",
+    en: "I attend to the subconscious perception of reality; my work is pure expressionism. Color, form, and pattern arise from the randomness of consciousness. Without sharp light-and-shadow structure, I model a world of 'refined gray'—graphics that seem chaotic yet form a unified whole mirroring reality's complexity.",
+  },
+  conversation: {
+    sharedQuestion: {
+      zh: "传统纹样进入当代绘画，是装饰，还是结构？",
+      fr: "Quand les motifs traditionnels entrent en peinture contemporaine, sont-ils décor ou structure ?",
+      en: "When traditional patterns enter contemporary painting, are they decoration or structure?",
+    },
+    artistAnswer: {
+      zh: "两者都不是，或者说两者都是。纹样提供信息——简单明了的结构，像道路指示牌、数理化公式一样清晰。我做的第一张青花纹作品是一个简单十字形，就像键盘上的加号。它既是装饰，更是组织画面的骨骼。",
+      fr: "Ni l'un ni l'autre — ou les deux à la fois. Le motif informe : une structure claire, comme un panneau routier ou une formule. Ma première œuvre en motif bleu-blanc était une simple croix, comme le signe plus du clavier — à la fois ornement et ossature.",
+      en: "Neither—or both. Pattern informs: a clear structure, like a road sign or a formula. My first blue-and-white pattern work was a simple cross, like the plus key on a keyboard—both ornament and skeleton.",
+    },
+    publicQuestions: [
+      {
+        author: "访客 · 北京",
+        question: {
+          zh: "《纹饰系列》与《图形图象系列》之间有什么联系？",
+          fr: "Quel lien entre les séries « Ornements » et « Graphismes » ?",
+          en: "What connects the 'Ornament' and 'Graphic Image' series?",
+        },
+      },
+      {
+        author: "Visitor · Shanghai",
+        question: {
+          zh: "从黑白到彩色的转变，是如何发生的？",
+          fr: "Comment s'est opérée la transition du noir-blanc à la couleur ?",
+          en: "How did the shift from black-and-white to color take place?",
+        },
+      },
+      {
+        author: "Anonymous",
+        question: {
+          zh: "表现主义主题在您作品中如何体现？",
+          fr: "Comment le thème expressionniste se manifeste-t-il dans votre œuvre ?",
+          en: "How does the expressionist theme appear in your work?",
+        },
+      },
+    ],
+  },
+  careerTimeline: [
+    {
+      year: "2007",
+      title: {
+        zh: "中央美术学院毕业",
+        fr: "Diplôme · CAFA",
+        en: "Graduated from CAFA",
+      },
+      description: {
+        zh: "毕业于中央美术学院，奠定传统与现代结合的创作方向。",
+        fr: "Diplômé de la Central Academy of Fine Arts ; pose les bases d'une pratique tradition-modernité.",
+        en: "Graduated from the Central Academy of Fine Arts; established a tradition-modernity practice.",
+      },
+    },
+    {
+      year: "2010",
+      title: {
+        zh: "开始独立艺术创作",
+        fr: "Début de la création indépendante",
+        en: "Independent practice begins",
+      },
+      description: {
+        zh: "借鉴传统艺术形式，与现代材料技法结合，探索水墨式简约与留白。",
+        fr: "Emprunt aux formes traditionnelles et aux matériaux contemporains ; exploration du vide et de la sobriété.",
+        en: "Combining traditional forms with contemporary materials; exploring emptiness and restraint.",
+      },
+    },
+    {
+      year: "2013",
+      title: {
+        zh: "拓展彩色绘画",
+        fr: "Extension à la peinture en couleur",
+        en: "Expansion into color painting",
+      },
+      description: {
+        zh: "在纸上黑白绘画基础上，开始纸上彩色绘画创作。",
+        fr: "À partir du noir-blanc sur papier, ouverture à la peinture en couleur.",
+        en: "From black-and-white on paper, opened color painting on paper.",
+      },
+    },
+    {
+      year: "2016",
+      title: {
+        zh: "第三届亚洲青年艺术家提名展",
+        fr: "3e exposition nominative de jeunes artistes asiatiques",
+        en: "3rd Asian Young Artists Nomination Exhibition",
+      },
+      description: {
+        zh: "今日美术馆，北京。",
+        fr: "Today Art Museum, Pékin.",
+        en: "Today Art Museum, Beijing.",
+      },
+    },
+    {
+      year: "2022",
+      title: {
+        zh: "国际设计奖项",
+        fr: "Prix internationaux de design",
+        en: "International design awards",
+      },
+      description: {
+        zh: "ICAD 国际当代青年美术设计大赛银奖；BICC 中英国际创意大赛铜奖；SGADC 新加坡金沙艺术设计大赛铜奖。",
+        fr: "Argent ICAD ; bronze BICC ; bronze SGADC.",
+        en: "ICAD silver; BICC bronze; SGADC bronze.",
+      },
+    },
+    {
+      year: "2024",
+      title: {
+        zh: "上海城市艺术博览会",
+        fr: "AArt Shanghai Urban Art Fair",
+        en: "AArt Shanghai Urban Art Fair",
+      },
+      description: {
+        zh: "「城市青年：青年艺术家主题展」，华邑酒店，上海。",
+        fr: "« Jeunesse urbaine », HUALuxe Hotel, Shanghai.",
+        en: "'Urban Youth: Young Artists Theme Exhibition', HUALuxe Hotel, Shanghai.",
+      },
+    },
+  ],
+  exhibitions: [
+    {
+      year: 2026,
+      title: {
+        zh: "Let's Stay Together 当代艺术展",
+        fr: "Let's Stay Together",
+        en: "Let's Stay Together",
+      },
+      venue: "Pudong New Area Culture & Arts Center GM",
+      city: { zh: "上海", fr: "Shanghai", en: "Shanghai" },
+      type: "group",
+    },
+    {
+      year: 2024,
+      title: {
+        zh: "城市青年：青年艺术家主题展",
+        fr: "Jeunesse urbaine",
+        en: "Urban Youth: Young Artists Theme Exhibition",
+      },
+      venue: "AArt Shanghai Urban Art Fair · HUALuxe Hotel",
+      city: { zh: "上海", fr: "Shanghai", en: "Shanghai" },
+      type: "group",
+    },
+    {
+      year: 2024,
+      title: {
+        zh: "悬浮涌动",
+        fr: "Suspension et flux",
+        en: "Suspended Surge",
+      },
+      venue: "Peninsula Art Museum",
+      city: { zh: "上海", fr: "Shanghai", en: "Shanghai" },
+      type: "group",
+    },
+    {
+      year: 2023,
+      title: {
+        zh: "电量已满 · 第九届上海青年艺术博览会",
+        fr: "Pleine charge · 9e Shanghai Youth Art Fair",
+        en: "Fully Charged · 9th Shanghai Youth Art Fair",
+      },
+      venue: "Haipai Art Museum",
+      city: { zh: "上海", fr: "Shanghai", en: "Shanghai" },
+      type: "group",
+    },
+    {
+      year: 2023,
+      title: {
+        zh: "种子计划 · 买得起艺术节",
+        fr: "Seed Plan · Affordable Art Festival",
+        en: "Seed Plan · Affordable Art Festival",
+      },
+      venue: "Times Art Museum",
+      city: { zh: "北京", fr: "Pékin", en: "Beijing" },
+      type: "group",
+    },
+    {
+      year: 2022,
+      title: {
+        zh: "5.4 ART 青年艺术家计划",
+        fr: "5.4 ART · Jeunes artistes",
+        en: "5.4 ART Young Artists Programme",
+      },
+      venue: "Rongyuan Art Museum",
+      city: { zh: "青岛", fr: "Qingdao", en: "Qingdao" },
+      type: "group",
+    },
+    {
+      year: 2018,
+      title: {
+        zh: "第一届中央美术学院河北校友作品展",
+        fr: "1re exposition des alumni CAFA · Hebei",
+        en: "1st CAFA Hebei Alumni Exhibition",
+      },
+      venue: "Hebei Art Museum",
+      city: { zh: "石家庄", fr: "Shijiazhuang", en: "Shijiazhuang" },
+      type: "group",
+    },
+    {
+      year: 2016,
+      title: {
+        zh: "第三届亚洲青年艺术家提名展",
+        fr: "3e exposition nominative de jeunes artistes asiatiques",
+        en: "3rd Asian Young Artists Nomination Exhibition",
+      },
+      venue: "Today Art Museum",
+      city: { zh: "北京", fr: "Pékin", en: "Beijing" },
+      type: "group",
+    },
+    {
+      year: 2012,
+      title: {
+        zh: "中国未来 · HIHEY 新兴艺术家计划",
+        fr: "Future of China · HIHEY Emerging Artists",
+        en: "Future of China · HIHEY Emerging Artists",
+      },
+      venue: "Today Art Museum",
+      city: { zh: "北京", fr: "Pékin", en: "Beijing" },
+      type: "group",
+    },
+  ],
+  artworks: [
+    {
+      id: "1",
+      title: { zh: "野风 NO.2", fr: "Vent sauvage NO.2", en: "Wild Wind NO.2" },
+      year: 2018,
+      medium: { zh: "数字", fr: "Numérique", en: "Digital" },
+      dimensions: "—",
+      image: "/artists/su-hong/image1.png",
+    },
+    {
+      id: "2",
+      title: { zh: "野风 NO.4", fr: "Vent sauvage NO.4", en: "Wild Wind NO.4" },
+      year: 2022,
+      medium: { zh: "数字", fr: "Numérique", en: "Digital" },
+      dimensions: "—",
+      image: "/artists/su-hong/image2.png",
+    },
+    {
+      id: "3",
+      title: { zh: "待在鳄鱼里", fr: "Dans le crocodile", en: "Inside the Crocodile" },
+      year: 2022,
+      medium: { zh: "数字", fr: "Numérique", en: "Digital" },
+      dimensions: "—",
+      image: "/artists/su-hong/image3.png",
+    },
+    {
+      id: "4",
+      title: { zh: "待在大象里", fr: "Dans l'éléphant", en: "Inside the Elephant" },
+      year: 2022,
+      medium: { zh: "数字", fr: "Numérique", en: "Digital" },
+      dimensions: "—",
+      image: "/artists/su-hong/image4.png",
+    },
+    {
+      id: "5",
+      title: { zh: "待在鲨鱼里", fr: "Dans le requin", en: "Inside the Shark" },
+      year: 2024,
+      medium: { zh: "数字", fr: "Numérique", en: "Digital" },
+      dimensions: "—",
+      image: "/artists/su-hong/image5.png",
+    },
+    {
+      id: "6",
+      title: { zh: "鳄鱼—橘红", fr: "Crocodile — orange", en: "Crocodile — Orange" },
+      year: 2022,
+      medium: { zh: "数字", fr: "Numérique", en: "Digital" },
+      dimensions: "—",
+      image: "/artists/su-hong/image6.png",
+    },
+    {
+      id: "7",
+      title: { zh: "爱马氏", fr: "Amours équestres", en: "Horse Affection" },
+      year: 2024,
+      medium: { zh: "数字", fr: "Numérique", en: "Digital" },
+      dimensions: "—",
+      image: "/artists/su-hong/image7.png",
+    },
+    {
+      id: "8",
+      title: { zh: "爱马逝", fr: "Adieu au cheval", en: "Horse Departed" },
+      year: 2023,
+      medium: { zh: "数字", fr: "Numérique", en: "Digital" },
+      dimensions: "—",
+      image: "/artists/su-hong/image7.png",
+    },
+  ],
+  professionalReputation: {
+    galleryRecognition: [
+      {
+        name: "今日美术馆",
+        quote: {
+          zh: "苏泓的作品在青年艺术家群体中具有清晰的辨识度——传统纹样不是符号堆砌，而是被重新组织为当代绘画的结构语言。",
+          fr: "L'œuvre de Su Hong se distingue parmi les jeunes artistes : l'ornement traditionnel devient langage structurel, non accumulation de symboles.",
+          en: "Su Hong's work stands out among young artists: traditional ornament becomes structural language, not symbolic accumulation.",
+        },
+      },
+      {
+        name: "半岛美术馆",
+        quote: {
+          zh: "「悬浮涌动」联展中，苏泓以浓郁色彩与多样绘画手法，呈现介于写实与抽象之间的表现主义气质。",
+          fr: "Dans « Suspension et flux », Su Hong déploie couleur et gestes variés entre figuration et abstraction.",
+          en: "In 'Suspended Surge', Su Hong deploys rich color and varied technique between representation and abstraction.",
+        },
+      },
+    ],
+    collectorRecognition: [
+      {
+        name: "青年艺术博览会观众",
+        title: {
+          zh: "上海 · 2023",
+          fr: "Shanghai · 2023",
+          en: "Shanghai · 2023",
+        },
+        quote: {
+          zh: "纹样与公式、指示牌并置在一起，意外地平复又锋利——像把日常信息变成了绘画。",
+          fr: "Motifs, formules et panneaux juxtaposés — apaisant et tranchant à la fois, comme si l'information quotidienne devenait peinture.",
+          en: "Patterns, formulas, and signs juxtaposed—calm yet sharp, as if daily information became painting.",
+        },
+      },
+    ],
+    curatorMediaRecognition: [
+      {
+        source: {
+          zh: "ICAD 国际当代青年美术设计大赛",
+          fr: "ICAD",
+          en: "ICAD",
+        },
+        quote: {
+          zh: "2022 年银奖——表彰其在传统装饰语言与当代视觉设计之间的创新融合。",
+          fr: "Argent 2022 — récompense l'innovation entre ornement traditionnel et design visuel contemporain.",
+          en: "2022 Silver Award—recognizing innovation between traditional ornament and contemporary visual design.",
+        },
+      },
+      {
+        source: {
+          zh: "BICC 中英国际创意大赛",
+          fr: "BICC",
+          en: "BICC",
+        },
+        quote: {
+          zh: "2022 年铜奖——作品在跨文化视觉表达中呈现独特个体意识。",
+          fr: "Bronze 2022 — une conscience individuelle singulière dans l'expression visuelle transculturelle.",
+          en: "2022 Bronze—distinct individual consciousness in cross-cultural visual expression.",
+        },
+      },
+    ],
+    publicResonance: [
+      {
+        source: {
+          zh: "买得起艺术节 · 观众留言",
+          fr: "Affordable Art Festival · public",
+          en: "Affordable Art Festival · public",
+        },
+        quote: {
+          zh: "传统不是复古，在他的画里活成了现在时。",
+          fr: "La tradition n'y est pas rétro — elle est au présent.",
+          en: "Tradition here is not retro—it lives in the present tense.",
+        },
+      },
+      {
+        source: {
+          zh: "SGADC 新加坡金沙艺术设计大赛",
+          fr: "SGADC Singapore",
+          en: "SGADC Singapore",
+        },
+        quote: {
+          zh: "2022 年铜奖——《纹饰系列》在东南亚当代视觉语境中获得认可。",
+          fr: "Bronze 2022 — la série « Ornements » reconnue dans le contexte visuel contemporain d'Asie du Sud-Est.",
+          en: "2022 Bronze—the 'Ornament' series recognized in Southeast Asia's contemporary visual context.",
+        },
+      },
+    ],
+  },
+};
+
 const artists: Record<string, ArtistProfile> = {
   "willy-le-nalbaut": willyLeNalbaut,
+  "su-hong": suHong,
 };
+
+export function getAllArtists(): ArtistProfile[] {
+  return Object.values(artists);
+}
 
 export function getArtistBySlug(slug: string): ArtistProfile | null {
   return artists[slug] ?? null;

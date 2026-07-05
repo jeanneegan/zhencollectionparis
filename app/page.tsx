@@ -16,12 +16,20 @@ export default function Home() {
         Conversations · Rencontres · Une autre voix
       </p>
 
-      <Link
-        href="/artists/willy-le-nalbaut"
-        className="px-8 py-3 rounded-full bg-black text-white hover:bg-gray-800"
-      >
-        Enter
-      </Link>
+      <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
+        <Link
+          href="/artists/willy-le-nalbaut"
+          className="px-8 py-3 rounded-full bg-black text-white hover:bg-gray-800"
+        >
+          Willy Le Nalbaut
+        </Link>
+        <Link
+          href="/artists/su-hong"
+          className="px-8 py-3 rounded-full border border-black text-black hover:bg-gray-100"
+        >
+          苏泓 Su Hong
+        </Link>
+      </div>
 
     </main>
   );

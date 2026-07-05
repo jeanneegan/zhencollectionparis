@@ -369,30 +369,50 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
                   {artist.contact.email}
                 </p>
               </li>
-              <li>
-                <p className="text-[11px] uppercase tracking-[0.12em] text-stone-400">
-                  {l.website}
-                </p>
-                <p className="mt-1 text-sm text-stone-700">
-                  {artist.contact.website}
-                </p>
-              </li>
-              <li>
-                <p className="text-[11px] uppercase tracking-[0.12em] text-stone-400">
-                  Instagram
-                </p>
-                <p className="mt-1 text-sm text-stone-700">
-                  {artist.contact.instagram}
-                </p>
-              </li>
-              <li>
-                <p className="text-[11px] uppercase tracking-[0.12em] text-stone-400">
-                  {l.wechat}
-                </p>
-                <p className="mt-1 text-sm text-stone-700">
-                  {artist.contact.wechat}
-                </p>
-              </li>
+              {artist.contact.phone ? (
+                <li>
+                  <p className="text-[11px] uppercase tracking-[0.12em] text-stone-400">
+                    {locale === "zh"
+                      ? "电话"
+                      : locale === "fr"
+                        ? "Téléphone"
+                        : "Phone"}
+                  </p>
+                  <p className="mt-1 text-sm text-stone-700">
+                    {artist.contact.phone}
+                  </p>
+                </li>
+              ) : null}
+              {artist.contact.website ? (
+                <li>
+                  <p className="text-[11px] uppercase tracking-[0.12em] text-stone-400">
+                    {l.website}
+                  </p>
+                  <p className="mt-1 text-sm text-stone-700">
+                    {artist.contact.website}
+                  </p>
+                </li>
+              ) : null}
+              {artist.contact.instagram ? (
+                <li>
+                  <p className="text-[11px] uppercase tracking-[0.12em] text-stone-400">
+                    Instagram
+                  </p>
+                  <p className="mt-1 text-sm text-stone-700">
+                    {artist.contact.instagram}
+                  </p>
+                </li>
+              ) : null}
+              {artist.contact.wechat ? (
+                <li>
+                  <p className="text-[11px] uppercase tracking-[0.12em] text-stone-400">
+                    {l.wechat}
+                  </p>
+                  <p className="mt-1 text-sm text-stone-700">
+                    {artist.contact.wechat}
+                  </p>
+                </li>
+              ) : null}
             </ul>
           </div>
 
