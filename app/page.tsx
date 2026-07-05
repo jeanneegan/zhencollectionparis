@@ -3,7 +3,8 @@ import Link from "next/link";
 import { Noto_Serif_SC } from "next/font/google";
 import { SiteFooter } from "@/app/components/site-footer";
 import { SiteHeader } from "@/app/components/site-header";
-import { getCurrentDialoguePath, getCurrentEpisode, formatEpisodeMonth } from "@/app/dialogue/data";
+import { DialogueEpisodeList } from "@/app/components/dialogue-episode-list";
+import { getAllEpisodes, getCurrentDialoguePath, getCurrentEpisode, getUpcomingEpisodes, formatEpisodeMonth } from "@/app/dialogue/data";
 
 const serif = Noto_Serif_SC({
   subsets: ["latin"],
@@ -13,6 +14,8 @@ const serif = Noto_Serif_SC({
 export default function Home() {
   const episode = getCurrentEpisode();
   const dialoguePath = getCurrentDialoguePath();
+  const totalEpisodes = getAllEpisodes().length;
+  const upcomingPreview = getUpcomingEpisodes(2);
 
   return (
     <div className="min-h-screen bg-white text-stone-900">
@@ -78,6 +81,34 @@ export default function Home() {
               <span aria-hidden>→</span>
             </Link>
           </div>
+        </section>
+
+        {upcomingPreview.length > 0 ? (
+          <section className="mt-10">
+            <p className="text-center text-[10px] font-medium uppercase tracking-[0.25em] text-stone-400">
+              Prochains dialogues
+            </p>
+            <p className="mt-1 text-center text-[10px] tracking-[0.2em] text-stone-400">
+              即将发布
+            </p>
+            <div className="mt-8">
+              <DialogueEpisodeList
+                episodes={upcomingPreview}
+                serifClassName={serif.className}
+                highlightCurrent={false}
+              />
+            </div>
+          </section>
+        ) : null}
+
+        <section className={`${upcomingPreview.length > 0 ? "mt-8" : "mt-10"} text-center`}>
+          <Link
+            href="/dialogues"
+            className="inline-flex items-center gap-2 text-xs tracking-[0.12em] text-stone-500 transition-colors hover:text-stone-900"
+          >
+            Voir tous les dialogues ({totalEpisodes}) · 查看全部对话（{totalEpisodes}期）
+            <span aria-hidden>→</span>
+          </Link>
         </section>
 
         <section className="mt-16">

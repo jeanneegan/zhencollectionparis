@@ -9,19 +9,22 @@ const dialoguePath = getCurrentDialoguePath();
 const items = [
   {
     href: "/artists/willy-le-nalbaut",
-    label: "Willy LN",
+    labelFr: "Willy Le Nalbaut",
+    labelZh: null,
     isDialogue: false,
     isActive: (path: string) => path === "/artists/willy-le-nalbaut",
   },
   {
     href: dialoguePath,
-    label: "对话",
+    labelFr: "Dialogue",
+    labelZh: "对话",
     isDialogue: true,
     isActive: (path: string) => path.startsWith("/dialogue"),
   },
   {
     href: "/artists/su-hong",
-    label: "苏泓",
+    labelFr: "Su Hong",
+    labelZh: "苏泓",
     isDialogue: false,
     isActive: (path: string) => path === "/artists/su-hong",
   },
@@ -36,14 +39,20 @@ export function MobileNav() {
       className="fixed inset-x-0 bottom-0 z-50 border-t border-stone-200 bg-white/95 backdrop-blur-sm md:hidden"
     >
       <div className="mx-auto grid max-w-lg grid-cols-3">
-        {items.map(({ href, label, isDialogue, isActive }) => {
+        {items.map(({ href, labelFr, labelZh, isDialogue, isActive }) => {
           const active = isActive(pathname);
+          const mutedClass =
+            isDialogue && !active
+              ? "text-stone-400"
+              : active
+                ? "text-white/70"
+                : "text-stone-400";
 
           return (
             <Link
               key={href}
               href={href}
-              className={`flex min-h-14 items-center justify-center px-2 text-xs font-medium tracking-wide transition-colors ${
+              className={`flex min-h-14 flex-col items-center justify-center gap-0.5 px-2 transition-colors ${
                 isDialogue
                   ? active
                     ? "bg-[#5a2323] text-white"
@@ -53,7 +62,18 @@ export function MobileNav() {
                     : "text-stone-600 hover:bg-stone-50 hover:text-stone-900"
               }`}
             >
-              {label}
+              <span
+                className={`text-center leading-tight tracking-wide ${
+                  labelZh ? "text-[11px] font-medium" : "text-[10px] font-medium"
+                }`}
+              >
+                {labelFr}
+              </span>
+              {labelZh ? (
+                <span className={`text-[10px] tracking-wide ${mutedClass}`}>
+                  {labelZh}
+                </span>
+              ) : null}
             </Link>
           );
         })}
