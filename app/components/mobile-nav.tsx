@@ -10,16 +10,19 @@ const items = [
   {
     href: "/artists/willy-le-nalbaut",
     label: "Willy",
+    isDialogue: false,
     isActive: (path: string) => path === "/artists/willy-le-nalbaut",
   },
   {
     href: dialoguePath,
     label: "对话",
+    isDialogue: true,
     isActive: (path: string) => path.startsWith("/dialogue"),
   },
   {
     href: "/artists/su-hong",
     label: "苏泓",
+    isDialogue: false,
     isActive: (path: string) => path === "/artists/su-hong",
   },
 ] as const;
@@ -33,7 +36,7 @@ export function MobileNav() {
       className="fixed inset-x-0 bottom-0 z-50 border-t border-stone-200 bg-white/95 backdrop-blur-sm md:hidden"
     >
       <div className="mx-auto grid max-w-lg grid-cols-3">
-        {items.map(({ href, label, isActive }) => {
+        {items.map(({ href, label, isDialogue, isActive }) => {
           const active = isActive(pathname);
 
           return (
@@ -41,9 +44,13 @@ export function MobileNav() {
               key={href}
               href={href}
               className={`flex min-h-14 items-center justify-center px-2 text-xs font-medium tracking-wide transition-colors ${
-                active
-                  ? "bg-stone-900 text-white"
-                  : "text-stone-600 hover:bg-stone-50 hover:text-stone-900"
+                isDialogue
+                  ? active
+                    ? "bg-[#4a1c1c] text-white"
+                    : "bg-[#5a2323] text-white hover:bg-[#4a1c1c]"
+                  : active
+                    ? "bg-stone-900 text-white"
+                    : "text-stone-600 hover:bg-stone-50 hover:text-stone-900"
               }`}
             >
               {label}

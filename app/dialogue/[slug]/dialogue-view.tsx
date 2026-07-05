@@ -335,13 +335,13 @@ export function DialogueView({
           </div>
         </section>
 
-        <section className="relative left-1/2 mt-16 w-screen -translate-x-1/2 bg-[#5a2323] px-6 py-10">
-          <SectionLabel inverted>{l.publicMessages}</SectionLabel>
-          <p className="mt-6 text-center text-sm leading-[1.9] text-red-50/90">
+        <section className="mt-16 border border-dashed border-stone-300 bg-stone-50/30 px-6 py-8">
+          <SectionLabel>{l.publicMessages}</SectionLabel>
+          <p className="mt-6 text-center text-sm leading-[1.9] text-stone-600">
             {t(episode.publicParticipation.note, locale)}
           </p>
           {episode.publicParticipation.open ? (
-            <PublicMessageForm inverted locale={locale} />
+            <PublicMessageForm locale={locale} />
           ) : null}
         </section>
 
