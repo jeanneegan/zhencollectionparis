@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export function PublicMessageForm() {
+export function PublicMessageForm({ inverted = false }: { inverted?: boolean }) {
   const [message, setMessage] = useState("");
   const [name, setName] = useState("");
   const [submitted, setSubmitted] = useState(false);
@@ -13,9 +13,21 @@ export function PublicMessageForm() {
     setSubmitted(true);
   }
 
+  const labelClass = inverted
+    ? "text-red-100/70"
+    : "text-stone-400";
+  const successBoxClass = inverted
+    ? "border-red-200/20 bg-white/95"
+    : "border-stone-200 bg-white";
+  const buttonClass = inverted
+    ? "border-white text-white hover:bg-white hover:text-[#5a2323]"
+    : "border-stone-900 text-stone-900 hover:bg-stone-900 hover:text-white";
+
   if (submitted) {
     return (
-      <div className="mx-auto mt-8 max-w-lg rounded-sm border border-stone-200 bg-white px-6 py-8 text-center">
+      <div
+        className={`mx-auto mt-8 max-w-lg rounded-sm border px-6 py-8 text-center ${successBoxClass}`}
+      >
         <p className="text-sm text-stone-700">
           Merci · 感谢您的留言，我们会尽快纳入对话。
         </p>
@@ -32,7 +44,9 @@ export function PublicMessageForm() {
       className="mx-auto mt-8 max-w-lg space-y-4 text-left"
     >
       <label className="block">
-        <span className="text-[10px] uppercase tracking-[0.15em] text-stone-400">
+        <span
+          className={`text-[10px] uppercase tracking-[0.15em] ${labelClass}`}
+        >
           Message · 留言
         </span>
         <textarea
@@ -46,7 +60,9 @@ export function PublicMessageForm() {
       </label>
 
       <label className="block">
-        <span className="text-[10px] uppercase tracking-[0.15em] text-stone-400">
+        <span
+          className={`text-[10px] uppercase tracking-[0.15em] ${labelClass}`}
+        >
           Nom · 姓名（可选）
         </span>
         <input
@@ -61,7 +77,7 @@ export function PublicMessageForm() {
       <div className="flex justify-center pt-2">
         <button
           type="submit"
-          className="rounded-full border border-stone-900 px-6 py-2.5 text-xs font-medium tracking-[0.12em] text-stone-900 transition-colors hover:bg-stone-900 hover:text-white"
+          className={`rounded-full border px-6 py-2.5 text-xs font-medium tracking-[0.12em] transition-colors ${buttonClass}`}
         >
           Laisser un message · 发送留言
         </button>

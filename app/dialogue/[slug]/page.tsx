@@ -20,13 +20,23 @@ const serif = Noto_Serif_SC({
   weight: ["400", "500"],
 });
 
-function SectionLabel({ zh, fr }: LocalizedText) {
+function SectionLabel({
+  zh,
+  fr,
+  inverted = false,
+}: LocalizedText & { inverted?: boolean }) {
+  const labelClass = inverted ? "text-red-100/80" : "text-stone-400";
+
   return (
     <div className="text-center">
-      <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-stone-400">
+      <p
+        className={`text-[11px] font-medium uppercase tracking-[0.2em] ${labelClass}`}
+      >
         {fr}
       </p>
-      <p className="mt-1 text-[11px] tracking-[0.15em] text-stone-400">{zh}</p>
+      <p className={`mt-1 text-[11px] tracking-[0.15em] ${labelClass}`}>
+        {zh}
+      </p>
     </div>
   );
 }
@@ -246,15 +256,17 @@ export default async function DialoguePage({ params }: PageProps) {
           </div>
         </section>
 
-        <section className="mt-16 border border-dashed border-stone-300 bg-stone-50/30 px-6 py-8">
-          <SectionLabel zh="公众留言" fr="Messages du public" />
-          <p className="mt-6 text-center text-sm leading-[1.9] text-stone-600">
+        <section className="relative left-1/2 mt-16 w-screen -translate-x-1/2 bg-[#5a2323] px-6 py-10">
+          <SectionLabel zh="公众留言" fr="Messages du public" inverted />
+          <p className="mt-6 text-center text-sm leading-[1.9] text-red-50/90">
             {episode.publicParticipation.note.zh}
           </p>
-          <p className="mt-3 text-center text-sm leading-[1.9] text-stone-400">
+          <p className="mt-3 text-center text-sm leading-[1.9] text-red-100/60">
             {episode.publicParticipation.note.fr}
           </p>
-          {episode.publicParticipation.open ? <PublicMessageForm /> : null}
+          {episode.publicParticipation.open ? (
+            <PublicMessageForm inverted />
+          ) : null}
         </section>
 
         <section className="mt-16">
