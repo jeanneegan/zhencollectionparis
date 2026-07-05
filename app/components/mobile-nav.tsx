@@ -9,7 +9,7 @@ const dialoguePath = getCurrentDialoguePath();
 const items = [
   {
     href: "/artists/willy-le-nalbaut",
-    label: "Willy",
+    label: "Willy LN",
     isDialogue: false,
     isActive: (path: string) => path === "/artists/willy-le-nalbaut",
   },
