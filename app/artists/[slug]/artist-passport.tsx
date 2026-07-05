@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { SiteBrandLink } from "@/app/components/site-brand-link";
 import { type ArtistProfile, type Locale, t } from "./data";
 
 const labels: Record<
@@ -259,12 +260,7 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
     <div className="min-h-screen bg-stone-50 text-stone-900">
       <header className="border-b border-stone-200 bg-white/80 backdrop-blur-sm">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-10">
-          <Link
-            href="/"
-            className="text-[11px] font-medium uppercase tracking-[0.25em] text-stone-500 transition-colors hover:text-stone-900"
-          >
-            {l.brand}
-          </Link>
+          <SiteBrandLink />
           <div className="flex items-center gap-6 md:gap-10">
             <nav className="hidden gap-8 text-[11px] font-medium uppercase tracking-[0.15em] text-stone-400 sm:flex">
               <span className="text-stone-900">{l.navArtist}</span>
