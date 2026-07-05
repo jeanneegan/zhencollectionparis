@@ -1,4 +1,6 @@
-export type LocalizedText = { zh: string; fr: string };
+import type { Locale, LocalizedText } from "@/app/artists/[slug]/data";
+
+export type { LocalizedText };
 
 export type DialogueAvatar = {
   type: "portrait" | "brand";
@@ -49,7 +51,7 @@ export const episodes: DialogueEpisode[] = [
     slug: "le-cheval",
     month: "2026-09",
     episode: 1,
-    title: { zh: "马", fr: "Le Cheval" },
+    title: { zh: "马", fr: "Le Cheval", en: "The Horse" },
     sharedQuestion: {
       questionFrom: {
         type: "brand",
@@ -59,6 +61,7 @@ export const episodes: DialogueEpisode[] = [
       question: {
         zh: "今年是马年。你们都画过马。马对你们来说意味着什么？为什么？",
         fr: "Cette année est l'année du Cheval dans le calendrier chinois. Vous avez tous les deux représenté des chevaux dans votre travail. Que représente le cheval pour vous, et pourquoi ?",
+        en: "This year is the Year of the Horse in the Chinese calendar. You have both depicted horses in your work. What does the horse mean to you, and why?",
       },
     },
     willyToSuHong: {
@@ -71,6 +74,7 @@ export const episodes: DialogueEpisode[] = [
       question: {
         zh: "（Willy 向苏泓提问 · 待发布）",
         fr: "(Question de Willy à Su Hong · à venir)",
+        en: "(Question from Willy to Su Hong · coming soon)",
       },
       answerFrom: {
         type: "portrait",
@@ -89,6 +93,7 @@ export const episodes: DialogueEpisode[] = [
       question: {
         zh: "（苏泓向 Willy 提问 · 待发布）",
         fr: "(Question de Su Hong à Willy · à venir)",
+        en: "(Question from Su Hong to Willy · coming soon)",
       },
       answerFrom: {
         type: "portrait",
@@ -108,6 +113,7 @@ export const episodes: DialogueEpisode[] = [
         question: {
           zh: "（观察者提问 · 待发布）",
           fr: "(Question de l'observateur · à venir)",
+          en: "(Observer question · coming soon)",
         },
       },
     ],
@@ -116,6 +122,7 @@ export const episodes: DialogueEpisode[] = [
       note: {
         zh: "欢迎在此留言，参与这一期对话。",
         fr: "Laissez un message ici pour participer à ce dialogue.",
+        en: "Leave a message here to join this dialogue.",
       },
     },
     artists: ["willy-le-nalbaut", "su-hong"],
@@ -147,10 +154,16 @@ export function getCurrentDialoguePath(): string {
   return `/dialogue/${getCurrentEpisode().slug}`;
 }
 
-export function formatEpisodeMonth(month: string, locale: "zh" | "fr"): string {
+export function formatEpisodeMonth(month: string, locale: Locale): string {
   const [year, monthNum] = month.split("-");
   if (locale === "zh") {
     return `${year}年${Number(monthNum)}月`;
+  }
+  if (locale === "en") {
+    return new Date(`${month}-01`).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+    });
   }
   return new Date(`${month}-01`).toLocaleDateString("fr-FR", {
     year: "numeric",

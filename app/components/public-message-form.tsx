@@ -1,11 +1,61 @@
 "use client";
 
 import { useState } from "react";
+import type { Locale } from "@/app/artists/[slug]/data";
 
-export function PublicMessageForm({ inverted = false }: { inverted?: boolean }) {
+const formLabels: Record<
+  Locale,
+  {
+    message: string;
+    name: string;
+    messagePlaceholder: string;
+    namePlaceholder: string;
+    submit: string;
+    thanks: string;
+    thanksSub: string;
+  }
+> = {
+  zh: {
+    message: "Message · 留言",
+    name: "Nom · 姓名（可选）",
+    messagePlaceholder: "在此输入留言…",
+    namePlaceholder: "匿名",
+    submit: "Laisser un message · 发送留言",
+    thanks: "Merci · 感谢您的留言，我们会尽快纳入对话。",
+    thanksSub: "Thank you · Your message has been received.",
+  },
+  fr: {
+    message: "Message · 留言",
+    name: "Nom · 姓名（可选）",
+    messagePlaceholder: "Écrivez votre message ici…",
+    namePlaceholder: "Anonymous · 匿名",
+    submit: "Laisser un message · 发送留言",
+    thanks:
+      "Merci · Votre message a bien été reçu et sera intégré au dialogue.",
+    thanksSub: "Thank you · Your message has been received.",
+  },
+  en: {
+    message: "Message",
+    name: "Name (optional)",
+    messagePlaceholder: "Write your message here…",
+    namePlaceholder: "Anonymous",
+    submit: "Send message",
+    thanks: "Thank you · Your message has been received.",
+    thanksSub: "We will include it in the dialogue soon.",
+  },
+};
+
+export function PublicMessageForm({
+  inverted = false,
+  locale = "fr",
+}: {
+  inverted?: boolean;
+  locale?: Locale;
+}) {
   const [message, setMessage] = useState("");
   const [name, setName] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const l = formLabels[locale];
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -13,9 +63,7 @@ export function PublicMessageForm({ inverted = false }: { inverted?: boolean }) 
     setSubmitted(true);
   }
 
-  const labelClass = inverted
-    ? "text-red-100/70"
-    : "text-stone-400";
+  const labelClass = inverted ? "text-red-100/70" : "text-stone-400";
   const successBoxClass = inverted
     ? "border-red-200/20 bg-white/95"
     : "border-stone-200 bg-white";
@@ -28,12 +76,8 @@ export function PublicMessageForm({ inverted = false }: { inverted?: boolean }) 
       <div
         className={`mx-auto mt-8 max-w-lg rounded-sm border px-6 py-8 text-center ${successBoxClass}`}
       >
-        <p className="text-sm text-stone-700">
-          Merci · 感谢您的留言，我们会尽快纳入对话。
-        </p>
-        <p className="mt-2 text-xs text-stone-400">
-          Thank you · Your message has been received.
-        </p>
+        <p className="text-sm text-stone-700">{l.thanks}</p>
+        <p className="mt-2 text-xs text-stone-400">{l.thanksSub}</p>
       </div>
     );
   }
@@ -47,14 +91,14 @@ export function PublicMessageForm({ inverted = false }: { inverted?: boolean }) 
         <span
           className={`text-[10px] uppercase tracking-[0.15em] ${labelClass}`}
         >
-          Message · 留言
+          {l.message}
         </span>
         <textarea
           value={message}
           onChange={(event) => setMessage(event.target.value)}
           rows={5}
           required
-          placeholder="Écrivez votre message ici… / 在此输入留言…"
+          placeholder={l.messagePlaceholder}
           className="mt-2 w-full resize-y rounded-sm border border-stone-300 bg-white px-4 py-3 text-sm leading-relaxed text-stone-800 placeholder:text-stone-400 focus:border-stone-900 focus:outline-none"
         />
       </label>
@@ -63,13 +107,13 @@ export function PublicMessageForm({ inverted = false }: { inverted?: boolean }) 
         <span
           className={`text-[10px] uppercase tracking-[0.15em] ${labelClass}`}
         >
-          Nom · 姓名（可选）
+          {l.name}
         </span>
         <input
           type="text"
           value={name}
           onChange={(event) => setName(event.target.value)}
-          placeholder="Anonymous · 匿名"
+          placeholder={l.namePlaceholder}
           className="mt-2 w-full rounded-sm border border-stone-300 bg-white px-4 py-2.5 text-sm text-stone-800 placeholder:text-stone-400 focus:border-stone-900 focus:outline-none"
         />
       </label>
@@ -79,7 +123,7 @@ export function PublicMessageForm({ inverted = false }: { inverted?: boolean }) 
           type="submit"
           className={`rounded-full border px-6 py-2.5 text-xs font-medium tracking-[0.12em] transition-colors ${buttonClass}`}
         >
-          Laisser un message · 发送留言
+          {l.submit}
         </button>
       </div>
     </form>
