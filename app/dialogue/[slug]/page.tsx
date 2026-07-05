@@ -4,6 +4,7 @@ import { Noto_Serif_SC } from "next/font/google";
 import { notFound } from "next/navigation";
 import { SiteFooter } from "@/app/components/site-footer";
 import { SiteHeader } from "@/app/components/site-header";
+import { PublicMessageForm } from "@/app/components/public-message-form";
 import { getArtistBySlug, t } from "@/app/artists/[slug]/data";
 import {
   formatEpisodeMonth,
@@ -245,17 +246,15 @@ export default async function DialoguePage({ params }: PageProps) {
           </div>
         </section>
 
-        <section className="mt-16 border border-dashed border-stone-300 bg-stone-50/30 px-6 py-8 text-center">
-          <SectionLabel
-            zh="公众开放提问"
-            fr="Questions ouvertes du public"
-          />
-          <p className="mt-6 text-sm leading-[1.9] text-stone-600">
+        <section className="mt-16 border border-dashed border-stone-300 bg-stone-50/30 px-6 py-8">
+          <SectionLabel zh="公众留言" fr="Messages du public" />
+          <p className="mt-6 text-center text-sm leading-[1.9] text-stone-600">
             {episode.publicParticipation.note.zh}
           </p>
-          <p className="mt-3 text-sm leading-[1.9] text-stone-400">
+          <p className="mt-3 text-center text-sm leading-[1.9] text-stone-400">
             {episode.publicParticipation.note.fr}
           </p>
+          {episode.publicParticipation.open ? <PublicMessageForm /> : null}
         </section>
 
         <section className="mt-16">

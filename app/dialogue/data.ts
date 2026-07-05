@@ -112,10 +112,10 @@ export const episodes: DialogueEpisode[] = [
       },
     ],
     publicParticipation: {
-      open: false,
+      open: true,
       note: {
-        zh: "公众开放提问即将开启，欢迎后续参与。",
-        fr: "Les questions ouvertes du public seront bientôt disponibles.",
+        zh: "欢迎在此留言，参与这一期对话。",
+        fr: "Laissez un message ici pour participer à ce dialogue.",
       },
     },
     artists: ["willy-le-nalbaut", "su-hong"],
