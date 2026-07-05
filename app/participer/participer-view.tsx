@@ -24,32 +24,32 @@ const pageLabels: Record<
   }
 > = {
   zh: {
-    title: "Participer au dialogue",
+    title: "Participer à la conversation",
     titleSub: "报名对话",
     intro:
       "艺术家、观察者或公众提问者均可申请参与巴黎臻藏的对话项目。我们会根据主题与排期与您联系。",
     introSub:
-      "Artistes, observateurs ou public — postulez pour rejoindre un dialogue futur de Zhen Collection Paris.",
+      "Artistes, observateurs ou public — postulez pour rejoindre une conversation future de Zhen Collection Paris.",
     note: "此申请面向未来对话，与当期公众留言不同。",
   },
   fr: {
-    title: "Participer au dialogue",
+    title: "Participer à la conversation",
     titleSub: "报名对话",
     intro:
-      "Artistes, observateurs ou public — postulez pour rejoindre un dialogue futur de Zhen Collection Paris.",
+      "Artistes, observateurs ou public — postulez pour rejoindre une conversation future de Zhen Collection Paris.",
     introSub:
       "艺术家、观察者或公众提问者均可申请参与巴黎臻藏的对话项目。我们会根据主题与排期与您联系。",
     note:
-      "Cette candidature concerne un dialogue futur, distinct des messages du public sur l'épisode en cours.",
+      "Cette candidature concerne une conversation future, distincte des messages du public sur l'épisode en cours.",
   },
   en: {
-    title: "Join a Dialogue",
+    title: "Join a Conversation",
     titleSub: "Apply to participate",
     intro:
-      "Artists, observers, or members of the public may apply to join a future Zhen Collection Paris dialogue. We will be in touch according to theme and scheduling.",
+      "Artists, observers, or members of the public may apply to join a future Zhen Collection Paris conversation. We will be in touch according to theme and scheduling.",
     introSub: "",
     note:
-      "This application is for future dialogues, separate from public messages on the current episode.",
+      "This application is for future conversations, separate from public messages on the current episode.",
   },
 };
 

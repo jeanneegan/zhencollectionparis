@@ -79,13 +79,13 @@ function HomeBilingual({
   return (
     <>
       <header className="text-center">
-        <h1
-          className={`${serif.className} text-3xl font-normal tracking-wide text-stone-900 md:text-4xl`}
+        <h1 className="text-3xl font-normal tracking-wide text-stone-900 md:text-4xl">
+          Conversations entre artistes
+        </h1>
+        <p
+          className={`${serif.className} mt-3 text-base tracking-[0.08em] text-stone-400 md:text-lg`}
         >
           艺术家之间的对话
-        </h1>
-        <p className="mt-3 text-sm tracking-[0.08em] text-stone-400">
-          Conversations entre artistes
         </p>
       </header>
 
@@ -104,7 +104,7 @@ function HomeBilingual({
 
       <section className="mt-14 border border-stone-200 bg-stone-50/50 px-6 py-10 md:px-10 md:py-12">
         <p className="text-center text-[10px] font-medium uppercase tracking-[0.25em] text-stone-400">
-          Dialogue · Épisode {episode.episode}
+          Conversation · Épisode {episode.episode}
         </p>
         <p className="mt-1 text-center text-[10px] tracking-[0.2em] text-stone-400">
           对话第{episode.episode}期 · {formatEpisodeMonth(episode.month, "zh")}
@@ -130,7 +130,7 @@ function HomeBilingual({
             href={dialoguePath}
             className="inline-flex items-center gap-2 rounded-full border border-stone-900 px-6 py-2.5 text-xs font-medium tracking-[0.12em] text-stone-900 transition-colors hover:bg-stone-900 hover:text-white"
           >
-            Découvrir le dialogue
+            Découvrir la conversation
             <span aria-hidden>→</span>
           </Link>
         </div>
@@ -139,7 +139,7 @@ function HomeBilingual({
       {upcomingPreview.length > 0 ? (
         <section className="mt-10">
           <p className="text-center text-[10px] font-medium uppercase tracking-[0.25em] text-stone-400">
-            Prochains dialogues
+            Prochaines conversations
           </p>
           <p className="mt-1 text-center text-[10px] tracking-[0.2em] text-stone-400">
             即将发布
@@ -161,7 +161,7 @@ function HomeBilingual({
           href="/dialogues"
           className="inline-flex items-center gap-2 text-xs tracking-[0.12em] text-stone-500 transition-colors hover:text-stone-900"
         >
-          Voir tous les dialogues ({totalEpisodes}) · 查看全部对话（
+            Voir toutes les conversations ({totalEpisodes}) · 查看全部对话（
           {totalEpisodes}期）
           <span aria-hidden>→</span>
         </Link>
@@ -171,17 +171,17 @@ function HomeBilingual({
 
       <section className="mt-16 border border-stone-200 px-6 py-10 text-center md:px-10 md:py-12">
         <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-stone-400">
-          Participer au dialogue
+          Participer à la conversation
         </p>
         <p className="mt-1 text-[10px] tracking-[0.2em] text-stone-400">
           报名对话
         </p>
         <p className="mx-auto mt-6 max-w-md text-sm leading-[1.9] text-stone-600">
-          艺术家、观察者或公众提问者均可申请参与巴黎臻藏的对话项目。
+          Artistes, observateurs ou public — postulez pour rejoindre une
+          conversation future.
         </p>
         <p className="mx-auto mt-2 max-w-md text-sm leading-[1.9] text-stone-500">
-          Artistes, observateurs ou public — postulez pour rejoindre un dialogue
-          futur.
+          艺术家、观察者或公众提问者均可申请参与巴黎臻藏的对话项目。
         </p>
         <div className="mt-8 flex justify-center">
           <Link
@@ -225,7 +225,7 @@ function HomeEnglish({
 
       <section className="mt-14 border border-stone-200 bg-stone-50/50 px-6 py-10 md:px-10 md:py-12">
         <p className="text-center text-[10px] font-medium uppercase tracking-[0.25em] text-stone-400">
-          Dialogue · Episode {episode.episode}
+          Conversation · Episode {episode.episode}
         </p>
         <p className="mt-1 text-center text-[10px] tracking-[0.2em] text-stone-400">
           {formatEpisodeMonth(episode.month, "en")}
@@ -245,7 +245,7 @@ function HomeEnglish({
             href={dialoguePath}
             className="inline-flex items-center gap-2 rounded-full border border-stone-900 px-6 py-2.5 text-xs font-medium tracking-[0.12em] text-stone-900 transition-colors hover:bg-stone-900 hover:text-white"
           >
-            Discover the dialogue
+            Discover the conversation
             <span aria-hidden>→</span>
           </Link>
         </div>
@@ -254,7 +254,7 @@ function HomeEnglish({
       {upcomingPreview.length > 0 ? (
         <section className="mt-10">
           <p className="text-center text-[10px] font-medium uppercase tracking-[0.25em] text-stone-400">
-            Upcoming dialogues
+            Upcoming conversations
           </p>
           <div className="mt-8">
             <DialogueEpisodeList
@@ -274,24 +274,24 @@ function HomeEnglish({
           href="/dialogues"
           className="inline-flex items-center gap-2 text-xs tracking-[0.12em] text-stone-500 transition-colors hover:text-stone-900"
         >
-          View all dialogues ({totalEpisodes})
+          View all conversations ({totalEpisodes})
           <span aria-hidden>→</span>
         </Link>
       </section>
 
       <ArtistsSection
-        dialogueLabel="Dialogue"
+        dialogueLabel="Conversation"
         artistFr="French artist"
         artistCn="Chinese artist"
       />
 
       <section className="mt-16 border border-stone-200 px-6 py-10 text-center md:px-10 md:py-12">
         <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-stone-400">
-          Join a Dialogue
+          Join a Conversation
         </p>
         <p className="mx-auto mt-6 max-w-md text-sm leading-[1.9] text-stone-600">
           Artists, observers, or members of the public may apply to join a
-          future Zhen Collection Paris dialogue.
+          future Zhen Collection Paris conversation.
         </p>
         <div className="mt-8 flex justify-center">
           <Link
@@ -370,7 +370,7 @@ function ArtistsSection({
           <div className="relative mt-5 aspect-square w-full max-w-[220px] overflow-hidden bg-stone-100">
             <Image
               src="/artists/su-hong/portrait.png"
-              alt="Su Hong"
+              alt="苏泓 Su Hong"
               fill
               className="object-cover object-center grayscale transition-all group-hover:grayscale-0"
               sizes="220px"
@@ -378,7 +378,7 @@ function ArtistsSection({
             />
           </div>
           <p className="mt-5 text-base tracking-wide text-stone-900">
-            Su Hong
+            苏泓 Su Hong
           </p>
         </Link>
       </div>

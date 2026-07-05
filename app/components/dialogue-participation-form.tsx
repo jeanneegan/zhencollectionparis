@@ -75,7 +75,7 @@ const formLabels: Record<
     namePlaceholder: "Your name",
     emailPlaceholder: "you@email.com",
     messagePlaceholder:
-      "Briefly introduce yourself, why you want to join a dialogue, and how you would participate…",
+      "Briefly introduce yourself, why you want to join a conversation, and how you would participate…",
     linkPlaceholder: "https://…",
     submit: "Submit application",
     thanks: "Thank you · Your application has been received.",

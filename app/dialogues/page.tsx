@@ -21,7 +21,7 @@ export default function DialoguesPage() {
       <main className="mx-auto max-w-3xl px-6 py-12 md:py-16">
         <header className="text-center">
           <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-stone-400">
-            Tous les dialogues
+            Toutes les conversations
           </p>
           <p className="mt-1 text-[10px] tracking-[0.2em] text-stone-400">
             全部对话

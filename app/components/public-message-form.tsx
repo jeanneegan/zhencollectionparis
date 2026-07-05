@@ -31,7 +31,7 @@ const formLabels: Record<
     namePlaceholder: "Anonymous · 匿名",
     submit: "Laisser un message · 发送留言",
     thanks:
-      "Merci · Votre message a bien été reçu et sera intégré au dialogue.",
+      "Merci · Votre message a bien été reçu et sera intégré à la conversation.",
     thanksSub: "Thank you · Your message has been received.",
   },
   en: {
@@ -41,7 +41,7 @@ const formLabels: Record<
     namePlaceholder: "Anonymous",
     submit: "Send message",
     thanks: "Thank you · Your message has been received.",
-    thanksSub: "We will include it in the dialogue soon.",
+    thanksSub: "We will include it in the conversation soon.",
   },
 };
 

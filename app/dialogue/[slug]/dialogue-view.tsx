@@ -48,7 +48,7 @@ const labels: Record<
   }
 > = {
   zh: {
-    episode: "Dialogue · Épisode",
+    episode: "Conversation · Épisode",
     episodeNum: "对话第{n}期",
     sharedQuestion:
       "Question commune · Zhen Collection Paris｜巴黎臻藏共同问题",
@@ -58,9 +58,9 @@ const labels: Record<
     publicMessages: "Messages du public｜公众留言",
     publicMessagesScope:
       "Pour cette épisode uniquement · 针对本期内容的留言",
-    participate: "Participer au dialogue｜报名对话",
+    participate: "Participer à la conversation｜报名对话",
     participateNote:
-      "Postulez pour rejoindre un dialogue futur · 申请参与未来对话（艺术家、观察者或公众）",
+      "Postulez pour rejoindre une conversation future · 申请参与未来对话（艺术家、观察者或公众）",
     participateLink: "Candidater · 前往报名",
     works: "Œuvres sélectionnées｜作品",
     collectionInquiry: "Collection inquiry · 收藏咨询",
@@ -70,7 +70,7 @@ const labels: Record<
     answerPending: "Réponse · 回答 · À venir",
   },
   fr: {
-    episode: "Dialogue · Épisode",
+    episode: "Conversation · Épisode",
     episodeNum: "对话第{n}期",
     sharedQuestion:
       "Question commune · Zhen Collection Paris｜巴黎臻藏共同问题",
@@ -80,9 +80,9 @@ const labels: Record<
     publicMessages: "Messages du public｜公众留言",
     publicMessagesScope:
       "Pour cette épisode uniquement · 针对本期内容的留言",
-    participate: "Participer au dialogue｜报名对话",
+    participate: "Participer à la conversation｜报名对话",
     participateNote:
-      "Postulez pour rejoindre un dialogue futur · 申请参与未来对话（艺术家、观察者或公众）",
+      "Postulez pour rejoindre une conversation future · 申请参与未来对话（艺术家、观察者或公众）",
     participateLink: "Candidater · 前往报名",
     works: "Œuvres sélectionnées｜作品",
     collectionInquiry: "Collection inquiry · 收藏咨询",
@@ -92,7 +92,7 @@ const labels: Record<
     answerPending: "Réponse · 回答 · À venir",
   },
   en: {
-    episode: "Dialogue · Episode",
+    episode: "Conversation · Episode",
     episodeNum: "Episode {n}",
     sharedQuestion: "Shared Question · Zhen Collection Paris",
     willyToSuHong: "Willy Le Nalbaut → Su Hong",
@@ -100,13 +100,13 @@ const labels: Record<
     observerQuestions: "Observer Questions",
     publicMessages: "Public Messages",
     publicMessagesScope: "For this episode only",
-    participate: "Join a Dialogue",
+    participate: "Join a Conversation",
     participateNote:
-      "Apply to participate in a future dialogue as an artist, observer, or member of the public",
+      "Apply to participate in a future conversation as an artist, observer, or member of the public",
     participateLink: "Apply",
     works: "Selected Works",
     collectionInquiry: "Collection Inquiry",
-    collectionNote: "Interested in collecting works featured in this dialogue",
+    collectionNote: "Interested in collecting works featured in this conversation",
     collectionLink: "Inquire",
     answerPending: "Answer · Coming soon",
   },

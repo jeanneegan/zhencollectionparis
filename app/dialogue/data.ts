@@ -122,8 +122,8 @@ export const episodes: DialogueEpisode[] = [
       open: true,
       note: {
         zh: "欢迎在此留言，参与这一期对话。",
-        fr: "Laissez un message ici pour participer à ce dialogue.",
-        en: "Leave a message here to join this dialogue.",
+        fr: "Laissez un message ici pour participer à cette conversation.",
+        en: "Leave a message here to join this conversation.",
       },
     },
     artists: ["willy-le-nalbaut", "su-hong"],

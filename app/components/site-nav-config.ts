@@ -21,7 +21,7 @@ export function getSiteNavItems(): SiteNavItem[] {
     },
     {
       href: dialoguePath,
-      labelFr: "Dialogue",
+      labelFr: "Conversation",
       labelZh: "对话",
       isDialogue: true,
       isActive: (path) => path.startsWith("/dialogue"),
