@@ -46,8 +46,8 @@ export function MobileNav() {
               className={`flex min-h-14 items-center justify-center px-2 text-xs font-medium tracking-wide transition-colors ${
                 isDialogue
                   ? active
-                    ? "bg-[#4a1c1c] text-white"
-                    : "bg-[#5a2323] text-white hover:bg-[#4a1c1c]"
+                    ? "bg-[#5a2323] text-white"
+                    : "bg-white text-stone-600 hover:bg-stone-50 hover:text-stone-900"
                   : active
                     ? "bg-stone-900 text-white"
                     : "text-stone-600 hover:bg-stone-50 hover:text-stone-900"
