@@ -20,9 +20,7 @@ const labels: Record<
     practice: string;
     representedBy: string;
     contact: string;
-    contactLabel: string;
     education: string;
-    educationTitle: string;
     representation: string;
     email: string;
     website: string;
@@ -68,10 +66,8 @@ const labels: Record<
     nationality: "国籍",
     practice: "艺术实践",
     representedBy: "代理画廊",
-    contact: "联系方式",
-    contactLabel: "Contact · 联系方式",
-    education: "教育背景",
-    educationTitle: "Formation · 教育背景",
+    contact: "Contact · 联系方式",
+    education: "Formation · 教育背景",
     representation: "Représentation · 代理画廊",
     email: "邮箱",
     website: "网站",
@@ -119,9 +115,7 @@ const labels: Record<
     practice: "Pratique artistique",
     representedBy: "Galerie représentante",
     contact: "Contact · 联系方式",
-    contactLabel: "Contact · 联系方式",
     education: "Formation · 教育背景",
-    educationTitle: "Formation · 教育背景",
     representation: "Représentation · 代理画廊",
     email: "E-mail",
     website: "Site web",
@@ -169,9 +163,7 @@ const labels: Record<
     practice: "Practice",
     representedBy: "Represented By",
     contact: "Contact",
-    contactLabel: "Contact",
     education: "Education",
-    educationTitle: "Education",
     representation: "Representation",
     email: "Email",
     website: "Website",
@@ -365,8 +357,7 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
       <section className="mx-auto max-w-7xl px-6 py-20 md:px-10">
         <div className="grid grid-cols-1 gap-16 md:grid-cols-3 md:gap-12">
           <div>
-            <SectionLabel>{l.contact}</SectionLabel>
-            <SectionTitle>{l.contactLabel}</SectionTitle>
+            <SectionTitle>{l.contact}</SectionTitle>
             <ul className="mt-8 space-y-4">
               <li>
                 <p className="text-[11px] uppercase tracking-[0.12em] text-stone-400">
@@ -424,8 +415,7 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
           </div>
 
           <div>
-            <SectionLabel>{l.education}</SectionLabel>
-            <SectionTitle>{l.educationTitle}</SectionTitle>
+            <SectionTitle>{l.education}</SectionTitle>
             <ul className="mt-8 space-y-6">
               {artist.education.map((item) => (
                 <li key={`${item.year}-${t(item.institution, "fr")}`}>
@@ -444,7 +434,6 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
           </div>
 
           <div>
-            <SectionLabel>{l.representedBy}</SectionLabel>
             <SectionTitle>{l.representation}</SectionTitle>
             <ul className="mt-8 space-y-6">
               {artist.galleries.map((gallery) => (
