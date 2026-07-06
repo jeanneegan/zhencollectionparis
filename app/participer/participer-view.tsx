@@ -25,20 +25,20 @@ const pageLabels: Record<
 > = {
   zh: {
     title: "Participer à la conversation",
-    titleSub: "希望对话",
+    titleSub: "报名对话",
     intro:
-      "艺术家、观察者或公众 — 表达希望，参与巴黎臻藏的对话项目。我们会根据主题与排期与您联系。",
+      "艺术家、观察者或公众 — 申请参与巴黎臻藏的对话项目。我们会根据主题与排期与您联系。",
     introSub:
       "Artistes, observateurs ou public — postulez pour rejoindre une conversation future de Zhen Collection Paris.",
     note: "此申请面向未来对话，与当期公众留言不同。",
   },
   fr: {
     title: "Participer à la conversation",
-    titleSub: "希望对话",
+    titleSub: "报名对话",
     intro:
       "Artistes, observateurs ou public — postulez pour rejoindre une conversation future de Zhen Collection Paris.",
     introSub:
-      "艺术家、观察者或公众 — 表达希望，参与巴黎臻藏的对话项目。我们会根据主题与排期与您联系。",
+      "艺术家、观察者或公众 — 申请参与巴黎臻藏的对话项目。我们会根据主题与排期与您联系。",
     note:
       "Cette candidature concerne une conversation future, distincte des messages du public sur l'épisode en cours.",
   },

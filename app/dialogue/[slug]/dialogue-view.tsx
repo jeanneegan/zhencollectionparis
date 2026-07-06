@@ -55,10 +55,10 @@ const labels: Record<
     publicMessages: "Messages du public｜公众留言",
     publicMessagesScope:
       "Pour cette épisode uniquement · 针对本期内容的留言",
-    participate: "Participer à la conversation｜希望对话",
+    participate: "Participer à la conversation｜报名对话",
     participateNote:
-      "Artistes, observateurs ou public — postulez pour rejoindre une conversation future · 艺术家、观察者或公众 — 表达希望，参与未来对话",
-    participateLink: "Candidater · 希望对话",
+      "Artistes, observateurs ou public — postulez pour rejoindre une conversation future · 艺术家、观察者或公众 — 申请参与未来对话",
+    participateLink: "Candidater · 前往报名",
     works: "Œuvres sélectionnées｜作品",
     answerPending: "Réponse · 回答 · À venir",
   },
@@ -73,10 +73,10 @@ const labels: Record<
     publicMessages: "Messages du public｜公众留言",
     publicMessagesScope:
       "Pour cette épisode uniquement · 针对本期内容的留言",
-    participate: "Participer à la conversation｜希望对话",
+    participate: "Participer à la conversation｜报名对话",
     participateNote:
-      "Artistes, observateurs ou public — postulez pour rejoindre une conversation future · 艺术家、观察者或公众 — 表达希望，参与未来对话",
-    participateLink: "Candidater · 希望对话",
+      "Artistes, observateurs ou public — postulez pour rejoindre une conversation future · 艺术家、观察者或公众 — 申请参与未来对话",
+    participateLink: "Candidater · 前往报名",
     works: "Œuvres sélectionnées｜作品",
     answerPending: "Réponse · 回答 · À venir",
   },
@@ -302,12 +302,12 @@ export function DialogueView({
         </p>
 
         <h1
-          className={`${serif.className} mt-8 text-center text-3xl font-normal md:text-4xl`}
+          className={`${serif.className} mt-8 text-center text-3xl font-normal text-[#5a2323] md:text-4xl`}
         >
           {locale === "zh" ? (
             <>
               {episode.title.fr}{" "}
-              <span className="text-stone-600">{episode.title.zh}</span>
+              <span>{episode.title.zh}</span>
             </>
           ) : (
             t(episode.title, locale)

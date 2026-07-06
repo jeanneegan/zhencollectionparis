@@ -95,10 +95,10 @@ function HomeBilingual({
         </p>
 
         <h2
-          className={`${serif.className} mt-8 text-center text-2xl font-normal md:text-3xl`}
+          className={`${serif.className} mt-8 text-center text-2xl font-normal text-[#5a2323] md:text-3xl`}
         >
           {episode.title.fr}{" "}
-          <span className="text-stone-600">{episode.title.zh}</span>
+          <span>{episode.title.zh}</span>
         </h2>
         <div className="mx-auto mt-4 h-px w-12 bg-stone-300" />
 
@@ -162,21 +162,21 @@ function HomeBilingual({
           Participer à la conversation
         </p>
         <p className="mt-1 text-[10px] tracking-[0.2em] text-stone-400">
-          希望对话
+          报名对话
         </p>
         <p className="mx-auto mt-6 max-w-md text-sm leading-[1.9] text-stone-600">
           Artistes, observateurs ou public — postulez pour rejoindre une
           conversation future.
         </p>
         <p className="mx-auto mt-2 max-w-md text-sm leading-[1.9] text-stone-500">
-          艺术家、观察者或公众 — 表达希望，参与巴黎臻藏的对话项目。
+          艺术家、观察者或公众 — 申请参与巴黎臻藏的对话项目。
         </p>
         <div className="mt-8 flex justify-center">
           <Link
             href="/participer"
             className="inline-flex items-center gap-2 rounded-full border border-stone-300 px-6 py-2.5 text-xs font-medium tracking-[0.12em] text-stone-700 transition-colors hover:border-stone-900 hover:text-stone-900"
           >
-            Candidater · 希望对话
+            Candidater · 前往报名
             <span aria-hidden>→</span>
           </Link>
         </div>
@@ -212,7 +212,7 @@ function HomeEnglish({
           {formatEpisodeMonth(episode.month, "en")}
         </p>
 
-        <h2 className="mt-8 text-center text-2xl font-normal md:text-3xl">
+        <h2 className="mt-8 text-center text-2xl font-normal text-[#5a2323] md:text-3xl">
           {episode.title.en}
         </h2>
         <div className="mx-auto mt-4 h-px w-12 bg-stone-300" />

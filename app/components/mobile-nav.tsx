@@ -4,6 +4,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { getSiteNavItems } from "./site-nav-config";
 
+const artistActiveClass = "bg-[#002395] text-white";
+const dialogueActiveClass = "bg-[#5a2323] text-white";
+
 const items = getSiteNavItems();
 
 export function MobileNav() {
@@ -31,10 +34,10 @@ export function MobileNav() {
               className={`flex min-h-14 flex-col items-center justify-center gap-0.5 px-2 transition-colors ${
                 isDialogue
                   ? active
-                    ? "bg-[#5a2323] text-white"
+                    ? dialogueActiveClass
                     : "bg-white text-stone-600 hover:bg-stone-50 hover:text-stone-900"
                   : active
-                    ? "bg-stone-900 text-white"
+                    ? artistActiveClass
                     : "text-stone-600 hover:bg-stone-50 hover:text-stone-900"
               }`}
             >

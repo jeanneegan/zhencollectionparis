@@ -4,7 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { getSiteNavItems } from "./site-nav-config";
 
-const items = getSiteNavItems();
+const artistActiveClass = "bg-[#002395] text-white";
+const dialogueActiveClass = "bg-[#5a2323] text-white";
 
 export function SiteNav({ wide = false }: { wide?: boolean }) {
   const pathname = usePathname();
@@ -35,10 +36,10 @@ export function SiteNav({ wide = false }: { wide?: boolean }) {
               className={`flex min-h-12 flex-col items-center justify-center gap-0.5 px-2 transition-colors ${
                 isDialogue
                   ? active
-                    ? "bg-[#5a2323] text-white"
+                    ? dialogueActiveClass
                     : "text-stone-600 hover:bg-stone-50 hover:text-stone-900"
                   : active
-                    ? "bg-stone-900 text-white"
+                    ? artistActiveClass
                     : "text-stone-600 hover:bg-stone-50 hover:text-stone-900"
               }`}
             >
