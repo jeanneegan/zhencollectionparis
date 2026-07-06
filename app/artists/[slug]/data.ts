@@ -10,7 +10,7 @@ export type ArtistProfile = {
   currentCity: LocalizedText;
   nationality: LocalizedText;
   practice: LocalizedText;
-  representedBy: string;
+  representedBy: LocalizedText;
   portrait: string;
   tagline: LocalizedText;
   contact: {
@@ -38,14 +38,6 @@ export type ArtistProfile = {
     france: LocalizedText;
   };
   philosophy: LocalizedText;
-  conversation: {
-    sharedQuestion: LocalizedText;
-    artistAnswer: LocalizedText;
-    publicQuestions: {
-      author: string;
-      question: LocalizedText;
-    }[];
-  };
   careerTimeline: {
     year: string;
     title: LocalizedText;
@@ -61,10 +53,21 @@ export type ArtistProfile = {
   artworks: {
     id: string;
     title: LocalizedText;
+    subtitle?: LocalizedText;
     year: number;
     medium: LocalizedText;
     dimensions: string;
     image: string;
+    imageAspect?: [number, number];
+    views?: {
+      src: string;
+      label: LocalizedText;
+      imageAspect?: [number, number];
+    }[];
+    layoutPair?: {
+      group: string;
+      role: "main" | "side";
+    };
   }[];
   professionalReputation: {
     galleryRecognition: { name: string; quote: LocalizedText }[];
@@ -106,7 +109,11 @@ const willyLeNalbaut: ArtistProfile = {
     fr: "Peinture à l'huile · bois et toile",
     en: "Oil painting · wood panel and canvas",
   },
-  representedBy: "Artiste indépendant · Galerie ArtLim' · La Volonté 93",
+  representedBy: {
+    zh: "独立艺术家",
+    fr: "Artiste indépendant",
+    en: "Independent artist",
+  },
   portrait: "/artists/willy-le-nalbaut/portrait.jpg",
   tagline: {
     zh: "一种属于我的现实主义——荒诞剧场里，动物、神祇与日常物件在同一平面",
@@ -203,44 +210,6 @@ const willyLeNalbaut: ArtistProfile = {
     zh: "我的绘画趋向现实主义，但另有他物——一种属于我的现实主义，有时贴近抽象，由绘画本身 dictate 的形式。我以多层油画作画，保留抽象区域与层间元素；常从脑中想法出发，却在绘制过程中让新念头进入。我不按系列工作，而是持续每日探索。作品可隐喻、可批判、可象征——充满犬儒与幽默。",
     fr: "Mes peintures tendent vers le réalisme, mais il y a autre chose — un réalisme à ma manière, côtoyant parfois l'abstraction. Je peins en plusieurs couches, garde des zones abstraites ; je pars d'une idée mais d'autres arrivent pendant que le tableau se construit. Je ne travaille pas par série, mais dans une recherche constante, tous les jours si possible.",
     en: "My paintings tend toward realism, but there is something else — a realism of my own, sometimes bordering on abstraction. I paint in layers, keeping abstract zones; I start from an idea but others arrive as the canvas builds. I do not work in series, but in constant daily research.",
-  },
-  conversation: {
-    sharedQuestion: {
-      zh: "您不按系列创作——那如何组织您的实践？",
-      fr: "Vous ne travaillez pas par série — comment organisez-vous votre pratique ?",
-      en: "You do not work in series — how do you organize your practice?",
-    },
-    artistAnswer: {
-      zh: "我不按系列工作，而是持续探索，尽可能每天画。一幅画可能被搁置数月让它成熟，再擦除或重绘某些部分——这反而强化了我绘画的荒诞感。我近年多画小中幅，便于搬运，也更可及。",
-      fr: "Je ne travaille pas par série, mais dans une recherche constante, tous les jours si possible. Il m'arrive d'abandonner une peinture pour la laisser mûrir, puis de l'effacer ou repeindre — ce qui renforce le côté absurde. Je peins beaucoup de petits et moyens formats ces dernières années.",
-      en: "I do not work in series, but in constant research, every day if possible. I sometimes set a painting aside to let it mature, then erase or repaint — which strengthens the absurd side. I have painted many small and medium formats in recent years.",
-    },
-    publicQuestions: [
-      {
-        author: "Visiteur · Bruxelles",
-        question: {
-          zh: "《PDT》作为功能性物件，与您的绘画实践是什么关系？",
-          fr: "« PDT » en tant qu'objet fonctionnel — quel rapport avec votre pratique picturale ?",
-          en: "How does 'PDT' as a functional object relate to your painting practice?",
-        },
-      },
-      {
-        author: "Quentin Caillaud · Penne",
-        question: {
-          zh: "与 Caillaud 的双人展如何影响您的构图？",
-          fr: "Comment les expositions duo avec Caillaud ont-elles influencé votre composition ?",
-          en: "How did duo shows with Caillaud influence your composition?",
-        },
-      },
-      {
-        author: "Anonymous · Lille",
-        question: {
-          zh: "您说想少依赖电脑作画——这意味着什么？",
-          fr: "Vous souhaitez vous détacher de l'ordinateur — qu'est-ce que cela implique ?",
-          en: "You want to rely less on the computer for painting — what does that mean?",
-        },
-      },
-    ],
   },
   careerTimeline: [
     {
@@ -437,31 +406,33 @@ const willyLeNalbaut: ArtistProfile = {
   artworks: [
     {
       id: "1",
-      title: { zh: "PDT", fr: "PDT", en: "PDT" },
+      title: { zh: "« PDT »", fr: "« PDT »", en: "« PDT »" },
+      subtitle: {
+        zh: "（Paravent suspendu pour l'ADAF, Bruxelles, Septembre 2024）",
+        fr: "(Paravent suspendu pour l'ADAF, Bruxelles, Septembre 2024)",
+        en: "(Suspended screen for ADAF, Brussels, September 2024)",
+      },
       year: 2024,
       medium: {
-        zh: "油画 · 木板（20 块面板）",
-        fr: "Huile · panneaux de bois (20 panneaux)",
-        en: "Oil · wood panels (20 panels)",
+        zh: "木板油画、金属环、钢制挂杆与吊缆",
+        fr: "Huile sur panneaux de bois, anneaux en métal, barre et câbles en acier",
+        en: "Oil on wood panels, metal rings, steel bar and cables",
       },
       dimensions: "154 × 123 cm",
-      image: "/artists/willy-le-nalbaut/works/pdt.jpg",
-    },
-    {
-      id: "2",
-      title: {
-        zh: "Autoportrait, moto, livre et gant d'boxe",
-        fr: "Autoportrait, moto, livre et gant d'boxe",
-        en: "Self-portrait, motorbike, book and boxing glove",
-      },
-      year: 2025,
-      medium: {
-        zh: "油画 · 木板",
-        fr: "Huile · bois",
-        en: "Oil · wood panel",
-      },
-      dimensions: "42.5 × 51 cm",
-      image: "/artists/willy-le-nalbaut/works/autoportrait.jpg",
+      image: "/artists/willy-le-nalbaut/works/pdt-recto.jpg",
+      imageAspect: [791, 1024],
+      views: [
+        {
+          src: "/artists/willy-le-nalbaut/works/pdt-recto.jpg",
+          label: { zh: "正面 · recto", fr: "Recto", en: "Front" },
+          imageAspect: [791, 1024],
+        },
+        {
+          src: "/artists/willy-le-nalbaut/works/pdt-verso.jpg",
+          label: { zh: "背面 · verso", fr: "Verso", en: "Back" },
+          imageAspect: [788, 1024],
+        },
+      ],
     },
     {
       id: "3",
@@ -478,54 +449,77 @@ const willyLeNalbaut: ArtistProfile = {
       },
       dimensions: "31 × 48 cm",
       image: "/artists/willy-le-nalbaut/works/ane.jpg",
+      imageAspect: [1024, 659],
     },
     {
-      id: "4",
+      id: "7",
       title: {
-        zh: "Attachez vos ceintures !",
-        fr: "Attachez vos ceintures !",
-        en: "Fasten your seatbelts!",
+        zh: "« Limaces sous dômes »",
+        fr: "« Limaces sous dômes »",
+        en: "Slugs under domes",
       },
       year: 2025,
       medium: {
         zh: "油画 · 木板",
-        fr: "Huile · bois",
-        en: "Oil · wood panel",
+        fr: "Huile sur bois",
+        en: "Oil on wood panel",
       },
-      dimensions: "37.5 × 61.5 cm",
-      image: "/artists/willy-le-nalbaut/works/attachez.jpg",
+      dimensions: "38 × 46 cm",
+      image: "/artists/willy-le-nalbaut/works/limaces.jpg",
+      imageAspect: [1024, 822],
+      layoutPair: { group: "limaces-goeiedag", role: "main" },
     },
     {
-      id: "5",
+      id: "8",
       title: {
-        zh: "La gnôle à Pépé",
-        fr: "La gnôle à Pépé",
-        en: "La gnôle à Pépé",
+        zh: "Goeiedag mevroew bloem",
+        fr: "Goeiedag mevroew bloem",
+        en: "Goeiedag mevroew bloem",
       },
-      year: 2024,
+      year: 2026,
       medium: {
         zh: "油画 · 木板",
-        fr: "Huile · bois",
-        en: "Oil · wood panel",
+        fr: "Huile sur bois",
+        en: "Oil on wood panel",
       },
-      dimensions: "42.5 × 51 cm",
-      image: "/artists/willy-le-nalbaut/works/gnole.jpg",
+      dimensions: "",
+      image: "/artists/willy-le-nalbaut/works/goeiedag.jpg",
+      imageAspect: [1024, 698],
+      layoutPair: { group: "limaces-goeiedag", role: "side" },
     },
     {
-      id: "6",
+      id: "9",
       title: {
-        zh: "TiBau, TRistan et Mustafa",
-        fr: "TiBau, TRistan et Mustafa",
-        en: "TiBau, TRistan et Mustafa",
+        zh: "sans titre",
+        fr: "sans titre",
+        en: "Untitled",
       },
       year: 2025,
       medium: {
         zh: "油画 · 画布",
-        fr: "Huile · toile",
-        en: "Oil · canvas",
+        fr: "Huile sur toile",
+        en: "Oil on canvas",
       },
-      dimensions: "38 × 46 cm",
-      image: "/artists/willy-le-nalbaut/works/tibau.jpg",
+      dimensions: "",
+      image: "/artists/willy-le-nalbaut/works/sans-titre.jpg",
+      imageAspect: [256, 1024],
+    },
+    {
+      id: "10",
+      title: {
+        zh: "« La flaque aux oiseaux »",
+        fr: "« La flaque aux oiseaux »",
+        en: "The puddle with birds",
+      },
+      year: 2025,
+      medium: {
+        zh: "油画 · 木板",
+        fr: "Huile sur bois",
+        en: "Oil on wood panel",
+      },
+      dimensions: "37.5 × 39.5 cm",
+      image: "/artists/willy-le-nalbaut/works/flaque-aux-oiseaux.jpg",
+      imageAspect: [1024, 951],
     },
   ],
   professionalReputation: {
@@ -645,7 +639,11 @@ const suHong: ArtistProfile = {
     fr: "Peinture numérique · Peinture · Arts visuels · Direction artistique",
     en: "Digital Painting · Painting · Visual Arts · Art Direction",
   },
-  representedBy: "独立艺术家",
+  representedBy: {
+    zh: "独立艺术家",
+    fr: "Artiste indépendante",
+    en: "Independent artist",
+  },
   portrait: "/artists/su-hong/portrait.png",
   tagline: {
     zh: "以潜意识感知现实，呈现纯粹表现主义的高级灰世界",
@@ -728,44 +726,6 @@ const suHong: ArtistProfile = {
     zh: "我关注对现实潜意识层面的感受，作品呈现纯粹表现主义。色彩、造型、纹样来自意识的随机性——世界由无数独立小概念构成，人类社会亦如此。作品不强调清晰光影结构，以简单色彩与造型塑造「高级灰」的世界；图形图象看似凌乱复杂，却构成统一整体，映射真实世界的复杂性。",
     fr: "Je m'intéresse à la perception inconsciente du réel ; mon œuvre relève de l'expressionnisme pur. Couleur, forme et motif naissent du hasard de la conscience. Sans structure lumineuse nette, je modèle un monde de « gris raffiné » — des graphismes apparemment chaotiques qui forment un tout unifié.",
     en: "I attend to the subconscious perception of reality; my work is pure expressionism. Color, form, and pattern arise from the randomness of consciousness. Without sharp light-and-shadow structure, I model a world of 'refined gray'—graphics that seem chaotic yet form a unified whole mirroring reality's complexity.",
-  },
-  conversation: {
-    sharedQuestion: {
-      zh: "传统纹样进入当代绘画，是装饰，还是结构？",
-      fr: "Quand les motifs traditionnels entrent en peinture contemporaine, sont-ils décor ou structure ?",
-      en: "When traditional patterns enter contemporary painting, are they decoration or structure?",
-    },
-    artistAnswer: {
-      zh: "两者都不是，或者说两者都是。纹样提供信息——简单明了的结构，像道路指示牌、数理化公式一样清晰。我做的第一张青花纹作品是一个简单十字形，就像键盘上的加号。它既是装饰，更是组织画面的骨骼。",
-      fr: "Ni l'un ni l'autre — ou les deux à la fois. Le motif informe : une structure claire, comme un panneau routier ou une formule. Ma première œuvre en motif bleu-blanc était une simple croix, comme le signe plus du clavier — à la fois ornement et ossature.",
-      en: "Neither—or both. Pattern informs: a clear structure, like a road sign or a formula. My first blue-and-white pattern work was a simple cross, like the plus key on a keyboard—both ornament and skeleton.",
-    },
-    publicQuestions: [
-      {
-        author: "访客 · 北京",
-        question: {
-          zh: "《纹饰系列》与《图形图象系列》之间有什么联系？",
-          fr: "Quel lien entre les séries « Ornements » et « Graphismes » ?",
-          en: "What connects the 'Ornament' and 'Graphic Image' series?",
-        },
-      },
-      {
-        author: "Visitor · Shanghai",
-        question: {
-          zh: "从黑白到彩色的转变，是如何发生的？",
-          fr: "Comment s'est opérée la transition du noir-blanc à la couleur ?",
-          en: "How did the shift from black-and-white to color take place?",
-        },
-      },
-      {
-        author: "Anonymous",
-        question: {
-          zh: "表现主义主题在您作品中如何体现？",
-          fr: "Comment le thème expressionniste se manifeste-t-il dans votre œuvre ?",
-          en: "How does the expressionist theme appear in your work?",
-        },
-      },
-    ],
   },
   careerTimeline: [
     {
@@ -1139,6 +1099,96 @@ const artists: Record<string, ArtistProfile> = {
   "willy-le-nalbaut": willyLeNalbaut,
   "su-hong": suHong,
 };
+
+export function getArtworkAspectRatio(artwork: {
+  dimensions: string;
+  imageAspect?: [number, number];
+}): [number, number] {
+  if (artwork.imageAspect) return artwork.imageAspect;
+
+  const match = artwork.dimensions.match(
+    /(\d+(?:\.\d+)?)\s*×\s*(\d+(?:\.\d+)?)/,
+  );
+  return match ? [Number(match[1]), Number(match[2])] : [4, 5];
+}
+
+export function getArtworkDisplayLayout(artwork: {
+  dimensions: string;
+  imageAspect?: [number, number];
+  views?: unknown[];
+  layoutPair?: { role: "main" | "side" };
+}): {
+  aspect: [number, number];
+  articleClass: string;
+  imageSizes: string;
+  frameStyle: {
+    aspectRatio: string;
+    maxHeight?: string;
+    width?: string;
+    marginInline?: "auto";
+  };
+} {
+  const aspect = getArtworkAspectRatio(artwork);
+  const [width, height] = aspect;
+  const ratio = width / height;
+  const aspectRatio = `${width} / ${height}`;
+  const multiViewClass =
+    artwork.views && artwork.views.length > 1 ? "sm:col-span-2" : "";
+
+  if (artwork.layoutPair) {
+    const isSide = artwork.layoutPair.role === "side";
+
+    return {
+      aspect,
+      articleClass: "",
+      imageSizes: isSide
+        ? "(max-width: 640px) 100vw, 280px"
+        : "(max-width: 640px) 100vw, (max-width: 1024px) 55vw, 520px",
+      frameStyle: { aspectRatio },
+    };
+  }
+
+  if (ratio >= 1.25) {
+    return {
+      aspect,
+      articleClass: "sm:col-span-2",
+      imageSizes: "(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 860px",
+      frameStyle: { aspectRatio },
+    };
+  }
+
+  if (ratio <= 0.75) {
+    const maxHeight = "min(72vh, 560px)";
+
+    if (multiViewClass) {
+      return {
+        aspect,
+        articleClass: multiViewClass,
+        imageSizes: "(max-width: 640px) 45vw, 380px",
+        frameStyle: { aspectRatio },
+      };
+    }
+
+    return {
+      aspect,
+      articleClass: "mx-auto w-full max-w-[280px]",
+      imageSizes: "(max-width: 640px) 70vw, 280px",
+      frameStyle: {
+        aspectRatio,
+        maxHeight,
+        width: `min(100%, calc(${maxHeight} * ${width} / ${height}))`,
+        marginInline: "auto",
+      },
+    };
+  }
+
+  return {
+    aspect,
+    articleClass: multiViewClass,
+    imageSizes: "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 380px",
+    frameStyle: { aspectRatio },
+  };
+}
 
 export function getAllArtists(): ArtistProfile[] {
   return Object.values(artists);

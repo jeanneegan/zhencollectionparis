@@ -9,7 +9,7 @@ import { SiteFooter } from "@/app/components/site-footer";
 import { PageBottomNav } from "@/app/components/page-bottom-nav";
 import { SiteNav } from "@/app/components/site-nav";
 import { useLocale } from "@/app/lib/use-locale";
-import { type ArtistProfile, type Locale, t } from "./data";
+import { type ArtistProfile, type Locale, getArtworkDisplayLayout, t } from "./data";
 
 const labels: Record<
   Locale,
@@ -41,11 +41,6 @@ const labels: Record<
     solo: string;
     group: string;
     careerTimeline: string;
-    conversation: string;
-    sharedQuestion: string;
-    artistAnswer: string;
-    publicQuestions: string;
-    openQuestion: string;
     selectedWorks: string;
     collectionInquiry: string;
     collectionNote: string;
@@ -86,11 +81,6 @@ const labels: Record<
     solo: "个展",
     group: "群展",
     careerTimeline: "Chronologie professionnelle｜职业时间轴",
-    conversation: "Conversation Zhen Collection · 巴黎臻藏对话",
-    sharedQuestion: "共同问题",
-    artistAnswer: "艺术家回答",
-    publicQuestions: "公众开放问题",
-    openQuestion: "开放提问",
     selectedWorks: "Œuvres sélectionnées｜作品",
     collectionInquiry: "Collection inquiry · 收藏咨询",
     collectionNote:
@@ -132,11 +122,6 @@ const labels: Record<
     solo: "Solo",
     group: "Collectif",
     careerTimeline: "Chronologie professionnelle｜职业时间轴",
-    conversation: "Conversation Zhen Collection · 巴黎臻藏对话",
-    sharedQuestion: "Question commune",
-    artistAnswer: "Réponse de l'artiste",
-    publicQuestions: "Questions ouvertes du public",
-    openQuestion: "Question ouverte",
     selectedWorks: "Œuvres sélectionnées｜作品",
     collectionInquiry: "Collection inquiry · 收藏咨询",
     collectionNote:
@@ -177,11 +162,6 @@ const labels: Record<
     solo: "Solo",
     group: "Group",
     careerTimeline: "Career Timeline",
-    conversation: "Conversation · Zhen Collection Paris",
-    sharedQuestion: "Shared Question",
-    artistAnswer: "Artist's Answer",
-    publicQuestions: "Open Public Questions",
-    openQuestion: "Open Question",
     selectedWorks: "Selected Works",
     collectionInquiry: "Collection Inquiry",
     collectionNote: "Interested in collecting works by this artist",
@@ -285,6 +265,95 @@ function PassportSectionNav({
   );
 }
 
+type ArtistArtwork = ArtistProfile["artworks"][number];
+
+function ArtworkCard({
+  artwork,
+  locale,
+  articleClass = "",
+}: {
+  artwork: ArtistArtwork;
+  locale: Locale;
+  articleClass?: string;
+}) {
+  const layout = getArtworkDisplayLayout(artwork);
+  const views =
+    artwork.views ??
+    ([
+      {
+        src: artwork.image,
+        label: {
+          zh: "",
+          fr: "",
+          en: "",
+        },
+        imageAspect: artwork.imageAspect,
+      },
+    ] as const);
+  const showViewLabels = Boolean(artwork.views?.length);
+
+  return (
+    <article className={`group ${articleClass || layout.articleClass}`}>
+      <div
+        className={`grid gap-4 ${views.length > 1 ? "sm:grid-cols-2" : ""}`}
+      >
+        {views.map((view) => {
+          const viewLayout = getArtworkDisplayLayout({
+            dimensions: artwork.dimensions,
+            imageAspect: view.imageAspect ?? artwork.imageAspect,
+            layoutPair: artwork.layoutPair,
+          });
+
+          return (
+            <div key={view.src}>
+              {showViewLabels ? (
+                <p className="mb-2 text-center text-[10px] uppercase tracking-[0.15em] text-stone-400">
+                  {t(view.label, locale)}
+                </p>
+              ) : null}
+              <div
+                className="relative w-full overflow-hidden bg-stone-100"
+                style={viewLayout.frameStyle}
+              >
+                <Image
+                  src={view.src}
+                  alt={
+                    showViewLabels
+                      ? `${t(artwork.title, locale)} · ${t(view.label, locale)}`
+                      : t(artwork.title, locale)
+                  }
+                  fill
+                  className="object-contain object-center transition-transform duration-700 group-hover:scale-[1.01]"
+                  sizes={viewLayout.imageSizes}
+                />
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      <div className="mt-5">
+        <h3 className="text-base font-medium text-stone-900">
+          {t(artwork.title, locale)}
+        </h3>
+        {artwork.subtitle ? (
+          <p className="mt-1 text-sm leading-relaxed text-stone-500">
+            {t(artwork.subtitle, locale)}
+          </p>
+        ) : null}
+        <p className="mt-1 text-sm text-stone-400">{artwork.year}</p>
+        <p className="mt-2 text-sm leading-relaxed text-stone-500">
+          {t(artwork.medium, locale)}
+        </p>
+        {artwork.dimensions ? (
+          <p className="mt-1 text-[11px] text-stone-400">
+            {artwork.dimensions}
+          </p>
+        ) : null}
+      </div>
+    </article>
+  );
+}
+
 export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
   const [locale, setLocale] = useLocale();
   const l = labels[locale];
@@ -380,7 +449,7 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
                   {l.representedBy}
                 </dt>
                 <dd className="mt-1 text-base leading-relaxed text-stone-800">
-                  {artist.representedBy}
+                  {t(artist.representedBy, locale)}
                 </dd>
               </div>
             </dl>
@@ -571,93 +640,47 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
         <Divider />
       </div>
 
-      {/* Conversation */}
-      <section className="mx-auto max-w-7xl px-6 py-20 md:px-10">
-        <SectionTitle>{l.conversation}</SectionTitle>
-
-        <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-2">
-          <div className="rounded-sm border border-stone-200 bg-white p-8">
-            <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-stone-400">
-              {l.sharedQuestion}
-            </p>
-            <p className="mt-4 text-lg font-light leading-relaxed text-stone-800">
-              {t(artist.conversation.sharedQuestion, locale)}
-            </p>
-          </div>
-
-          <div className="rounded-sm border border-stone-200 bg-stone-900 p-8 text-white">
-            <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-stone-400">
-              {l.artistAnswer}
-            </p>
-            <p className="mt-4 text-base leading-[1.9] text-stone-200">
-              {t(artist.conversation.artistAnswer, locale)}
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-12">
-          <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-stone-400">
-            {l.publicQuestions}
-          </p>
-          <ul className="mt-6 divide-y divide-stone-200 border-t border-stone-200">
-            {artist.conversation.publicQuestions.map((item) => (
-              <li
-                key={item.author}
-                className="flex flex-col gap-3 py-6 md:flex-row md:items-start md:gap-12"
-              >
-                <p className="shrink-0 text-[11px] font-medium uppercase tracking-[0.12em] text-stone-400 md:w-40">
-                  {item.author}
-                </p>
-                <div>
-                  <p className="text-[10px] uppercase tracking-[0.15em] text-stone-300">
-                    {l.openQuestion}
-                  </p>
-                  <p className="mt-2 text-base leading-relaxed text-stone-700">
-                    {t(item.question, locale)}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <div className="mx-auto max-w-7xl px-6 md:px-10">
-        <Divider />
-      </div>
-
       {/* Selected Works */}
       <section
         id="passport-works"
         className="mx-auto max-w-7xl scroll-mt-28 px-6 py-20 md:scroll-mt-32 md:px-10"
       >
         <SectionTitle>{l.selectedWorks}</SectionTitle>
-        <div className="mt-12 grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
-          {artist.artworks.map((artwork) => (
-            <article key={artwork.id} className="group">
-              <div className="relative aspect-[4/5] overflow-hidden bg-stone-200">
-                <Image
-                  src={artwork.image}
-                  alt={t(artwork.title, locale)}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                />
-              </div>
-              <div className="mt-5">
-                <h3 className="text-base font-medium text-stone-900">
-                  {t(artwork.title, locale)}
-                </h3>
-                <p className="mt-1 text-sm text-stone-400">{artwork.year}</p>
-                <p className="mt-2 text-sm leading-relaxed text-stone-500">
-                  {t(artwork.medium, locale)}
-                </p>
-                <p className="mt-1 text-[11px] text-stone-400">
-                  {artwork.dimensions}
-                </p>
-              </div>
-            </article>
-          ))}
+        <div className="mt-12 grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2">
+          {artist.artworks.flatMap((artwork, index, artworks) => {
+            const next = artworks[index + 1];
+
+            if (
+              artwork.layoutPair?.role === "side" &&
+              artworks[index - 1]?.layoutPair?.group === artwork.layoutPair.group
+            ) {
+              return [];
+            }
+
+            if (
+              artwork.layoutPair?.role === "main" &&
+              next?.layoutPair?.group === artwork.layoutPair.group &&
+              next.layoutPair.role === "side"
+            ) {
+              return [
+                <div
+                  key={artwork.layoutPair.group}
+                  className="grid grid-cols-1 items-start gap-x-8 gap-y-8 sm:col-span-2 sm:grid-cols-[minmax(0,1.45fr)_minmax(0,0.85fr)]"
+                >
+                  <ArtworkCard artwork={artwork} locale={locale} />
+                  <ArtworkCard artwork={next} locale={locale} />
+                </div>,
+              ];
+            }
+
+            return [
+              <ArtworkCard
+                key={artwork.id}
+                artwork={artwork}
+                locale={locale}
+              />,
+            ];
+          })}
         </div>
 
         <div className="mt-16 border border-stone-200 bg-stone-50/30 px-6 py-10 text-center md:px-10">
