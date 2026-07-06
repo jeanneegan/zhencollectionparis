@@ -76,7 +76,7 @@ function HomeBilingual({
   return (
     <>
       <header className="text-center">
-        <h1 className="text-3xl font-normal tracking-wide text-stone-900 md:text-4xl">
+        <h1 className="text-2xl font-normal tracking-wide text-stone-900 md:text-3xl">
           Conversations entre artistes
         </h1>
         <p
@@ -95,7 +95,7 @@ function HomeBilingual({
         </p>
 
         <h2
-          className={`${serif.className} mt-8 text-center text-2xl font-normal text-[#5a2323] md:text-3xl`}
+          className={`${serif.className} mt-8 text-center text-2xl font-bold text-[#5a2323] md:text-3xl`}
         >
           {episode.title.fr}{" "}
           <span>{episode.title.zh}</span>
