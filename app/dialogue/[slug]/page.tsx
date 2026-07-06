@@ -22,7 +22,7 @@ export default async function DialoguePage({ params }: PageProps) {
   }
 
   const featured: FeaturedWork[] = episode.featuredWorks
-    .map(({ artistSlug, artworkId, displayAspect }) => {
+    .map(({ artistSlug, artworkId, image, displayAspect }) => {
       const artist = getArtistBySlug(artistSlug);
       const artwork = artist?.artworks.find((a) => a.id === artworkId);
       if (!artist || !artwork) return null;
@@ -45,7 +45,7 @@ export default async function DialoguePage({ params }: PageProps) {
           title: artwork.title,
           medium: artwork.medium,
           year: artwork.year,
-          image: artwork.image,
+          image: image ?? artwork.image,
         },
         aspect,
       };

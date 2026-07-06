@@ -41,6 +41,7 @@ export type DialogueEpisode = {
   featuredWorks: {
     artistSlug: string;
     artworkId: string;
+    image?: string;
     displayAspect?: [number, number];
   }[];
   isCurrent: boolean;
@@ -133,7 +134,12 @@ export const episodes: DialogueEpisode[] = [
         artworkId: "3",
         displayAspect: [1024, 659],
       },
-      { artistSlug: "su-hong", artworkId: "6" },
+      {
+        artistSlug: "su-hong",
+        artworkId: "1",
+        image: "/artists/su-hong/works/ma-gui-dialogue.jpg",
+        displayAspect: [853, 1024],
+      },
     ],
     isCurrent: true,
     status: "current",
