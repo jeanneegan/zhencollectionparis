@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
+import { AproposLink } from "@/app/components/apropos-link";
 import { SiteBrandLink } from "@/app/components/site-brand-link";
 import { SiteFooter } from "@/app/components/site-footer";
 import { SiteNav } from "@/app/components/site-nav";
@@ -301,6 +302,7 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
                 navExhibitions: l.navExhibitions,
               }}
             />
+            <AproposLink />
             <LanguageSwitcher locale={locale} onChange={setLocale} />
           </div>
         </div>
