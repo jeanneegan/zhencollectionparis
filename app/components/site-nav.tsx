@@ -7,6 +7,8 @@ import { getSiteNavItems } from "./site-nav-config";
 const artistActiveClass = "bg-[#002395] text-white";
 const dialogueActiveClass = "bg-[#5a2323] text-white";
 
+const items = getSiteNavItems();
+
 export function SiteNav({ wide = false }: { wide?: boolean }) {
   const pathname = usePathname();
 
