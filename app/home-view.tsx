@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Noto_Serif_SC } from "next/font/google";
 import { DialogueEpisodeList } from "@/app/components/dialogue-episode-list";
-import { AproposLink } from "@/app/components/apropos-link";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
 import { SiteFooter } from "@/app/components/site-footer";
 import { SiteHeader } from "@/app/components/site-header";
@@ -85,9 +84,6 @@ function HomeBilingual({
         >
           艺术家之间的对话
         </p>
-        <div className="mt-8">
-          <AproposLink locale="fr" showArrow />
-        </div>
       </header>
 
       <section className="mt-14 border border-stone-200 bg-stone-50/50 px-6 py-10 md:px-10 md:py-12">
@@ -206,9 +202,6 @@ function HomeEnglish({
         <h1 className="text-3xl font-normal tracking-wide text-stone-900 md:text-4xl">
           Conversations Between Artists
         </h1>
-        <div className="mt-8">
-          <AproposLink locale="en" showArrow />
-        </div>
       </header>
 
       <section className="mt-14 border border-stone-200 bg-stone-50/50 px-6 py-10 md:px-10 md:py-12">

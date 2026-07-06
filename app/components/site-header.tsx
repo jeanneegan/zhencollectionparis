@@ -1,5 +1,4 @@
 import { SiteBrandLink } from "@/app/components/site-brand-link";
-import { AproposLink } from "@/app/components/apropos-link";
 import { SiteNav } from "@/app/components/site-nav";
 
 export function SiteHeader({
@@ -25,10 +24,7 @@ export function SiteHeader({
         }`}
       >
         <SiteBrandLink className="shrink-0" />
-        <div className="flex shrink-0 items-center gap-4 md:gap-6">
-          <AproposLink />
-          {trailing}
-        </div>
+        {trailing}
       </div>
       {showNav ? <SiteNav wide={wide} /> : null}
     </header>
