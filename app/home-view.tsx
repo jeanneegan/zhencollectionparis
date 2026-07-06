@@ -22,17 +22,6 @@ const serif = Noto_Serif_SC({
   weight: ["400", "500"],
 });
 
-function ZhenNameLink({ children }: { children: React.ReactNode }) {
-  return (
-    <Link
-      href="/apropos"
-      className="underline decoration-stone-300/80 underline-offset-[0.2em] transition-colors hover:text-stone-800 hover:decoration-stone-500"
-    >
-      {children}
-    </Link>
-  );
-}
-
 export function HomeView() {
   const [locale, setLocale] = useLocale();
   const episode = getCurrentEpisode();
@@ -86,40 +75,29 @@ function HomeBilingual({
 }) {
   return (
     <>
-      <div className="text-center">
-        <p className="mx-auto max-w-lg text-sm leading-[1.9] tracking-wide text-stone-500">
-          <ZhenNameLink>Zhen 臻</ZhenNameLink>{" "}
-          est un mouvement constant vers ce qui est vrai, juste, et digne
-          d&apos;être conservé.
-        </p>
+      <header className="text-center">
+        <h1 className="text-2xl font-normal tracking-wide text-stone-900 md:text-3xl">
+          Conversations entre artistes
+        </h1>
         <p
-          className={`${serif.className} mt-4 text-xs leading-[1.9] tracking-wide text-stone-400`}
+          className={`${serif.className} mt-3 text-base tracking-[0.08em] text-stone-400 md:text-lg`}
         >
-          <ZhenNameLink>臻</ZhenNameLink>，是持续趋向真实、恰当，与那些值得珍藏之物的过程。
+          艺术家之间的对话
         </p>
-      </div>
+      </header>
 
       <section className="mt-10 border border-stone-200 bg-stone-50/50 px-6 py-10 md:px-10 md:py-12">
-        <header className="text-center">
-          <h1 className="text-2xl font-normal tracking-wide text-stone-900 md:text-3xl">
-            Conversations entre artistes
-          </h1>
-          <p
-            className={`${serif.className} mt-3 text-base tracking-[0.08em] text-stone-400 md:text-lg`}
-          >
-            艺术家之间的对话
-          </p>
-        </header>
-
-        <div className="mx-auto my-8 h-px w-12 bg-stone-300" />
-
         <p className="text-center text-[10px] tracking-[0.2em] text-stone-400">
           <span className="font-medium uppercase tracking-[0.25em]">
             Épisode {episode.episode}
           </span>
           {" · "}
+          <span className={serif.className}>第{episode.episode}期</span>
+          {" · "}
+          {formatEpisodeMonth(episode.month, "fr")}
+          {" · "}
           <span className={serif.className}>
-            第{episode.episode}期 · {formatEpisodeMonth(episode.month, "zh")}
+            {formatEpisodeMonth(episode.month, "zh")}
           </span>
         </p>
 
@@ -227,23 +205,13 @@ function HomeEnglish({
 }) {
   return (
     <>
-      <div className="text-center">
-        <p className="mx-auto max-w-lg text-sm leading-[1.9] tracking-wide text-stone-500">
-          <ZhenNameLink>Zhen 臻</ZhenNameLink>{" "}
-          is a constant movement toward what is true, just, and worthy of
-          being preserved.
-        </p>
-      </div>
+      <header className="text-center">
+        <h1 className="text-3xl font-normal tracking-wide text-stone-900 md:text-4xl">
+          Conversations Between Artists
+        </h1>
+      </header>
 
       <section className="mt-10 border border-stone-200 bg-stone-50/50 px-6 py-10 md:px-10 md:py-12">
-        <header className="text-center">
-          <h1 className="text-3xl font-normal tracking-wide text-stone-900 md:text-4xl">
-            Conversations Between Artists
-          </h1>
-        </header>
-
-        <div className="mx-auto my-8 h-px w-12 bg-stone-300" />
-
         <p className="text-center text-[10px] font-medium uppercase tracking-[0.25em] text-stone-400">
           Episode {episode.episode} · {formatEpisodeMonth(episode.month, "en")}
         </p>
