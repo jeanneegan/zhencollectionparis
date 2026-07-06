@@ -75,23 +75,45 @@ function HomeBilingual({
 }) {
   return (
     <>
-      <header className="text-center">
-        <h1 className="text-2xl font-normal tracking-wide text-stone-900 md:text-3xl">
-          Conversations entre artistes
-        </h1>
-        <p
-          className={`${serif.className} mt-3 text-base tracking-[0.08em] text-stone-400 md:text-lg`}
+      <div className="text-center">
+        <div className="space-y-1 text-sm tracking-wide text-stone-500">
+          <p>Zhen est un verbe.</p>
+          <p>Ce n&apos;est pas posséder, mais rencontrer.</p>
+          <p>Ce n&apos;est pas accumuler, mais transmettre.</p>
+          <p>Ce n&apos;est pas séparer, mais relier.</p>
+        </div>
+        <div
+          className={`${serif.className} mt-4 space-y-1 text-xs tracking-wide text-stone-400`}
         >
-          艺术家之间的对话
-        </p>
-      </header>
+          <p>臻是一个动词。</p>
+          <p>不是占有，而是遇见。</p>
+          <p>不是积累，而是传递。</p>
+          <p>不是分离，而是连接。</p>
+        </div>
+      </div>
 
-      <section className="mt-14 border border-stone-200 bg-stone-50/50 px-6 py-10 md:px-10 md:py-12">
-        <p className="text-center text-[10px] font-medium uppercase tracking-[0.25em] text-stone-400">
-          Conversation · Épisode {episode.episode}
-        </p>
-        <p className="mt-1 text-center text-[10px] tracking-[0.2em] text-stone-400">
-          对话第{episode.episode}期 · {formatEpisodeMonth(episode.month, "zh")}
+      <section className="mt-10 border border-stone-200 bg-stone-50/50 px-6 py-10 md:px-10 md:py-12">
+        <header className="text-center">
+          <h1 className="text-2xl font-normal tracking-wide text-stone-900 md:text-3xl">
+            Conversations entre artistes
+          </h1>
+          <p
+            className={`${serif.className} mt-3 text-base tracking-[0.08em] text-stone-400 md:text-lg`}
+          >
+            艺术家之间的对话
+          </p>
+        </header>
+
+        <div className="mx-auto my-8 h-px w-12 bg-stone-300" />
+
+        <p className="text-center text-[10px] tracking-[0.2em] text-stone-400">
+          <span className="font-medium uppercase tracking-[0.25em]">
+            Épisode {episode.episode}
+          </span>
+          {" · "}
+          <span className={serif.className}>
+            第{episode.episode}期 · {formatEpisodeMonth(episode.month, "zh")}
+          </span>
         </p>
 
         <h2
@@ -198,18 +220,26 @@ function HomeEnglish({
 }) {
   return (
     <>
-      <header className="text-center">
-        <h1 className="text-3xl font-normal tracking-wide text-stone-900 md:text-4xl">
-          Conversations Between Artists
-        </h1>
-      </header>
+      <div className="text-center">
+        <div className="space-y-1 text-sm tracking-wide text-stone-500">
+          <p>Zhen is a verb.</p>
+          <p>Not to possess, but to encounter.</p>
+          <p>Not to accumulate, but to transmit.</p>
+          <p>Not to separate, but to connect.</p>
+        </div>
+      </div>
 
-      <section className="mt-14 border border-stone-200 bg-stone-50/50 px-6 py-10 md:px-10 md:py-12">
+      <section className="mt-10 border border-stone-200 bg-stone-50/50 px-6 py-10 md:px-10 md:py-12">
+        <header className="text-center">
+          <h1 className="text-3xl font-normal tracking-wide text-stone-900 md:text-4xl">
+            Conversations Between Artists
+          </h1>
+        </header>
+
+        <div className="mx-auto my-8 h-px w-12 bg-stone-300" />
+
         <p className="text-center text-[10px] font-medium uppercase tracking-[0.25em] text-stone-400">
-          Conversation · Episode {episode.episode}
-        </p>
-        <p className="mt-1 text-center text-[10px] tracking-[0.2em] text-stone-400">
-          {formatEpisodeMonth(episode.month, "en")}
+          Episode {episode.episode} · {formatEpisodeMonth(episode.month, "en")}
         </p>
 
         <h2 className="mt-8 text-center text-2xl font-normal text-[#5a2323] md:text-3xl">
