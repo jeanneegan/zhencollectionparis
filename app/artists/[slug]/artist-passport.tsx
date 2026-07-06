@@ -386,12 +386,10 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
 
       {/* Why Create */}
       <section className="mx-auto max-w-7xl px-6 py-20 md:px-10">
-        <div className="mx-auto max-w-3xl text-center">
-          <SectionTitle>{l.whyCreate}</SectionTitle>
-          <p className="mt-10 text-lg leading-[2] text-stone-600 md:text-xl">
-            {t(artist.whyCreate, locale)}
-          </p>
-        </div>
+        <SectionTitle>{l.whyCreate}</SectionTitle>
+        <p className="mt-10 max-w-3xl text-lg leading-[2] text-stone-600 md:text-xl">
+          {t(artist.whyCreate, locale)}
+        </p>
       </section>
 
       <div className="mx-auto max-w-7xl px-6 md:px-10">
@@ -400,12 +398,10 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
 
       {/* Philosophy */}
       <section className="mx-auto max-w-7xl px-6 py-20 md:px-10">
-        <div className="mx-auto max-w-3xl text-center">
-          <SectionTitle>{l.philosophy}</SectionTitle>
-          <p className="mt-10 text-lg leading-[2] text-stone-600 md:text-xl">
-            {t(artist.philosophy, locale)}
-          </p>
-        </div>
+        <SectionTitle>{l.philosophy}</SectionTitle>
+        <p className="mt-10 max-w-3xl text-lg leading-[2] text-stone-600 md:text-xl">
+          {t(artist.philosophy, locale)}
+        </p>
       </section>
 
       <div className="mx-auto max-w-7xl px-6 md:px-10">
