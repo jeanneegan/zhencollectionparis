@@ -85,10 +85,10 @@ function HomeBilingual({
         <div
           className={`${serif.className} mt-4 space-y-1 text-xs tracking-wide text-stone-400`}
         >
-          <p>臻是一个动词。</p>
-          <p>不是占有，而是遇见。</p>
-          <p>不是积累，而是传递。</p>
-          <p>不是分离，而是连接。</p>
+          <p>臻，是一个动词。</p>
+          <p>不是占有，而是相遇。</p>
+          <p>不是积累，而是传承。</p>
+          <p>不是分隔，而是连接。</p>
         </div>
       </div>
 
