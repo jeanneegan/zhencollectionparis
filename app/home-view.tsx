@@ -76,20 +76,15 @@ function HomeBilingual({
   return (
     <>
       <div className="text-center">
-        <div className="space-y-1 text-sm tracking-wide text-stone-500">
-          <p>Zhen est un verbe.</p>
-          <p>Ce n&apos;est pas posséder, mais rencontrer.</p>
-          <p>Ce n&apos;est pas accumuler, mais transmettre.</p>
-          <p>Ce n&apos;est pas séparer, mais relier.</p>
-        </div>
-        <div
-          className={`${serif.className} mt-4 space-y-1 text-xs tracking-wide text-stone-400`}
+        <p className="mx-auto max-w-lg text-sm leading-[1.9] tracking-wide text-stone-500">
+          Zhen 臻 est un mouvement constant vers ce qui est vrai, juste, et
+          digne d&apos;être conservé.
+        </p>
+        <p
+          className={`${serif.className} mt-4 text-xs leading-[1.9] tracking-wide text-stone-400`}
         >
-          <p>臻，是一个动词。</p>
-          <p>不是占有，而是相遇。</p>
-          <p>不是积累，而是传承。</p>
-          <p>不是分隔，而是连接。</p>
-        </div>
+          臻，是持续趋向真实、恰当，与那些值得珍藏之物的过程。
+        </p>
       </div>
 
       <section className="mt-10 border border-stone-200 bg-stone-50/50 px-6 py-10 md:px-10 md:py-12">
@@ -221,12 +216,10 @@ function HomeEnglish({
   return (
     <>
       <div className="text-center">
-        <div className="space-y-1 text-sm tracking-wide text-stone-500">
-          <p>Zhen is a verb.</p>
-          <p>Not to possess, but to encounter.</p>
-          <p>Not to accumulate, but to transmit.</p>
-          <p>Not to separate, but to connect.</p>
-        </div>
+        <p className="mx-auto max-w-lg text-sm leading-[1.9] tracking-wide text-stone-500">
+          Zhen 臻 is a constant movement toward what is true, just, and worthy
+          of being preserved.
+        </p>
       </div>
 
       <section className="mt-10 border border-stone-200 bg-stone-50/50 px-6 py-10 md:px-10 md:py-12">
