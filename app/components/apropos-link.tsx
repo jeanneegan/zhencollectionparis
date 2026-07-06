@@ -10,15 +10,21 @@ const labels: Record<Locale, string> = {
 export function AproposLink({
   locale = "fr",
   showArrow = false,
+  variant = "footer",
 }: {
   locale?: Locale;
   showArrow?: boolean;
+  variant?: "footer" | "page-bottom";
 }) {
   return (
     <Link
       href="/apropos"
-      className={`text-[11px] tracking-[0.12em] text-stone-500 transition-colors hover:text-stone-900 ${
-        showArrow ? "inline-flex items-center gap-2 text-xs" : ""
+      className={`tracking-[0.12em] text-stone-500 transition-colors hover:text-stone-900 ${
+        variant === "page-bottom"
+          ? "text-xs"
+          : showArrow
+            ? "inline-flex items-center gap-2 text-xs"
+            : "text-[11px]"
       }`}
     >
       {labels[locale]}

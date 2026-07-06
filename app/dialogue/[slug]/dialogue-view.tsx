@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Noto_Serif_SC } from "next/font/google";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
 import { PublicMessageForm } from "@/app/components/public-message-form";
+import { PageBottomNav } from "@/app/components/page-bottom-nav";
 import { SiteFooter } from "@/app/components/site-footer";
 import { SiteHeader } from "@/app/components/site-header";
 import { useLocale } from "@/app/lib/use-locale";
@@ -429,6 +430,8 @@ export function DialogueView({
             </Link>
           </div>
         </section>
+
+        <PageBottomNav locale={locale} />
       </main>
 
       <SiteFooter />

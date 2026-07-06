@@ -22,6 +22,17 @@ const serif = Noto_Serif_SC({
   weight: ["400", "500"],
 });
 
+function ZhenNameLink({ children }: { children: React.ReactNode }) {
+  return (
+    <Link
+      href="/apropos"
+      className="underline decoration-stone-300/80 underline-offset-[0.2em] transition-colors hover:text-stone-800 hover:decoration-stone-500"
+    >
+      {children}
+    </Link>
+  );
+}
+
 export function HomeView() {
   const [locale, setLocale] = useLocale();
   const episode = getCurrentEpisode();
@@ -77,13 +88,14 @@ function HomeBilingual({
     <>
       <div className="text-center">
         <p className="mx-auto max-w-lg text-sm leading-[1.9] tracking-wide text-stone-500">
-          Zhen 臻 est un mouvement constant vers ce qui est vrai, juste, et
-          digne d&apos;être conservé.
+          <ZhenNameLink>Zhen 臻</ZhenNameLink>{" "}
+          est un mouvement constant vers ce qui est vrai, juste, et digne
+          d&apos;être conservé.
         </p>
         <p
           className={`${serif.className} mt-4 text-xs leading-[1.9] tracking-wide text-stone-400`}
         >
-          臻，是持续趋向真实、恰当，与那些值得珍藏之物的过程。
+          <ZhenNameLink>臻</ZhenNameLink>，是持续趋向真实、恰当，与那些值得珍藏之物的过程。
         </p>
       </div>
 
@@ -217,8 +229,9 @@ function HomeEnglish({
     <>
       <div className="text-center">
         <p className="mx-auto max-w-lg text-sm leading-[1.9] tracking-wide text-stone-500">
-          Zhen 臻 is a constant movement toward what is true, just, and worthy
-          of being preserved.
+          <ZhenNameLink>Zhen 臻</ZhenNameLink>{" "}
+          is a constant movement toward what is true, just, and worthy of
+          being preserved.
         </p>
       </div>
 

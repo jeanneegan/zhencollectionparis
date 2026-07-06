@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { Noto_Serif_SC } from "next/font/google";
 import { DialogueEpisodeList } from "@/app/components/dialogue-episode-list";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
+import { PageBottomNav } from "@/app/components/page-bottom-nav";
 import { SiteFooter } from "@/app/components/site-footer";
 import { SiteHeader } from "@/app/components/site-header";
 import type { Locale } from "@/app/artists/[slug]/data";
@@ -21,26 +21,22 @@ const pageLabels: Record<
     kicker: string;
     title: string;
     intro: string;
-    back: string;
   }
 > = {
   fr: {
     kicker: "Toutes les conversations",
     title: "Archives · {n} épisodes",
     intro: "Parcourez les épisodes par année.",
-    back: "← Retour",
   },
   zh: {
     kicker: "全部对话",
     title: "对话归档 · 共 {n} 期",
     intro: "按年份浏览。",
-    back: "← 返回首页",
   },
   en: {
     kicker: "All conversations",
     title: "Archives · {n} episodes",
     intro: "Browse episodes by year.",
-    back: "← Back",
   },
 };
 
@@ -92,14 +88,7 @@ export function DialoguesView({
           ))}
         </div>
 
-        <div className="mt-14 text-center">
-          <Link
-            href="/"
-            className="text-xs tracking-[0.12em] text-stone-500 transition-colors hover:text-stone-900"
-          >
-            {l.back}
-          </Link>
-        </div>
+        <PageBottomNav locale={locale} />
       </main>
 
       <SiteFooter />

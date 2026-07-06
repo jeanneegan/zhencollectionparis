@@ -3,6 +3,7 @@
 import { Noto_Serif_SC } from "next/font/google";
 import { DialogueParticipationForm } from "@/app/components/dialogue-participation-form";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
+import { PageBottomNav } from "@/app/components/page-bottom-nav";
 import { SiteFooter } from "@/app/components/site-footer";
 import { SiteHeader } from "@/app/components/site-header";
 import type { Locale } from "@/app/artists/[slug]/data";
@@ -89,6 +90,8 @@ export function ParticiperView() {
         </div>
 
         <DialogueParticipationForm locale={locale} />
+
+        <PageBottomNav locale={locale} />
       </main>
 
       <SiteFooter />

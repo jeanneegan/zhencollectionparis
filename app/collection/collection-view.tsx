@@ -3,6 +3,7 @@
 import { Noto_Serif_SC } from "next/font/google";
 import { CollectionInquiryForm } from "@/app/components/collection-inquiry-form";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
+import { PageBottomNav } from "@/app/components/page-bottom-nav";
 import { SiteFooter } from "@/app/components/site-footer";
 import { SiteHeader } from "@/app/components/site-header";
 import {
@@ -97,6 +98,8 @@ export function CollectionView({
           artworks={artist?.artworks.map(({ id, title }) => ({ id, title }))}
           initialWorkId={initialWorkId}
         />
+
+        <PageBottomNav locale={locale} />
       </main>
 
       <SiteFooter />

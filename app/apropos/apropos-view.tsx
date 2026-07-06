@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { Noto_Serif_SC } from "next/font/google";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
+import { PageBottomNav } from "@/app/components/page-bottom-nav";
 import { SiteFooter } from "@/app/components/site-footer";
 import { SiteHeader } from "@/app/components/site-header";
 import type { Locale } from "@/app/artists/[slug]/data";
@@ -19,7 +19,6 @@ const pageContent: Record<
     title: string;
     titleSub: string;
     paragraphs: string[];
-    back: string;
   }
 > = {
   fr: {
@@ -33,7 +32,6 @@ const pageContent: Record<
       "Parce qu'une œuvre d'art ne conserve pas seulement une image. Elle conserve un regard, une rencontre, une manière d'habiter le monde.",
       "C'est dans ce sens que nous avons choisi le nom Zhen Collection Paris : une collection non seulement d'œuvres, mais aussi de relations, d'idées et de dialogues qui relient les êtres humains au-delà des frontières.",
     ],
-    back: "← Retour · 返回首页",
   },
   zh: {
     title: "为什么「臻」？",
@@ -46,7 +44,6 @@ const pageContent: Record<
       "因为一件艺术作品所保存的不只是一幅图像，更是一种目光、一次相遇、一种安住于世界的方式。",
       "正因此，我们选择 Zhen Collection Paris 这一名字：收藏的不仅是作品，更是人与人的关系、思想与对话——跨越边界的连接。",
     ],
-    back: "← 返回首页 · Retour",
   },
   en: {
     title: "Why « Zhen »?",
@@ -59,7 +56,6 @@ const pageContent: Record<
       "Because a work of art preserves not only an image. It preserves a way of seeing, an encounter, a manner of inhabiting the world.",
       "This is why we chose the name Zhen Collection Paris: a collection not only of artworks, but also of relationships, ideas, and dialogues that connect human beings across borders.",
     ],
-    back: "← Back",
   },
 };
 
@@ -98,14 +94,7 @@ export function AproposView() {
           ))}
         </div>
 
-        <div className="mt-14 text-center">
-          <Link
-            href="/"
-            className="text-xs tracking-[0.12em] text-stone-500 transition-colors hover:text-stone-900"
-          >
-            {content.back}
-          </Link>
-        </div>
+        <PageBottomNav locale={locale} />
       </main>
 
       <SiteFooter />

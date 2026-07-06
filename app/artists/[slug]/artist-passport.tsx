@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
 import { SiteBrandLink } from "@/app/components/site-brand-link";
 import { SiteFooter } from "@/app/components/site-footer";
+import { PageBottomNav } from "@/app/components/page-bottom-nav";
 import { SiteNav } from "@/app/components/site-nav";
 import { useLocale } from "@/app/lib/use-locale";
 import { type ArtistProfile, type Locale, t } from "./data";
@@ -783,6 +784,10 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
           </div>
         </div>
       </section>
+
+      <div className="mx-auto max-w-3xl px-6">
+        <PageBottomNav locale={locale} />
+      </div>
 
       <SiteFooter wide />
     </div>
