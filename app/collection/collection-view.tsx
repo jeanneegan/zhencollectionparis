@@ -1,7 +1,6 @@
 "use client";
 
 import { Noto_Serif_SC } from "next/font/google";
-import { useState } from "react";
 import { CollectionInquiryForm } from "@/app/components/collection-inquiry-form";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
 import { SiteFooter } from "@/app/components/site-footer";
@@ -11,6 +10,7 @@ import {
   type Locale,
   t,
 } from "@/app/artists/[slug]/data";
+import { useLocale } from "@/app/lib/use-locale";
 
 const serif = Noto_Serif_SC({
   subsets: ["latin"],
@@ -57,7 +57,7 @@ export function CollectionView({
   artist: ArtistProfile | null;
   initialWorkId?: string;
 }) {
-  const [locale, setLocale] = useState<Locale>("fr");
+  const [locale, setLocale] = useLocale();
   const l = pageLabels[locale];
   const artistName = artist ? t(artist.name, locale) : undefined;
 

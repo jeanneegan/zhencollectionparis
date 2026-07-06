@@ -3,11 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Noto_Serif_SC } from "next/font/google";
-import { useState } from "react";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
 import { PublicMessageForm } from "@/app/components/public-message-form";
 import { SiteFooter } from "@/app/components/site-footer";
 import { SiteHeader } from "@/app/components/site-header";
+import { useLocale } from "@/app/lib/use-locale";
 import {
   type Locale,
   type LocalizedText,
@@ -41,9 +41,6 @@ const labels: Record<
     participateNote: string;
     participateLink: string;
     works: string;
-    collectionInquiry: string;
-    collectionNote: string;
-    collectionLink: string;
     answerPending: string;
   }
 > = {
@@ -58,15 +55,11 @@ const labels: Record<
     publicMessages: "Messages du public｜公众留言",
     publicMessagesScope:
       "Pour cette épisode uniquement · 针对本期内容的留言",
-    participate: "Participer à la conversation｜报名对话",
+    participate: "Participer à la conversation｜希望对话",
     participateNote:
-      "Postulez pour rejoindre une conversation future · 申请参与未来对话（艺术家、观察者或公众）",
-    participateLink: "Candidater · 前往报名",
+      "Artistes, observateurs ou public — postulez pour rejoindre une conversation future · 艺术家、观察者或公众 — 表达希望，参与未来对话",
+    participateLink: "Candidater · 希望对话",
     works: "Œuvres sélectionnées｜作品",
-    collectionInquiry: "Collection inquiry · 收藏咨询",
-    collectionNote:
-      "对该期对话相关作品有收藏意向 · Demande de collection pour les œuvres présentées",
-    collectionLink: "Demander · 咨询收藏",
     answerPending: "Réponse · 回答 · À venir",
   },
   fr: {
@@ -80,15 +73,11 @@ const labels: Record<
     publicMessages: "Messages du public｜公众留言",
     publicMessagesScope:
       "Pour cette épisode uniquement · 针对本期内容的留言",
-    participate: "Participer à la conversation｜报名对话",
+    participate: "Participer à la conversation｜希望对话",
     participateNote:
-      "Postulez pour rejoindre une conversation future · 申请参与未来对话（艺术家、观察者或公众）",
-    participateLink: "Candidater · 前往报名",
+      "Artistes, observateurs ou public — postulez pour rejoindre une conversation future · 艺术家、观察者或公众 — 表达希望，参与未来对话",
+    participateLink: "Candidater · 希望对话",
     works: "Œuvres sélectionnées｜作品",
-    collectionInquiry: "Collection inquiry · 收藏咨询",
-    collectionNote:
-      "对该期对话相关作品有收藏意向 · Demande de collection pour les œuvres présentées",
-    collectionLink: "Demander · 咨询收藏",
     answerPending: "Réponse · 回答 · À venir",
   },
   en: {
@@ -105,9 +94,6 @@ const labels: Record<
       "Apply to participate in a future conversation as an artist, observer, or member of the public",
     participateLink: "Apply",
     works: "Selected Works",
-    collectionInquiry: "Collection Inquiry",
-    collectionNote: "Interested in collecting works featured in this conversation",
-    collectionLink: "Inquire",
     answerPending: "Answer · Coming soon",
   },
 };
@@ -169,7 +155,9 @@ function DialogueIdentity({ avatar }: { avatar: DialogueAvatar }) {
           src={avatar.src!}
           alt={avatar.alt}
           fill
-          className="object-cover object-center grayscale"
+          className={`object-cover object-center${
+            avatar.src?.includes("willy-le-nalbaut") ? "" : " grayscale"
+          }`}
           sizes="56px"
         />
       </div>
@@ -293,7 +281,7 @@ export function DialogueView({
   episode: DialogueEpisode;
   featured: FeaturedWork[];
 }) {
-  const [locale, setLocale] = useState<Locale>("fr");
+  const [locale, setLocale] = useLocale();
   const l = labels[locale];
   const episodeNum = l.episodeNum.replace("{n}", String(episode.episode));
 
@@ -370,22 +358,6 @@ export function DialogueView({
           </div>
         </section>
 
-        <section className="mt-16 border border-stone-200 bg-white px-6 py-8">
-          <SectionLabel>{l.participate}</SectionLabel>
-          <p className="mt-6 text-center text-sm leading-[1.9] text-stone-600">
-            {l.participateNote}
-          </p>
-          <div className="mt-6 flex justify-center">
-            <Link
-              href="/participer"
-              className="inline-flex items-center gap-2 rounded-full border border-stone-300 px-6 py-2.5 text-xs font-medium tracking-[0.12em] text-stone-700 transition-colors hover:border-stone-900 hover:text-stone-900"
-            >
-              {l.participateLink}
-              <span aria-hidden>→</span>
-            </Link>
-          </div>
-        </section>
-
         <section className="mt-10 border border-dashed border-stone-300 bg-stone-50/30 px-6 py-8">
           <SectionLabel>{l.publicMessages}</SectionLabel>
           <p className="mt-4 text-center text-xs tracking-wide text-stone-400">
@@ -440,23 +412,21 @@ export function DialogueView({
               </figure>
             ))}
           </div>
+        </section>
 
-          <div className="mx-auto mt-16 max-w-md border border-stone-200 px-6 py-8 text-center">
-            <p className="text-[11px] font-medium tracking-[0.15em] text-stone-400">
-              {l.collectionInquiry}
-            </p>
-            <p className="mt-4 text-sm leading-[1.9] text-stone-600">
-              {l.collectionNote}
-            </p>
-            <div className="mt-6 flex justify-center">
-              <Link
-                href="/collection"
-                className="inline-flex items-center gap-2 rounded-full border border-stone-300 px-6 py-2.5 text-xs font-medium tracking-[0.12em] text-stone-700 transition-colors hover:border-stone-900 hover:text-stone-900"
-              >
-                {l.collectionLink}
-                <span aria-hidden>→</span>
-              </Link>
-            </div>
+        <section className="mt-16 border border-stone-200 bg-white px-6 py-8">
+          <SectionLabel>{l.participate}</SectionLabel>
+          <p className="mt-6 text-center text-sm leading-[1.9] text-stone-600">
+            {l.participateNote}
+          </p>
+          <div className="mt-6 flex justify-center">
+            <Link
+              href="/participer"
+              className="inline-flex items-center gap-2 rounded-full border border-stone-300 px-6 py-2.5 text-xs font-medium tracking-[0.12em] text-stone-700 transition-colors hover:border-stone-900 hover:text-stone-900"
+            >
+              {l.participateLink}
+              <span aria-hidden>→</span>
+            </Link>
           </div>
         </section>
       </main>

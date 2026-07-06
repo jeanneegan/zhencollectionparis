@@ -1,12 +1,12 @@
 "use client";
 
 import { Noto_Serif_SC } from "next/font/google";
-import { useState } from "react";
 import { DialogueParticipationForm } from "@/app/components/dialogue-participation-form";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
 import { SiteFooter } from "@/app/components/site-footer";
 import { SiteHeader } from "@/app/components/site-header";
 import type { Locale } from "@/app/artists/[slug]/data";
+import { useLocale } from "@/app/lib/use-locale";
 
 const serif = Noto_Serif_SC({
   subsets: ["latin"],
@@ -25,20 +25,20 @@ const pageLabels: Record<
 > = {
   zh: {
     title: "Participer à la conversation",
-    titleSub: "报名对话",
+    titleSub: "希望对话",
     intro:
-      "艺术家、观察者或公众提问者均可申请参与巴黎臻藏的对话项目。我们会根据主题与排期与您联系。",
+      "艺术家、观察者或公众 — 表达希望，参与巴黎臻藏的对话项目。我们会根据主题与排期与您联系。",
     introSub:
       "Artistes, observateurs ou public — postulez pour rejoindre une conversation future de Zhen Collection Paris.",
     note: "此申请面向未来对话，与当期公众留言不同。",
   },
   fr: {
     title: "Participer à la conversation",
-    titleSub: "报名对话",
+    titleSub: "希望对话",
     intro:
       "Artistes, observateurs ou public — postulez pour rejoindre une conversation future de Zhen Collection Paris.",
     introSub:
-      "艺术家、观察者或公众提问者均可申请参与巴黎臻藏的对话项目。我们会根据主题与排期与您联系。",
+      "艺术家、观察者或公众 — 表达希望，参与巴黎臻藏的对话项目。我们会根据主题与排期与您联系。",
     note:
       "Cette candidature concerne une conversation future, distincte des messages du public sur l'épisode en cours.",
   },
@@ -54,7 +54,7 @@ const pageLabels: Record<
 };
 
 export function ParticiperView() {
-  const [locale, setLocale] = useState<Locale>("fr");
+  const [locale, setLocale] = useLocale();
   const l = pageLabels[locale];
 
   return (

@@ -3,9 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Noto_Serif_SC } from "next/font/google";
-import { useState } from "react";
 import { DialogueEpisodeList } from "@/app/components/dialogue-episode-list";
-import { EnglishButton } from "@/app/components/english-button";
+import { LanguageSwitcher } from "@/app/components/language-switcher";
 import { SiteFooter } from "@/app/components/site-footer";
 import { SiteHeader } from "@/app/components/site-header";
 import {
@@ -16,6 +15,7 @@ import {
   getUpcomingEpisodes,
   type DialogueEpisode,
 } from "@/app/dialogue/data";
+import { useLocale } from "@/app/lib/use-locale";
 
 const serif = Noto_Serif_SC({
   subsets: ["latin"],
@@ -23,7 +23,7 @@ const serif = Noto_Serif_SC({
 });
 
 export function HomeView() {
-  const [english, setEnglish] = useState(false);
+  const [locale, setLocale] = useLocale();
   const episode = getCurrentEpisode();
   const dialoguePath = getCurrentDialoguePath();
   const totalEpisodes = getAllEpisodes().length;
@@ -35,15 +35,12 @@ export function HomeView() {
         showNav={false}
         sticky={false}
         trailing={
-          <EnglishButton
-            active={english}
-            onClick={() => setEnglish((value) => !value)}
-          />
+          <LanguageSwitcher locale={locale} onChange={setLocale} />
         }
       />
 
       <main className="mx-auto max-w-3xl px-6 py-12 md:py-16">
-        {english ? (
+        {locale === "en" ? (
           <HomeEnglish
             episode={episode}
             dialoguePath={dialoguePath}
@@ -88,19 +85,6 @@ function HomeBilingual({
           艺术家之间的对话
         </p>
       </header>
-
-      <div className="mt-10 border-t border-stone-200 pt-8 text-center">
-        <p className="text-sm tracking-wide text-stone-500">
-          Conversations · Rencontres · Une autre voix
-        </p>
-        <p className="mt-1 text-xs tracking-wide text-stone-400">
-          对话 · 相遇 · 另一种声音
-        </p>
-        <div className="mt-8 space-y-1">
-          <p className="text-sm tracking-wide text-stone-500">Paris × Chine</p>
-          <p className="text-xs tracking-wide text-stone-400">巴黎 × 中国</p>
-        </div>
-      </div>
 
       <section className="mt-14 border border-stone-200 bg-stone-50/50 px-6 py-10 md:px-10 md:py-12">
         <p className="text-center text-[10px] font-medium uppercase tracking-[0.25em] text-stone-400">
@@ -161,34 +145,38 @@ function HomeBilingual({
           href="/dialogues"
           className="inline-flex items-center gap-2 text-xs tracking-[0.12em] text-stone-500 transition-colors hover:text-stone-900"
         >
-            Voir toutes les conversations ({totalEpisodes}) · 查看全部对话（
+          Voir toutes les conversations ({totalEpisodes}) · 查看全部对话（
           {totalEpisodes}期）
           <span aria-hidden>→</span>
         </Link>
       </section>
 
-      <ArtistsSection dialogueLabel="对话" artistFr="Artiste français" artistCn="Artiste chinoise" />
+      <ArtistsSection
+        dialogueLabel="对话"
+        artistFr="Artiste français"
+        artistCn="Artiste chinoise"
+      />
 
       <section className="mt-16 border border-stone-200 px-6 py-10 text-center md:px-10 md:py-12">
         <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-stone-400">
           Participer à la conversation
         </p>
         <p className="mt-1 text-[10px] tracking-[0.2em] text-stone-400">
-          报名对话
+          希望对话
         </p>
         <p className="mx-auto mt-6 max-w-md text-sm leading-[1.9] text-stone-600">
           Artistes, observateurs ou public — postulez pour rejoindre une
           conversation future.
         </p>
         <p className="mx-auto mt-2 max-w-md text-sm leading-[1.9] text-stone-500">
-          艺术家、观察者或公众提问者均可申请参与巴黎臻藏的对话项目。
+          艺术家、观察者或公众 — 表达希望，参与巴黎臻藏的对话项目。
         </p>
         <div className="mt-8 flex justify-center">
           <Link
             href="/participer"
             className="inline-flex items-center gap-2 rounded-full border border-stone-300 px-6 py-2.5 text-xs font-medium tracking-[0.12em] text-stone-700 transition-colors hover:border-stone-900 hover:text-stone-900"
           >
-            Candidater · 前往报名
+            Candidater · 希望对话
             <span aria-hidden>→</span>
           </Link>
         </div>
@@ -215,13 +203,6 @@ function HomeEnglish({
           Conversations Between Artists
         </h1>
       </header>
-
-      <div className="mt-10 border-t border-stone-200 pt-8 text-center">
-        <p className="text-sm tracking-wide text-stone-500">
-          Conversations · Encounters · Another voice
-        </p>
-        <p className="mt-8 text-sm tracking-wide text-stone-500">Paris × China</p>
-      </div>
 
       <section className="mt-14 border border-stone-200 bg-stone-50/50 px-6 py-10 md:px-10 md:py-12">
         <p className="text-center text-[10px] font-medium uppercase tracking-[0.25em] text-stone-400">
@@ -331,7 +312,7 @@ function ArtistsSection({
               src="/artists/willy-le-nalbaut/portrait.jpg"
               alt="Willy Le Nalbaut"
               fill
-              className="object-cover object-center grayscale transition-all group-hover:grayscale-0"
+              className="object-cover object-center"
               sizes="220px"
               priority
             />
