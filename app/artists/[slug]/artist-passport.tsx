@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
 import { SiteBrandLink } from "@/app/components/site-brand-link";
 import { SiteFooter } from "@/app/components/site-footer";
@@ -212,6 +213,77 @@ function Divider() {
   return <hr className="border-stone-200" />;
 }
 
+const passportSections = [
+  { id: "passport-artist", key: "artist" },
+  { id: "passport-exhibitions", key: "exhibitions" },
+  { id: "passport-works", key: "works" },
+] as const;
+
+type PassportSection = (typeof passportSections)[number]["key"];
+
+function PassportSectionNav({
+  labels,
+}: {
+  labels: { navArtist: string; navWorks: string; navExhibitions: string };
+}) {
+  const [activeSection, setActiveSection] = useState<PassportSection>("artist");
+
+  useEffect(() => {
+    const updateActiveSection = () => {
+      const offset = 160;
+      let next: PassportSection = "artist";
+
+      for (const section of passportSections) {
+        const element = document.getElementById(section.id);
+        if (!element) continue;
+        if (element.getBoundingClientRect().top - offset <= 0) {
+          next = section.key;
+        }
+      }
+
+      setActiveSection(next);
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    return () => window.removeEventListener("scroll", updateActiveSection);
+  }, []);
+
+  const items: { key: PassportSection; label: string; id: string }[] = [
+    { key: "artist", label: labels.navArtist, id: "passport-artist" },
+    { key: "works", label: labels.navWorks, id: "passport-works" },
+    {
+      key: "exhibitions",
+      label: labels.navExhibitions,
+      id: "passport-exhibitions",
+    },
+  ];
+
+  return (
+    <nav className="hidden gap-8 text-[11px] font-medium uppercase tracking-[0.15em] lg:flex">
+      {items.map(({ key, label, id }) => (
+        <button
+          key={key}
+          type="button"
+          onClick={() =>
+            document.getElementById(id)?.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            })
+          }
+          className={`transition-colors ${
+            activeSection === key
+              ? "text-stone-900"
+              : "text-stone-400 hover:text-stone-900"
+          }`}
+        >
+          {label}
+        </button>
+      ))}
+    </nav>
+  );
+}
+
 export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
   const [locale, setLocale] = useLocale();
   const l = labels[locale];
@@ -222,11 +294,13 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-5 md:px-10">
           <SiteBrandLink className="shrink-0" />
           <div className="flex shrink-0 items-center gap-4 md:gap-6">
-            <nav className="hidden gap-8 text-[11px] font-medium uppercase tracking-[0.15em] text-stone-400 lg:flex">
-              <span className="text-stone-900">{l.navArtist}</span>
-              <span>{l.navWorks}</span>
-              <span>{l.navExhibitions}</span>
-            </nav>
+            <PassportSectionNav
+              labels={{
+                navArtist: l.navArtist,
+                navWorks: l.navWorks,
+                navExhibitions: l.navExhibitions,
+              }}
+            />
             <LanguageSwitcher locale={locale} onChange={setLocale} />
           </div>
         </div>
@@ -234,7 +308,10 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
       </header>
 
       {/* Hero */}
-      <section className="border-b border-stone-200 bg-white">
+      <section
+        id="passport-artist"
+        className="scroll-mt-28 border-b border-stone-200 bg-white md:scroll-mt-32"
+      >
         <div className="mx-auto grid max-w-7xl grid-cols-1 md:grid-cols-2">
           <div className="relative aspect-[3/4] md:aspect-auto md:min-h-[640px]">
             <Image
@@ -409,7 +486,10 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
       </div>
 
       {/* Exhibitions */}
-      <section className="mx-auto max-w-7xl px-6 py-20 md:px-10">
+      <section
+        id="passport-exhibitions"
+        className="mx-auto max-w-7xl scroll-mt-28 px-6 py-20 md:scroll-mt-32 md:px-10"
+      >
         <SectionTitle>{l.exhibitions}</SectionTitle>
         <div className="mt-12 overflow-x-auto">
           <table className="w-full min-w-[600px] text-left">
@@ -546,7 +626,10 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
       </div>
 
       {/* Selected Works */}
-      <section className="mx-auto max-w-7xl px-6 py-20 md:px-10">
+      <section
+        id="passport-works"
+        className="mx-auto max-w-7xl scroll-mt-28 px-6 py-20 md:scroll-mt-32 md:px-10"
+      >
         <SectionTitle>{l.selectedWorks}</SectionTitle>
         <div className="mt-12 grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
           {artist.artworks.map((artwork) => (
