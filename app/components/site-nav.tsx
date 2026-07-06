@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { getSiteNavItems } from "./site-nav-config";
 
-const artistActiveClass = "bg-[#002395] text-white";
+const artistActiveClass = "bg-stone-900 text-white";
 const dialogueActiveClass = "bg-[#5a2323] text-white";
 
 const items = getSiteNavItems();
