@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Noto_Serif_SC } from "next/font/google";
 import { DialogueEpisodeList } from "@/app/components/dialogue-episode-list";
+import { AproposLink } from "@/app/components/apropos-link";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
 import { SiteFooter } from "@/app/components/site-footer";
 import { SiteHeader } from "@/app/components/site-header";
@@ -16,6 +17,7 @@ import {
   type DialogueEpisode,
 } from "@/app/dialogue/data";
 import { useLocale } from "@/app/lib/use-locale";
+import type { Locale } from "@/app/artists/[slug]/data";
 
 const serif = Noto_Serif_SC({
   subsets: ["latin"],
@@ -42,6 +44,7 @@ export function HomeView() {
       <main className="mx-auto max-w-3xl px-6 py-12 md:py-16">
         {locale === "en" ? (
           <HomeEnglish
+            locale={locale}
             episode={episode}
             dialoguePath={dialoguePath}
             totalEpisodes={totalEpisodes}
@@ -49,6 +52,7 @@ export function HomeView() {
           />
         ) : (
           <HomeBilingual
+            locale={locale}
             episode={episode}
             dialoguePath={dialoguePath}
             totalEpisodes={totalEpisodes}
@@ -57,17 +61,27 @@ export function HomeView() {
         )}
       </main>
 
-      <SiteFooter />
+      <SiteFooter locale={locale} />
+    </div>
+  );
+}
+
+function HomeAproposLink({ locale }: { locale: Locale }) {
+  return (
+    <div className="mb-10 text-center">
+      <AproposLink locale={locale} showArrow variant="page-bottom" />
     </div>
   );
 }
 
 function HomeBilingual({
+  locale,
   episode,
   dialoguePath,
   totalEpisodes,
   upcomingPreview,
 }: {
+  locale: Locale;
   episode: DialogueEpisode;
   dialoguePath: string;
   totalEpisodes: number;
@@ -75,6 +89,8 @@ function HomeBilingual({
 }) {
   return (
     <>
+      <HomeAproposLink locale={locale} />
+
       <header className="text-center">
         <h1 className="text-2xl font-normal tracking-wide text-stone-900 md:text-3xl">
           Conversations entre artistes
@@ -193,11 +209,13 @@ function HomeBilingual({
 }
 
 function HomeEnglish({
+  locale,
   episode,
   dialoguePath,
   totalEpisodes,
   upcomingPreview,
 }: {
+  locale: Locale;
   episode: DialogueEpisode;
   dialoguePath: string;
   totalEpisodes: number;
@@ -205,6 +223,8 @@ function HomeEnglish({
 }) {
   return (
     <>
+      <HomeAproposLink locale={locale} />
+
       <header className="text-center">
         <h1 className="text-3xl font-normal tracking-wide text-stone-900 md:text-4xl">
           Conversations Between Artists
