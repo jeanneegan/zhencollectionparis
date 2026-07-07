@@ -290,18 +290,29 @@ function ArtworkCard({
         imageAspect: artwork.imageAspect,
       },
     ] as const);
-  const showViewLabels = Boolean(artwork.views?.length);
+  const showViewLabels = Boolean(
+    artwork.views?.some(
+      (view) => view.label && (view.label.zh || view.label.fr || view.label.en),
+    ),
+  );
 
   return (
     <article className={`group ${articleClass || layout.articleClass}`}>
       <div
-        className={`grid gap-4 ${views.length > 1 ? "sm:grid-cols-2" : ""}`}
+        className={`grid gap-4 ${
+          views.length > 1 && artwork.viewsLayout !== "stack"
+            ? "sm:grid-cols-2"
+            : ""
+        }`}
       >
         {views.map((view) => {
           const viewLayout = getArtworkDisplayLayout({
             dimensions: artwork.dimensions,
             imageAspect: view.imageAspect ?? artwork.imageAspect,
             layoutPair: artwork.layoutPair,
+            displayLayout: artwork.displayLayout,
+            viewsLayout: artwork.viewsLayout,
+            views: artwork.views,
           });
 
           return (
@@ -318,7 +329,7 @@ function ArtworkCard({
                 <Image
                   src={view.src}
                   alt={
-                    showViewLabels
+                    showViewLabels && view.label
                       ? `${t(artwork.title, locale)} · ${t(view.label, locale)}`
                       : t(artwork.title, locale)
                   }

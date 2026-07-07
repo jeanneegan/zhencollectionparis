@@ -61,13 +61,15 @@ export type ArtistProfile = {
     imageAspect?: [number, number];
     views?: {
       src: string;
-      label: LocalizedText;
+      label?: LocalizedText;
       imageAspect?: [number, number];
     }[];
     layoutPair?: {
       group: string;
       role: "main" | "side";
     };
+    displayLayout?: "compact";
+    viewsLayout?: "row" | "stack";
   }[];
   professionalReputation: {
     galleryRecognition: { name: string; quote: LocalizedText }[];
@@ -521,6 +523,40 @@ const willyLeNalbaut: ArtistProfile = {
       image: "/artists/willy-le-nalbaut/works/flaque-aux-oiseaux.jpg",
       imageAspect: [1024, 951],
     },
+    {
+      id: "11",
+      title: {
+        zh: "« Le moine »",
+        fr: "« Le moine »",
+        en: "The Monk",
+      },
+      year: 2025,
+      medium: {
+        zh: "油画 · 木板",
+        fr: "Huile sur bois",
+        en: "Oil on wood panel",
+      },
+      dimensions: "41 × 33 cm",
+      image: "/artists/willy-le-nalbaut/works/le-moine.jpg",
+      imageAspect: [812, 1024],
+    },
+    {
+      id: "12",
+      title: {
+        zh: "« Eh-pad flower. »",
+        fr: "« Eh-pad flower. »",
+        en: "« Eh-pad flower. »",
+      },
+      year: 2023,
+      medium: {
+        zh: "油画 · 画布",
+        fr: "Huile sur toile",
+        en: "Oil on canvas",
+      },
+      dimensions: "30 × 30 cm",
+      image: "/artists/willy-le-nalbaut/works/eh-pad-flower.jpg",
+      imageAspect: [1011, 1024],
+    },
   ],
   professionalReputation: {
     galleryRecognition: [
@@ -931,7 +967,7 @@ const suHong: ArtistProfile = {
         en: "Acrylic on canvas",
       },
       dimensions: "100 × 130 cm",
-      image: "/artists/su-hong/works/ma-gui-2.jpg",
+      image: "/artists/su-hong/works/ma-gui-dialogue.jpg",
     },
     {
       id: "3",
@@ -956,6 +992,78 @@ const suHong: ArtistProfile = {
       },
       dimensions: "120 × 100 cm",
       image: "/artists/su-hong/works/big-friends-2.jpg",
+    },
+    {
+      id: "5",
+      title: {
+        zh: "《纹饰系列》",
+        fr: "Série des ornements",
+        en: "Ornament Series",
+      },
+      year: 2022,
+      medium: {
+        zh: "综合材料",
+        fr: "Technique mixte",
+        en: "Mixed media",
+      },
+      dimensions: "",
+      image: "/artists/su-hong/works/wen-shi-series.jpg",
+      imageAspect: [688, 614],
+    },
+    {
+      id: "6",
+      title: { zh: "荷花", fr: "Lotus", en: "Lotus" },
+      year: 2020,
+      medium: {
+        zh: "纸本墨笔",
+        fr: "Encre sur papier",
+        en: "Ink on paper",
+      },
+      dimensions: "",
+      image: "/artists/su-hong/works/peony.jpg",
+      imageAspect: [790, 500],
+      displayLayout: "compact",
+    },
+    {
+      id: "7",
+      title: { zh: "花瓶", fr: "Vase", en: "Vase" },
+      year: 2020,
+      medium: {
+        zh: "纸本墨笔",
+        fr: "Encre sur papier",
+        en: "Ink on paper",
+      },
+      dimensions: "",
+      image: "/artists/su-hong/works/poppy.jpg",
+      imageAspect: [790, 500],
+      views: [
+        {
+          src: "/artists/su-hong/works/poppy.jpg",
+          imageAspect: [790, 500],
+        },
+        {
+          src: "/artists/su-hong/works/poppy-2.jpg",
+          imageAspect: [790, 500],
+        },
+      ],
+      viewsLayout: "stack",
+      displayLayout: "compact",
+    },
+    {
+      id: "8",
+      title: {
+        zh: "假如山上有花纹",
+        fr: "Si les montagnes avaient des motifs",
+        en: "If the Mountains Had Patterns",
+      },
+      year: 2022,
+      medium: {
+        zh: "纸本综合材料",
+        fr: "Technique mixte sur papier",
+        en: "Mixed media on paper",
+      },
+      dimensions: "78 × 110 cm",
+      image: "/artists/su-hong/works/ru-shan-shang-you-hua-wen.jpg",
     },
   ],
   professionalReputation: {
@@ -1069,6 +1177,8 @@ export function getArtworkDisplayLayout(artwork: {
   imageAspect?: [number, number];
   views?: unknown[];
   layoutPair?: { role: "main" | "side" };
+  displayLayout?: "compact";
+  viewsLayout?: "row" | "stack";
 }): {
   aspect: [number, number];
   articleClass: string;
@@ -1086,6 +1196,15 @@ export function getArtworkDisplayLayout(artwork: {
   const aspectRatio = `${width} / ${height}`;
   const multiViewClass =
     artwork.views && artwork.views.length > 1 ? "sm:col-span-2" : "";
+
+  if (artwork.displayLayout === "compact") {
+    return {
+      aspect,
+      articleClass: "mx-auto w-full max-w-[360px]",
+      imageSizes: "(max-width: 640px) 80vw, 360px",
+      frameStyle: { aspectRatio, marginInline: "auto" },
+    };
+  }
 
   if (artwork.layoutPair) {
     const isSide = artwork.layoutPair.role === "side";
