@@ -87,6 +87,15 @@ export function ExhibitionView({
       />
 
       <main className="mx-auto max-w-3xl px-6 py-12 md:py-16">
+        {isAuthenticated ? (
+          <div className="mb-8 flex justify-center">
+            <MemberShareLink
+              locale={locale}
+              path={`/exhibitions/${exhibition.slug}`}
+            />
+          </div>
+        ) : null}
+
         <header className="text-center">
           <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-stone-400">
             {l.kicker}
@@ -109,15 +118,6 @@ export function ExhibitionView({
         <p className="mx-auto mt-10 max-w-xl text-center text-sm leading-[1.9] text-stone-600">
           {t(exhibition.intro, locale)}
         </p>
-
-        {isAuthenticated ? (
-          <div className="mx-auto mt-8 max-w-xl">
-            <MemberShareLink
-              locale={locale}
-              path={`/exhibitions/${exhibition.slug}`}
-            />
-          </div>
-        ) : null}
 
         <section className="mt-14 space-y-16">
           {works.map((work) => {

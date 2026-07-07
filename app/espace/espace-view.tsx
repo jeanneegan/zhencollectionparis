@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
-import { MemberShareLink } from "@/app/components/member-share-link";
 import {
   getArtistBySlug,
   t,
@@ -386,7 +385,7 @@ export function EspaceView({ userEmail }: { userEmail: string }) {
               ))}
             </ul>
           ) : activeId === "exhibitions" && featuredExhibition ? (
-            <div className="mt-8 space-y-5">
+            <div className="mt-8">
               <Link
                 href={`/exhibitions/${featuredExhibition.slug}?from=${RETURN_FROM_ESPACE_EXHIBITIONS}`}
                 className="block rounded-sm border border-stone-200 p-5 transition-colors hover:border-stone-400"
@@ -401,10 +400,6 @@ export function EspaceView({ userEmail }: { userEmail: string }) {
                   {l.viewExhibition}
                 </p>
               </Link>
-              <MemberShareLink
-                locale={locale}
-                path={`/exhibitions/${featuredExhibition.slug}`}
-              />
             </div>
           ) : activeId === "receivedMessages" ? (
             <ul className="mt-8 space-y-4">
