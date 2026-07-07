@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Noto_Serif_SC } from "next/font/google";
 import { DialogueEpisodeList } from "@/app/components/dialogue-episode-list";
-import { AproposLink } from "@/app/components/apropos-link";
+import { SiteTopLinks } from "@/app/components/site-top-links";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
 import { SiteFooter } from "@/app/components/site-footer";
 import { SiteHeader } from "@/app/components/site-header";
@@ -66,14 +66,6 @@ export function HomeView() {
   );
 }
 
-function HomeAproposLink({ locale }: { locale: Locale }) {
-  return (
-    <div className="mb-10 text-center">
-      <AproposLink locale={locale} showArrow variant="page-bottom" />
-    </div>
-  );
-}
-
 function HomeBilingual({
   locale,
   episode,
@@ -89,7 +81,7 @@ function HomeBilingual({
 }) {
   return (
     <>
-      <HomeAproposLink locale={locale} />
+      <SiteTopLinks locale={locale} />
 
       <header className="text-center">
         <h1 className="text-2xl font-normal tracking-wide text-stone-900 md:text-3xl">
@@ -223,7 +215,7 @@ function HomeEnglish({
 }) {
   return (
     <>
-      <HomeAproposLink locale={locale} />
+      <SiteTopLinks locale={locale} />
 
       <header className="text-center">
         <h1 className="text-3xl font-normal tracking-wide text-stone-900 md:text-4xl">
