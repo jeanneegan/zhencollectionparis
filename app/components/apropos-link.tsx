@@ -2,9 +2,9 @@ import Link from "next/link";
 import type { Locale } from "@/app/artists/[slug]/data";
 
 const labels: Record<Locale, string> = {
-  fr: "Pourquoi « Zhen » ? · 为什么「臻」？",
-  zh: "Pourquoi « Zhen » ? · 为什么「臻」？",
-  en: "Why « Zhen »?",
+  fr: "Pourquoi Zhen Collection Paris ?",
+  zh: "为什么是巴黎臻藏？",
+  en: "Why Zhen Collection Paris?",
 };
 
 export function AproposLink({

@@ -1,7 +1,14 @@
 import Link from "next/link";
+import type { Locale } from "@/app/artists/[slug]/data";
 import { AproposLink } from "@/app/components/apropos-link";
 
-export function SiteFooter({ wide = false }: { wide?: boolean }) {
+export function SiteFooter({
+  wide = false,
+  locale = "fr",
+}: {
+  wide?: boolean;
+  locale?: Locale;
+}) {
   return (
     <footer className="border-t border-stone-200 bg-white">
       <div
@@ -15,7 +22,7 @@ export function SiteFooter({ wide = false }: { wide?: boolean }) {
         >
           Zhen Collection Paris 巴黎臻藏
         </Link>
-        <AproposLink />
+        <AproposLink locale={locale} />
         <p className="text-[11px] text-stone-400">
           Paris × Chine · 巴黎 × 中国 · Conversations · Rencontres · Une autre voix
         </p>
