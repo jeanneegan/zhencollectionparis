@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Noto_Serif_SC } from "next/font/google";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
 import {
   getArtistBySlug,
@@ -22,11 +21,6 @@ import { GALLERY_RECEIVED_MESSAGES } from "@/app/lib/gallery-messages";
 import { RETURN_FROM_ESPACE, RETURN_FROM_ESPACE_EXHIBITIONS } from "@/app/lib/return-to";
 import { useLocale } from "@/app/lib/use-locale";
 
-const serif = Noto_Serif_SC({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-});
-
 type FocusId = keyof typeof MOCK_USER.focus;
 
 const pageLabels: Record<
@@ -34,8 +28,6 @@ const pageLabels: Record<
   {
     kicker: string;
     kickerSub: string;
-    title: string;
-    titleSub: string;
     signedInAs: string;
     memberTypeLabel: string;
     navLabel: string;
@@ -51,8 +43,6 @@ const pageLabels: Record<
   zh: {
     kicker: "Espace membre",
     kickerSub: "成员空间",
-    title: "设计工作台",
-    titleSub: "Atelier de conception",
     signedInAs: "当前登录",
     memberTypeLabel: "Type de membre · 成员类型",
     navLabel: "Navigation · 导航",
@@ -89,8 +79,6 @@ const pageLabels: Record<
   fr: {
     kicker: "Espace membre",
     kickerSub: "成员空间",
-    title: "Atelier de conception",
-    titleSub: "设计工作台",
     signedInAs: "Connecté en tant que",
     memberTypeLabel: "Type de membre · 成员类型",
     navLabel: "Navigation · 导航",
@@ -127,8 +115,6 @@ const pageLabels: Record<
   en: {
     kicker: "Member space",
     kickerSub: "",
-    title: "Design workspace",
-    titleSub: "",
     signedInAs: "Signed in as",
     memberTypeLabel: "Member type",
     navLabel: "Navigation",
@@ -262,7 +248,7 @@ export function EspaceView({ userEmail }: { userEmail: string }) {
 
       <div className="md:flex">
       <aside className="border-b border-stone-200 bg-stone-50/50 md:flex md:w-72 md:shrink-0 md:flex-col md:border-b-0 md:border-r">
-        <div className="border-b border-stone-200 px-5 py-5">
+        <div className="border-b border-stone-200 px-5 py-4">
           <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-stone-400">
             {l.kicker}
           </p>
@@ -271,15 +257,7 @@ export function EspaceView({ userEmail }: { userEmail: string }) {
               {l.kickerSub}
             </p>
           ) : null}
-          <h1
-            className={`${serif.className} mt-4 text-lg font-normal tracking-wide text-stone-900`}
-          >
-            {locale === "en" ? l.title : `${l.title} · ${l.titleSub}`}
-          </h1>
-        </div>
-
-        <div className="border-b border-stone-200 px-5 py-4">
-          <p className="text-[10px] uppercase tracking-[0.15em] text-stone-400">
+          <p className="mt-4 text-[10px] uppercase tracking-[0.15em] text-stone-400">
             {l.signedInAs}
           </p>
           <p className="mt-2 text-sm font-medium text-stone-800">{userEmail}</p>
