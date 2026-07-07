@@ -2,8 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 import { getSiteNavItems } from "./site-nav-config";
-import { useIsAuthenticated } from "@/app/lib/use-is-authenticated";
+import {
+  readReturnFromParam,
+  shouldHidePublicNav,
+  useIsAuthenticated,
+} from "@/app/lib/use-is-authenticated";
 
 const artistActiveClass = "bg-stone-900 text-white";
 const dialogueActiveClass = "bg-[#5a2323] text-white";
@@ -13,8 +18,27 @@ const items = getSiteNavItems();
 export function MobileNav() {
   const pathname = usePathname();
   const isAuthenticated = useIsAuthenticated();
+  const hideNav = shouldHidePublicNav(
+    pathname,
+    isAuthenticated,
+    readReturnFromParam(),
+  );
 
-  if (isAuthenticated || pathname.startsWith("/espace")) {
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+
+    if (hideNav && isMobile) {
+      document.body.classList.remove("pb-16");
+    } else if (isMobile) {
+      document.body.classList.add("pb-16");
+    }
+  }, [hideNav]);
+
+  if (hideNav) {
     return null;
   }
 

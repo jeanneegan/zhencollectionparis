@@ -2,7 +2,8 @@
 
 import { SiteBrandLink } from "@/app/components/site-brand-link";
 import { SiteNav } from "@/app/components/site-nav";
-import { useIsAuthenticated } from "@/app/lib/use-is-authenticated";
+import { shouldHidePublicNav, useIsAuthenticated, readReturnFromParam } from "@/app/lib/use-is-authenticated";
+import { usePathname } from "next/navigation";
 
 export function SiteHeader({
   trailing,
@@ -16,7 +17,10 @@ export function SiteHeader({
   sticky?: boolean;
 }) {
   const isAuthenticated = useIsAuthenticated();
-  const showPublicNav = showNav && !isAuthenticated;
+  const pathname = usePathname();
+  const showPublicNav =
+    showNav &&
+    !shouldHidePublicNav(pathname, isAuthenticated, readReturnFromParam());
 
   return (
     <header
