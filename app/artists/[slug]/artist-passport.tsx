@@ -433,6 +433,16 @@ function ArtworkCard({
             {artwork.dimensions}
           </p>
         ) : null}
+        {artwork.description ? (
+          <div className={`mt-4 space-y-3 ${passportType.body}`}>
+            {t(artwork.description, locale)
+              .split(/\n\n+/)
+              .filter(Boolean)
+              .map((paragraph) => (
+                <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+              ))}
+          </div>
+        ) : null}
       </div>
     </article>
   );

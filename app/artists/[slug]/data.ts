@@ -60,6 +60,7 @@ export type ArtistProfile = {
     id: string;
     title: LocalizedText;
     subtitle?: LocalizedText;
+    description?: LocalizedText;
     year: number;
     medium: LocalizedText;
     dimensions: string;
@@ -527,6 +528,29 @@ I do not work in series, but in constant research, every day if possible.`,
         fr: "(Paravent suspendu pour l'ADAF, Bruxelles, Septembre 2024)",
         en: "(Suspended screen for ADAF, Brussels, September 2024)",
       },
+      description: {
+        fr: `« PDT » est un paravent suspendu représentant une pomme de terre un peu frippée et germée. Sur le recto, une scène de barbecue entre voisins. Leurs trois maisons sont reliées et perchées dans un arbre qui s'appelle l'eucalyptus arc-en-ciel.
+
+Je l'ai réalisé pour l'ADAF, une exposition collective qui a eu lieu en septembre 2024 à Bruxelles. Chaque artiste invité devait créer un objet ou un meuble pouvant être fonctionnel.
+
+Il s'agit de vingt panneaux de bois évidés et peints de chaque côté, reliés par des anneaux en métal à clipser, attachés à une barre en acier et suspendus au plafond.
+
+Le thème de l'exposition était la « maison du peuple » — d'où la pomme de terre, légume peu cher et populaire.`,
+        zh: `《PDT》是一件悬挂式屏风，描绘一颗略显皱缩、发了芽的土豆。正面是邻居们烧烤的场景——三栋房子相连，栖居在一棵名叫「彩虹桉」的树上。
+
+为 2024 年 9 月布鲁塞尔 ADAF 群展而作；每位受邀艺术家须创作一件可用作功能的物件或家具。
+
+作品由二十块掏空并双面绘制的木板组成，以可扣合的金属环相连，固定在钢杆上，悬于天花板。
+
+展览主题为「人民的房子」——土豆因而出现：便宜、大众的蔬菜。`,
+        en: `« PDT » is a suspended screen depicting a slightly wrinkled, sprouted potato. On the front, a barbecue scene between neighbours—their three houses linked and perched in a tree called the rainbow eucalyptus.
+
+I made it for ADAF, a group exhibition in Brussels in September 2024. Each invited artist had to create an object or piece of furniture that could be functional.
+
+It consists of twenty hollowed wood panels painted on both sides, joined by clip-on metal rings, attached to a steel bar and hung from the ceiling.
+
+The exhibition theme was the « people's house »—hence the potato, a cheap, popular vegetable.`,
+      },
       year: 2024,
       medium: {
         zh: "木板油画、金属环、钢制挂杆与吊缆",
@@ -565,6 +589,89 @@ I do not work in series, but in constant research, every day if possible.`,
       dimensions: "31 × 48 cm",
       image: "/artists/willy-le-nalbaut/works/ane.jpg",
       imageAspect: [1024, 659],
+      description: {
+        fr: "Dans ce tableau, l'âne est sensé me représenter.",
+        zh: "在这幅画里，驴子应当代表我自己。",
+        en: "In this painting, the donkey is meant to represent me.",
+      },
+    },
+    {
+      id: "13",
+      title: {
+        zh: "« Mais c'est le Mitch ! »",
+        fr: "« Mais c'est le Mitch ! »",
+        en: "« Mais c'est le Mitch ! »",
+      },
+      year: 2024,
+      medium: {
+        zh: "油画 · 木板",
+        fr: "Huile sur bois",
+        en: "Oil on wood panel",
+      },
+      dimensions: "20 × 31 cm",
+      image: "/artists/willy-le-nalbaut/works/mais-cest-le-mitch.jpg",
+      imageAspect: [1010, 646],
+      description: {
+        fr: `Dans ce tableau, je fais un portrait de ma poule Mitch — elle est la seule survivante d'une attaque de renards.
+
+J'utilise une peinture dorée pour faire des liserets ou des traits fins, un peu comme dans certaines peintures représentant la lumière ou le divin, comme dans L'Annonciation ou l'Agneau mystique de Van Eyck.`,
+        zh: `在这幅画里，我为我的母鸡 Mitch 画像——她是一次狐狸袭击中唯一的幸存者。
+
+我用金色颜料画出细线或镶边，有点像某些表现光或神圣性的绘画，如 van Eyck 的《Annunciation》或《Ghent Altarpiece》（神秘羔羊）。`,
+        en: `In this painting I portray my hen Mitch—the sole survivor of a fox attack.
+
+I use gold paint for fine lines or borders, somewhat like paintings that represent light or the divine, as in Van Eyck's Annunciation or the Ghent Altarpiece (Adoration of the Mystic Lamb).`,
+      },
+    },
+    {
+      id: "15",
+      title: {
+        zh: "« Saupoudrez d'un peu de Korrigan »",
+        fr: "« Saupoudrez d'un peu de Korrigan »",
+        en: "« Saupoudrez d'un peu de Korrigan »",
+      },
+      year: 2024,
+      medium: {
+        zh: "油画 · 木板",
+        fr: "Huile sur bois",
+        en: "Oil on wood panel",
+      },
+      dimensions: "20 × 30 cm",
+      image: "/artists/willy-le-nalbaut/works/saupoudrez-dun-peu-de-korrigan.jpg",
+      imageAspect: [1024, 680],
+      description: {
+        fr: `Dans cette peinture, j'ai d'abord commencé par le bouquet de fleurs comme une nature morte ; après l'avoir laissé quelques mois sans y toucher, je suis revenu par derrière pour y rajouter les personnages et le paysage.`,
+        zh: `在这幅画里，我起初以花束作静物起稿；搁置数月未动之后，我又回到画前，在后方添上人物与风景。`,
+        en: `In this painting, I first began with the bouquet of flowers as a still life; after leaving it untouched for several months, I came back to add the figures and the landscape behind it.`,
+      },
+    },
+    {
+      id: "14",
+      title: {
+        zh: "« Attachez vos ceintures ! »",
+        fr: "« Attachez vos ceintures ! »",
+        en: "« Attachez vos ceintures ! »",
+      },
+      year: 2025,
+      medium: {
+        zh: "油画 · 木板",
+        fr: "Huile sur bois",
+        en: "Oil on wood panel",
+      },
+      dimensions: "37.5 × 61.5 cm",
+      image: "/artists/willy-le-nalbaut/works/attachez-vos-ceintures.jpg",
+      imageAspect: [1024, 650],
+      description: {
+        fr: `Dans « Attachez vos ceintures ! », la scène se passe en Bretagne, dans une rue existante. J'ai imaginé un monde où tout serait accessible en monte-escaliers Stannah.
+
+Il reste un morceau d'une couche inférieure en bas à gauche ; et, comme dans la peinture précédente, au centre du tableau, la lumière divine en traits dorés — en référence à Van Eyck ou d'autres peintures religieuses.`,
+        zh: `在《Attachez vos ceintures !》中，场景设在布列塔尼一条真实存在的街道。我设想了一个一切皆可乘 Stannah 楼梯升降机抵达的世界。
+
+左下角仍留有一小块下层画作的痕迹；与上一幅画一样，画面中央是以金色细线表现的神圣之光——参照 van Eyck 或其他宗教绘画。`,
+        en: `In « Attachez vos ceintures ! », the scene takes place in Brittany, in a real street. I imagined a world where everything would be reachable by Stannah stairlifts.
+
+A fragment of an underlying layer remains at the bottom left; and, as in the previous painting, divine light in gold lines at the centre of the canvas—in reference to Van Eyck or other religious paintings.`,
+      },
     },
     {
       id: "7",
