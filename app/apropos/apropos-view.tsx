@@ -94,8 +94,8 @@ const pageContent: Record<
       {
         label: "一个持续生长的平台",
         paragraphs: [
-          "巴黎臻藏，不是一家画廊。也不仅是一份收藏。它希望成为一个持续生长的平台。",
-          "艺术家、收藏家、研究者、策展人，以及每一位愿意认真观看的人，都可以在这里相遇。",
+          "巴黎臻藏以协会的形式成立。但它真正希望建立的，并不仅是一家协会。而是一个能够随着时间不断生长的艺术平台。",
+          "在这里，艺术家、画廊，收藏家、研究者、策展人，以及每一位愿意认真观看的人，都可以相遇，让作品、思想与不同文化彼此交流，并共同留下这个时代的记录。",
         ],
       },
       {
@@ -122,86 +122,85 @@ const pageContent: Record<
     sections: [
       {
         paragraphs: [
-          "Le monde ne manque pas d'art. Ce qui lui manque, c'est la volonté de s'arrêter pour vraiment se voir les uns les autres.",
-          "Aujourd'hui, nous regardons chaque jour d'innombrables images, mais nous sommes de moins en moins nombreux à affronter véritablement une œuvre ; à écouter sincèrement un artiste ; à entrer dans une autre culture, simplement pour comprendre, et non pour juger.",
+          "Le monde ne manque pas d'art. Ce qui manque, c'est la volonté de s'arrêter et de vraiment se voir les uns les autres.",
+          "Aujourd'hui, nous regardons chaque jour d'innombrables images. Pourtant, nous prenons de moins en moins le temps de nous arrêter devant une œuvre, d'écouter véritablement un artiste ou d'entrer dans une autre culture avec le désir de comprendre plutôt que de juger.",
         ],
       },
       {
         variant: "callout",
         paragraphs: [
-          "Zhen Collection Paris est née de ce constat.",
-          "Elle ne vise pas à ajouter une voix de plus. Elle cherche à créer une rencontre.",
+          "C'est de ce constat qu'est née Zhen Collection Paris.",
+          "Non pas pour ajouter une voix de plus. Mais pour créer un espace de rencontre.",
         ],
       },
       {
         label: "L'art appartient d'abord à la vie",
         paragraphs: [
-          "Nous croyons que l'art appartient d'abord à la vie. Chaque œuvre naît de la vie, de la mémoire, des émotions et de la pensée d'une personne. Avant d'être une œuvre, c'est d'abord une expérience de vie. Avant d'avoir une valeur marchande, c'est d'abord une manière de voir le monde. C'est pourquoi nous regardons les œuvres, mais aussi les personnes derrière elles.",
+          "Nous croyons que l'art appartient d'abord à la vie. Chaque œuvre naît d'une histoire, d'une mémoire, d'une émotion et d'une pensée. Avant d'être une œuvre, elle est une expérience humaine. Avant d'avoir une valeur sur le marché, elle est une manière d'habiter le monde. C'est pourquoi nous nous intéressons autant aux œuvres qu'aux personnes qui les créent.",
         ],
       },
       {
         label: "Le dialogue est une création",
         paragraphs: [
-          "Nous croyons que le dialogue est lui-même une forme de création. Quand un artiste français pose une question à un artiste chinois ; quand un artiste chinois répond au regard d'une autre culture ; quand un spectateur ordinaire exprime ce qu'il ressent vraiment ; une nouvelle œuvre commence peut-être déjà à naître. Elle existe entre les personnes. Elle existe au moment où la compréhension advient.",
+          "Nous croyons que le dialogue est lui aussi une forme de création. Lorsqu'un artiste français pose une question à un artiste chinois. Lorsqu'un artiste chinois répond au regard d'une autre culture. Lorsqu'un visiteur exprime sincèrement ce qu'il ressent. Alors quelque chose de nouveau peut apparaître. Peut-être une œuvre. Peut-être une compréhension. Toujours une rencontre.",
         ],
       },
       {
         label: "Chaque regard sincère compte",
         paragraphs: [
-          "Nous croyons que chaque regard sincère mérite d'être respecté. L'art appartient à l'artiste, mais aussi à quiconque veut regarder. La recherche, la critique et la curation professionnelles construisent une connaissance de l'art. Les sentiments des spectateurs, eux, ramènent l'art dans la vie. C'est pourquoi nous voulons enregistrer des voix différentes. Parce que chaque rencontre authentique mérite d'être conservée.",
+          "Nous croyons que tout regard sincère mérite d'être entendu. L'art appartient aux artistes. Mais il appartient aussi à celles et ceux qui prennent le temps de le regarder. La recherche, la critique et le commissariat construisent le savoir. Le regard du public, lui, redonne à l'art sa place dans la vie. C'est pourquoi nous voulons conserver la diversité des regards. Parce que chaque rencontre authentique mérite d'être préservée.",
         ],
       },
       {
-        label: "Zhen · 臻",
+        label: "Zhen",
         variant: "verse",
         paragraphs: [
-          "Zhen (臻) est un verbe.",
-          "Ce n'est pas l'arrivée. C'est un rapprochement continu.",
-          "Se rapprocher du réel. Se rapprocher du beau.",
-          "Se rapprocher de ce qui mérite d'être préservé, transmis et partagé.",
-          "C'est pourquoi nous ne nous pressons pas de définir. Nous préférons continuer de nous rapprocher.",
+          "Zhen est un verbe.",
+          "Ce n'est pas parvenir. C'est continuer à s'approcher.",
+          "S'approcher du vrai. Du beau.",
+          "De ce qui mérite d'être préservé, transmis et partagé.",
+          "Nous ne cherchons donc pas à définir une vérité. Nous choisissons de continuer à nous en approcher.",
         ],
       },
       {
-        label: "Cang · 藏",
+        label: "Collection",
         variant: "verse",
         paragraphs: [
-          "Cang (藏) ne signifie pas seulement collectionner.",
-          "Collectionner les œuvres. Mais aussi le temps.",
-          "Les rencontres entre les personnes. La circulation des idées. Les traces laissées par une époque.",
-          "Vraiment collectionner, ce n'est pas seulement posséder. C'est permettre à des mémoires qui disparaîtraient de continuer à vivre.",
+          "Collection ne signifie pas seulement collectionner.",
+          "C'est aussi recueillir le temps. Préserver les rencontres. Conserver le mouvement des idées. Garder la trace d'une époque.",
+          "Collectionner ne consiste pas seulement à posséder. C'est permettre à une mémoire qui aurait pu disparaître de continuer à vivre.",
         ],
       },
       {
         label: "Paris et la Chine",
         paragraphs: [
-          "Paris est notre point de départ. La Chine est notre premier dialogue.",
-          "Mais Zhen Collection Paris n'appartient à aucun pays, à aucune culture. Nous croyons que chaque civilisation possède sa propre manière de comprendre le monde.",
-          "Le vrai échange ne consiste pas à effacer les différences. Il consiste à se découvrir les uns les autres au sein de ces différences.",
+          "Paris est notre point de départ. La Chine est notre première conversation.",
+          "Mais Zhen Collection Paris n'appartient ni à un pays ni à une culture. Nous croyons que chaque civilisation porte une manière singulière de comprendre le monde.",
+          "Le véritable dialogue n'efface pas les différences. Il leur permet de se rencontrer.",
         ],
       },
       {
         label: "Une plateforme vivante",
         paragraphs: [
-          "Zhen Collection Paris n'est pas une galerie. Ce n'est pas non plus seulement une collection. Elle aspire à devenir une plateforme en croissance continue.",
-          "Artistes, collectionneurs, chercheurs, curateurs, et toute personne disposée à regarder avec attention peuvent s'y rencontrer.",
+          "Zhen Collection Paris est fondée sous la forme d'une association. Mais ce qu'elle souhaite véritablement construire n'est pas seulement une association. C'est une plateforme artistique appelée à grandir avec le temps.",
+          "Ici, artistes, galeries, collectionneurs, chercheurs, commissaires d'exposition et tous ceux qui regardent avec attention peuvent se rencontrer, faire dialoguer les œuvres, les idées et les cultures, et laisser ensemble la trace de notre époque.",
         ],
       },
       {
         variant: "list",
         paragraphs: [
-          "Nous enregistrons les œuvres.",
-          "Les artistes.",
-          "Les dialogues.",
-          "Et la manière dont notre époque se comprend à nouveau à travers l'art.",
+          "Nous y archivons des œuvres.",
+          "Des artistes.",
+          "Des conversations.",
+          "Et la manière dont notre époque apprend, à travers l'art, à mieux se comprendre.",
         ],
       },
       {
         variant: "closing",
         paragraphs: [
-          "Si, dans de nombreuses années, en regardant cette époque, l'on peut encore voir ici la création d'un artiste, un dialogue authentique, une rencontre entre cultures, alors le sens de Zhen Collection Paris sera accompli.",
-          "Car ce qui vaut vraiment d'être conservé, ce n'est pas seulement l'art.",
-          "C'est la compréhension qui continue de naître entre les personnes.",
+          "Si, dans plusieurs décennies, quelqu'un peut encore retrouver ici la trace d'un artiste, d'une conversation sincère ou d'une rencontre entre des cultures, alors Zhen Collection Paris aura accompli sa raison d'être.",
+          "Car ce qui mérite véritablement d'être conservé n'est pas seulement l'art.",
+          "C'est la compréhension qui naît, sans cesse, entre les êtres humains.",
         ],
       },
     ],
@@ -211,86 +210,85 @@ const pageContent: Record<
     sections: [
       {
         paragraphs: [
-          "The world does not lack art. What it lacks is the willingness to pause and truly see one another.",
-          "Today we look at countless images every day, yet we face an actual work of art less and less often; listen carefully to an artist less and less often; and enter another culture—simply to understand, not to judge—less and less often.",
+          "The world does not lack art. What is lacking is the willingness to stop and truly see one another.",
+          "Today, we look at countless images every day. Yet we take less and less time to stop before a work, to truly listen to an artist, or to enter another culture with the desire to understand rather than to judge.",
         ],
       },
       {
         variant: "callout",
         paragraphs: [
-          "Zhen Collection Paris was born from this observation.",
-          "It is not here to add another voice. It is here to create an encounter.",
+          "It was from this observation that Zhen Collection Paris was born.",
+          "Not to add another voice. But to create a space for encounter.",
         ],
       },
       {
         label: "Art belongs first to life",
         paragraphs: [
-          "We believe that art belongs first to life. Every work comes from a person's life, memory, feeling, and thought. Before it is a work, it is first an experience of life. Before it has market value, it is first a way of seeing the world. That is why we attend to works, and also to the people behind them.",
+          "We believe that art belongs first to life. Each work is born from a story, a memory, an emotion, and a thought. Before it is a work, it is a human experience. Before it has value on the market, it is a way of inhabiting the world. That is why we are as interested in the works as in the people who create them.",
         ],
       },
       {
-        label: "Dialogue is creation",
+        label: "Dialogue is also a form of creation",
         paragraphs: [
-          "We believe dialogue is itself a form of creation. When a French artist asks a Chinese artist a question; when a Chinese artist responds to the gaze of another culture; when an ordinary viewer speaks a genuine feeling; a new work may already be beginning. It exists between people. It exists in the moment understanding occurs.",
+          "We believe that dialogue is also a form of creation. When a French artist asks a question of a Chinese artist. When a Chinese artist responds to the gaze of another culture. When a visitor sincerely expresses what they feel. Then something new can appear. Perhaps a work. Perhaps an understanding. Always an encounter.",
         ],
       },
       {
         label: "Every sincere gaze matters",
         paragraphs: [
-          "We believe every sincere way of looking deserves respect. Art belongs to the artist, and also to everyone willing to look. Professional research, criticism, and curating build knowledge around art. The feelings of ordinary viewers bring art back into life. That is why we want to record different voices. Because every authentic encounter deserves to be kept.",
+          "We believe that every sincere gaze deserves to be heard. Art belongs to artists. But it also belongs to those who take the time to look at it. Research, criticism, and curating build knowledge. The gaze of the public, in turn, restores art's place in life. That is why we want to preserve the diversity of gazes. Because every authentic encounter deserves to be preserved.",
         ],
       },
       {
-        label: "Zhen · 臻",
+        label: "Zhen",
         variant: "verse",
         paragraphs: [
-          "Zhen (臻) is a verb.",
-          "It is not arrival. It is continual approach.",
-          "Approaching what is real. Approaching beauty.",
-          "Approaching what deserves to be preserved, transmitted, and shared.",
-          "That is why we are not in a hurry to define. We are willing to keep drawing near.",
+          "Zhen is a verb.",
+          "It is not arrival. It is continuing to draw near.",
+          "Drawing near to what is true. To beauty.",
+          "To what deserves to be preserved, transmitted, and shared.",
+          "So we do not seek to define a truth. We choose to keep drawing nearer to it.",
         ],
       },
       {
-        label: "Cang · 藏",
+        label: "Collection",
         variant: "verse",
         paragraphs: [
-          "Cang (藏) means more than collecting.",
-          "Collecting works. But also time.",
-          "Encounters between people. The movement of ideas. The traces an era leaves behind.",
-          "True collecting is not merely possession. It is allowing memories that would otherwise disappear to keep living.",
+          "Collection does not mean only collecting.",
+          "It is also gathering time. Preserving encounters. Keeping the movement of ideas. Keeping the trace of an era.",
+          "To collect is not only to possess. It is to allow a memory that might have disappeared to continue living.",
         ],
       },
       {
         label: "Paris and China",
         paragraphs: [
-          "Paris is our starting point. China is our first dialogue.",
-          "But Zhen Collection Paris belongs to no single country and no single culture. We believe every civilization has its own way of understanding the world.",
-          "True exchange does not erase difference. It discovers one another within difference.",
+          "Paris is our starting point. China is our first conversation.",
+          "But Zhen Collection Paris belongs neither to one country nor to one culture. We believe that each civilization carries a singular way of understanding the world.",
+          "True dialogue does not erase differences. It allows them to meet.",
         ],
       },
       {
-        label: "A platform that keeps growing",
+        label: "A living platform",
         paragraphs: [
-          "Zhen Collection Paris is not a gallery. Nor is it only a collection. It hopes to become a platform that keeps growing.",
-          "Artists, collectors, researchers, curators, and everyone willing to look carefully can meet here.",
+          "Zhen Collection Paris is founded as an association. But what it truly hopes to build is not only an association. It is an art platform meant to grow over time.",
+          "Here, artists, galleries, collectors, researchers, curators, and everyone who looks with attention can meet, allow works, ideas, and cultures to enter into dialogue, and together leave a trace of our era.",
         ],
       },
       {
         variant: "list",
         paragraphs: [
-          "We record works.",
+          "We archive works there.",
           "Artists.",
-          "Dialogues.",
-          "And how our era comes to understand itself again through art.",
+          "Conversations.",
+          "And the way our era learns, through art, to understand itself better.",
         ],
       },
       {
         variant: "closing",
         paragraphs: [
-          "If, many years from now, people looking back at this time can still see here an artist's creation, a genuine dialogue, a cross-cultural encounter, then the meaning of Zhen Collection Paris will have been fulfilled.",
-          "Because what is truly worth preserving is not only art.",
-          "It is the understanding that keeps arising between people.",
+          "If, in several decades, someone can still find here the trace of an artist, a sincere conversation, or an encounter between cultures, then Zhen Collection Paris will have fulfilled its reason for being.",
+          "For what truly deserves to be preserved is not only art.",
+          "It is the understanding that is continually born between human beings.",
         ],
       },
     ],
