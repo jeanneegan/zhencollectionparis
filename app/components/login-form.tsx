@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import type { Locale } from "@/app/artists/[slug]/data";
 
@@ -12,9 +13,8 @@ const formLabels: Record<
     passwordPlaceholder: string;
     submit: string;
     forgot: string;
-    pendingTitle: string;
-    pendingBody: string;
-    pendingSub: string;
+    error: string;
+    loading: string;
   }
 > = {
   zh: {
@@ -24,11 +24,8 @@ const formLabels: Record<
     passwordPlaceholder: "••••••••",
     submit: "Se connecter · 登录",
     forgot: "Mot de passe oublié · 忘记密码",
-    pendingTitle: "Espace membre en préparation · 成员空间筹备中",
-    pendingBody:
-      "巴黎臻藏的成员登录功能即将开放。若您已是合作艺术家、机构或团队成员，请暂时通过现有渠道与我们联系。",
-    pendingSub:
-      "Member sign-in is coming soon. If you already collaborate with Zhen Collection Paris, please reach us through your usual contact.",
+    error: "Identifiants incorrects · 邮箱或密码错误",
+    loading: "Connexion… · 登录中…",
   },
   fr: {
     email: "Email · 邮箱",
@@ -37,11 +34,8 @@ const formLabels: Record<
     passwordPlaceholder: "••••••••",
     submit: "Se connecter · 登录",
     forgot: "Mot de passe oublié · 忘记密码",
-    pendingTitle: "Espace membre en préparation · 成员空间筹备中",
-    pendingBody:
-      "La connexion membre de Zhen Collection Paris sera bientôt disponible. Si vous collaborez déjà avec nous — artiste, institution ou équipe — merci de nous contacter par vos canaux habituels.",
-    pendingSub:
-      "Member sign-in is coming soon. If you already collaborate with Zhen Collection Paris, please reach us through your usual contact.",
+    error: "Identifiants incorrects · 邮箱或密码错误",
+    loading: "Connexion… · 登录中…",
   },
   en: {
     email: "Email",
@@ -50,10 +44,8 @@ const formLabels: Record<
     passwordPlaceholder: "••••••••",
     submit: "Sign in",
     forgot: "Forgot password",
-    pendingTitle: "Member space coming soon",
-    pendingBody:
-      "Member sign-in for Zhen Collection Paris will open shortly. If you already collaborate with us as an artist, institution, or team member, please reach us through your usual contact.",
-    pendingSub: "We will notify you when access is available.",
+    error: "Incorrect email or password",
+    loading: "Signing in…",
   },
 };
 
@@ -61,25 +53,39 @@ const inputClass =
   "mt-2 w-full rounded-sm border border-stone-300 bg-white px-4 py-2.5 text-sm text-stone-800 placeholder:text-stone-400 focus:border-stone-900 focus:outline-none";
 
 export function LoginForm({ locale = "fr" }: { locale?: Locale }) {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
   const l = formLabels[locale];
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (!email.trim() || !password.trim()) return;
-    setSubmitted(true);
-  }
 
-  if (submitted) {
-    return (
-      <div className="mx-auto mt-10 max-w-lg rounded-sm border border-stone-200 bg-white px-6 py-8 text-center">
-        <p className="text-sm text-stone-700">{l.pendingTitle}</p>
-        <p className="mt-4 text-sm leading-[1.9] text-stone-600">{l.pendingBody}</p>
-        <p className="mt-3 text-xs text-stone-400">{l.pendingSub}</p>
-      </div>
-    );
+    setLoading(true);
+    setError(false);
+
+    try {
+      const response = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (!response.ok) {
+        setError(true);
+        return;
+      }
+
+      router.push("/espace");
+      router.refresh();
+    } catch {
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -95,7 +101,10 @@ export function LoginForm({ locale = "fr" }: { locale?: Locale }) {
           type="email"
           value={email}
           autoComplete="email"
-          onChange={(event) => setEmail(event.target.value)}
+          onChange={(event) => {
+            setEmail(event.target.value);
+            setError(false);
+          }}
           required
           placeholder={l.emailPlaceholder}
           className={inputClass}
@@ -110,19 +119,27 @@ export function LoginForm({ locale = "fr" }: { locale?: Locale }) {
           type="password"
           value={password}
           autoComplete="current-password"
-          onChange={(event) => setPassword(event.target.value)}
+          onChange={(event) => {
+            setPassword(event.target.value);
+            setError(false);
+          }}
           required
           placeholder={l.passwordPlaceholder}
           className={inputClass}
         />
       </label>
 
+      {error ? (
+        <p className="text-center text-xs text-[#5a2323]">{l.error}</p>
+      ) : null}
+
       <div className="flex flex-col items-center gap-4 pt-2">
         <button
           type="submit"
-          className="rounded-full border border-stone-900 px-6 py-2.5 text-xs font-medium tracking-[0.12em] text-stone-900 transition-colors hover:bg-stone-900 hover:text-white"
+          disabled={loading}
+          className="rounded-full border border-stone-900 px-6 py-2.5 text-xs font-medium tracking-[0.12em] text-stone-900 transition-colors hover:bg-stone-900 hover:text-white disabled:cursor-not-allowed disabled:opacity-60"
         >
-          {l.submit}
+          {loading ? l.loading : l.submit}
         </button>
         <p className="text-[11px] tracking-[0.08em] text-stone-400">{l.forgot}</p>
       </div>
