@@ -18,6 +18,7 @@ import {
   GALLERY_REPRESENTED_ARTIST_SLUGS,
   MOCK_USER,
 } from "@/app/lib/auth";
+import { GALLERY_RECEIVED_MESSAGES } from "@/app/lib/gallery-messages";
 import { RETURN_FROM_ESPACE, RETURN_FROM_ESPACE_EXHIBITIONS } from "@/app/lib/return-to";
 import { useLocale } from "@/app/lib/use-locale";
 
@@ -79,6 +80,10 @@ const pageLabels: Record<
         id: "publicEvaluation",
         body: "收集并呈现公众对展览、艺术家与画廊本身的评价、留言与共鸣。",
       },
+      {
+        id: "receivedMessages",
+        body: "查看发送至画廊的收藏咨询、公众留言与平台通知。",
+      },
     ],
   },
   fr: {
@@ -113,6 +118,10 @@ const pageLabels: Record<
         id: "publicEvaluation",
         body: "Collecter et présenter les évaluations, messages et résonances du public sur vos expositions, artistes et la galerie elle-même.",
       },
+      {
+        id: "receivedMessages",
+        body: "Consultez les demandes de collection, messages du public et notifications adressés à la galerie.",
+      },
     ],
   },
   en: {
@@ -146,6 +155,10 @@ const pageLabels: Record<
       {
         id: "publicEvaluation",
         body: "Collect and present public evaluations, messages, and resonance about your exhibitions, artists, and the gallery itself.",
+      },
+      {
+        id: "receivedMessages",
+        body: "View collection inquiries, public messages, and platform notifications sent to the gallery.",
       },
     ],
   },
@@ -203,7 +216,8 @@ export function EspaceView({ userEmail }: { userEmail: string }) {
       section === "exhibitions" ||
       section === "representedArtists" ||
       section === "followedArtists" ||
-      section === "publicEvaluation"
+      section === "publicEvaluation" ||
+      section === "receivedMessages"
     ) {
       setActiveId(section as FocusId);
     }
@@ -287,19 +301,35 @@ export function EspaceView({ userEmail }: { userEmail: string }) {
           <ul className="mt-3 space-y-1">
             {l.modules.map((module) => {
               const active = module.id === activeId;
+              const unreadCount =
+                module.id === "receivedMessages"
+                  ? GALLERY_RECEIVED_MESSAGES.filter((message) => message.unread)
+                      .length
+                  : 0;
 
               return (
                 <li key={module.id}>
                   <button
                     type="button"
                     onClick={() => setActiveId(module.id)}
-                    className={`w-full rounded-sm px-3 py-2.5 text-left text-xs leading-[1.6] tracking-[0.04em] transition-colors ${
+                    className={`flex w-full items-center justify-between gap-2 rounded-sm px-3 py-2.5 text-left text-xs leading-[1.6] tracking-[0.04em] transition-colors ${
                       active
                         ? "bg-stone-900 text-white"
                         : "text-stone-600 hover:bg-stone-100 hover:text-stone-900"
                     }`}
                   >
-                    {focusLabel(locale, module.id)}
+                    <span>{focusLabel(locale, module.id)}</span>
+                    {unreadCount > 0 ? (
+                      <span
+                        className={`rounded-full px-1.5 py-0.5 text-[10px] ${
+                          active
+                            ? "bg-white/15 text-white"
+                            : "bg-stone-200 text-stone-600"
+                        }`}
+                      >
+                        {unreadCount}
+                      </span>
+                    ) : null}
                   </button>
                 </li>
               );
@@ -393,6 +423,37 @@ export function EspaceView({ userEmail }: { userEmail: string }) {
                 </p>
               </Link>
             </div>
+          ) : activeId === "receivedMessages" ? (
+            <ul className="mt-8 space-y-4">
+              {GALLERY_RECEIVED_MESSAGES.map((message) => (
+                <li
+                  key={message.id}
+                  className={`rounded-sm border p-5 ${
+                    message.unread
+                      ? "border-stone-400 bg-stone-50/70"
+                      : "border-stone-200 bg-white"
+                  }`}
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <p className="text-[10px] uppercase tracking-[0.15em] text-stone-400">
+                      {t(message.from, locale)}
+                    </p>
+                    <time
+                      dateTime={message.date}
+                      className="shrink-0 text-[11px] text-stone-400"
+                    >
+                      {message.date}
+                    </time>
+                  </div>
+                  <h3 className="mt-3 text-sm font-medium text-stone-900">
+                    {t(message.subject, locale)}
+                  </h3>
+                  <p className="mt-3 text-sm leading-[1.8] text-stone-600">
+                    {t(message.preview, locale)}
+                  </p>
+                </li>
+              ))}
+            </ul>
           ) : (
             <p className="mt-8 text-[11px] tracking-[0.08em] text-stone-400">
               {l.comingSoon}

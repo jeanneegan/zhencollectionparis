@@ -39,6 +39,11 @@ export const MOCK_USER = {
       zh: "公众评价",
       en: "Public evaluation",
     },
+    receivedMessages: {
+      fr: "Messages reçus",
+      zh: "收到信息",
+      en: "Received messages",
+    },
   },
 } as const;
 
