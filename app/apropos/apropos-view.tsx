@@ -387,7 +387,7 @@ function AproposSectionBlock({
 
   if (variant === "closing") {
     return (
-      <section className="border-t border-stone-200 pt-10">
+      <section>
         <p
           className={`text-sm leading-[2] text-stone-600 md:text-base ${
             useSerif ? serif.className : ""
