@@ -317,7 +317,7 @@ function ArtworkCard({
 
           return (
             <div key={view.src}>
-              {showViewLabels ? (
+              {showViewLabels && view.label ? (
                 <p className="mb-2 text-center text-[10px] uppercase tracking-[0.15em] text-stone-400">
                   {t(view.label, locale)}
                 </p>
