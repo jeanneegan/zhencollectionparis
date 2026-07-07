@@ -1,26 +1,16 @@
 "use client";
 
 import { SiteBrandLink } from "@/app/components/site-brand-link";
-import { SiteNav } from "@/app/components/site-nav";
-import { shouldHidePublicNav } from "@/app/lib/use-is-authenticated";
-import { usePathname } from "next/navigation";
 
 export function SiteHeader({
   trailing,
   wide = false,
-  showNav = true,
   sticky = true,
 }: {
   trailing?: React.ReactNode;
   wide?: boolean;
-  showNav?: boolean;
   sticky?: boolean;
 }) {
-  const pathname = usePathname();
-  const showPublicNav =
-    showNav &&
-    !shouldHidePublicNav(pathname);
-
   return (
     <header
       className={`border-b border-stone-200 bg-white/95 backdrop-blur-sm ${
@@ -35,7 +25,6 @@ export function SiteHeader({
         <SiteBrandLink className="shrink-0" />
         {trailing}
       </div>
-      {showPublicNav ? <SiteNav wide={wide} /> : null}
     </header>
   );
 }

@@ -4,7 +4,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 import { getSiteNavItems } from "./site-nav-config";
-import { shouldHidePublicNav } from "@/app/lib/use-is-authenticated";
+import {
+  readReturnFromParam,
+  shouldHidePublicNav,
+  useIsAuthenticated,
+} from "@/app/lib/use-is-authenticated";
 
 const artistActiveClass = "bg-stone-900 text-white";
 const dialogueActiveClass = "bg-[#5a2323] text-white";
@@ -13,20 +17,23 @@ const items = getSiteNavItems();
 
 export function MobileNav() {
   const pathname = usePathname();
-  const hideNav = shouldHidePublicNav(pathname);
+  const isAuthenticated = useIsAuthenticated();
+  const hideNav = shouldHidePublicNav(
+    pathname,
+    isAuthenticated,
+    readReturnFromParam(),
+  );
 
   useEffect(() => {
-    if (typeof window === "undefined") {
+    if (hideNav) {
+      document.body.classList.remove("pb-16");
       return;
     }
 
-    const isMobile = window.matchMedia("(max-width: 767px)").matches;
-
-    if (hideNav && isMobile) {
+    document.body.classList.add("pb-16");
+    return () => {
       document.body.classList.remove("pb-16");
-    } else if (isMobile) {
-      document.body.classList.add("pb-16");
-    }
+    };
   }, [hideNav]);
 
   if (hideNav) {
@@ -36,9 +43,9 @@ export function MobileNav() {
   return (
     <nav
       aria-label="Navigation mobile"
-      className="fixed inset-x-0 bottom-0 z-50 border-t border-stone-200 bg-white/95 backdrop-blur-sm md:hidden"
+      className="fixed inset-x-0 bottom-0 z-50 border-t border-stone-200 bg-white/95 backdrop-blur-sm"
     >
-      <div className="mx-auto grid max-w-lg grid-cols-3">
+      <div className="mx-auto grid max-w-3xl grid-cols-3 px-6">
         {items.map(({ href, labelFr, labelZh, isDialogue, isActive }) => {
           const active = isActive(pathname);
           const mutedClass =
