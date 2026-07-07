@@ -28,10 +28,13 @@ const labels: Record<
     representation: string;
     since: string;
     whyChinaFrance: string;
+    whyChina: string;
+    whyFrance: string;
+    collectionQuestions: string;
+    hopeToLeave: string;
     china: string;
     france: string;
-    whyCreate: string;
-    philosophy: string;
+    artistStatement: string;
     exhibitions: string;
     year: string;
     exhibition: string;
@@ -39,6 +42,7 @@ const labels: Record<
     city: string;
     type: string;
     solo: string;
+    duo: string;
     group: string;
     careerTimeline: string;
     selectedWorks: string;
@@ -68,10 +72,13 @@ const labels: Record<
     since: "自",
     whyChinaFrance:
       "Pourquoi la Chine / Pourquoi la France｜为什么中国 / 为什么法国",
+    whyChina: "Pourquoi la Chine｜为什么中国",
+    whyFrance: "Pourquoi la France｜为什么法国",
+    collectionQuestions: "Questions · Zhen Collection Paris｜巴黎臻藏的提问",
+    hopeToLeave: "Ce que j'espère qu'on retienne｜我希望被记住的",
     china: "中国",
     france: "法国",
-    whyCreate: "Pourquoi créer ?｜为什么创作？",
-    philosophy: "Philosophie artistique｜创作理念",
+    artistStatement: "Texte de l'artiste｜创作陈述",
     exhibitions: "Expositions｜展览",
     year: "年份",
     exhibition: "展览",
@@ -79,6 +86,7 @@ const labels: Record<
     city: "城市",
     type: "类型",
     solo: "个展",
+    duo: "双人展",
     group: "群展",
     careerTimeline: "Chronologie professionnelle｜职业时间轴",
     selectedWorks: "Œuvres sélectionnées｜作品",
@@ -109,10 +117,13 @@ const labels: Record<
     since: "Depuis",
     whyChinaFrance:
       "Pourquoi la Chine / Pourquoi la France｜为什么中国 / 为什么法国",
+    whyChina: "Pourquoi la Chine｜为什么中国",
+    whyFrance: "Pourquoi la France｜为什么法国",
+    collectionQuestions: "Questions · Zhen Collection Paris｜巴黎臻藏的提问",
+    hopeToLeave: "Ce que j'espère qu'on retienne｜我希望被记住的",
     china: "Chine",
     france: "France",
-    whyCreate: "Pourquoi créer ?｜为什么创作？",
-    philosophy: "Philosophie artistique｜创作理念",
+    artistStatement: "Texte de l'artiste｜创作陈述",
     exhibitions: "Expositions｜展览",
     year: "Année",
     exhibition: "Exposition",
@@ -120,6 +131,7 @@ const labels: Record<
     city: "Ville",
     type: "Type",
     solo: "Solo",
+    duo: "Duo",
     group: "Collectif",
     careerTimeline: "Chronologie professionnelle｜职业时间轴",
     selectedWorks: "Œuvres sélectionnées｜作品",
@@ -149,10 +161,13 @@ const labels: Record<
     representation: "Representation",
     since: "Since",
     whyChinaFrance: "Why China / Why France",
+    whyChina: "Why China",
+    whyFrance: "Why France",
+    collectionQuestions: "Questions · Zhen Collection Paris",
+    hopeToLeave: "What I Hope to Be Remembered For",
     china: "China",
     france: "France",
-    whyCreate: "Why Create",
-    philosophy: "Artistic Philosophy",
+    artistStatement: "Artist Statement",
     exhibitions: "Exhibitions",
     year: "Year",
     exhibition: "Exhibition",
@@ -160,6 +175,7 @@ const labels: Record<
     city: "City",
     type: "Type",
     solo: "Solo",
+    duo: "Duo",
     group: "Group",
     careerTimeline: "Career Timeline",
     selectedWorks: "Selected Works",
@@ -174,20 +190,75 @@ const labels: Record<
   },
 };
 
+const passportType = {
+  meta: "text-[11px] font-medium uppercase tracking-[0.15em] text-stone-400",
+  metaPlain: "text-[11px] tabular-nums tracking-[0.1em] text-stone-400",
+  caption: "text-xs tracking-[0.08em] text-stone-400",
+  body: "text-sm leading-[1.95] text-stone-600 md:text-base",
+  bodyStrong: "text-sm leading-[1.9] text-stone-800 md:text-base",
+  prose: "text-sm leading-[2] text-stone-600 md:text-base",
+  proseWide: "text-sm leading-[2] text-stone-600 md:text-base md:leading-[2.05]",
+  heroName:
+    "text-3xl font-light leading-tight tracking-tight text-stone-900 md:text-4xl lg:text-5xl",
+  heroTagline: "text-sm leading-relaxed text-stone-600 md:text-base",
+  heroValue: "text-sm text-stone-800 md:text-base",
+  sectionTitle:
+    "mt-2 text-xl font-light tracking-tight text-stone-900 md:text-2xl",
+  subsectionTitle:
+    "text-lg font-light tracking-tight text-stone-900 md:text-xl",
+  listTitle: "text-sm font-medium text-stone-900 md:text-base",
+  listMeta: "text-sm text-stone-500",
+  artworkTitle: "text-sm font-medium text-stone-900 md:text-base",
+  artworkMeta: "text-sm text-stone-500",
+  tableHead: "text-[11px] uppercase tracking-[0.15em] text-stone-400",
+  tableYear: "text-sm tabular-nums text-stone-400",
+  tableCell: "text-sm text-stone-600",
+  tableCellStrong: "text-sm font-medium text-stone-800",
+  quote: "text-sm leading-[1.9] text-stone-600 md:text-base",
+} as const;
+
 function SectionLabel({ children }: { children: React.ReactNode }) {
-  return (
-    <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-stone-400">
-      {children}
-    </p>
-  );
+  return <p className={passportType.meta}>{children}</p>;
 }
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
+  return <h2 className={passportType.sectionTitle}>{children}</h2>;
+}
+
+function ProseParagraphs({
+  text,
+  className = passportType.proseWide,
+}: {
+  text: string;
+  className?: string;
+}) {
   return (
-    <h2 className="mt-2 text-2xl font-light tracking-tight text-stone-900 md:text-3xl">
-      {children}
-    </h2>
+    <>
+      {text
+        .split(/\n\n+/)
+        .filter(Boolean)
+        .map((paragraph) => (
+          <p key={paragraph.slice(0, 48)} className={className}>
+            {paragraph}
+          </p>
+        ))}
+    </>
   );
+}
+
+function exhibitionTypeLabel(
+  type: "solo" | "duo" | "group",
+  labels: { solo: string; duo: string; group: string },
+): string {
+  if (type === "solo") return labels.solo;
+  if (type === "duo") return labels.duo;
+  return labels.group;
+}
+
+function exhibitionTypeClass(type: "solo" | "duo" | "group"): string {
+  if (type === "solo") return "text-stone-900";
+  if (type === "duo") return "text-stone-700";
+  return "text-stone-400";
 }
 
 function Divider() {
@@ -318,7 +389,9 @@ function ArtworkCard({
           return (
             <div key={view.src}>
               {showViewLabels && view.label ? (
-                <p className="mb-2 text-center text-[10px] uppercase tracking-[0.15em] text-stone-400">
+                <p
+                  className={`mb-2 text-center ${passportType.caption} uppercase tracking-[0.15em]`}
+                >
                   {t(view.label, locale)}
                 </p>
               ) : null}
@@ -343,20 +416,20 @@ function ArtworkCard({
         })}
       </div>
       <div className="mt-5">
-        <h3 className="text-base font-medium text-stone-900">
+        <h3 className={passportType.artworkTitle}>
           {t(artwork.title, locale)}
         </h3>
         {artwork.subtitle ? (
-          <p className="mt-1 text-sm leading-relaxed text-stone-500">
+          <p className={`mt-1 ${passportType.artworkMeta} leading-relaxed`}>
             {t(artwork.subtitle, locale)}
           </p>
         ) : null}
-        <p className="mt-1 text-sm text-stone-400">{artwork.year}</p>
-        <p className="mt-2 text-sm leading-relaxed text-stone-500">
+        <p className={`mt-1 ${passportType.caption}`}>{artwork.year}</p>
+        <p className={`mt-2 ${passportType.artworkMeta} leading-relaxed`}>
           {t(artwork.medium, locale)}
         </p>
         {artwork.dimensions ? (
-          <p className="mt-1 text-[11px] text-stone-400">
+          <p className={`mt-1 ${passportType.metaPlain}`}>
             {artwork.dimensions}
           </p>
         ) : null}
@@ -365,9 +438,55 @@ function ArtworkCard({
   );
 }
 
+function renderArtworkGridItems(
+  artworks: ArtistArtwork[],
+  locale: Locale,
+): React.ReactNode[] {
+  return artworks.flatMap((artwork, index, list) => {
+    const next = list[index + 1];
+
+    if (
+      artwork.layoutPair?.role === "side" &&
+      list[index - 1]?.layoutPair?.group === artwork.layoutPair.group
+    ) {
+      return [];
+    }
+
+    if (
+      artwork.layoutPair?.role === "main" &&
+      next?.layoutPair?.group === artwork.layoutPair.group &&
+      next.layoutPair.role === "side"
+    ) {
+      const pairGridClass = artwork.layoutPair.equal
+        ? "grid grid-cols-1 items-start gap-x-8 gap-y-8 sm:col-span-2 sm:grid-cols-2"
+        : "grid grid-cols-1 items-start gap-x-8 gap-y-8 sm:col-span-2 sm:grid-cols-[minmax(0,1.45fr)_minmax(0,0.85fr)]";
+
+      return [
+        <div key={artwork.layoutPair.group} className={pairGridClass}>
+          <ArtworkCard artwork={artwork} locale={locale} />
+          <ArtworkCard artwork={next} locale={locale} />
+        </div>,
+      ];
+    }
+
+    return [
+      <ArtworkCard key={artwork.id} artwork={artwork} locale={locale} />,
+    ];
+  });
+}
+
 export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
   const [locale, setLocale] = useLocale();
   const l = labels[locale];
+  const isFrenchArtist = artist.nationality.en === "French";
+  const isChineseArtist = artist.nationality.en === "Chinese";
+  const chinaText = t(artist.whyChinaFrance.china, locale);
+  const franceText = t(artist.whyChinaFrance.france, locale);
+  const hopeToLeaveText = t(artist.hopeToLeave, locale);
+  const cultureQuestionLabel = isFrenchArtist ? l.whyChina : l.whyFrance;
+  const cultureQuestionText = isFrenchArtist ? chinaText : franceText;
+  const hasCollectionQuestions =
+    Boolean(cultureQuestionText) || Boolean(hopeToLeaveText);
 
   return (
     <div className="min-h-screen bg-stone-50 text-stone-900">
@@ -407,62 +526,54 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
 
           <div className="flex flex-col justify-center px-6 py-16 md:px-16 lg:px-20">
             <SectionLabel>{l.passport}</SectionLabel>
-            <h1 className="mt-4 text-4xl font-light leading-tight tracking-tight text-stone-900 md:text-5xl lg:text-6xl">
+            <h1 className={`mt-4 ${passportType.heroName}`}>
               {t(artist.name, locale)}
             </h1>
-            <p className="mt-8 max-w-md text-base leading-relaxed text-stone-600">
+            <p className={`mt-8 max-w-md ${passportType.heroTagline}`}>
               {t(artist.tagline, locale)}
             </p>
 
             <dl className="mt-12 grid grid-cols-2 gap-x-8 gap-y-6">
               <div>
-                <dt className="text-[11px] uppercase tracking-[0.15em] text-stone-400">
-                  {l.birthYear}
-                </dt>
-                <dd className="mt-1 text-base text-stone-800">
+                <dt className={passportType.meta}>{l.birthYear}</dt>
+                <dd className={`mt-1 ${passportType.heroValue}`}>
                   {artist.birthYear}
                 </dd>
               </div>
               <div>
-                <dt className="text-[11px] uppercase tracking-[0.15em] text-stone-400">
-                  {l.birthplace}
-                </dt>
-                <dd className="mt-1 text-base text-stone-800">
+                <dt className={passportType.meta}>{l.birthplace}</dt>
+                <dd className={`mt-1 ${passportType.heroValue}`}>
                   {t(artist.birthplace, locale)}
                 </dd>
               </div>
               <div>
-                <dt className="text-[11px] uppercase tracking-[0.15em] text-stone-400">
-                  {l.currentCity}
-                </dt>
-                <dd className="mt-1 text-base text-stone-800">
+                <dt className={passportType.meta}>{l.currentCity}</dt>
+                <dd className={`mt-1 ${passportType.heroValue}`}>
                   {t(artist.currentCity, locale)}
                 </dd>
               </div>
               <div>
-                <dt className="text-[11px] uppercase tracking-[0.15em] text-stone-400">
-                  {l.nationality}
-                </dt>
-                <dd className="mt-1 text-base text-stone-800">
+                <dt className={passportType.meta}>{l.nationality}</dt>
+                <dd className={`mt-1 ${passportType.heroValue}`}>
                   {t(artist.nationality, locale)}
                 </dd>
               </div>
               <div>
-                <dt className="text-[11px] uppercase tracking-[0.15em] text-stone-400">
-                  {l.practice}
-                </dt>
-                <dd className="mt-1 text-base text-stone-800">
+                <dt className={passportType.meta}>{l.practice}</dt>
+                <dd className={`mt-1 ${passportType.heroValue}`}>
                   {t(artist.practice, locale)}
                 </dd>
               </div>
-              <div className="col-span-2">
-                <dt className="text-[11px] uppercase tracking-[0.15em] text-stone-400">
-                  {l.representedBy}
-                </dt>
-                <dd className="mt-1 text-base leading-relaxed text-stone-800">
-                  {t(artist.representedBy, locale)}
-                </dd>
-              </div>
+              {t(artist.representedBy, locale) ? (
+                <div className="col-span-2">
+                  <dt className={passportType.meta}>{l.representedBy}</dt>
+                  <dd
+                    className={`mt-1 ${passportType.heroValue} leading-relaxed`}
+                  >
+                    {t(artist.representedBy, locale)}
+                  </dd>
+                </div>
+              ) : null}
             </dl>
           </div>
         </div>
@@ -476,13 +587,11 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
             <ul className="mt-8 space-y-6">
               {artist.education.map((item) => (
                 <li key={`${item.year}-${t(item.institution, "fr")}`}>
-                  <p className="text-[11px] tabular-nums text-stone-400">
-                    {item.year}
-                  </p>
-                  <p className="mt-1 text-sm font-medium text-stone-800">
+                  <p className={passportType.metaPlain}>{item.year}</p>
+                  <p className={`mt-1 ${passportType.listTitle}`}>
                     {t(item.institution, locale)}
                   </p>
-                  <p className="mt-0.5 text-sm text-stone-500">
+                  <p className={`mt-0.5 ${passportType.listMeta}`}>
                     {t(item.degree, locale)} · {t(item.city, locale)}
                   </p>
                 </li>
@@ -495,13 +604,11 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
             <ul className="mt-8 space-y-6">
               {artist.galleries.map((gallery) => (
                 <li key={gallery.name}>
-                  <p className="text-sm font-medium text-stone-800">
-                    {gallery.name}
-                  </p>
-                  <p className="mt-0.5 text-sm text-stone-500">
+                  <p className={passportType.listTitle}>{gallery.name}</p>
+                  <p className={`mt-0.5 ${passportType.listMeta}`}>
                     {t(gallery.city, locale)} · {t(gallery.role, locale)}
                   </p>
-                  <p className="mt-0.5 text-[11px] text-stone-400">
+                  <p className={`mt-0.5 ${passportType.metaPlain}`}>
                     {l.since} {gallery.since}
                   </p>
                 </li>
@@ -515,51 +622,65 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
         <Divider />
       </div>
 
-      {/* Why China / Why France */}
+      {/* Zhen Collection Paris · questions */}
+      {(isFrenchArtist || isChineseArtist) && (
+        <section className="mx-auto max-w-7xl px-6 py-20 md:px-10">
+          <SectionTitle>{l.collectionQuestions}</SectionTitle>
+          {hasCollectionQuestions ? (
+            <div className="mt-10 max-w-3xl space-y-12 border-l border-stone-200 pl-6 md:pl-8">
+              <div>
+                <p className={passportType.meta}>{cultureQuestionLabel}</p>
+                {cultureQuestionText ? (
+                  <p className={`mt-4 ${passportType.bodyStrong}`}>
+                    {cultureQuestionText}
+                  </p>
+                ) : null}
+              </div>
+              <div>
+                <p className={passportType.meta}>{l.hopeToLeave}</p>
+                {hopeToLeaveText ? (
+                  <div className="mt-4 space-y-4">
+                    <ProseParagraphs text={hopeToLeaveText} />
+                  </div>
+                ) : null}
+              </div>
+            </div>
+          ) : null}
+        </section>
+      )}
+
+      {!isFrenchArtist && !isChineseArtist && (chinaText || franceText) ? (
+        <section className="mx-auto max-w-7xl px-6 py-20 md:px-10">
+          <SectionTitle>{l.whyChinaFrance}</SectionTitle>
+          <div className="mt-12 grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
+            {chinaText ? (
+              <blockquote className="relative pl-6 before:absolute before:left-0 before:top-0 before:h-full before:w-px before:bg-stone-300">
+                <p className={passportType.meta}>{l.china}</p>
+                <p className={`mt-4 ${passportType.bodyStrong}`}>{chinaText}</p>
+              </blockquote>
+            ) : null}
+            {franceText ? (
+              <blockquote className="relative pl-6 before:absolute before:left-0 before:top-0 before:h-full before:w-px before:bg-stone-300">
+                <p className={passportType.meta}>{l.france}</p>
+                <p className={`mt-4 ${passportType.bodyStrong}`}>
+                  {franceText}
+                </p>
+              </blockquote>
+            ) : null}
+          </div>
+        </section>
+      ) : null}
+
+      <div className="mx-auto max-w-7xl px-6 md:px-10">
+        <Divider />
+      </div>
+
+      {/* Artist Statement */}
       <section className="mx-auto max-w-7xl px-6 py-20 md:px-10">
-        <SectionTitle>{l.whyChinaFrance}</SectionTitle>
-        <div className="mt-12 grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
-          <blockquote className="relative pl-6 before:absolute before:left-0 before:top-0 before:h-full before:w-px before:bg-stone-300">
-            <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-stone-400">
-              {l.china}
-            </p>
-            <p className="mt-4 text-base leading-[1.9] text-stone-700">
-              {t(artist.whyChinaFrance.china, locale)}
-            </p>
-          </blockquote>
-          <blockquote className="relative pl-6 before:absolute before:left-0 before:top-0 before:h-full before:w-px before:bg-stone-300">
-            <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-stone-400">
-              {l.france}
-            </p>
-            <p className="mt-4 text-base leading-[1.9] text-stone-700">
-              {t(artist.whyChinaFrance.france, locale)}
-            </p>
-          </blockquote>
+        <SectionTitle>{l.artistStatement}</SectionTitle>
+        <div className="mt-10 max-w-3xl space-y-6">
+          <ProseParagraphs text={t(artist.artistStatement, locale)} />
         </div>
-      </section>
-
-      <div className="mx-auto max-w-7xl px-6 md:px-10">
-        <Divider />
-      </div>
-
-      {/* Why Create */}
-      <section className="mx-auto max-w-7xl px-6 py-20 md:px-10">
-        <SectionTitle>{l.whyCreate}</SectionTitle>
-        <p className="mt-10 max-w-3xl text-lg leading-[2] text-stone-600 md:text-xl">
-          {t(artist.whyCreate, locale)}
-        </p>
-      </section>
-
-      <div className="mx-auto max-w-7xl px-6 md:px-10">
-        <Divider />
-      </div>
-
-      {/* Philosophy */}
-      <section className="mx-auto max-w-7xl px-6 py-20 md:px-10">
-        <SectionTitle>{l.philosophy}</SectionTitle>
-        <p className="mt-10 max-w-3xl text-lg leading-[2] text-stone-600 md:text-xl">
-          {t(artist.philosophy, locale)}
-        </p>
       </section>
 
       <div className="mx-auto max-w-7xl px-6 md:px-10">
@@ -575,7 +696,7 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
         <div className="mt-12 overflow-x-auto">
           <table className="w-full min-w-[600px] text-left">
             <thead>
-              <tr className="border-b border-stone-200 text-[11px] uppercase tracking-[0.15em] text-stone-400">
+              <tr className={`border-b border-stone-200 ${passportType.tableHead}`}>
                 <th className="pb-4 pr-8 font-medium">{l.year}</th>
                 <th className="pb-4 pr-8 font-medium">{l.exhibition}</th>
                 <th className="pb-4 pr-8 font-medium">{l.venue}</th>
@@ -589,27 +710,23 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
                   key={`${exhibition.year}-${t(exhibition.title, "fr")}`}
                   className="border-b border-stone-100"
                 >
-                  <td className="py-5 pr-8 tabular-nums text-sm text-stone-400">
+                  <td className={`py-5 pr-8 ${passportType.tableYear}`}>
                     {exhibition.year}
                   </td>
-                  <td className="py-5 pr-8 text-sm font-medium text-stone-800">
+                  <td className={`py-5 pr-8 ${passportType.tableCellStrong}`}>
                     {t(exhibition.title, locale)}
                   </td>
-                  <td className="py-5 pr-8 text-sm text-stone-600">
+                  <td className={`py-5 pr-8 ${passportType.tableCell}`}>
                     {exhibition.venue}
                   </td>
-                  <td className="py-5 pr-8 text-sm text-stone-600">
+                  <td className={`py-5 pr-8 ${passportType.tableCell}`}>
                     {t(exhibition.city, locale)}
                   </td>
                   <td className="py-5">
                     <span
-                      className={`inline-block text-[11px] uppercase tracking-[0.1em] ${
-                        exhibition.type === "solo"
-                          ? "text-stone-900"
-                          : "text-stone-400"
-                      }`}
+                      className={`inline-block ${passportType.metaPlain} uppercase ${exhibitionTypeClass(exhibition.type)}`}
                     >
-                      {exhibition.type === "solo" ? l.solo : l.group}
+                      {exhibitionTypeLabel(exhibition.type, l)}
                     </span>
                   </td>
                 </tr>
@@ -633,13 +750,13 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
               className="relative pb-12 last:pb-0"
             >
               <span className="absolute -left-[calc(2rem+0.5px)] top-1.5 h-2 w-2 rounded-full border border-stone-300 bg-white md:-left-[calc(2.5rem+0.5px)]" />
-              <p className="text-[11px] tabular-nums uppercase tracking-[0.15em] text-stone-400">
+              <p className={`${passportType.metaPlain} uppercase`}>
                 {item.year}
               </p>
-              <h3 className="mt-2 text-base font-medium text-stone-900">
+              <h3 className={`mt-2 ${passportType.listTitle}`}>
                 {t(item.title, locale)}
               </h3>
-              <p className="mt-2 max-w-2xl text-sm leading-relaxed text-stone-600">
+              <p className={`mt-2 max-w-2xl ${passportType.body}`}>
                 {t(item.description, locale)}
               </p>
             </li>
@@ -658,47 +775,65 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
       >
         <SectionTitle>{l.selectedWorks}</SectionTitle>
         <div className="mt-12 grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2">
-          {artist.artworks.flatMap((artwork, index, artworks) => {
-            const next = artworks[index + 1];
+          {(() => {
+            const renderedSeries = new Set<string>();
+            const nodes: React.ReactNode[] = [];
 
-            if (
-              artwork.layoutPair?.role === "side" &&
-              artworks[index - 1]?.layoutPair?.group === artwork.layoutPair.group
-            ) {
-              return [];
+            for (const artwork of artist.artworks) {
+              if (artwork.seriesId) {
+                if (renderedSeries.has(artwork.seriesId)) continue;
+                renderedSeries.add(artwork.seriesId);
+
+                const series = artist.series?.find(
+                  (item) => item.id === artwork.seriesId,
+                );
+                const seriesArtworks = artist.artworks.filter(
+                  (item) => item.seriesId === artwork.seriesId,
+                );
+
+                nodes.push(
+                  <div
+                    key={`series-${artwork.seriesId}`}
+                    className="sm:col-span-2"
+                  >
+                    {series ? (
+                      <div className="max-w-3xl border-l border-stone-200 pl-6 md:pl-8">
+                        <h3 className={passportType.subsectionTitle}>
+                          {t(series.title, locale)}
+                        </h3>
+                        {series.period ? (
+                          <p className={`mt-2 ${passportType.metaPlain} uppercase`}>
+                            {series.period}
+                          </p>
+                        ) : null}
+                        <div className="mt-6 space-y-4">
+                          <ProseParagraphs
+                            text={t(series.intro, locale)}
+                            className={passportType.prose}
+                          />
+                        </div>
+                      </div>
+                    ) : null}
+                    <div className="mt-12 grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2">
+                      {renderArtworkGridItems(seriesArtworks, locale)}
+                    </div>
+                  </div>,
+                );
+                continue;
+              }
+
+              nodes.push(...renderArtworkGridItems([artwork], locale));
             }
 
-            if (
-              artwork.layoutPair?.role === "main" &&
-              next?.layoutPair?.group === artwork.layoutPair.group &&
-              next.layoutPair.role === "side"
-            ) {
-              return [
-                <div
-                  key={artwork.layoutPair.group}
-                  className="grid grid-cols-1 items-start gap-x-8 gap-y-8 sm:col-span-2 sm:grid-cols-[minmax(0,1.45fr)_minmax(0,0.85fr)]"
-                >
-                  <ArtworkCard artwork={artwork} locale={locale} />
-                  <ArtworkCard artwork={next} locale={locale} />
-                </div>,
-              ];
-            }
-
-            return [
-              <ArtworkCard
-                key={artwork.id}
-                artwork={artwork}
-                locale={locale}
-              />,
-            ];
-          })}
+            return nodes;
+          })()}
         </div>
 
         <div className="mt-16 border border-stone-200 bg-stone-50/30 px-6 py-10 text-center md:px-10">
-          <p className="text-[11px] font-medium tracking-[0.15em] text-stone-400">
+          <p className={`${passportType.meta} tracking-[0.15em]`}>
             {l.collectionInquiry}
           </p>
-          <p className="mx-auto mt-4 max-w-md text-sm leading-[1.9] text-stone-600">
+          <p className={`mx-auto mt-4 max-w-md ${passportType.body}`}>
             {l.collectionNote}
           </p>
           <div className="mt-6 flex justify-center">
@@ -723,22 +858,18 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
 
         <div className="mt-16 space-y-20">
           <div>
-            <h3 className="text-[11px] font-medium uppercase tracking-[0.2em] text-stone-400">
-              {l.galleryRecognition}
-            </h3>
+            <h3 className={passportType.meta}>{l.galleryRecognition}</h3>
             <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2">
               {artist.professionalReputation.galleryRecognition.map((item) => (
                 <figure
                   key={item.name}
                   className="rounded-sm border border-stone-200 bg-white p-8"
                 >
-                  <blockquote className="text-base leading-[1.85] text-stone-600">
+                  <blockquote className={passportType.quote}>
                     「{t(item.quote, locale)}」
                   </blockquote>
                   <figcaption className="mt-6 border-t border-stone-100 pt-4">
-                    <p className="text-sm font-medium text-stone-800">
-                      {item.name}
-                    </p>
+                    <p className={passportType.listTitle}>{item.name}</p>
                   </figcaption>
                 </figure>
               ))}
@@ -746,9 +877,7 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
           </div>
 
           <div>
-            <h3 className="text-[11px] font-medium uppercase tracking-[0.2em] text-stone-400">
-              {l.collectorRecognition}
-            </h3>
+            <h3 className={passportType.meta}>{l.collectorRecognition}</h3>
             <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2">
               {artist.professionalReputation.collectorRecognition.map(
                 (item) => (
@@ -756,14 +885,12 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
                     key={item.name}
                     className="rounded-sm border border-stone-200 bg-white p-8"
                   >
-                    <blockquote className="text-base leading-[1.85] text-stone-600">
+                    <blockquote className={passportType.quote}>
                       「{t(item.quote, locale)}」
                     </blockquote>
                     <figcaption className="mt-6 border-t border-stone-100 pt-4">
-                      <p className="text-sm font-medium text-stone-800">
-                        {item.name}
-                      </p>
-                      <p className="mt-0.5 text-[11px] text-stone-400">
+                      <p className={passportType.listTitle}>{item.name}</p>
+                      <p className={`mt-0.5 ${passportType.metaPlain}`}>
                         {t(item.title, locale)}
                       </p>
                     </figcaption>
@@ -774,9 +901,7 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
           </div>
 
           <div>
-            <h3 className="text-[11px] font-medium uppercase tracking-[0.2em] text-stone-400">
-              {l.curatorMediaRecognition}
-            </h3>
+            <h3 className={passportType.meta}>{l.curatorMediaRecognition}</h3>
             <div className="mt-8 space-y-6">
               {artist.professionalReputation.curatorMediaRecognition.map(
                 (item) => (
@@ -784,10 +909,12 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
                     key={t(item.source, "fr")}
                     className="flex flex-col gap-4 border-l-2 border-stone-200 pl-6 md:flex-row md:items-start md:gap-12"
                   >
-                    <p className="shrink-0 text-[11px] font-medium uppercase tracking-[0.12em] text-stone-400 md:w-36">
+                    <p
+                      className={`shrink-0 md:w-36 ${passportType.meta} tracking-[0.12em]`}
+                    >
                       {t(item.source, locale)}
                     </p>
-                    <blockquote className="text-base leading-[1.85] text-stone-600">
+                    <blockquote className={passportType.quote}>
                       {t(item.quote, locale)}
                     </blockquote>
                   </figure>
@@ -797,19 +924,21 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
           </div>
 
           <div>
-            <h3 className="text-[11px] font-medium uppercase tracking-[0.2em] text-stone-400">
-              {l.publicResonance}
-            </h3>
+            <h3 className={passportType.meta}>{l.publicResonance}</h3>
             <div className="mt-8 space-y-6">
               {artist.professionalReputation.publicResonance.map((item) => (
                 <figure
                   key={t(item.source, "fr")}
                   className="flex flex-col gap-4 border-l-2 border-stone-200 pl-6 md:flex-row md:items-start md:gap-12"
                 >
-                  <p className="shrink-0 text-[11px] font-medium uppercase tracking-[0.12em] text-stone-400 md:w-36">
+                  <p
+                    className={`shrink-0 md:w-36 ${passportType.meta} tracking-[0.12em]`}
+                  >
                     {t(item.source, locale)}
                   </p>
-                  <blockquote className="text-base leading-[1.85] text-stone-600">
+                  <blockquote
+                    className={`whitespace-pre-line ${passportType.quote}`}
+                  >
                     {t(item.quote, locale)}
                   </blockquote>
                 </figure>
