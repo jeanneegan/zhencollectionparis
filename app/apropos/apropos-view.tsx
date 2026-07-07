@@ -15,11 +15,41 @@ const serif = Noto_Serif_SC({
 
 type SectionVariant = "default" | "callout" | "verse" | "list" | "closing";
 
+type ClosingParagraphStyle =
+  | "intro"
+  | "lead"
+  | "verse"
+  | "body"
+  | "emphasis"
+  | "final";
+
 type AproposSection = {
   label?: string;
   variant?: SectionVariant;
   paragraphs: string[];
+  closingStyles?: ClosingParagraphStyle[];
 };
+
+const closingStyleClasses: Record<ClosingParagraphStyle, string> = {
+  intro: "text-sm leading-[2] text-stone-600 md:text-base",
+  lead: "text-base font-medium leading-[1.9] text-stone-800 md:text-lg",
+  verse:
+    "border-l-2 border-stone-300 pl-5 text-base font-medium leading-[1.85] text-stone-800 md:text-lg",
+  body: "text-sm leading-[2] text-stone-600 md:text-base",
+  emphasis: "text-base font-medium leading-[1.9] text-stone-800 md:text-lg",
+  final: "text-lg font-medium leading-[1.85] text-stone-900 md:text-xl",
+};
+
+const closingParagraphStyles: ClosingParagraphStyle[] = [
+  "intro",
+  "lead",
+  "verse",
+  "verse",
+  "verse",
+  "body",
+  "emphasis",
+  "final",
+];
 
 const pageContent: Record<
   Locale,
@@ -109,10 +139,16 @@ const pageContent: Record<
       },
       {
         variant: "closing",
+        closingStyles: closingParagraphStyles,
         paragraphs: [
-          "如果很多年以后，当人们回望这个时代，仍然能够通过这里，看见一位艺术家的创作、一场真实的对话、一段跨越文化的相遇，那么，巴黎臻藏存在的意义，便已经实现。",
-          "因为真正值得收藏的，不只是艺术。",
-          "更是人与人之间不断发生的理解。",
+          "如果很多年以后，当人们回望这个时代，仍然能够通过这里，看见一位艺术家的创作、一场真实的对话、一段跨越文明的相遇，以及一个个普通人对于生命的思考，那么，巴黎臻藏存在的意义，便已经实现。",
+          "因为我们相信，",
+          "艺术，是媒介。",
+          "文明，是相遇的过程。",
+          "而我们真正关心的，始终是每一个具体的人。",
+          "愿每一个来到这里的人，都能够因为一次作品、一场对话、一次相遇，而重新思考自己的生命。",
+          "因为真正值得收藏的，",
+          "是人在不断理解自己、理解他人、理解世界的过程中，所留下的一生。",
         ],
       },
     ],
@@ -197,10 +233,16 @@ const pageContent: Record<
       },
       {
         variant: "closing",
+        closingStyles: closingParagraphStyles,
         paragraphs: [
-          "Si, dans plusieurs décennies, quelqu'un peut encore retrouver ici la trace d'un artiste, d'une conversation sincère ou d'une rencontre entre des cultures, alors Zhen Collection Paris aura accompli sa raison d'être.",
-          "Car ce qui mérite véritablement d'être conservé n'est pas seulement l'art.",
-          "C'est la compréhension qui naît, sans cesse, entre les êtres humains.",
+          "Si, dans de nombreuses années, en regardant cette époque, l'on peut encore, à travers ce lieu, voir la création d'un artiste, une conversation authentique, une rencontre entre civilisations, et la réflexion de personnes ordinaires sur la vie, alors le sens de l'existence de Zhen Collection Paris sera accompli.",
+          "Parce que nous croyons que",
+          "L'art est un médium.",
+          "La civilisation est un processus de rencontre.",
+          "Et ce qui nous importe véritablement, ce sont toujours les personnes concrètes.",
+          "Nous souhaitons que chacun et chacune qui viennent ici puissent, à travers une œuvre, une conversation, une rencontre, repenser sa propre vie.",
+          "Parce que ce qui mérite vraiment d'être conservé,",
+          "C'est ce qu'une vie laisse derrière elle, dans le processus continuel de se comprendre soi-même, de comprendre autrui et de comprendre le monde.",
         ],
       },
     ],
@@ -285,10 +327,16 @@ const pageContent: Record<
       },
       {
         variant: "closing",
+        closingStyles: closingParagraphStyles,
         paragraphs: [
-          "If, in several decades, someone can still find here the trace of an artist, a sincere conversation, or an encounter between cultures, then Zhen Collection Paris will have fulfilled its reason for being.",
-          "For what truly deserves to be preserved is not only art.",
-          "It is the understanding that is continually born between human beings.",
+          "If many years from now, when people look back at this era, they can still through this place see an artist's creation, a genuine conversation, an encounter across civilizations, and ordinary people's reflections on life, then the meaning of Zhen Collection Paris's existence will have been fulfilled.",
+          "Because we believe,",
+          "Art is a medium.",
+          "Civilization is a process of encounter.",
+          "And what we truly care about is always each concrete person.",
+          "We hope that everyone who comes here may, through a work, a conversation, an encounter, rethink their own life.",
+          "Because what is truly worth preserving,",
+          "Is what a life leaves behind in the ongoing process of understanding oneself, understanding others, and understanding the world.",
         ],
       },
     ],
@@ -386,6 +434,22 @@ function AproposSectionBlock({
   }
 
   if (variant === "closing") {
+    const styles = section.closingStyles;
+
+    if (styles) {
+      return (
+        <section>
+          <div className={`space-y-4 ${useSerif ? serif.className : ""}`}>
+            {section.paragraphs.map((paragraph, index) => (
+              <p key={index} className={closingStyleClasses[styles[index]]}>
+                {paragraph}
+              </p>
+            ))}
+          </div>
+        </section>
+      );
+    }
+
     return (
       <section>
         <p
