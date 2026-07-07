@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 import { getSiteNavItems } from "./site-nav-config";
 import {
-  readReturnFromParam,
   shouldHidePublicNav,
   useIsAuthenticated,
 } from "@/app/lib/use-is-authenticated";
@@ -18,11 +17,7 @@ const items = getSiteNavItems();
 export function MobileNav() {
   const pathname = usePathname();
   const isAuthenticated = useIsAuthenticated();
-  const hideNav = shouldHidePublicNav(
-    pathname,
-    isAuthenticated,
-    readReturnFromParam(),
-  );
+  const hideNav = shouldHidePublicNav(pathname, isAuthenticated);
 
   useEffect(() => {
     if (typeof window === "undefined") {

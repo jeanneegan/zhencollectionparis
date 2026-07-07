@@ -5,10 +5,6 @@ import {
   CLIENT_AUTH_COOKIE,
   CLIENT_AUTH_FLAG,
 } from "@/app/lib/auth";
-import {
-  RETURN_FROM_ESPACE,
-  RETURN_FROM_ESPACE_EXHIBITIONS,
-} from "@/app/lib/return-to";
 
 const CLIENT_AUTH_MAX_AGE = 60 * 60 * 24 * 7;
 
@@ -69,30 +65,10 @@ export function useIsAuthenticated(): boolean {
 export function shouldHidePublicNav(
   pathname: string,
   isAuthenticated: boolean,
-  from?: string | null,
 ): boolean {
-  if (isAuthenticated) {
-    return true;
-  }
-
   if (pathname.startsWith("/espace")) {
     return true;
   }
 
-  if (
-    pathname.startsWith("/exhibitions") &&
-    (from === RETURN_FROM_ESPACE_EXHIBITIONS || from === RETURN_FROM_ESPACE)
-  ) {
-    return true;
-  }
-
-  return false;
-}
-
-export function readReturnFromParam(): string | null {
-  if (typeof window === "undefined") {
-    return null;
-  }
-
-  return new URLSearchParams(window.location.search).get("from");
+  return isAuthenticated;
 }
