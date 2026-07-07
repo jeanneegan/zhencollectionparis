@@ -62,13 +62,6 @@ export function useIsAuthenticated(): boolean {
   return authed;
 }
 
-export function shouldHidePublicNav(
-  pathname: string,
-  isAuthenticated: boolean,
-): boolean {
-  if (pathname.startsWith("/espace")) {
-    return true;
-  }
-
-  return isAuthenticated;
+export function shouldHidePublicNav(pathname: string): boolean {
+  return pathname.startsWith("/espace");
 }

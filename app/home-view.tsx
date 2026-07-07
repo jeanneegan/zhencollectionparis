@@ -34,7 +34,6 @@ export function HomeView() {
   return (
     <div className="min-h-screen bg-white text-stone-900">
       <SiteHeader
-        showNav={false}
         sticky={false}
         trailing={
           <LanguageSwitcher locale={locale} onChange={setLocale} />

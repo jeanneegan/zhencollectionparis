@@ -9,7 +9,7 @@ import { SiteFooter } from "@/app/components/site-footer";
 import { PageBottomNav } from "@/app/components/page-bottom-nav";
 import { SiteNav } from "@/app/components/site-nav";
 import { useLocale } from "@/app/lib/use-locale";
-import { shouldHidePublicNav, useIsAuthenticated } from "@/app/lib/use-is-authenticated";
+import { shouldHidePublicNav } from "@/app/lib/use-is-authenticated";
 import { usePathname } from "next/navigation";
 import { type ArtistProfile, type Locale, getArtworkDisplayLayout, t } from "./data";
 
@@ -496,8 +496,7 @@ export function ArtistPassport({
 }) {
   const [locale, setLocale] = useLocale();
   const pathname = usePathname();
-  const isAuthenticated = useIsAuthenticated();
-  const hidePublicNav = shouldHidePublicNav(pathname, isAuthenticated);
+  const hidePublicNav = shouldHidePublicNav(pathname);
   const l = labels[locale];
   const isFrenchArtist = artist.nationality.en === "French";
   const isChineseArtist = artist.nationality.en === "Chinese";
