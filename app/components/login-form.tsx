@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import type { Locale } from "@/app/artists/[slug]/data";
+import { resolvePostLoginPath } from "@/app/lib/return-to";
 
 const formLabels: Record<
   Locale,
@@ -52,7 +53,13 @@ const formLabels: Record<
 const inputClass =
   "mt-2 w-full rounded-sm border border-stone-300 bg-white px-4 py-2.5 text-sm text-stone-800 placeholder:text-stone-400 focus:border-stone-900 focus:outline-none";
 
-export function LoginForm({ locale = "fr" }: { locale?: Locale }) {
+export function LoginForm({
+  locale = "fr",
+  next,
+}: {
+  locale?: Locale;
+  next?: string;
+}) {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -79,7 +86,7 @@ export function LoginForm({ locale = "fr" }: { locale?: Locale }) {
         return;
       }
 
-      router.push("/espace");
+      router.push(resolvePostLoginPath(next));
       router.refresh();
     } catch {
       setError(true);

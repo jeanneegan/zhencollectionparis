@@ -6,6 +6,7 @@ import { LoginForm } from "@/app/components/login-form";
 import { PageBottomNav } from "@/app/components/page-bottom-nav";
 import { SiteFooter } from "@/app/components/site-footer";
 import { SiteHeader } from "@/app/components/site-header";
+import { useSearchParams } from "next/navigation";
 import type { Locale } from "@/app/artists/[slug]/data";
 import { useLocale } from "@/app/lib/use-locale";
 
@@ -54,6 +55,8 @@ const pageLabels: Record<
 
 export function ConnexionView() {
   const [locale, setLocale] = useLocale();
+  const searchParams = useSearchParams();
+  const next = searchParams.get("next") ?? undefined;
   const l = pageLabels[locale];
 
   return (
@@ -85,7 +88,7 @@ export function ConnexionView() {
           <p className="text-xs text-stone-400">{l.note}</p>
         </div>
 
-        <LoginForm locale={locale} />
+        <LoginForm locale={locale} next={next} />
 
         <PageBottomNav locale={locale} />
       </main>

@@ -11,10 +11,12 @@ import {
 } from "@/app/artists/[slug]/data";
 import { CollectionInquiryForm } from "@/app/components/collection-inquiry-form";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
+import { MemberShareLink } from "@/app/components/member-share-link";
 import { PageBottomNav } from "@/app/components/page-bottom-nav";
 import { SiteFooter } from "@/app/components/site-footer";
 import { SiteHeader } from "@/app/components/site-header";
 import type { Exhibition } from "@/app/exhibitions/data";
+import { useIsAuthenticated } from "@/app/lib/use-is-authenticated";
 import { useLocale } from "@/app/lib/use-locale";
 
 const serif = Noto_Serif_SC({
@@ -71,6 +73,7 @@ export function ExhibitionView({
   returnTo?: string;
 }) {
   const [locale, setLocale] = useLocale();
+  const isAuthenticated = useIsAuthenticated();
   const l = pageLabels[locale];
   const artist = getArtistBySlug(exhibition.artistSlug);
   const works =
@@ -106,6 +109,15 @@ export function ExhibitionView({
         <p className="mx-auto mt-10 max-w-xl text-center text-sm leading-[1.9] text-stone-600">
           {t(exhibition.intro, locale)}
         </p>
+
+        {isAuthenticated ? (
+          <div className="mx-auto mt-8 max-w-xl">
+            <MemberShareLink
+              locale={locale}
+              path={`/exhibitions/${exhibition.slug}`}
+            />
+          </div>
+        ) : null}
 
         <section className="mt-14 space-y-16">
           {works.map((work) => {

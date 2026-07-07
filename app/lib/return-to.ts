@@ -20,7 +20,24 @@ export function isAllowedReturnPath(path: string): boolean {
     return true;
   }
 
-  return path === "/espace" || path.startsWith("/espace?");
+  if (path === "/espace" || path.startsWith("/espace?")) {
+    return true;
+  }
+
+  return path.startsWith("/exhibitions/");
+}
+
+export function isAllowedPostLoginPath(next: string): boolean {
+  const pathname = next.split("?")[0] ?? "";
+  return isAllowedReturnPath(pathname);
+}
+
+export function resolvePostLoginPath(next: string | undefined): string {
+  if (next && isAllowedPostLoginPath(next)) {
+    return next;
+  }
+
+  return "/espace";
 }
 
 export function getReturnLabelKey(
