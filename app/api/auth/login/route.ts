@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import {
+  CLIENT_AUTH_COOKIE,
+  CLIENT_AUTH_FLAG,
   isValidCredentials,
   MOCK_SESSION_TOKEN,
   MOCK_USER,
@@ -28,6 +30,13 @@ export async function POST(request: Request) {
 
   response.cookies.set(SESSION_COOKIE, MOCK_SESSION_TOKEN, {
     httpOnly: true,
+    sameSite: "lax",
+    secure: process.env.NODE_ENV === "production",
+    path: "/",
+    maxAge: 60 * 60 * 24 * 7,
+  });
+
+  response.cookies.set(CLIENT_AUTH_COOKIE, CLIENT_AUTH_FLAG, {
     sameSite: "lax",
     secure: process.env.NODE_ENV === "production",
     path: "/",

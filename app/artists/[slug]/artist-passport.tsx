@@ -9,6 +9,7 @@ import { SiteFooter } from "@/app/components/site-footer";
 import { PageBottomNav } from "@/app/components/page-bottom-nav";
 import { SiteNav } from "@/app/components/site-nav";
 import { useLocale } from "@/app/lib/use-locale";
+import { useIsAuthenticated } from "@/app/lib/use-is-authenticated";
 import { type ArtistProfile, type Locale, getArtworkDisplayLayout, t } from "./data";
 
 const labels: Record<
@@ -485,8 +486,15 @@ function renderArtworkGridItems(
   });
 }
 
-export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
+export function ArtistPassport({
+  artist,
+  returnTo,
+}: {
+  artist: ArtistProfile;
+  returnTo?: string;
+}) {
   const [locale, setLocale] = useLocale();
+  const isAuthenticated = useIsAuthenticated();
   const l = labels[locale];
   const isFrenchArtist = artist.nationality.en === "French";
   const isChineseArtist = artist.nationality.en === "Chinese";
@@ -514,7 +522,7 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
             <LanguageSwitcher locale={locale} onChange={setLocale} />
           </div>
         </div>
-        <SiteNav wide />
+        {!isAuthenticated ? <SiteNav wide /> : null}
       </header>
 
       {/* Hero */}
@@ -959,7 +967,7 @@ export function ArtistPassport({ artist }: { artist: ArtistProfile }) {
       </section>
 
       <div className="mx-auto max-w-3xl px-6">
-        <PageBottomNav locale={locale} />
+        <PageBottomNav locale={locale} backHref={returnTo ?? "/"} />
       </div>
 
       <SiteFooter wide />

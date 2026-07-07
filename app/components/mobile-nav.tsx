@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { getSiteNavItems } from "./site-nav-config";
+import { useIsAuthenticated } from "@/app/lib/use-is-authenticated";
 
 const artistActiveClass = "bg-stone-900 text-white";
 const dialogueActiveClass = "bg-[#5a2323] text-white";
@@ -11,6 +12,11 @@ const items = getSiteNavItems();
 
 export function MobileNav() {
   const pathname = usePathname();
+  const isAuthenticated = useIsAuthenticated();
+
+  if (isAuthenticated || pathname.startsWith("/espace")) {
+    return null;
+  }
 
   return (
     <nav

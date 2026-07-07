@@ -1,5 +1,8 @@
+"use client";
+
 import { SiteBrandLink } from "@/app/components/site-brand-link";
 import { SiteNav } from "@/app/components/site-nav";
+import { useIsAuthenticated } from "@/app/lib/use-is-authenticated";
 
 export function SiteHeader({
   trailing,
@@ -12,6 +15,9 @@ export function SiteHeader({
   showNav?: boolean;
   sticky?: boolean;
 }) {
+  const isAuthenticated = useIsAuthenticated();
+  const showPublicNav = showNav && !isAuthenticated;
+
   return (
     <header
       className={`border-b border-stone-200 bg-white/95 backdrop-blur-sm ${
@@ -26,7 +32,7 @@ export function SiteHeader({
         <SiteBrandLink className="shrink-0" />
         {trailing}
       </div>
-      {showNav ? <SiteNav wide={wide} /> : null}
+      {showPublicNav ? <SiteNav wide={wide} /> : null}
     </header>
   );
 }

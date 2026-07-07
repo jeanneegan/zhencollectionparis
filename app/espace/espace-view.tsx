@@ -1,18 +1,32 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 import { Noto_Serif_SC } from "next/font/google";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
-import { SiteFooter } from "@/app/components/site-footer";
-import { SiteHeader } from "@/app/components/site-header";
-import type { Locale } from "@/app/artists/[slug]/data";
-import { MOCK_USER } from "@/app/lib/auth";
+import {
+  getArtistBySlug,
+  t,
+  type ArtistProfile,
+  type Locale,
+} from "@/app/artists/[slug]/data";
+import { getExhibitionBySlug } from "@/app/exhibitions/data";
+import {
+  GALLERY_FOLLOWED_ARTIST_SLUGS,
+  GALLERY_REPRESENTED_ARTIST_SLUGS,
+  MOCK_USER,
+} from "@/app/lib/auth";
+import { RETURN_FROM_ESPACE, RETURN_FROM_ESPACE_EXHIBITIONS } from "@/app/lib/return-to";
 import { useLocale } from "@/app/lib/use-locale";
 
 const serif = Noto_Serif_SC({
   subsets: ["latin"],
   weight: ["400", "500"],
 });
+
+type FocusId = keyof typeof MOCK_USER.focus;
 
 const pageLabels: Record<
   Locale,
@@ -21,12 +35,16 @@ const pageLabels: Record<
     kickerSub: string;
     title: string;
     titleSub: string;
-    intro: string;
-    introSub: string;
     signedInAs: string;
     memberTypeLabel: string;
+    navLabel: string;
     logout: string;
-    modules: { title: string; body: string }[];
+    comingSoon: string;
+    viewPassport: string;
+    viewExhibition: string;
+    galleryFollowNote: string;
+    galleryFollowNotePlaceholder: string;
+    modules: { id: FocusId; body: string }[];
   }
 > = {
   zh: {
@@ -34,24 +52,32 @@ const pageLabels: Record<
     kickerSub: "成员空间",
     title: "设计工作台",
     titleSub: "Atelier de conception",
-    intro: "欢迎进入巴黎臻藏画廊成员设计空间。此处将用于编辑画廊资料、关系网络与对外展示内容。",
-    introSub:
-      "Bienvenue dans l'espace de conception réservé aux membres de Zhen Collection Paris.",
     signedInAs: "当前登录",
     memberTypeLabel: "Type de membre · 成员类型",
+    navLabel: "Navigation · 导航",
     logout: "Se déconnecter · 退出登录",
+    comingSoon: "Bientôt disponible · 即将开放",
+    viewPassport: "Voir le passeport · 查看档案",
+    viewExhibition: "Voir l'exposition · 查看展览",
+    galleryFollowNote: "Évaluation galerie · 关注画廊评价",
+    galleryFollowNotePlaceholder:
+      "记录您对该艺术家的观察、跟进与评价… · Notes d'observation, de suivi et d'évaluation…",
     modules: [
       {
-        title: "Profil de la galerie · 画廊档案",
-        body: "编辑画廊简介、联系方式、代理关系与对外可见信息。",
+        id: "representedArtists",
+        body: "记录您代理的艺术家、合作年限、代理关系与对外可见的呈现方式。",
       },
       {
-        title: "Relations · 关系网络",
-        body: "记录与艺术家、展览、收藏与评论之间的连接。",
+        id: "followedArtists",
+        body: "标记您持续关注的艺术家——尚未代理，但正在观察、跟踪与思考的关系。",
       },
       {
-        title: "Présentation · 展示设计",
-        body: "调整公开页面中的版式、文字与作品呈现方式。",
+        id: "exhibitions",
+        body: "",
+      },
+      {
+        id: "publicEvaluation",
+        body: "收集并呈现公众对展览、艺术家与画廊本身的评价、留言与共鸣。",
       },
     ],
   },
@@ -60,25 +86,32 @@ const pageLabels: Record<
     kickerSub: "成员空间",
     title: "Atelier de conception",
     titleSub: "设计工作台",
-    intro:
-      "Bienvenue dans l'espace de conception réservé aux galeries membres de Zhen Collection Paris. Ici, vous pourrez éditer le profil de la galerie, le réseau de relations et la présentation publique.",
-    introSub:
-      "欢迎进入巴黎臻藏画廊成员设计空间。此处将用于编辑画廊资料、关系网络与对外展示内容。",
     signedInAs: "Connecté en tant que",
     memberTypeLabel: "Type de membre · 成员类型",
+    navLabel: "Navigation · 导航",
     logout: "Se déconnecter · 退出登录",
+    comingSoon: "Bientôt disponible · 即将开放",
+    viewPassport: "Voir le passeport · 查看档案",
+    viewExhibition: "Voir l'exposition · 查看展览",
+    galleryFollowNote: "Évaluation galerie · 关注画廊评价",
+    galleryFollowNotePlaceholder:
+      "记录您对该艺术家的观察、跟进与评价… · Notes d'observation, de suivi et d'évaluation…",
     modules: [
       {
-        title: "Profil de la galerie · 画廊档案",
-        body: "Modifier la présentation de la galerie, les contacts, les représentations et les informations visibles.",
+        id: "representedArtists",
+        body: "Documenter les artistes que vous représentez, la durée de la relation, le statut de représentation et leur présentation visible.",
       },
       {
-        title: "Relations · 关系网络",
-        body: "Documenter les liens avec artistes, expositions, collections et critiques.",
+        id: "followedArtists",
+        body: "Marquer les artistes que vous suivez — pas encore représentés, mais observés, suivis et pensés dans le temps.",
       },
       {
-        title: "Présentation · 展示设计",
-        body: "Ajuster la mise en page, les textes et la présentation des œuvres sur l'espace public.",
+        id: "exhibitions",
+        body: "",
+      },
+      {
+        id: "publicEvaluation",
+        body: "Collecter et présenter les évaluations, messages et résonances du public sur vos expositions, artistes et la galerie elle-même.",
       },
     ],
   },
@@ -87,33 +120,102 @@ const pageLabels: Record<
     kickerSub: "",
     title: "Design workspace",
     titleSub: "",
-    intro:
-      "Welcome to the Zhen Collection Paris gallery member design workspace. Here you will edit gallery profiles, relationship networks, and public presentation.",
-    introSub: "",
     signedInAs: "Signed in as",
     memberTypeLabel: "Member type",
+    navLabel: "Navigation",
     logout: "Sign out",
+    comingSoon: "Coming soon",
+    viewPassport: "View passport",
+    viewExhibition: "View exhibition",
+    galleryFollowNote: "Gallery follow evaluation",
+    galleryFollowNotePlaceholder:
+      "Record your observations, follow-up, and evaluation of this artist…",
     modules: [
       {
-        title: "Gallery profile",
-        body: "Edit gallery presentation, contacts, representation, and visible information.",
+        id: "representedArtists",
+        body: "Document the artists you represent, the duration of each relationship, representation status, and how they appear publicly.",
       },
       {
-        title: "Relationships",
-        body: "Record connections with artists, exhibitions, collections, and criticism.",
+        id: "followedArtists",
+        body: "Mark the artists you follow—not yet represented, but observed, tracked, and considered over time.",
       },
       {
-        title: "Public presentation",
-        body: "Adjust layout, copy, and artwork presentation on the public site.",
+        id: "exhibitions",
+        body: "",
+      },
+      {
+        id: "publicEvaluation",
+        body: "Collect and present public evaluations, messages, and resonance about your exhibitions, artists, and the gallery itself.",
       },
     ],
   },
 };
 
+const FOLLOW_NOTES_STORAGE_KEY = "zcp-gallery-follow-notes";
+
+const inputClass =
+  "mt-2 w-full rounded-sm border border-stone-300 bg-white px-4 py-2.5 text-sm text-stone-800 placeholder:text-stone-400 focus:border-stone-900 focus:outline-none";
+
+function readFollowNotes(): Record<string, string> {
+  if (typeof window === "undefined") {
+    return {};
+  }
+
+  try {
+    const stored = window.localStorage.getItem(FOLLOW_NOTES_STORAGE_KEY);
+    return stored ? (JSON.parse(stored) as Record<string, string>) : {};
+  } catch {
+    return {};
+  }
+}
+
+function artistsFromSlugs(slugs: readonly string[]) {
+  return slugs.flatMap((slug) => {
+    const artist = getArtistBySlug(slug);
+    return artist ? [artist] : [];
+  }) satisfies ArtistProfile[];
+}
+
+function focusLabel(locale: Locale, id: FocusId) {
+  const item = MOCK_USER.focus[id];
+  return locale === "en" ? item.en : `${item.fr} · ${item.zh}`;
+}
+
 export function EspaceView({ userEmail }: { userEmail: string }) {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [locale, setLocale] = useLocale();
+  const [activeId, setActiveId] = useState<FocusId>("representedArtists");
   const l = pageLabels[locale];
+  const activeModule = l.modules.find((module) => module.id === activeId)!;
+  const representedArtists = artistsFromSlugs(GALLERY_REPRESENTED_ARTIST_SLUGS);
+  const followedArtists = artistsFromSlugs(GALLERY_FOLLOWED_ARTIST_SLUGS);
+  const [followNotes, setFollowNotes] = useState<Record<string, string>>({});
+  const featuredExhibition = getExhibitionBySlug("peregrinations-girouettes-willy");
+
+  useEffect(() => {
+    setFollowNotes(readFollowNotes());
+  }, []);
+
+  useEffect(() => {
+    const section = searchParams.get("section");
+    if (
+      section === "exhibitions" ||
+      section === "representedArtists" ||
+      section === "followedArtists" ||
+      section === "publicEvaluation"
+    ) {
+      setActiveId(section as FocusId);
+    }
+  }, [searchParams]);
+
+  function updateFollowNote(slug: string, value: string) {
+    setFollowNotes((current) => {
+      const next = { ...current, [slug]: value };
+      window.localStorage.setItem(FOLLOW_NOTES_STORAGE_KEY, JSON.stringify(next));
+      return next;
+    });
+  }
 
   async function handleLogout() {
     await fetch("/api/auth/logout", { method: "POST" });
@@ -122,14 +224,16 @@ export function EspaceView({ userEmail }: { userEmail: string }) {
   }
 
   return (
-    <div className="min-h-screen bg-white text-stone-900">
-      <SiteHeader
-        trailing={<LanguageSwitcher locale={locale} onChange={setLocale} />}
-      />
-
-      <main className="mx-auto max-w-3xl px-6 py-12 md:py-16">
-        <header className="text-center">
-          <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-stone-400">
+    <div className="min-h-screen bg-white text-stone-900 md:flex">
+      <aside className="border-b border-stone-200 bg-stone-50/50 md:flex md:w-72 md:shrink-0 md:flex-col md:border-b-0 md:border-r">
+        <div className="border-b border-stone-200 px-5 py-5">
+          <Link
+            href="/"
+            className="text-[11px] uppercase tracking-[0.2em] text-stone-400 transition-colors hover:text-stone-900"
+          >
+            Zhen Collection Paris
+          </Link>
+          <p className="mt-4 text-[10px] font-medium uppercase tracking-[0.25em] text-stone-400">
             {l.kicker}
           </p>
           {locale !== "en" ? (
@@ -138,18 +242,18 @@ export function EspaceView({ userEmail }: { userEmail: string }) {
             </p>
           ) : null}
           <h1
-            className={`${serif.className} mt-8 text-2xl font-normal tracking-wide text-stone-900 md:text-3xl`}
+            className={`${serif.className} mt-4 text-lg font-normal tracking-wide text-stone-900`}
           >
             {locale === "en" ? l.title : `${l.title} · ${l.titleSub}`}
           </h1>
-        </header>
+        </div>
 
-        <div className="mt-8 rounded-sm border border-stone-200 bg-stone-50/60 px-5 py-4 text-center text-sm text-stone-600">
+        <div className="border-b border-stone-200 px-5 py-4">
           <p className="text-[10px] uppercase tracking-[0.15em] text-stone-400">
             {l.signedInAs}
           </p>
-          <p className="mt-2 font-medium text-stone-800">{userEmail}</p>
-          <p className="mt-3 text-[10px] uppercase tracking-[0.15em] text-stone-400">
+          <p className="mt-2 text-sm font-medium text-stone-800">{userEmail}</p>
+          <p className="mt-2 text-[10px] uppercase tracking-[0.15em] text-stone-400">
             {l.memberTypeLabel}
           </p>
           <p className="mt-1 text-xs text-stone-500">
@@ -157,44 +261,140 @@ export function EspaceView({ userEmail }: { userEmail: string }) {
           </p>
         </div>
 
-        <div className="mt-10 space-y-4 text-center text-sm leading-[1.9] text-stone-600">
-          <p>{l.intro}</p>
-          {l.introSub ? <p className="text-stone-500">{l.introSub}</p> : null}
-        </div>
+        <nav
+          aria-label={l.navLabel}
+          className="px-3 py-4 md:flex-1"
+        >
+          <p className="px-2 text-[10px] uppercase tracking-[0.15em] text-stone-400">
+            {l.navLabel}
+          </p>
+          <ul className="mt-3 space-y-1">
+            {l.modules.map((module) => {
+              const active = module.id === activeId;
 
-        <section className="mt-10 space-y-4">
-          {l.modules.map((module) => (
-            <article
-              key={module.title}
-              className="rounded-sm border border-stone-200 px-5 py-5 transition-colors hover:border-stone-400"
-            >
-              <h2 className="text-sm font-medium tracking-[0.06em] text-stone-900">
-                {module.title}
-              </h2>
-              <p className="mt-3 text-sm leading-[1.8] text-stone-600">
-                {module.body}
-              </p>
-              <p className="mt-4 text-[11px] tracking-[0.08em] text-stone-400">
-                {locale === "en"
-                  ? "Coming soon"
-                  : "Bientôt disponible · 即将开放"}
-              </p>
-            </article>
-          ))}
-        </section>
+              return (
+                <li key={module.id}>
+                  <button
+                    type="button"
+                    onClick={() => setActiveId(module.id)}
+                    className={`w-full rounded-sm px-3 py-2.5 text-left text-xs leading-[1.6] tracking-[0.04em] transition-colors ${
+                      active
+                        ? "bg-stone-900 text-white"
+                        : "text-stone-600 hover:bg-stone-100 hover:text-stone-900"
+                    }`}
+                  >
+                    {focusLabel(locale, module.id)}
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
 
-        <div className="mt-12 text-center">
+        <div className="flex items-center justify-between gap-3 border-t border-stone-200 px-5 py-4">
+          <LanguageSwitcher locale={locale} onChange={setLocale} />
           <button
             type="button"
             onClick={handleLogout}
-            className="text-xs tracking-[0.12em] text-stone-500 transition-colors hover:text-stone-900"
+            className="text-[11px] tracking-[0.08em] text-stone-500 transition-colors hover:text-stone-900"
           >
             {l.logout}
           </button>
         </div>
-      </main>
+      </aside>
 
-      <SiteFooter locale={locale} />
+      <main className="flex-1 px-6 py-8 md:px-10 md:py-12">
+        <article className="max-w-2xl">
+          <h2 className="text-sm font-medium tracking-[0.06em] text-stone-900">
+            {focusLabel(locale, activeModule.id)}
+          </h2>
+          {activeModule.body ? (
+            <p className="mt-4 text-sm leading-[1.9] text-stone-600">
+              {activeModule.body}
+            </p>
+          ) : null}
+
+          {activeId === "representedArtists" || activeId === "followedArtists" ? (
+            <ul className="mt-8 space-y-4">
+              {(activeId === "representedArtists"
+                ? representedArtists
+                : followedArtists
+              ).map((artist) => (
+                <li
+                  key={artist.slug}
+                  className="rounded-sm border border-stone-200 p-4 transition-colors hover:border-stone-400"
+                >
+                  <div className="flex gap-4">
+                    <div className="relative h-20 w-16 shrink-0 overflow-hidden bg-stone-100">
+                      <Image
+                        src={artist.portrait}
+                        alt={t(artist.name, locale)}
+                        fill
+                        className="object-cover"
+                        sizes="64px"
+                      />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <p className="text-sm font-medium text-stone-900">
+                        {t(artist.name, locale)}
+                      </p>
+                      <p className="mt-1 text-xs text-stone-500">
+                        {t(artist.practice, locale)}
+                      </p>
+                      <p className="mt-2 text-xs leading-[1.7] text-stone-600">
+                        {t(artist.tagline, locale)}
+                      </p>
+                      <Link
+                        href={`/artists/${artist.slug}?from=${RETURN_FROM_ESPACE}`}
+                        className="mt-3 inline-block text-[11px] tracking-[0.08em] text-stone-500 transition-colors hover:text-stone-900"
+                      >
+                        {l.viewPassport}
+                      </Link>
+                    </div>
+                  </div>
+                  {activeId === "followedArtists" ? (
+                    <label className="mt-5 block border-t border-stone-100 pt-4">
+                      <span className="text-[10px] uppercase tracking-[0.15em] text-stone-400">
+                        {l.galleryFollowNote}
+                      </span>
+                      <textarea
+                        value={followNotes[artist.slug] ?? ""}
+                        onChange={(event) =>
+                          updateFollowNote(artist.slug, event.target.value)
+                        }
+                        rows={4}
+                        placeholder={l.galleryFollowNotePlaceholder}
+                        className={`${inputClass} resize-y py-3 leading-relaxed`}
+                      />
+                    </label>
+                  ) : null}
+                </li>
+              ))}
+            </ul>
+          ) : activeId === "exhibitions" && featuredExhibition ? (
+            <div className="mt-8">
+              <Link
+                href={`/exhibitions/${featuredExhibition.slug}?from=${RETURN_FROM_ESPACE_EXHIBITIONS}`}
+                className="block rounded-sm border border-stone-200 p-5 transition-colors hover:border-stone-400"
+              >
+                <p className="text-sm font-medium text-stone-900">
+                  {featuredExhibition.title.fr} · {featuredExhibition.title.zh}
+                </p>
+                <p className="mt-2 text-xs text-stone-500">
+                  {featuredExhibition.artistDisplay.fr} · {featuredExhibition.year}
+                </p>
+                <p className="mt-4 text-[11px] tracking-[0.08em] text-stone-500">
+                  {l.viewExhibition}
+                </p>
+              </Link>
+            </div>
+          ) : (
+            <p className="mt-8 text-[11px] tracking-[0.08em] text-stone-400">
+              {l.comingSoon}
+            </p>
+          )}
+        </article>
+      </main>
     </div>
   );
 }
