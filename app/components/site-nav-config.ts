@@ -14,7 +14,7 @@ export function getSiteNavItems(): SiteNavItem[] {
   return [
     {
       href: "/artists/willy-le-nalbaut",
-      labelFr: "Willy Le Nalbaut",
+      labelFr: "Willy LN",
       labelZh: null,
       isDialogue: false,
       isActive: (path) => path === "/artists/willy-le-nalbaut",
