@@ -224,16 +224,32 @@ export function EspaceView({ userEmail }: { userEmail: string }) {
   }
 
   return (
-    <div className="min-h-screen bg-white text-stone-900 md:flex">
-      <aside className="border-b border-stone-200 bg-stone-50/50 md:flex md:w-72 md:shrink-0 md:flex-col md:border-b-0 md:border-r">
-        <div className="border-b border-stone-200 px-5 py-5">
+    <div className="min-h-screen bg-white text-stone-900">
+      <header className="sticky top-0 z-50 border-b border-stone-200 bg-white/95 backdrop-blur-sm">
+        <div className="flex items-center justify-between gap-4 px-5 py-4 md:px-10">
           <Link
             href="/"
             className="text-[11px] uppercase tracking-[0.2em] text-stone-400 transition-colors hover:text-stone-900"
           >
             Zhen Collection Paris
           </Link>
-          <p className="mt-4 text-[10px] font-medium uppercase tracking-[0.25em] text-stone-400">
+          <div className="flex items-center gap-3 md:gap-4">
+            <LanguageSwitcher locale={locale} onChange={setLocale} />
+            <button
+              type="button"
+              onClick={handleLogout}
+              className="text-[11px] tracking-[0.08em] text-stone-500 transition-colors hover:text-stone-900"
+            >
+              {l.logout}
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <div className="md:flex">
+      <aside className="border-b border-stone-200 bg-stone-50/50 md:flex md:w-72 md:shrink-0 md:flex-col md:border-b-0 md:border-r">
+        <div className="border-b border-stone-200 px-5 py-5">
+          <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-stone-400">
             {l.kicker}
           </p>
           {locale !== "en" ? (
@@ -290,17 +306,6 @@ export function EspaceView({ userEmail }: { userEmail: string }) {
             })}
           </ul>
         </nav>
-
-        <div className="flex items-center justify-between gap-3 border-t border-stone-200 px-5 py-4">
-          <LanguageSwitcher locale={locale} onChange={setLocale} />
-          <button
-            type="button"
-            onClick={handleLogout}
-            className="text-[11px] tracking-[0.08em] text-stone-500 transition-colors hover:text-stone-900"
-          >
-            {l.logout}
-          </button>
-        </div>
       </aside>
 
       <main className="flex-1 px-6 py-8 md:px-10 md:py-12">
@@ -395,6 +400,7 @@ export function EspaceView({ userEmail }: { userEmail: string }) {
           )}
         </article>
       </main>
+      </div>
     </div>
   );
 }
