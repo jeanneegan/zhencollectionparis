@@ -1065,6 +1065,33 @@ const suHong: ArtistProfile = {
       dimensions: "78 × 110 cm",
       image: "/artists/su-hong/works/ru-shan-shang-you-hua-wen.jpg",
     },
+    {
+      id: "9",
+      title: {
+        zh: "青花鱼",
+        fr: "Poissons bleu et blanc",
+        en: "Blue and White Fish",
+      },
+      year: 2022,
+      medium: {
+        zh: "纸本综合材料",
+        fr: "Technique mixte sur papier",
+        en: "Mixed media on paper",
+      },
+      dimensions: "",
+      image: "/artists/su-hong/works/qinghua-yu.jpg",
+      imageAspect: [790, 550],
+      views: [
+        {
+          src: "/artists/su-hong/works/qinghua-yu.jpg",
+          imageAspect: [790, 550],
+        },
+        {
+          src: "/artists/su-hong/works/qinghua-yu-2.jpg",
+          imageAspect: [790, 550],
+        },
+      ],
+    },
   ],
   professionalReputation: {
     galleryRecognition: [
