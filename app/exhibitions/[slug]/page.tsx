@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ExhibitionView } from "./exhibition-view";
 import { getExhibitionBySlug } from "../data";
+import { createPageMetadata } from "@/app/lib/site-metadata";
 import { resolveReturnTo } from "@/app/lib/return-to";
 
 type PageProps = {
@@ -18,13 +19,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const exhibition = getExhibitionBySlug(slug);
 
   if (!exhibition) {
-    return { title: "Exhibition · Zhen Collection Paris" };
+    return createPageMetadata({ title: "Exhibition · Zhen Collection Paris" });
   }
 
-  return {
+  return createPageMetadata({
     title: `${exhibition.title.fr} · Zhen Collection Paris`,
     description: exhibition.intro.fr,
-  };
+  });
 }
 
 export default async function ExhibitionPage({ params, searchParams }: PageProps) {

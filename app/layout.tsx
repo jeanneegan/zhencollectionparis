@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { MobileNav } from "./components/mobile-nav";
+import {
+  createPageMetadata,
+  getSiteUrl,
+} from "@/app/lib/site-metadata";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -14,8 +18,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Zhen Collection Paris",
-  description: "A platform connecting French and Chinese artists through dialogue, exhibitions and collections.",
+  metadataBase: new URL(getSiteUrl()),
+  ...createPageMetadata({
+    title: "Zhen Collection Paris",
+  }),
 };
 
 export default function RootLayout({

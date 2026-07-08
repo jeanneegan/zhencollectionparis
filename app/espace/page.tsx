@@ -3,11 +3,12 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { EspaceView } from "./espace-view";
 import { isAuthenticatedSession, MOCK_USER, SESSION_COOKIE } from "@/app/lib/auth";
+import { createPageMetadata } from "@/app/lib/site-metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Espace membre · Zhen Collection Paris",
   description: "Espace de conception réservé aux membres · 巴黎臻藏成员设计空间",
-};
+});
 
 export default async function EspacePage() {
   const cookieStore = await cookies();
