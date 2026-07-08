@@ -2,7 +2,8 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { ArtistPassport } from "./artist-passport";
 import { getArtistBySlug, t } from "./data";
-import { createPageMetadata, shareImageFromPath } from "@/app/lib/site-metadata";
+import { createPageMetadata } from "@/app/lib/site-metadata";
+import { getArtistShareImage } from "@/app/lib/page-share-image";
 import { resolveReturnTo } from "@/app/lib/return-to";
 
 type PageProps = {
@@ -21,12 +22,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return createPageMetadata({
     title: `${t(artist.name, "fr")} · Zhen Collection Paris`,
     description: t(artist.tagline, "fr"),
-    images: [
-      shareImageFromPath(
-        artist.portrait,
-        `${t(artist.name, "fr")} · ${t(artist.name, "zh")}`,
-      ),
-    ],
+    images: [getArtistShareImage(artist)],
   });
 }
 

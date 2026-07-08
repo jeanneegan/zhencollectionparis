@@ -21,6 +21,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
   ...createPageMetadata({
     title: "Zhen Collection Paris",
+    fallbackToLogo: false,
   }),
 };
 

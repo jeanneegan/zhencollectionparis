@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getArtistBySlug, t } from "@/app/artists/[slug]/data";
-import { createPageMetadata, shareImageFromPath } from "@/app/lib/site-metadata";
+import { getArtistBySlug } from "@/app/artists/[slug]/data";
+import { createPageMetadata } from "@/app/lib/site-metadata";
+import { getDialogueShareImage } from "@/app/lib/page-share-image";
 import { getEpisodeBySlug } from "../data";
 import { DialogueView, type FeaturedWork } from "./dialogue-view";
 
@@ -17,17 +18,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return createPageMetadata({ title: "Conversation · Zhen Collection Paris" });
   }
 
-  const featured = episode.featuredWorks[0];
-  const artist = featured ? getArtistBySlug(featured.artistSlug) : null;
-  const artwork = artist?.artworks.find((work) => work.id === featured?.artworkId);
-  const image = featured?.image ?? artwork?.image;
+  const shareImage = getDialogueShareImage(episode);
 
   return createPageMetadata({
     title: `${episode.title.fr} · Zhen Collection Paris`,
-    description: t(episode.sharedQuestion.question, "fr"),
-    images: image
-      ? [shareImageFromPath(image, `${episode.title.fr} · ${episode.title.zh}`)]
-      : undefined,
+    description: episode.sharedQuestion.question.fr,
+    images: shareImage ? [shareImage] : undefined,
   });
 }
 

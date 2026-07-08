@@ -17,8 +17,16 @@ export function getSiteUrl() {
 export const defaultDescription =
   "A platform connecting French and Chinese artists through dialogue, exhibitions and collections.";
 
+export function resolveShareImageUrl(path: string) {
+  if (path.startsWith("http://") || path.startsWith("https://")) {
+    return path;
+  }
+
+  return new URL(path, getSiteUrl()).toString();
+}
+
 export const brandShareImage = {
-  url: BRAND_LOGO_SRC,
+  url: resolveShareImageUrl(BRAND_LOGO_SRC),
   width: 420,
   height: 420,
   alt: "Zhen Collection Paris · 巴黎臻藏",
@@ -26,7 +34,7 @@ export const brandShareImage = {
 
 export function shareImageFromPath(path: string, alt: string) {
   return {
-    url: path,
+    url: resolveShareImageUrl(path),
     width: 1200,
     height: 630,
     alt,
@@ -36,22 +44,22 @@ export function shareImageFromPath(path: string, alt: string) {
 function toTwitterImages(
   images: NonNullable<Metadata["openGraph"]>["images"],
 ): string[] {
-  if (!images) {
-    return [BRAND_LOGO_SRC];
-  }
-
   const list = Array.isArray(images) ? images : [images];
 
-  return list.map((image) => {
+  return list.flatMap((image) => {
+    if (!image) {
+      return [];
+    }
+
     if (typeof image === "string") {
-      return image;
+      return [resolveShareImageUrl(image)];
     }
 
     if (image instanceof URL) {
-      return image.toString();
+      return [image.toString()];
     }
 
-    return image.url.toString();
+    return [resolveShareImageUrl(image.url.toString())];
   });
 }
 
@@ -59,12 +67,14 @@ export function createPageMetadata({
   title,
   description = defaultDescription,
   images,
+  fallbackToLogo = true,
 }: {
   title: string;
   description?: string;
   images?: NonNullable<Metadata["openGraph"]>["images"];
+  fallbackToLogo?: boolean;
 }): Metadata {
-  const shareImages = images ?? [brandShareImage];
+  const shareImages = images ?? (fallbackToLogo ? [brandShareImage] : undefined);
 
   return {
     title,
@@ -72,13 +82,13 @@ export function createPageMetadata({
     openGraph: {
       title,
       description,
-      images: shareImages,
+      ...(shareImages ? { images: shareImages } : {}),
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: toTwitterImages(shareImages),
+      ...(shareImages ? { images: toTwitterImages(shareImages) } : {}),
     },
   };
 }
