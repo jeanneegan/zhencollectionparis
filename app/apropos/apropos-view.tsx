@@ -3,7 +3,6 @@
 import { Noto_Serif_SC } from "next/font/google";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
 import { PageBottomNav } from "@/app/components/page-bottom-nav";
-import { SiteBrandLogo } from "@/app/components/site-brand-logo";
 import { SiteFooter } from "@/app/components/site-footer";
 import { SiteHeader } from "@/app/components/site-header";
 import type { Locale } from "@/app/artists/[slug]/data";
@@ -530,10 +529,6 @@ export function AproposView() {
               locale={locale}
             />
           ))}
-        </div>
-
-        <div className="mt-16 flex justify-center border-t border-stone-200 pt-12">
-          <SiteBrandLogo variant="full" />
         </div>
 
         <PageBottomNav locale={locale} />
