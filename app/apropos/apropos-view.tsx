@@ -513,9 +513,6 @@ export function AproposView() {
 
       <main className="mx-auto max-w-3xl px-6 py-12 md:px-16 md:py-20">
         <header className="border-b border-stone-200 pb-10 text-center">
-          <div className="mb-8 flex justify-center">
-            <SiteBrandLogo variant="full" />
-          </div>
           <h1
             className={`${
               locale === "zh" ? serif.className : ""
@@ -533,6 +530,10 @@ export function AproposView() {
               locale={locale}
             />
           ))}
+        </div>
+
+        <div className="mt-16 flex justify-center border-t border-stone-200 pt-12">
+          <SiteBrandLogo variant="full" />
         </div>
 
         <PageBottomNav locale={locale} />
