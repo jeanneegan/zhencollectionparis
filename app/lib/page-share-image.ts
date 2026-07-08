@@ -12,8 +12,9 @@ export function getArtistShareImage(artist: ArtistProfile) {
 
 export function getExhibitionShareImage(exhibition: Exhibition) {
   const artist = getArtistBySlug(exhibition.artistSlug);
-  const firstWorkId = exhibition.workIds[0];
-  const firstWork = artist?.artworks.find((work) => work.id === firstWorkId);
+  const firstWork = artist?.artworks.find((work) =>
+    exhibition.workIds.includes(work.id),
+  );
 
   if (!firstWork) {
     return undefined;
@@ -46,7 +47,9 @@ export function getDialogueShareImage(episode: DialogueEpisode) {
   );
 }
 
-export const homeShareImage = shareImageFromPath(
-  "/artists/willy-le-nalbaut/portrait.jpg",
-  "Willy Le Nalbaut · 苏泓 Su Hong",
-);
+export function getHomeShareImage() {
+  return shareImageFromPath(
+    "/artists/willy-le-nalbaut/portrait.jpg",
+    "Willy Le Nalbaut · 苏泓 Su Hong",
+  );
+}

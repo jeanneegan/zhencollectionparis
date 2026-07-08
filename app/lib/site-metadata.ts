@@ -1,10 +1,22 @@
 import type { Metadata } from "next";
 import { BRAND_LOGO_SRC } from "@/app/components/site-brand-logo";
 
+const PRODUCTION_SITE_URL = "https://zhencollectionparis.vercel.app";
+
 export function getSiteUrl() {
   const explicit = process.env.NEXT_PUBLIC_SITE_URL;
   if (explicit) {
     return explicit.replace(/\/$/, "");
+  }
+
+  const production = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+  if (production) {
+    return `https://${production.replace(/\/$/, "")}`;
+  }
+
+  // Preview deployment URLs can be SSO-protected; share images must use production.
+  if (process.env.VERCEL) {
+    return PRODUCTION_SITE_URL;
   }
 
   if (process.env.VERCEL_URL) {
@@ -25,12 +37,14 @@ export function resolveShareImageUrl(path: string) {
   return new URL(path, getSiteUrl()).toString();
 }
 
-export const brandShareImage = {
-  url: resolveShareImageUrl(BRAND_LOGO_SRC),
-  width: 420,
-  height: 420,
-  alt: "Zhen Collection Paris · 巴黎臻藏",
-} as const;
+export function getBrandShareImage() {
+  return {
+    url: resolveShareImageUrl(BRAND_LOGO_SRC),
+    width: 420,
+    height: 420,
+    alt: "Zhen Collection Paris · 巴黎臻藏",
+  } as const;
+}
 
 export function shareImageFromPath(path: string, alt: string) {
   return {
@@ -74,12 +88,14 @@ export function createPageMetadata({
   images?: NonNullable<Metadata["openGraph"]>["images"];
   fallbackToLogo?: boolean;
 }): Metadata {
-  const shareImages = images ?? (fallbackToLogo ? [brandShareImage] : undefined);
+  const shareImages =
+    images ?? (fallbackToLogo ? [getBrandShareImage()] : undefined);
 
   return {
     title,
     description,
     openGraph: {
+      type: "website",
       title,
       description,
       ...(shareImages ? { images: shareImages } : {}),
