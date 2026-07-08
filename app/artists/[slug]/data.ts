@@ -1059,9 +1059,9 @@ Compositions built on pure construction, without clear light-and-shadow structur
         en: "International design awards",
       },
       description: {
-        zh: "ICAD 国际当代青年美术设计大赛银奖；BICC 中英国际创意大赛铜奖；SGADC 新加坡金沙艺术设计大赛铜奖。",
-        fr: "Argent ICAD ; bronze BICC ; bronze SGADC.",
-        en: "ICAD silver; BICC bronze; SGADC bronze.",
+        zh: "ICAD 国际当代青年美术设计大赛银奖；BICC 中英国际创意大赛铜奖。",
+        fr: "Argent ICAD ; bronze BICC.",
+        en: "ICAD silver; BICC bronze.",
       },
     },
     {
@@ -1725,32 +1725,7 @@ Modernity: flat minimalism is a major current in contemporary design—reflectin
         },
       },
     ],
-    publicResonance: [
-      {
-        source: {
-          zh: "买得起艺术节 · 观众留言",
-          fr: "Affordable Art Festival · public",
-          en: "Affordable Art Festival · public",
-        },
-        quote: {
-          zh: "传统不是复古，在他的画里活成了现在时。",
-          fr: "La tradition n'y est pas rétro — elle est au présent.",
-          en: "Tradition here is not retro—it lives in the present tense.",
-        },
-      },
-      {
-        source: {
-          zh: "SGADC 新加坡金沙艺术设计大赛",
-          fr: "SGADC Singapore",
-          en: "SGADC Singapore",
-        },
-        quote: {
-          zh: "2022 年铜奖——《纹饰系列》在东南亚当代视觉语境中获得认可。",
-          fr: "Bronze 2022 — la série « Ornements » reconnue dans le contexte visuel contemporain d'Asie du Sud-Est.",
-          en: "2022 Bronze—the 'Ornament' series recognized in Southeast Asia's contemporary visual context.",
-        },
-      },
-    ],
+    publicResonance: [],
   },
 };
 

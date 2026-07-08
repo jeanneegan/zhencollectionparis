@@ -937,28 +937,30 @@ export function ArtistPassport({
             </div>
           </div>
 
-          <div>
-            <h3 className={passportType.meta}>{l.publicResonance}</h3>
-            <div className="mt-8 space-y-6">
-              {artist.professionalReputation.publicResonance.map((item) => (
-                <figure
-                  key={t(item.source, "fr")}
-                  className="flex flex-col gap-4 border-l-2 border-stone-200 pl-6 md:flex-row md:items-start md:gap-12"
-                >
-                  <p
-                    className={`shrink-0 md:w-36 ${passportType.meta} tracking-[0.12em]`}
+          {artist.professionalReputation.publicResonance.length > 0 ? (
+            <div>
+              <h3 className={passportType.meta}>{l.publicResonance}</h3>
+              <div className="mt-8 space-y-6">
+                {artist.professionalReputation.publicResonance.map((item) => (
+                  <figure
+                    key={t(item.source, "fr")}
+                    className="flex flex-col gap-4 border-l-2 border-stone-200 pl-6 md:flex-row md:items-start md:gap-12"
                   >
-                    {t(item.source, locale)}
-                  </p>
-                  <blockquote
-                    className={`whitespace-pre-line ${passportType.quote}`}
-                  >
-                    {t(item.quote, locale)}
-                  </blockquote>
-                </figure>
-              ))}
+                    <p
+                      className={`shrink-0 md:w-36 ${passportType.meta} tracking-[0.12em]`}
+                    >
+                      {t(item.source, locale)}
+                    </p>
+                    <blockquote
+                      className={`whitespace-pre-line ${passportType.quote}`}
+                    >
+                      {t(item.quote, locale)}
+                    </blockquote>
+                  </figure>
+                ))}
+              </div>
             </div>
-          </div>
+          ) : null}
         </div>
       </section>
 
