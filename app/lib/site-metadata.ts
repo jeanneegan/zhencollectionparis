@@ -24,6 +24,15 @@ export const brandShareImage = {
   alt: "Zhen Collection Paris · 巴黎臻藏",
 } as const;
 
+export function shareImageFromPath(path: string, alt: string) {
+  return {
+    url: path,
+    width: 1200,
+    height: 630,
+    alt,
+  } as const;
+}
+
 function toTwitterImages(
   images: NonNullable<Metadata["openGraph"]>["images"],
 ): string[] {
