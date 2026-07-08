@@ -3,6 +3,7 @@
 import { Noto_Serif_SC } from "next/font/google";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
 import { PageBottomNav } from "@/app/components/page-bottom-nav";
+import { SiteBrandLogo } from "@/app/components/site-brand-logo";
 import { SiteFooter } from "@/app/components/site-footer";
 import { SiteHeader } from "@/app/components/site-header";
 import type { Locale } from "@/app/artists/[slug]/data";
@@ -512,6 +513,9 @@ export function AproposView() {
 
       <main className="mx-auto max-w-3xl px-6 py-12 md:px-16 md:py-20">
         <header className="border-b border-stone-200 pb-10 text-center">
+          <div className="mb-8 flex justify-center">
+            <SiteBrandLogo variant="full" />
+          </div>
           <h1
             className={`${
               locale === "zh" ? serif.className : ""

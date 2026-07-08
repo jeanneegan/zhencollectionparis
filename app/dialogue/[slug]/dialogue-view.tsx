@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Noto_Serif_SC } from "next/font/google";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
+import { SiteBrandLogo } from "@/app/components/site-brand-logo";
 import { PublicMessageForm } from "@/app/components/public-message-form";
 import { PageBottomNav } from "@/app/components/page-bottom-nav";
 import { SiteFooter } from "@/app/components/site-footer";
@@ -134,14 +135,7 @@ function DialogueIdentity({ avatar }: { avatar: DialogueAvatar }) {
   if (avatar.type === "brand") {
     return (
       <div className="flex items-center gap-4">
-        <div className="flex h-14 w-14 shrink-0 flex-col items-center justify-center rounded-full border border-stone-300 bg-white">
-          <span className="text-[8px] font-medium uppercase tracking-[0.08em] text-stone-500">
-            ZCP
-          </span>
-          <span className={`${serif.className} mt-0.5 text-[9px] text-stone-600`}>
-            臻
-          </span>
-        </div>
+        <SiteBrandLogo size="sm" />
         <p className="text-[10px] leading-relaxed tracking-[0.1em] text-stone-400">
           {avatar.label ?? avatar.alt}
         </p>
