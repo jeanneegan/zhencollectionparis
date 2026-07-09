@@ -9,6 +9,7 @@ import { SiteFooter } from "@/app/components/site-footer";
 import { SiteTopLinks } from "@/app/components/site-top-links";
 import { PageBottomNav } from "@/app/components/page-bottom-nav";
 import { useLocale } from "@/app/lib/use-locale";
+import { useArtistProfile } from "@/app/lib/use-artist-profile";
 import { type ArtistProfile, type Locale, getArtworkDisplayLayout, t } from "./data";
 
 const labels: Record<
@@ -488,12 +489,13 @@ function renderArtworkGridItems(
 }
 
 export function ArtistPassport({
-  artist,
+  artist: baseArtist,
   returnTo,
 }: {
   artist: ArtistProfile;
   returnTo?: string;
 }) {
+  const artist = useArtistProfile(baseArtist);
   const [locale, setLocale] = useLocale();
   const l = labels[locale];
   const isFrenchArtist = artist.nationality.en === "French";

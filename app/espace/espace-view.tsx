@@ -193,6 +193,8 @@ const artistLabels: Record<
     welcomeBody: string;
     viewPassport: string;
     passportBody: string;
+    editProfile: string;
+    editProfileBody: string;
     viewAgreement: string;
     agreementBody: string;
     logout: string;
@@ -207,6 +209,8 @@ const artistLabels: Record<
     welcomeBody: "在此访问您的艺术家档案与合作存档协议。",
     viewPassport: "Voir le passeport · 查看档案",
     passportBody: "查看并分享您的艺术家护照页面。",
+    editProfile: "Modifier le passeport · 编辑档案",
+    editProfileBody: "更新简介、创作陈述、联系方式等公开信息。",
     viewAgreement: "Accord de collaboration · 艺术家合作与档案协议",
     agreementBody: "查阅巴黎臻藏与艺术家之间的合作与档案协议。",
     logout: "Se déconnecter · 退出登录",
@@ -220,6 +224,9 @@ const artistLabels: Record<
     welcomeBody: "Accédez ici à votre passeport artiste et à l'accord de collaboration.",
     viewPassport: "Voir le passeport · 查看档案",
     passportBody: "Consultez et partagez votre page passeport artiste.",
+    editProfile: "Modifier le passeport · 编辑档案",
+    editProfileBody:
+      "Mettez à jour votre introduction, déclaration, coordonnées et autres informations publiques.",
     viewAgreement: "Accord de collaboration · 艺术家合作与档案协议",
     agreementBody:
       "Consultez l'accord de collaboration et d'archives d'artiste entre Zhen Collection Paris et l'artiste.",
@@ -234,6 +241,9 @@ const artistLabels: Record<
     welcomeBody: "Access your artist passport and collaboration archive agreement here.",
     viewPassport: "View passport",
     passportBody: "View and share your artist passport page.",
+    editProfile: "Edit passport",
+    editProfileBody:
+      "Update your introduction, artist statement, contact details, and other public information.",
     viewAgreement: "Artist Collaboration & Archive Agreement",
     agreementBody:
       "Review the artist collaboration and archive agreement between Zhen Collection Paris and the artist.",
@@ -313,6 +323,17 @@ function ArtistEspaceView({ member }: { member: MockMember }) {
             >
               <p className="text-sm font-medium text-stone-900">{l.viewPassport}</p>
               <p className="mt-2 text-sm leading-[1.8] text-stone-600">{l.passportBody}</p>
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/espace/profil"
+              className="block rounded-sm border border-stone-200 p-5 transition-colors hover:border-stone-400"
+            >
+              <p className="text-sm font-medium text-stone-900">{l.editProfile}</p>
+              <p className="mt-2 text-sm leading-[1.8] text-stone-600">
+                {l.editProfileBody}
+              </p>
             </Link>
           </li>
           <li>
