@@ -238,7 +238,7 @@ export function NotesAdminView() {
   return (
     <article>
       <AdminPageHeader
-        title="笔记"
+        title="笔记 1"
         description="巴黎臻藏商业模式与共同体生态 — 内部战略笔记。"
       />
 

@@ -203,5 +203,9 @@ export function isAdminNavLinkActive(pathname: string, link: AdminNavLink): bool
     return pathname === "/admin";
   }
 
+  if (link.id === "admin-notes") {
+    return pathname === "/admin/notes" || pathname.startsWith("/admin/notes/");
+  }
+
   return pathname === link.href || pathname.startsWith(`${link.href}/`);
 }

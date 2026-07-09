@@ -1,5 +1,5 @@
-import { NotesAdminView } from "./notes-admin-view";
+import { NotesIndexView } from "./notes-index-view";
 
 export default function AdminNotesPage() {
-  return <NotesAdminView />;
+  return <NotesIndexView />;
 }
