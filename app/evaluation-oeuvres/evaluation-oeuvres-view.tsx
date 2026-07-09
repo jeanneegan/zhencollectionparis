@@ -26,8 +26,8 @@ const pageLabels: Record<
   }
 > = {
   zh: {
-    title: "Partager votre regard",
-    titleSub: "分享您的专业观点",
+    title: "Évaluation des œuvres en ligne",
+    titleSub: "在线作品评估",
     intro:
       "本页供艺术专业人士使用。欢迎画廊、策展人、研究者、收藏家、评论者等，就平台上的作品留下专业观点与判断。",
     introSub:
@@ -35,8 +35,8 @@ const pageLabels: Record<
     note: "专业观点将纳入档案记录，经审阅后可能公开展示。",
   },
   fr: {
-    title: "Partager votre regard",
-    titleSub: "分享您的专业观点",
+    title: "Évaluation des œuvres en ligne",
+    titleSub: "在线作品评估",
     intro:
       "Cette page s'adresse aux professionnels de l'art — galeristes, commissaires, chercheurs, collectionneurs, critiques — pour partager leur lecture professionnelle des œuvres.",
     introSub:
@@ -45,7 +45,7 @@ const pageLabels: Record<
       "Les regards professionnels peuvent être intégrés à l'archive, après relecture.",
   },
   en: {
-    title: "Share Your Professional View",
+    title: "Online Artwork Evaluation",
     titleSub: "",
     intro:
       "This page is for art professionals — gallerists, curators, researchers, collectors, and critics — to share their professional reading and assessment of works on the platform.",
@@ -90,7 +90,7 @@ export function EvaluationOeuvresView({ works }: { works: EvaluationWork[] }) {
 
         <ArtworkEvaluationForm locale={locale} works={works} />
 
-        <PageBottomNav locale={locale} />
+        <PageBottomNav locale={locale} backHref="/espace" />
       </main>
 
       <SiteFooter locale={locale} />

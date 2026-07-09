@@ -54,7 +54,7 @@ const pageLabels: Record<
     galleryFollowNote: "Évaluation galerie · 关注画廊评价",
     galleryFollowNotePlaceholder:
       "记录您对该艺术家的观察、跟进与评价… · Notes d'observation, de suivi et d'évaluation…",
-    publicEvaluationLink: "Partager votre regard · 分享您的专业观点",
+    publicEvaluationLink: "Évaluation des œuvres en ligne · 在线作品评估",
     modules: [
       {
         id: "representedArtists",
@@ -86,7 +86,7 @@ const pageLabels: Record<
     galleryFollowNote: "Évaluation galerie · 关注画廊评价",
     galleryFollowNotePlaceholder:
       "记录您对该艺术家的观察、跟进与评价… · Notes d'observation, de suivi et d'évaluation…",
-    publicEvaluationLink: "Partager votre regard · 分享您的专业观点",
+    publicEvaluationLink: "Évaluation des œuvres en ligne · 在线作品评估",
     modules: [
       {
         id: "representedArtists",
@@ -118,7 +118,7 @@ const pageLabels: Record<
     galleryFollowNote: "Gallery follow evaluation",
     galleryFollowNotePlaceholder:
       "Record your observations, follow-up, and evaluation of this artist…",
-    publicEvaluationLink: "Share Your Professional View",
+    publicEvaluationLink: "Online Artwork Evaluation",
     modules: [
       {
         id: "representedArtists",
@@ -408,7 +408,15 @@ export function EspaceView({ member }: { member: MockMember }) {
             {l.navLabel}
           </p>
           <ul className="mt-3 space-y-1">
-            {l.modules.flatMap((module) => {
+            <li>
+              <Link
+                href="/evaluation-oeuvres"
+                className="block rounded-sm px-3 py-2.5 text-left text-xs leading-[1.6] tracking-[0.04em] text-stone-600 transition-colors hover:bg-stone-100 hover:text-stone-900"
+              >
+                {l.publicEvaluationLink}
+              </Link>
+            </li>
+            {l.modules.map((module) => {
               const active = module.id === activeId;
               const unreadCount =
                 module.id === "receivedMessages"
@@ -416,7 +424,7 @@ export function EspaceView({ member }: { member: MockMember }) {
                       .length
                   : 0;
 
-              const items = [
+              return (
                 <li key={module.id}>
                   <button
                     type="button"
@@ -440,23 +448,8 @@ export function EspaceView({ member }: { member: MockMember }) {
                       </span>
                     ) : null}
                   </button>
-                </li>,
-              ];
-
-              if (module.id === "exhibitions") {
-                items.push(
-                  <li key="evaluation-oeuvres">
-                    <Link
-                      href="/evaluation-oeuvres"
-                      className="block rounded-sm px-3 py-2.5 text-left text-xs leading-[1.6] tracking-[0.04em] text-stone-600 transition-colors hover:bg-stone-100 hover:text-stone-900"
-                    >
-                      {l.publicEvaluationLink}
-                    </Link>
-                  </li>,
-                );
-              }
-
-              return items;
+                </li>
+              );
             })}
           </ul>
         </nav>

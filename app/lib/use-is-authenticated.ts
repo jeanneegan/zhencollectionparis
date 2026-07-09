@@ -75,6 +75,10 @@ export function shouldHidePublicNav(
     return true;
   }
 
+  if (pathname.startsWith("/evaluation-oeuvres")) {
+    return true;
+  }
+
   if (!isAuthenticated) {
     return false;
   }

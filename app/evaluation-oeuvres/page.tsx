@@ -5,9 +5,9 @@ import { createPageMetadata } from "@/app/lib/site-metadata";
 
 export const metadata: Metadata = createPageMetadata({
   title:
-    "Partager votre regard · 分享您的专业观点 · Zhen Collection Paris",
+    "Évaluation des œuvres en ligne · 在线作品评估 · Zhen Collection Paris",
   description:
-    "Pour les professionnels de l'art — partagez votre lecture professionnelle des œuvres. · 供艺术专业人士留下专业观点与判断。",
+    "Pour les professionnels de l'art — évaluation en ligne des œuvres sur Zhen Collection Paris. · 供艺术专业人士进行在线作品评估。",
 });
 
 export default function EvaluationOeuvresPage() {
