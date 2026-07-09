@@ -8,6 +8,8 @@ import { SiteBrandLink } from "@/app/components/site-brand-link";
 import { SiteFooter } from "@/app/components/site-footer";
 import { SiteTopLinks } from "@/app/components/site-top-links";
 import { PageBottomNav } from "@/app/components/page-bottom-nav";
+import { MemberWorkspaceLayout } from "@/app/components/member-workspace-layout";
+import type { MockMember } from "@/app/lib/auth";
 import { useLocale } from "@/app/lib/use-locale";
 import { type ArtistProfile, type Locale, getArtworkDisplayLayout, t } from "./data";
 
@@ -273,14 +275,16 @@ type PassportSection = (typeof passportSections)[number]["key"];
 
 function PassportSectionNav({
   labels,
+  variant = "header",
 }: {
   labels: { navArtist: string; navWorks: string; navExhibitions: string };
+  variant?: "header" | "sidebar";
 }) {
   const [activeSection, setActiveSection] = useState<PassportSection>("artist");
 
   useEffect(() => {
     const updateActiveSection = () => {
-      const offset = 160;
+      const offset = variant === "sidebar" ? 120 : 160;
       let next: PassportSection = "artist";
 
       for (const section of passportSections) {
@@ -297,7 +301,7 @@ function PassportSectionNav({
     updateActiveSection();
     window.addEventListener("scroll", updateActiveSection, { passive: true });
     return () => window.removeEventListener("scroll", updateActiveSection);
-  }, []);
+  }, [variant]);
 
   const items: { key: PassportSection; label: string; id: string }[] = [
     { key: "artist", label: labels.navArtist, id: "passport-artist" },
@@ -308,6 +312,37 @@ function PassportSectionNav({
       id: "passport-exhibitions",
     },
   ];
+
+  if (variant === "sidebar") {
+    return (
+      <aside className="lg:sticky lg:top-8 lg:self-start">
+        <nav aria-label={labels.navArtist}>
+          <ul className="flex gap-2 overflow-x-auto pb-2 lg:max-h-[calc(100vh-8rem)] lg:flex-col lg:gap-1 lg:overflow-y-auto lg:overflow-x-hidden lg:pb-0 lg:pr-1">
+            {items.map(({ key, label, id }) => (
+              <li key={key} className="shrink-0 lg:shrink">
+                <button
+                  type="button"
+                  onClick={() =>
+                    document.getElementById(id)?.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                    })
+                  }
+                  className={`flex w-full rounded-sm px-3 py-2.5 text-left text-xs leading-[1.6] tracking-[0.04em] transition-colors ${
+                    activeSection === key
+                      ? "bg-stone-900 text-white"
+                      : "text-stone-600 hover:bg-stone-100 hover:text-stone-900"
+                  }`}
+                >
+                  {label}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </aside>
+    );
+  }
 
   return (
     <nav className="hidden gap-8 text-[11px] font-medium uppercase tracking-[0.15em] lg:flex">
@@ -490,12 +525,19 @@ function renderArtworkGridItems(
 export function ArtistPassport({
   artist,
   returnTo,
+  member,
 }: {
   artist: ArtistProfile;
   returnTo?: string;
+  member?: MockMember;
 }) {
   const [locale, setLocale] = useLocale();
   const l = labels[locale];
+  const navLabels = {
+    navArtist: l.navArtist,
+    navWorks: l.navWorks,
+    navExhibitions: l.navExhibitions,
+  };
   const isFrenchArtist = artist.nationality.en === "French";
   const isChineseArtist = artist.nationality.en === "Chinese";
   const chinaText = t(artist.whyChinaFrance.china, locale);
@@ -506,27 +548,13 @@ export function ArtistPassport({
   const hasCollectionQuestions =
     Boolean(cultureQuestionText) || Boolean(hopeToLeaveText);
 
-  return (
-    <div className="min-h-screen bg-stone-50 text-stone-900">
-      <header className="sticky top-0 z-50 border-b border-stone-200 bg-white/95 backdrop-blur-sm">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-5 md:px-10">
-          <SiteBrandLink className="shrink-0" />
-          <div className="flex shrink-0 items-center gap-4 md:gap-6">
-            <PassportSectionNav
-              labels={{
-                navArtist: l.navArtist,
-                navWorks: l.navWorks,
-                navExhibitions: l.navExhibitions,
-              }}
-            />
-            <LanguageSwitcher locale={locale} onChange={setLocale} />
-          </div>
+  const passportContent = (
+    <>
+      {!member ? (
+        <div className="mx-auto max-w-7xl px-6 pt-8 md:px-10">
+          <SiteTopLinks locale={locale} showAgreement />
         </div>
-      </header>
-
-      <div className="mx-auto max-w-7xl px-6 pt-8 md:px-10">
-        <SiteTopLinks locale={locale} showAgreement />
-      </div>
+      ) : null}
 
       {/* Hero */}
       <section
@@ -983,6 +1011,45 @@ export function ArtistPassport({
           ) : null}
         </div>
       </section>
+    </>
+  );
+
+  if (member) {
+    return (
+      <MemberWorkspaceLayout member={member} contentClassName="max-w-7xl">
+        <header className="border-b border-stone-200 pb-6">
+          <p className={passportType.heroPassport}>{l.passport}</p>
+          <h1 className={`mt-3 ${passportType.heroName}`}>
+            {t(artist.name, locale)}
+          </h1>
+          <p className={`mt-4 max-w-2xl ${passportType.heroTagline}`}>
+            {t(artist.tagline, locale)}
+          </p>
+        </header>
+
+        <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-10 xl:grid-cols-[240px_minmax(0,1fr)]">
+          <PassportSectionNav variant="sidebar" labels={navLabels} />
+          <div className="min-w-0 bg-stone-50 text-stone-900">
+            {passportContent}
+          </div>
+        </div>
+      </MemberWorkspaceLayout>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-stone-50 text-stone-900">
+      <header className="sticky top-0 z-50 border-b border-stone-200 bg-white/95 backdrop-blur-sm">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-5 md:px-10">
+          <SiteBrandLink className="shrink-0" />
+          <div className="flex shrink-0 items-center gap-4 md:gap-6">
+            <PassportSectionNav labels={navLabels} />
+            <LanguageSwitcher locale={locale} onChange={setLocale} />
+          </div>
+        </div>
+      </header>
+
+      {passportContent}
 
       <div className="mx-auto max-w-3xl px-6">
         <PageBottomNav locale={locale} backHref={returnTo ?? "/"} />
