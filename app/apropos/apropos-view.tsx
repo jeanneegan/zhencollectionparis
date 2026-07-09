@@ -1,7 +1,6 @@
 "use client";
 
 import { Noto_Serif_SC } from "next/font/google";
-import { AproposNarration } from "@/app/components/apropos-narration";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
 import { PageBottomNav } from "@/app/components/page-bottom-nav";
 import { SiteFooter } from "@/app/components/site-footer";
@@ -421,8 +420,6 @@ export function AproposView() {
             />
           ))}
         </div>
-
-        <AproposNarration locale={locale} />
 
         <PageBottomNav locale={locale} />
       </main>
