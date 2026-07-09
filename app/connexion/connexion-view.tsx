@@ -26,8 +26,8 @@ const pageLabels: Record<
   }
 > = {
   zh: {
-    title: "Connexion",
-    titleSub: "登录",
+    title: "Accès sur invitation",
+    titleSub: "受邀登录",
     intro:
       "成员空间面向巴黎臻藏的合作艺术家、机构伙伴与团队成员。请使用受邀邮箱登录。",
     introSub:
@@ -35,8 +35,8 @@ const pageLabels: Record<
     note: "公众浏览无需登录。",
   },
   fr: {
-    title: "Connexion",
-    titleSub: "登录",
+    title: "Accès sur invitation",
+    titleSub: "受邀登录",
     intro:
       "Espace réservé aux artistes, partenaires institutionnels et membres de l'équipe Zhen Collection Paris. Connectez-vous avec l'adresse qui vous a été confiée.",
     introSub:
@@ -44,7 +44,7 @@ const pageLabels: Record<
     note: "La consultation publique du site ne nécessite pas de connexion.",
   },
   en: {
-    title: "Sign in",
+    title: "Invited Access",
     titleSub: "",
     intro:
       "This space is reserved for collaborating artists, institutional partners, and Zhen Collection Paris team members. Sign in with the email address provided to you.",
