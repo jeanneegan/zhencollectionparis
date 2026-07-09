@@ -31,7 +31,6 @@ const pageLabels: Record<
     kicker: string;
     kickerSub: string;
     signedInAs: string;
-    memberTypeLabel: string;
     navLabel: string;
     logout: string;
     comingSoon: string;
@@ -43,10 +42,9 @@ const pageLabels: Record<
   }
 > = {
   zh: {
-    kicker: "Espace membre",
-    kickerSub: "成员空间",
+    kicker: "Espace membre sur invitation",
+    kickerSub: "受邀成员空间",
     signedInAs: "当前登录",
-    memberTypeLabel: "Type de membre · 成员类型",
     navLabel: "Navigation · 导航",
     logout: "Se déconnecter · 退出登录",
     comingSoon: "Bientôt disponible · 即将开放",
@@ -79,10 +77,9 @@ const pageLabels: Record<
     ],
   },
   fr: {
-    kicker: "Espace membre",
-    kickerSub: "成员空间",
+    kicker: "Espace membre sur invitation",
+    kickerSub: "受邀成员空间",
     signedInAs: "Connecté en tant que",
-    memberTypeLabel: "Type de membre · 成员类型",
     navLabel: "Navigation · 导航",
     logout: "Se déconnecter · 退出登录",
     comingSoon: "Bientôt disponible · 即将开放",
@@ -115,10 +112,9 @@ const pageLabels: Record<
     ],
   },
   en: {
-    kicker: "Member space",
+    kicker: "Invited member space",
     kickerSub: "",
     signedInAs: "Signed in as",
-    memberTypeLabel: "Member type",
     navLabel: "Navigation",
     logout: "Sign out",
     comingSoon: "Coming soon",
@@ -188,7 +184,6 @@ const artistLabels: Record<
     kicker: string;
     kickerSub: string;
     signedInAs: string;
-    memberTypeLabel: string;
     welcome: string;
     welcomeBody: string;
     viewPassport: string;
@@ -199,10 +194,9 @@ const artistLabels: Record<
   }
 > = {
   zh: {
-    kicker: "Espace membre",
-    kickerSub: "成员空间",
+    kicker: "Espace membre sur invitation",
+    kickerSub: "受邀成员空间",
     signedInAs: "当前登录",
-    memberTypeLabel: "Type de membre · 成员类型",
     welcome: "Bienvenue · 欢迎回来",
     welcomeBody: "在此访问您的艺术家档案与合作存档协议。",
     viewPassport: "Voir le passeport · 查看档案",
@@ -212,10 +206,9 @@ const artistLabels: Record<
     logout: "Se déconnecter · 退出登录",
   },
   fr: {
-    kicker: "Espace membre",
-    kickerSub: "成员空间",
+    kicker: "Espace membre sur invitation",
+    kickerSub: "受邀成员空间",
     signedInAs: "Connecté en tant que",
-    memberTypeLabel: "Type de membre · 成员类型",
     welcome: "Bienvenue",
     welcomeBody: "Accédez ici à votre passeport artiste et à l'accord de collaboration.",
     viewPassport: "Voir le passeport · 查看档案",
@@ -226,10 +219,9 @@ const artistLabels: Record<
     logout: "Se déconnecter · 退出登录",
   },
   en: {
-    kicker: "Member space",
+    kicker: "Invited member space",
     kickerSub: "",
     signedInAs: "Signed in as",
-    memberTypeLabel: "Member type",
     welcome: "Welcome back",
     welcomeBody: "Access your artist passport and collaboration archive agreement here.",
     viewPassport: "View passport",
@@ -293,10 +285,6 @@ function ArtistEspaceView({ member }: { member: MockMember }) {
             {l.signedInAs}
           </p>
           <p className="mt-2 text-sm font-medium text-stone-800">{member.email}</p>
-          <p className="mt-2 text-[10px] uppercase tracking-[0.15em] text-stone-400">
-            {l.memberTypeLabel}
-          </p>
-          <p className="mt-1 text-xs text-stone-500">{member.memberType[locale]}</p>
           <p className="mt-4 text-lg font-medium text-stone-900">{member.name[locale]}</p>
         </div>
 
@@ -416,12 +404,6 @@ export function EspaceView({ member }: { member: MockMember }) {
             {l.signedInAs}
           </p>
           <p className="mt-2 text-sm font-medium text-stone-800">{userEmail}</p>
-          <p className="mt-2 text-[10px] uppercase tracking-[0.15em] text-stone-400">
-            {l.memberTypeLabel}
-          </p>
-          <p className="mt-1 text-xs text-stone-500">
-            {member.memberType[locale]}
-          </p>
         </div>
 
         <nav

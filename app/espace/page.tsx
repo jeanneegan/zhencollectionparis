@@ -6,8 +6,9 @@ import { isAuthenticatedSession, getMemberBySession, SESSION_COOKIE } from "@/ap
 import { createPageMetadata } from "@/app/lib/site-metadata";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Espace membre · Zhen Collection Paris",
-  description: "Espace de conception réservé aux membres · 巴黎臻藏成员设计空间",
+  title: "Espace membre sur invitation · 受邀成员空间 · Zhen Collection Paris",
+  description:
+    "Espace membre sur invitation · 巴黎臻藏受邀成员空间，面向合作艺术家与机构伙伴。",
 });
 
 export default async function EspacePage() {
