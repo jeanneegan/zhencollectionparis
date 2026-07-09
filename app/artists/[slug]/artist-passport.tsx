@@ -202,7 +202,7 @@ const passportType = {
   prose: "text-sm leading-[2] text-stone-600 md:text-base",
   proseWide: "text-sm leading-[2] text-stone-600 md:text-base md:leading-[2.05]",
   heroPassport:
-    "text-base font-medium uppercase tracking-[0.16em] text-stone-900 md:text-lg",
+    "text-sm font-medium uppercase tracking-[0.15em] text-stone-400 md:text-base",
   heroName:
     "text-3xl font-light leading-tight tracking-tight text-stone-900 md:text-4xl lg:text-5xl",
   heroTagline: "text-sm leading-relaxed text-stone-600 md:text-base",
