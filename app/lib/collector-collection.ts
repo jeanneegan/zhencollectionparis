@@ -52,9 +52,9 @@ export const MOCK_COLLECTOR: CollectorProfile = {
     en: "Franco-Chinese contemporary painting · works on paper and wood panel",
   },
   note: {
-    zh: "以下藏品为受邀藏家线上档案记录。每件作品均保留持续更新的专业评价记录；藏家亦可通过平台提交转售申请。价格与来源信息仅供成员空间内部参考。",
-    fr: "Les œuvres ci-dessous figurent dans l'archive en ligne du collectionneur invité. Chaque pièce fait l'objet d'évaluations professionnelles mises à jour ; le collectionneur peut aussi soumettre une demande de revente via la plateforme. Prix et provenance sont indicatifs.",
-    en: "The works below are recorded in the invited collector's online archive. Each piece carries ongoing professional evaluations; the collector may also submit a resale request through the platform. Prices and provenance are for member-space reference.",
+    zh: "以下藏品为受邀藏家线上档案记录。每件作品均保留持续更新的专业评价记录，并附对应艺术家作品按年价格走势参考；藏家亦可通过平台提交转售申请。价格与来源信息仅供成员空间内部参考。",
+    fr: "Les œuvres ci-dessous figurent dans l'archive en ligne du collectionneur invité. Chaque pièce fait l'objet d'évaluations professionnelles mises à jour et d'une évolution des prix par année pour l'artiste concerné ; le collectionneur peut aussi soumettre une demande de revente via la plateforme. Prix et provenance sont indicatifs.",
+    en: "The works below are recorded in the invited collector's online archive. Each piece carries ongoing professional evaluations and year-by-year price trends for the corresponding artist's works; the collector may also submit a resale request through the platform. Prices and provenance are for member-space reference.",
   },
 };
 
