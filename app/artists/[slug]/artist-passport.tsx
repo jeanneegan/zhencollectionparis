@@ -275,16 +275,14 @@ type PassportSection = (typeof passportSections)[number]["key"];
 
 function PassportSectionNav({
   labels,
-  variant = "header",
 }: {
   labels: { navArtist: string; navWorks: string; navExhibitions: string };
-  variant?: "header" | "sidebar";
 }) {
   const [activeSection, setActiveSection] = useState<PassportSection>("artist");
 
   useEffect(() => {
     const updateActiveSection = () => {
-      const offset = variant === "sidebar" ? 120 : 160;
+      const offset = 160;
       let next: PassportSection = "artist";
 
       for (const section of passportSections) {
@@ -301,7 +299,7 @@ function PassportSectionNav({
     updateActiveSection();
     window.addEventListener("scroll", updateActiveSection, { passive: true });
     return () => window.removeEventListener("scroll", updateActiveSection);
-  }, [variant]);
+  }, []);
 
   const items: { key: PassportSection; label: string; id: string }[] = [
     { key: "artist", label: labels.navArtist, id: "passport-artist" },
@@ -313,39 +311,8 @@ function PassportSectionNav({
     },
   ];
 
-  if (variant === "sidebar") {
-    return (
-      <aside className="lg:sticky lg:top-8 lg:self-start">
-        <nav aria-label={labels.navArtist}>
-          <ul className="flex gap-2 overflow-x-auto pb-2 lg:max-h-[calc(100vh-8rem)] lg:flex-col lg:gap-1 lg:overflow-y-auto lg:overflow-x-hidden lg:pb-0 lg:pr-1">
-            {items.map(({ key, label, id }) => (
-              <li key={key} className="shrink-0 lg:shrink">
-                <button
-                  type="button"
-                  onClick={() =>
-                    document.getElementById(id)?.scrollIntoView({
-                      behavior: "smooth",
-                      block: "start",
-                    })
-                  }
-                  className={`flex w-full rounded-sm px-3 py-2.5 text-left text-xs leading-[1.6] tracking-[0.04em] transition-colors ${
-                    activeSection === key
-                      ? "bg-stone-900 text-white"
-                      : "text-stone-600 hover:bg-stone-100 hover:text-stone-900"
-                  }`}
-                >
-                  {label}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </aside>
-    );
-  }
-
   return (
-    <nav className="hidden gap-8 text-[11px] font-medium uppercase tracking-[0.15em] lg:flex">
+    <nav className="flex flex-wrap gap-x-8 gap-y-2 text-[11px] font-medium uppercase tracking-[0.15em]">
       {items.map(({ key, label, id }) => (
         <button
           key={key}
@@ -1025,13 +992,13 @@ export function ArtistPassport({
           <p className={`mt-4 max-w-2xl ${passportType.heroTagline}`}>
             {t(artist.tagline, locale)}
           </p>
+          <div className="mt-6">
+            <PassportSectionNav labels={navLabels} />
+          </div>
         </header>
 
-        <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-10 xl:grid-cols-[240px_minmax(0,1fr)]">
-          <PassportSectionNav variant="sidebar" labels={navLabels} />
-          <div className="min-w-0 bg-stone-50 text-stone-900">
-            {passportContent}
-          </div>
+        <div className="mt-8 min-w-0 bg-stone-50 text-stone-900">
+          {passportContent}
         </div>
       </MemberWorkspaceLayout>
     );
