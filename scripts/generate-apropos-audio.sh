@@ -21,8 +21,9 @@ generate() {
   echo "Generated $mp3"
 }
 
+# Female voices only: Tingting (zh), Amélie (fr), Samantha (en).
 generate zh Tingting 158
-generate fr Thomas 165
+generate fr Amélie 165
 generate en Samantha 165
 
 rmdir "$TMP" 2>/dev/null || true
