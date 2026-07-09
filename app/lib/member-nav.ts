@@ -45,6 +45,8 @@ const memberNavLabels: Record<
     collectorNavSection: string;
     collectorHomeLink: string;
     collectorPageLink: string;
+    adminNavSection: string;
+    adminDashboardLink: string;
   }
 > = {
   zh: {
@@ -70,6 +72,8 @@ const memberNavLabels: Record<
     collectorNavSection: "Collectionneur · 藏家",
     collectorHomeLink: "Espace collectionneur · 藏家空间",
     collectorPageLink: "Ma collection · 藏家藏品",
+    adminNavSection: "Administration · 后台",
+    adminDashboardLink: "Tableau de bord · 控制台",
   },
   fr: {
     kicker: "Espace membre sur invitation",
@@ -94,6 +98,8 @@ const memberNavLabels: Record<
     collectorNavSection: "Collectionneur · 藏家",
     collectorHomeLink: "Espace collectionneur · 藏家空间",
     collectorPageLink: "Ma collection · 藏家藏品",
+    adminNavSection: "Administration · 后台",
+    adminDashboardLink: "Tableau de bord · 控制台",
   },
   en: {
     kicker: "Invited member space",
@@ -118,6 +124,8 @@ const memberNavLabels: Record<
     collectorNavSection: "Collector",
     collectorHomeLink: "Collector space",
     collectorPageLink: "My Collection",
+    adminNavSection: "Administration",
+    adminDashboardLink: "Dashboard",
   },
 };
 
@@ -147,6 +155,20 @@ export function getMemberNavGroups(
   const unreadCount = GALLERY_RECEIVED_MESSAGES.filter(
     (message) => message.unread,
   ).length;
+
+  if (member.type === "super") {
+    groups.push({
+      id: "admin",
+      title: l.adminNavSection,
+      links: [
+        {
+          id: "admin-home",
+          href: "/admin",
+          label: l.adminDashboardLink,
+        },
+      ],
+    });
+  }
 
   if (member.type === "gallery" || member.type === "super") {
     groups.push({

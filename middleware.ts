@@ -13,6 +13,7 @@ const PROTECTED_PREFIXES = [
   "/galerie",
   "/commentateur",
   "/collectionneur",
+  "/admin",
 ] as const;
 
 export function middleware(request: NextRequest) {
@@ -24,9 +25,16 @@ export function middleware(request: NextRequest) {
   const isProtected = PROTECTED_PREFIXES.some((prefix) => pathname.startsWith(prefix));
 
   if (isProtected && !isAuthed) {
-    const loginUrl = new URL("/connexion", request.url);
+    const loginUrl = new URL(
+      pathname.startsWith("/admin") ? "/connexion-super" : "/connexion",
+      request.url,
+    );
     loginUrl.searchParams.set("next", `${pathname}${search}`);
     return NextResponse.redirect(loginUrl);
+  }
+
+  if (pathname.startsWith("/admin") && member && member.type !== "super") {
+    return NextResponse.redirect(new URL(getMemberHomePath(member), request.url));
   }
 
   if (pathname.startsWith("/espace") && member?.type === "gallery") {
@@ -45,7 +53,10 @@ export function middleware(request: NextRequest) {
   }
 
   if (pathname === "/connexion-super" && isAuthed && member) {
-    return NextResponse.redirect(new URL(getMemberHomePath(member), request.url));
+    const next = request.nextUrl.searchParams.get("next") ?? undefined;
+    return NextResponse.redirect(
+      new URL(resolvePostLoginPath(next, getMemberHomePath(member)), request.url),
+    );
   }
 
   return NextResponse.next();
@@ -57,6 +68,7 @@ export const config = {
     "/galerie/:path*",
     "/commentateur/:path*",
     "/collectionneur/:path*",
+    "/admin/:path*",
     "/connexion",
     "/connexion-super",
   ],

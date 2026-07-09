@@ -10,6 +10,7 @@ import { SiteTopLinks } from "@/app/components/site-top-links";
 import { PageBottomNav } from "@/app/components/page-bottom-nav";
 import { MemberWorkspaceLayout } from "@/app/components/member-workspace-layout";
 import type { MockMember } from "@/app/lib/auth";
+import { hasArtworkPassport } from "@/app/lib/artwork-passport";
 import { useLocale } from "@/app/lib/use-locale";
 import { type ArtistProfile, type Locale, getArtworkDisplayLayout, t } from "./data";
 
@@ -51,6 +52,7 @@ const labels: Record<
     collectionInquiry: string;
     collectionNote: string;
     collectionLink: string;
+    viewArtworkPassport: string;
     professionalReputation: string;
     galleryRecognition: string;
     collectorRecognition: string;
@@ -96,6 +98,7 @@ const labels: Record<
     collectionNote:
       "对该艺术家的作品有收藏意向 · Demande de collection pour cet artiste",
     collectionLink: "Demander · 咨询收藏",
+    viewArtworkPassport: "Voir le passeport œuvre · 查看作品护照",
     professionalReputation: "Réputation professionnelle｜职业声誉",
     galleryRecognition: "Reconnaissance des galeries · 画廊认可",
     collectorRecognition: "Reconnaissance des collectionneurs · 藏家认可",
@@ -141,6 +144,7 @@ const labels: Record<
     collectionNote:
       "对该艺术家的作品有收藏意向 · Demande de collection pour cet artiste",
     collectionLink: "Demander · 咨询收藏",
+    viewArtworkPassport: "Voir le passeport œuvre · 查看作品护照",
     professionalReputation: "Réputation professionnelle｜职业声誉",
     galleryRecognition: "Reconnaissance des galeries · 画廊认可",
     collectorRecognition: "Reconnaissance des collectionneurs · 藏家认可",
@@ -184,6 +188,7 @@ const labels: Record<
     collectionInquiry: "Collection Inquiry",
     collectionNote: "Interested in collecting works by this artist",
     collectionLink: "Inquire",
+    viewArtworkPassport: "View artwork passport",
     professionalReputation: "Professional Reputation",
     galleryRecognition: "Gallery Recognition",
     collectorRecognition: "Collector Recognition",
@@ -341,10 +346,14 @@ type ArtistArtwork = ArtistProfile["artworks"][number];
 function ArtworkCard({
   artwork,
   locale,
+  artistSlug,
+  viewArtworkPassportLabel,
   articleClass = "",
 }: {
   artwork: ArtistArtwork;
   locale: Locale;
+  artistSlug: string;
+  viewArtworkPassportLabel: string;
   articleClass?: string;
 }) {
   const layout = getArtworkDisplayLayout(artwork);
@@ -447,6 +456,14 @@ function ArtworkCard({
               ))}
           </div>
         ) : null}
+        {hasArtworkPassport(artistSlug, artwork.id) ? (
+          <Link
+            href={`/oeuvres/${artistSlug}/${artwork.id}?from=${encodeURIComponent(`artist:${artistSlug}`)}`}
+            className="mt-4 inline-block text-[11px] tracking-[0.08em] text-stone-500 transition-colors hover:text-stone-900"
+          >
+            {viewArtworkPassportLabel}
+          </Link>
+        ) : null}
       </div>
     </article>
   );
@@ -455,6 +472,8 @@ function ArtworkCard({
 function renderArtworkGridItems(
   artworks: ArtistArtwork[],
   locale: Locale,
+  artistSlug: string,
+  viewArtworkPassportLabel: string,
 ): React.ReactNode[] {
   return artworks.flatMap((artwork, index, list) => {
     const next = list[index + 1];
@@ -477,14 +496,30 @@ function renderArtworkGridItems(
 
       return [
         <div key={artwork.layoutPair.group} className={pairGridClass}>
-          <ArtworkCard artwork={artwork} locale={locale} />
-          <ArtworkCard artwork={next} locale={locale} />
+          <ArtworkCard
+            artwork={artwork}
+            locale={locale}
+            artistSlug={artistSlug}
+            viewArtworkPassportLabel={viewArtworkPassportLabel}
+          />
+          <ArtworkCard
+            artwork={next}
+            locale={locale}
+            artistSlug={artistSlug}
+            viewArtworkPassportLabel={viewArtworkPassportLabel}
+          />
         </div>,
       ];
     }
 
     return [
-      <ArtworkCard key={artwork.id} artwork={artwork} locale={locale} />,
+      <ArtworkCard
+        key={artwork.id}
+        artwork={artwork}
+        locale={locale}
+        artistSlug={artistSlug}
+        viewArtworkPassportLabel={viewArtworkPassportLabel}
+      />,
     ];
   });
 }
@@ -857,14 +892,26 @@ export function ArtistPassport({
                       </div>
                     ) : null}
                     <div className="mt-12 grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2">
-                      {renderArtworkGridItems(seriesArtworks, locale)}
+                      {renderArtworkGridItems(
+                        seriesArtworks,
+                        locale,
+                        artist.slug,
+                        l.viewArtworkPassport,
+                      )}
                     </div>
                   </div>,
                 );
                 continue;
               }
 
-              nodes.push(...renderArtworkGridItems([artwork], locale));
+              nodes.push(
+                ...renderArtworkGridItems(
+                  [artwork],
+                  locale,
+                  artist.slug,
+                  l.viewArtworkPassport,
+                ),
+              );
             }
 
             return nodes;

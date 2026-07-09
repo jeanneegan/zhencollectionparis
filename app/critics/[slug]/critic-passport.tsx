@@ -12,6 +12,7 @@ import type { Locale } from "@/app/artists/[slug]/data";
 import type { MockMember } from "@/app/lib/auth";
 import { useLocale } from "@/app/lib/use-locale";
 import { type CriticProfile, t } from "./data";
+import { getArtworkPassportPath, hasArtworkPassport } from "@/app/lib/artwork-passport";
 
 const labels: Record<
   Locale,
@@ -35,6 +36,7 @@ const labels: Record<
     articles: string;
     recognition: string;
     viewArtist: string;
+    viewArtwork: string;
   }
 > = {
   zh: {
@@ -57,6 +59,7 @@ const labels: Record<
     articles: "Articles indépendants · 独立文章",
     recognition: "Reconnaissance · 专业认可",
     viewArtist: "Voir l'artiste · 查看艺术家",
+    viewArtwork: "Voir le passeport œuvre · 查看作品护照",
   },
   fr: {
     archive: "Archive Commentateur · 评论家档案",
@@ -78,6 +81,7 @@ const labels: Record<
     articles: "Articles indépendants · 独立文章",
     recognition: "Reconnaissance · 专业认可",
     viewArtist: "Voir l'artiste · 查看艺术家",
+    viewArtwork: "Voir le passeport œuvre · 查看作品护照",
   },
   en: {
     archive: "Critic Archive",
@@ -99,6 +103,7 @@ const labels: Record<
     articles: "Independent Articles",
     recognition: "Recognition",
     viewArtist: "View artist",
+    viewArtwork: "View artwork passport",
   },
 };
 
@@ -403,6 +408,14 @@ export function CriticPassport({
                     >
                       {l.viewArtist}
                     </Link>
+                    {hasArtworkPassport(review.artistSlug, review.workId) ? (
+                      <Link
+                        href={getArtworkPassportPath(review.artistSlug, review.workId)}
+                        className="text-[11px] tracking-[0.08em] text-stone-500 transition-colors hover:text-stone-900"
+                      >
+                        {l.viewArtwork}
+                      </Link>
+                    ) : null}
                   </div>
                 </div>
               </li>

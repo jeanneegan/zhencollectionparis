@@ -159,7 +159,9 @@ export function getMemberHomePath(member: MockMember): string {
     case "collector":
       return "/collectionneur";
     case "artist":
+      return "/espace";
     case "super":
+      return "/admin";
     default:
       return "/espace";
   }

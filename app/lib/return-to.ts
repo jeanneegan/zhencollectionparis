@@ -1,6 +1,7 @@
 export const RETURN_FROM_ESPACE = "espace";
 export const RETURN_FROM_ESPACE_EXHIBITIONS = "espace-exhibitions";
 export const RETURN_FROM_COMMENTATEUR = "commentateur";
+export const RETURN_FROM_ARTIST_PREFIX = "artist:";
 
 export const ESPACE_EXHIBITIONS_SECTION = "exhibitions";
 
@@ -15,6 +16,10 @@ export function resolveReturnTo(from: string | undefined): string | undefined {
 
   if (from === RETURN_FROM_COMMENTATEUR) {
     return "/commentateur";
+  }
+
+  if (from?.startsWith(RETURN_FROM_ARTIST_PREFIX)) {
+    return `/artists/${from.slice(RETURN_FROM_ARTIST_PREFIX.length)}`;
   }
 
   return undefined;
@@ -42,6 +47,10 @@ export function isAllowedReturnPath(path: string): boolean {
   }
 
   if (path.startsWith("/critics/")) {
+    return true;
+  }
+
+  if (path.startsWith("/oeuvres/")) {
     return true;
   }
 

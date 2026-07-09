@@ -63,8 +63,8 @@ const WILLY_PRICE_HISTORY: ArtistPricePoint[] = [
 const SU_HONG_PRICE_HISTORY: ArtistPricePoint[] = [
   {
     year: 2022,
-    amount: 68000,
-    value: { zh: "¥ 68 000", fr: "68 000 ¥", en: "¥68,000" },
+    amount: 30000,
+    value: { zh: "¥ 30 000", fr: "30 000 ¥", en: "¥30,000" },
     note: {
       zh: "纸上作品 · 市场参考中位价",
       fr: "Œuvre sur papier · prix médian de référence",
@@ -73,8 +73,8 @@ const SU_HONG_PRICE_HISTORY: ArtistPricePoint[] = [
   },
   {
     year: 2023,
-    amount: 82000,
-    value: { zh: "¥ 82 000", fr: "82 000 ¥", en: "¥82,000" },
+    amount: 36000,
+    value: { zh: "¥ 36 000", fr: "36 000 ¥", en: "¥36,000" },
     note: {
       zh: "纸上作品 · 市场参考中位价",
       fr: "Œuvre sur papier · prix médian de référence",
@@ -83,8 +83,8 @@ const SU_HONG_PRICE_HISTORY: ArtistPricePoint[] = [
   },
   {
     year: 2024,
-    amount: 96000,
-    value: { zh: "¥ 96 000", fr: "96 000 ¥", en: "¥96,000" },
+    amount: 42000,
+    value: { zh: "¥ 42 000", fr: "42 000 ¥", en: "¥42,000" },
     note: {
       zh: "纸上 / 丙烯 · 市场参考中位价",
       fr: "Papier / acrylique · prix médian de référence",
@@ -93,8 +93,8 @@ const SU_HONG_PRICE_HISTORY: ArtistPricePoint[] = [
   },
   {
     year: 2025,
-    amount: 118000,
-    value: { zh: "¥ 118 000", fr: "118 000 ¥", en: "¥118,000" },
+    amount: 52000,
+    value: { zh: "¥ 52 000", fr: "52 000 ¥", en: "¥52,000" },
     note: {
       zh: "布面丙烯 · 市场参考中位价",
       fr: "Acrylique sur toile · prix médian de référence",
@@ -103,8 +103,8 @@ const SU_HONG_PRICE_HISTORY: ArtistPricePoint[] = [
   },
   {
     year: 2026,
-    amount: 135000,
-    value: { zh: "¥ 135 000", fr: "135 000 ¥", en: "¥135,000" },
+    amount: 60000,
+    value: { zh: "¥ 60 000", fr: "60 000 ¥", en: "¥60,000" },
     note: {
       zh: "布面丙烯 · 市场参考中位价",
       fr: "Acrylique sur toile · prix médian de référence",

@@ -15,6 +15,7 @@ import {
   type CollectorHolding,
 } from "@/app/lib/collector-collection";
 import type { MockMember } from "@/app/lib/auth";
+import { getArtworkPassportPathForImage } from "@/app/lib/artwork-passport";
 import { useLocale } from "@/app/lib/use-locale";
 
 const serif = Noto_Serif_SC({
@@ -40,6 +41,7 @@ const pageLabels: Record<
     priceHistory: string;
     priceHistoryNote: string;
     viewArtist: string;
+    viewArtworkPassport: string;
     resalePending: string;
   }
 > = {
@@ -59,6 +61,7 @@ const pageLabels: Record<
     priceHistory: "Évolution des prix de l'artiste · 艺术家作品价格走势",
     priceHistoryNote: "Prix médian annuel de référence pour les œuvres de cet artiste · 该艺术家作品年度市场参考中位价",
     viewArtist: "Voir l'artiste · 查看艺术家",
+    viewArtworkPassport: "Voir le passeport œuvre · 查看作品护照",
     resalePending: "Revente en cours · 转售中",
   },
   fr: {
@@ -77,6 +80,7 @@ const pageLabels: Record<
     priceHistory: "Évolution des prix de l'artiste · 艺术家作品价格走势",
     priceHistoryNote: "Prix médian annuel de référence pour les œuvres de cet artiste · 该艺术家作品年度市场参考中位价",
     viewArtist: "Voir l'artiste · 查看艺术家",
+    viewArtworkPassport: "Voir le passeport œuvre · 查看作品护照",
     resalePending: "Revente en cours · 转售中",
   },
   en: {
@@ -95,6 +99,7 @@ const pageLabels: Record<
     priceHistory: "Artist's work price trend (by year)",
     priceHistoryNote: "Annual reference median price for this artist's works",
     viewArtist: "View artist",
+    viewArtworkPassport: "View artwork passport",
     resalePending: "Resale pending",
   },
 };
@@ -163,6 +168,11 @@ function HoldingDetail({
   locale: Locale;
   l: (typeof pageLabels)[Locale];
 }) {
+  const artworkPassportHref = getArtworkPassportPathForImage(
+    holding.artistSlug,
+    holding.image,
+  );
+
   return (
     <div className="space-y-6">
       <div className="border border-stone-200 bg-stone-50/30">
@@ -296,6 +306,14 @@ function HoldingDetail({
           >
             {l.viewArtist}
           </Link>
+          {artworkPassportHref ? (
+            <Link
+              href={artworkPassportHref}
+              className="ml-4 inline-block text-[11px] tracking-[0.08em] text-stone-500 transition-colors hover:text-stone-900"
+            >
+              {l.viewArtworkPassport}
+            </Link>
+          ) : null}
         </div>
       </div>
     </div>

@@ -37,6 +37,7 @@ export type CriticProfile = {
     id: string;
     date: string;
     artistSlug: string;
+    workId: string;
     artistName: LocalizedText;
     artworkTitle: LocalizedText;
     artworkYear: number;
@@ -230,6 +231,7 @@ const linWei: CriticProfile = {
       id: "review-willy-flaque",
       date: "2025-11-18",
       artistSlug: "willy-le-nalbaut",
+      workId: "10",
       artistName: {
         zh: "威利·勒纳尔博",
         fr: "Willy Le Nalbaut",
@@ -252,6 +254,7 @@ const linWei: CriticProfile = {
       id: "review-su-ma-gui",
       date: "2025-09-02",
       artistSlug: "su-hong",
+      workId: "1",
       artistName: {
         zh: "苏泓",
         fr: "Su Hong",

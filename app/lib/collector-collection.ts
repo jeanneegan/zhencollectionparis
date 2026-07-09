@@ -32,6 +32,7 @@ export type CollectorHolding = {
   notes: LocalizedText;
   evaluations: HoldingEvaluation[];
   resalePending?: boolean;
+  passportInitiated?: boolean;
 };
 
 export const MOCK_COLLECTOR: CollectorProfile = {
@@ -106,6 +107,7 @@ export const MOCK_COLLECTOR_HOLDINGS: CollectorHolding[] = [
       fr: "Première acquisition d'un artiste suivi par Zhen Collection Paris en 2025.",
       en: "First acquisition of an artist followed by Zhen Collection Paris in 2025.",
     },
+    passportInitiated: true,
     evaluations: [
       {
         date: "2025-10",
@@ -231,9 +233,9 @@ export const MOCK_COLLECTOR_HOLDINGS: CollectorHolding[] = [
     dimensions: "100 × 130 cm",
     image: "/artists/su-hong/works/ma-gui-1.jpg",
     price: {
-      zh: "¥ 128 000",
-      fr: "128 000 ¥",
-      en: "¥128,000",
+      zh: "¥ 58 000",
+      fr: "58 000 ¥",
+      en: "¥58,000",
     },
     acquiredYear: 2025,
     acquiredFrom: {
@@ -256,6 +258,7 @@ export const MOCK_COLLECTOR_HOLDINGS: CollectorHolding[] = [
       fr: "Première œuvre de la série « Ma Gui » ; intérêt pour le passage du papier à l'acrylique chez Su Hong.",
       en: "First work in the « Ma Gui » series; interest in Su Hong's shift from paper to acrylic.",
     },
+    passportInitiated: true,
     evaluations: [
       {
         date: "2025-11",
