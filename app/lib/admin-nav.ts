@@ -23,6 +23,7 @@ const adminNavLabels: Record<
     logout: string;
     overviewSection: string;
     dashboardLink: string;
+    notesLink: string;
     entitiesSection: string;
     artistsLink: string;
     galleriesLink: string;
@@ -44,6 +45,7 @@ const adminNavLabels: Record<
     logout: "Se déconnecter · 退出登录",
     overviewSection: "Vue d'ensemble · 概览",
     dashboardLink: "Tableau de bord · 控制台",
+    notesLink: "Notes · 笔记",
     entitiesSection: "Entités · 实体",
     artistsLink: "Artistes · 艺术家",
     galleriesLink: "Galeries · 画廊",
@@ -64,6 +66,7 @@ const adminNavLabels: Record<
     logout: "Se déconnecter · 退出登录",
     overviewSection: "Vue d'ensemble · 概览",
     dashboardLink: "Tableau de bord · 控制台",
+    notesLink: "Notes · 笔记",
     entitiesSection: "Entités · 实体",
     artistsLink: "Artistes · 艺术家",
     galleriesLink: "Galeries · 画廊",
@@ -84,6 +87,7 @@ const adminNavLabels: Record<
     logout: "Sign out",
     overviewSection: "Overview",
     dashboardLink: "Dashboard",
+    notesLink: "Notes",
     entitiesSection: "Entities",
     artistsLink: "Artists",
     galleriesLink: "Galleries",
@@ -121,7 +125,10 @@ export function getAdminNavGroups(
     {
       id: "overview",
       title: l.overviewSection,
-      links: [{ id: "admin-dashboard", href: "/admin", label: l.dashboardLink }],
+      links: [
+        { id: "admin-dashboard", href: "/admin", label: l.dashboardLink },
+        { id: "admin-notes", href: "/admin/notes", label: l.notesLink },
+      ],
     },
     {
       id: "entities",
