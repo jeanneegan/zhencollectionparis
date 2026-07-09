@@ -201,6 +201,8 @@ const passportType = {
   bodyStrong: "text-sm leading-[1.9] text-stone-800 md:text-base",
   prose: "text-sm leading-[2] text-stone-600 md:text-base",
   proseWide: "text-sm leading-[2] text-stone-600 md:text-base md:leading-[2.05]",
+  heroPassport:
+    "text-lg font-medium uppercase tracking-[0.16em] text-stone-900 md:text-xl lg:text-2xl",
   heroName:
     "text-3xl font-light leading-tight tracking-tight text-stone-900 md:text-4xl lg:text-5xl",
   heroTagline: "text-sm leading-relaxed text-stone-600 md:text-base",
@@ -219,10 +221,6 @@ const passportType = {
   tableCellStrong: "text-sm font-medium text-stone-800",
   quote: "text-sm leading-[1.9] text-stone-600 md:text-base",
 } as const;
-
-function SectionLabel({ children }: { children: React.ReactNode }) {
-  return <p className={passportType.meta}>{children}</p>;
-}
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
   return <h2 className={passportType.sectionTitle}>{children}</h2>;
@@ -547,7 +545,7 @@ export function ArtistPassport({
           </div>
 
           <div className="flex flex-col justify-center px-6 py-16 md:px-16 lg:px-20">
-            <SectionLabel>{l.passport}</SectionLabel>
+            <p className={passportType.heroPassport}>{l.passport}</p>
             <h1 className={`mt-4 ${passportType.heroName}`}>
               {t(artist.name, locale)}
             </h1>
@@ -705,6 +703,30 @@ export function ArtistPassport({
         </div>
       </section>
 
+      {artist.introVideo ? (
+        <>
+          <div className="mx-auto max-w-7xl px-6 md:px-10">
+            <Divider />
+          </div>
+          <section
+            id="passport-intro-video"
+            className="mx-auto max-w-7xl scroll-mt-28 px-6 py-20 md:scroll-mt-32 md:px-10"
+          >
+            <SectionTitle>{l.introVideo}</SectionTitle>
+            <div className="mt-10 max-w-3xl">
+              <video
+                src={artist.introVideo}
+                controls
+                playsInline
+                preload="metadata"
+                className="aspect-video w-full bg-stone-900"
+                aria-label={t(artist.name, locale)}
+              />
+            </div>
+          </section>
+        </>
+      ) : null}
+
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <Divider />
       </div>
@@ -784,25 +806,6 @@ export function ArtistPassport({
             </li>
           ))}
         </ol>
-
-        {artist.introVideo ? (
-          <div
-            id="passport-intro-video"
-            className="mt-20 scroll-mt-28 md:scroll-mt-32"
-          >
-            <SectionTitle>{l.introVideo}</SectionTitle>
-            <div className="mt-10 max-w-3xl">
-              <video
-                src={artist.introVideo}
-                controls
-                playsInline
-                preload="metadata"
-                className="aspect-video w-full bg-stone-900"
-                aria-label={t(artist.name, locale)}
-              />
-            </div>
-          </div>
-        ) : null}
       </section>
 
       <div className="mx-auto max-w-7xl px-6 md:px-10">
