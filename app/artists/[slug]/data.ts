@@ -12,6 +12,7 @@ export type ArtistProfile = {
   practice: LocalizedText;
   representedBy: LocalizedText;
   portrait: string;
+  introVideo?: string;
   tagline: LocalizedText;
   contact: {
     email: string;
@@ -911,10 +912,11 @@ const suHong: ArtistProfile = {
     en: "",
   },
   portrait: "/artists/su-hong/portrait.png",
+  introVideo: "/artists/su-hong/intro.mp4",
   tagline: {
-    zh: "以潜意识感知现实，呈现纯粹表现主义的高级灰世界",
-    fr: "Percevoir la réalité par l'inconscient — un monde de gris raffiné et d'expressionnisme pur",
-    en: "Perceiving reality through the subconscious — a refined gray world of pure expressionism",
+    zh: "传统与现代的结合一直是我研究的方向，快与慢，动与静，物质本质就是一体两面的结合。",
+    fr: "L'alliance tradition-modernité est depuis longtemps ma direction de recherche — rapide et lent, mouvement et immobilité ; l'essence de la matière est une union de deux faces.",
+    en: "The union of tradition and modernity has long been my research focus — fast and slow, movement and stillness; the essence of matter is fundamentally a union of two sides.",
   },
   contact: {
     email: "Xianye0606@126.com",
@@ -1609,7 +1611,7 @@ If blue-and-white is a visual sign, each traditional motif painted on a porcelai
         fr: "Acrylique sur toile",
         en: "Acrylic on canvas",
       },
-      dimensions: "100 × 130 cm",
+      dimensions: "100 × 120 cm",
       image: "/artists/su-hong/works/ma-gui-dialogue.jpg",
       seriesId: "ma-gui",
     },
@@ -1622,7 +1624,7 @@ If blue-and-white is a visual sign, each traditional motif painted on a porcelai
         fr: "Acrylique sur toile",
         en: "Acrylic on canvas",
       },
-      dimensions: "100 × 130 cm",
+      dimensions: "100 × 120 cm",
       image: "/artists/su-hong/works/ma-gui-2.jpg",
       imageAspect: [847, 1024],
       seriesId: "ma-gui",

@@ -34,6 +34,7 @@ const labels: Record<
     china: string;
     france: string;
     artistStatement: string;
+    introVideo: string;
     exhibitions: string;
     year: string;
     exhibition: string;
@@ -78,6 +79,7 @@ const labels: Record<
     china: "中国",
     france: "法国",
     artistStatement: "Texte de l'artiste｜创作陈述",
+    introVideo: "Présentation · 艺术家介绍",
     exhibitions: "Expositions｜展览",
     year: "年份",
     exhibition: "展览",
@@ -123,6 +125,7 @@ const labels: Record<
     china: "Chine",
     france: "France",
     artistStatement: "Texte de l'artiste｜创作陈述",
+    introVideo: "Présentation · 艺术家介绍",
     exhibitions: "Expositions｜展览",
     year: "Année",
     exhibition: "Exposition",
@@ -167,6 +170,7 @@ const labels: Record<
     china: "China",
     france: "France",
     artistStatement: "Artist Statement",
+    introVideo: "Artist Introduction · 艺术家介绍",
     exhibitions: "Exhibitions",
     year: "Year",
     exhibition: "Exhibition",
@@ -596,6 +600,27 @@ export function ArtistPassport({
           </div>
         </div>
       </section>
+
+      {artist.introVideo ? (
+        <>
+          <div className="mx-auto max-w-7xl px-6 md:px-10">
+            <Divider />
+          </div>
+          <section className="mx-auto max-w-7xl px-6 py-20 md:px-10">
+            <SectionTitle>{l.introVideo}</SectionTitle>
+            <div className="mt-10 max-w-3xl">
+              <video
+                src={artist.introVideo}
+                controls
+                playsInline
+                preload="metadata"
+                className="aspect-video w-full bg-stone-900"
+                aria-label={t(artist.name, locale)}
+              />
+            </div>
+          </section>
+        </>
+      ) : null}
 
       {/* Education · Representation */}
       <section className="mx-auto max-w-7xl px-6 py-20 md:px-10">
