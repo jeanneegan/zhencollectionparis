@@ -34,7 +34,6 @@ const labels: Record<
     china: string;
     france: string;
     artistStatement: string;
-    introVideo: string;
     exhibitions: string;
     year: string;
     exhibition: string;
@@ -79,7 +78,6 @@ const labels: Record<
     china: "中国",
     france: "法国",
     artistStatement: "Texte de l'artiste｜创作陈述",
-    introVideo: "Présentation · 艺术家介绍",
     exhibitions: "Expositions｜展览",
     year: "年份",
     exhibition: "展览",
@@ -125,7 +123,6 @@ const labels: Record<
     china: "Chine",
     france: "France",
     artistStatement: "Texte de l'artiste｜创作陈述",
-    introVideo: "Présentation · 艺术家介绍",
     exhibitions: "Expositions｜展览",
     year: "Année",
     exhibition: "Exposition",
@@ -170,7 +167,6 @@ const labels: Record<
     china: "China",
     france: "France",
     artistStatement: "Artist Statement",
-    introVideo: "Artist Introduction · 艺术家介绍",
     exhibitions: "Exhibitions",
     year: "Year",
     exhibition: "Exhibition",
@@ -700,32 +696,21 @@ export function ArtistPassport({
         <SectionTitle>{l.artistStatement}</SectionTitle>
         <div className="mt-10 max-w-3xl space-y-6">
           <ProseParagraphs text={t(artist.artistStatement, locale)} />
-        </div>
-      </section>
-
-      {artist.introVideo ? (
-        <>
-          <div className="mx-auto max-w-7xl px-6 md:px-10">
-            <Divider />
-          </div>
-          <section
-            id="passport-intro-video"
-            className="mx-auto max-w-7xl scroll-mt-28 px-6 py-20 md:scroll-mt-32 md:px-10"
-          >
-            <SectionTitle>{l.introVideo}</SectionTitle>
-            <div className="mt-10 max-w-3xl">
+          {artist.introVideo ? (
+            <div id="passport-intro-video" className="pt-6">
               <video
                 src={artist.introVideo}
                 controls
                 playsInline
                 preload="metadata"
+                poster={artist.introVideoPoster ?? artist.portrait}
                 className="aspect-video w-full bg-stone-900"
                 aria-label={t(artist.name, locale)}
               />
             </div>
-          </section>
-        </>
-      ) : null}
+          ) : null}
+        </div>
+      </section>
 
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <Divider />
