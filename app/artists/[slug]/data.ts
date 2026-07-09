@@ -1514,11 +1514,81 @@ Color: black and white dominate; rich palettes give way to contrasts of gray, pr
 Modernity: flat minimalism is a major current in contemporary design—reflecting society's pursuit of simplicity, efficiency, and purity. These paintings carry a distinct modernity, aligned with today's sensibility toward fashion and the contemporary.`,
       },
     },
+    {
+      id: "you-ci-sheng-hua",
+      title: {
+        zh: "「由此生花」系列",
+        fr: "Série « De ceci naissent les fleurs »",
+        en: "« From This, Flowers Bloom » Series",
+      },
+      intro: {
+        zh: `这个系列的诞生纯粹是因为「偶然」。
+在市场买了把浇花的铁壶，铮亮的白铁，心想——型不错，有点做旧的效果就好啦……
+
+地铁口买了束不知名的鲜花，塞进铁壶，随手画了张速写，心想——味不对，差点儿事……
+某日，角落里的鲜花几近变成了干花，铁壶也蒙了一层灰尘，惊鸿一瞥中，心想——这感觉，对啊！`,
+        fr: `Cette série est née d'un pur « hasard ».
+Au marché, j'ai acheté un arrosoir en fer blanc, tout brillant — la forme me plaisait ; un peu de patine, et ce serait parfait…
+
+À la sortie du métro, un bouquet de fleurs anonymes ; je les ai glissées dans le fer, griffonné une esquisse — le ton n'y était pas, il manquait quelque chose…
+Un jour, dans un coin, les fleurs étaient presque sèches, le fer recouvert de poussière ; en un coup d'œil — voilà, c'est ça !`,
+        en: `This series was born from pure « chance ».
+At the market I bought a white iron watering can, bright and gleaming — the shape appealed to me; a little aging, I thought, and it would be just right…
+
+At the metro exit, a bunch of nameless flowers; I tucked them into the can and sketched — the feeling was off, something was missing…
+One day, in a corner, the flowers had nearly dried, the can was filmed with dust; in a fleeting glance — yes, that's it!`,
+      },
+    },
+    {
+      id: "qinghua",
+      title: {
+        zh: "「青花」系列",
+        fr: "Série « Bleu et blanc »",
+        en: "« Blue and White » Series",
+      },
+      intro: {
+        zh: `喜欢青花瓷本身所包含的这种韵味，也欣赏其能够历经百年传承背后所隐藏的匠人精神，于是乎就有了「青花」这个系列。
+
+如果说青花元素是一种视觉符号，那每一片瓷片上所描绘的中国传统纹样就是一种更为浓烈的情感符号，所谓「纹必有意，意必吉祥」。「青花」系列寄托了一种对美好生活的精神向往。`,
+        fr: `J'aime la saveur que porte en soi la porcelaine bleu et blanc, et j'admire l'esprit artisanal dissimulé derrière une transmission séculaire — de là est née la série « Bleu et blanc ».
+
+Si le bleu et blanc est un signe visuel, chaque motif traditionnel peint sur un fragment de porcelaine est un signe émotionnel plus intense : « le motif a un sens, le sens porte bonheur ». La série « Bleu et blanc » porte une aspiration spirituelle vers une vie belle.`,
+        en: `I am drawn to the atmosphere inherent in blue-and-white porcelain, and to the craftsman spirit hidden behind centuries of transmission — hence the « Blue and White » series.
+
+If blue-and-white is a visual sign, each traditional motif painted on a porcelain shard is a more intense emotional sign: « every pattern holds meaning, and meaning brings blessing ». The « Blue and White » series carries a spiritual longing for a good life.`,
+      },
+    },
+    {
+      id: "shu-zi-ban-hua",
+      title: {
+        zh: "「数字版画」系列",
+        fr: "Série « Estampe numérique »",
+        en: "« Digital Print » Series",
+      },
+      intro: {
+        zh: "随着科技的发展，很多时候是用电脑画画，工具齐全，非常方便，数字版画也开始被接受，这些是时代发展的潮流。一代人的付出成就一代人的特性，作为时代的个体，我们要适应、创新，并改变时代。",
+        fr: "Avec le progrès technologique, on peint souvent à l'ordinateur — outils complets, grande facilité — et l'estampe numérique gagne en reconnaissance : c'est le flux de l'époque. Le labeur d'une génération forge son caractère ; en tant qu'individus de notre temps, nous devons nous adapter, innover et transformer l'ère.",
+        en: "As technology advances, much painting happens on the computer — full toolsets, great convenience — and digital printmaking is increasingly accepted: this is the current of the age. One generation's effort shapes a generation's character; as individuals of our time, we must adapt, innovate, and change the era.",
+      },
+    },
+    {
+      id: "wen-shi",
+      title: {
+        zh: "「纹饰」系列",
+        fr: "Série « Ornements »",
+        en: "« Ornament » Series",
+      },
+      intro: {
+        zh: "我对装饰类纹样一直很有兴趣——器具、服饰、装潢中的结构提供了很多信息。从独立创作之初，我便逐渐把花纹元素融入作品。「纹饰」系列正是这一方向的集中呈现：以中华古典纹样承载个体对世界的认知。",
+        fr: "Je m'intéresse depuis longtemps aux motifs décoratifs — objets, costumes, ornements. Dès mes débuts, j'ai intégré ces éléments à mes œuvres. La série « Ornements » en est la condensation : porter par la tradition chinoise une perception individuelle du monde.",
+        en: "I have long been drawn to decorative patterns — on objects, garments, and interiors. From the start of my independent practice, I wove these elements into my work. The « Ornament » series concentrates this direction: classical Chinese patterns carry an individual perception of the world.",
+      },
+    },
   ],
   artworks: [
     {
       id: "1",
-      title: { zh: "马贵", fr: "Ma Gui", en: "Ma Gui" },
+      title: { zh: "马贵 1", fr: "Ma Gui 1", en: "Ma Gui 1" },
       year: 2025,
       medium: {
         zh: "布面丙烯",
@@ -1527,6 +1597,7 @@ Modernity: flat minimalism is a major current in contemporary design—reflectin
       },
       dimensions: "100 × 130 cm",
       image: "/artists/su-hong/works/ma-gui.jpg",
+      imageAspect: [777, 1024],
       seriesId: "ma-gui",
     },
     {
@@ -1540,6 +1611,20 @@ Modernity: flat minimalism is a major current in contemporary design—reflectin
       },
       dimensions: "100 × 130 cm",
       image: "/artists/su-hong/works/ma-gui-dialogue.jpg",
+      seriesId: "ma-gui",
+    },
+    {
+      id: "18",
+      title: { zh: "马贵 3", fr: "Ma Gui 3", en: "Ma Gui 3" },
+      year: 2025,
+      medium: {
+        zh: "布面丙烯",
+        fr: "Acrylique sur toile",
+        en: "Acrylic on canvas",
+      },
+      dimensions: "100 × 130 cm",
+      image: "/artists/su-hong/works/ma-gui-2.jpg",
+      imageAspect: [847, 1024],
       seriesId: "ma-gui",
     },
     {
@@ -1569,74 +1654,49 @@ Modernity: flat minimalism is a major current in contemporary design—reflectin
       seriesId: "big-friends",
     },
     {
-      id: "10",
-      title: { zh: "爱马氏", fr: "Ai Ma Shi", en: "Ai Ma Shi" },
-      year: 2024,
-      medium: {
-        zh: "数字作品",
-        fr: "Œuvre numérique",
-        en: "Digital work",
-      },
-      dimensions: "",
-      image: "/artists/su-hong/works/ai-ma-shi.jpg",
-      imageAspect: [784, 534],
-      layoutPair: { group: "ai-ma-shi", role: "main", equal: true },
-    },
-    {
-      id: "11",
-      title: { zh: "爱马逝", fr: "Ai Ma Shi", en: "Ai Ma Shi" },
-      year: 2025,
-      medium: {
-        zh: "数字作品",
-        fr: "Œuvre numérique",
-        en: "Digital work",
-      },
-      dimensions: "",
-      image: "/artists/su-hong/works/ai-ma-shi-2.jpg",
-      imageAspect: [782, 628],
-      layoutPair: { group: "ai-ma-shi", role: "side", equal: true },
-    },
-    {
-      id: "5",
-      title: {
-        zh: "《纹饰系列》",
-        fr: "Série des ornements",
-        en: "Ornament Series",
-      },
-      year: 2022,
-      medium: {
-        zh: "综合材料",
-        fr: "Technique mixte",
-        en: "Mixed media",
-      },
-      dimensions: "",
-      image: "/artists/su-hong/works/wen-shi-series.jpg",
-      imageAspect: [688, 614],
-    },
-    {
       id: "6",
-      title: { zh: "荷花", fr: "Lotus", en: "Lotus" },
+      title: {
+        zh: "由此生花 1",
+        fr: "De ceci naissent les fleurs 1",
+        en: "From This, Flowers Bloom 1",
+      },
       year: 2020,
       medium: {
         zh: "纸本墨笔",
         fr: "Encre sur papier",
         en: "Ink on paper",
       },
-      dimensions: "",
-      image: "/artists/su-hong/works/peony.jpg",
-      imageAspect: [790, 500],
+      dimensions: "44 × 56 cm",
+      image: "/artists/su-hong/works/lotus.jpg",
+      imageAspect: [640, 405],
+      views: [
+        {
+          src: "/artists/su-hong/works/lotus.jpg",
+          imageAspect: [640, 405],
+        },
+        {
+          src: "/artists/su-hong/works/peony.jpg",
+          imageAspect: [790, 500],
+        },
+      ],
+      viewsLayout: "stack",
       displayLayout: "compact",
+      seriesId: "you-ci-sheng-hua",
     },
     {
       id: "7",
-      title: { zh: "花瓶", fr: "Vase", en: "Vase" },
+      title: {
+        zh: "由此生花 2",
+        fr: "De ceci naissent les fleurs 2",
+        en: "From This, Flowers Bloom 2",
+      },
       year: 2020,
       medium: {
         zh: "纸本墨笔",
         fr: "Encre sur papier",
         en: "Ink on paper",
       },
-      dimensions: "",
+      dimensions: "55 × 71 cm",
       image: "/artists/su-hong/works/poppy.jpg",
       imageAspect: [790, 500],
       views: [
@@ -1651,22 +1711,7 @@ Modernity: flat minimalism is a major current in contemporary design—reflectin
       ],
       viewsLayout: "stack",
       displayLayout: "compact",
-    },
-    {
-      id: "8",
-      title: {
-        zh: "假如山上有花纹",
-        fr: "Si les montagnes avaient des motifs",
-        en: "If the Mountains Had Patterns",
-      },
-      year: 2022,
-      medium: {
-        zh: "纸本综合材料",
-        fr: "Technique mixte sur papier",
-        en: "Mixed media on paper",
-      },
-      dimensions: "78 × 110 cm",
-      image: "/artists/su-hong/works/ru-shan-shang-you-hua-wen.jpg",
+      seriesId: "you-ci-sheng-hua",
     },
     {
       id: "9",
@@ -1684,16 +1729,132 @@ Modernity: flat minimalism is a major current in contemporary design—reflectin
       dimensions: "",
       image: "/artists/su-hong/works/qinghua-yu.jpg",
       imageAspect: [790, 550],
-      views: [
-        {
-          src: "/artists/su-hong/works/qinghua-yu.jpg",
-          imageAspect: [790, 550],
-        },
-        {
-          src: "/artists/su-hong/works/qinghua-yu-2.jpg",
-          imageAspect: [790, 550],
-        },
-      ],
+      seriesId: "qinghua",
+      layoutPair: { group: "qinghua-yu", role: "main", equal: true },
+    },
+    {
+      id: "12",
+      title: {
+        zh: "群鱼",
+        fr: "Banc de poissons",
+        en: "School of Fish",
+      },
+      year: 2022,
+      medium: {
+        zh: "纸本综合材料",
+        fr: "Technique mixte sur papier",
+        en: "Mixed media on paper",
+      },
+      dimensions: "",
+      image: "/artists/su-hong/works/qinghua-yu-2.jpg",
+      imageAspect: [790, 550],
+      seriesId: "qinghua",
+      layoutPair: { group: "qinghua-yu", role: "side", equal: true },
+    },
+    {
+      id: "11",
+      title: { zh: "爱马逝", fr: "Ai Ma Shi", en: "Ai Ma Shi" },
+      year: 2025,
+      medium: {
+        zh: "数字版画",
+        fr: "Estampe numérique",
+        en: "Digital print",
+      },
+      dimensions: "",
+      image: "/artists/su-hong/works/ai-ma-shi-2.jpg",
+      imageAspect: [782, 628],
+      seriesId: "shu-zi-ban-hua",
+    },
+    {
+      id: "15",
+      title: {
+        zh: "待在鳄鱼里",
+        fr: "Dans le crocodile",
+        en: "Staying in a Crocodile",
+      },
+      year: 2022,
+      medium: {
+        zh: "数字版画",
+        fr: "Estampe numérique",
+        en: "Digital print",
+      },
+      dimensions: "60 × 50 cm",
+      image: "/artists/su-hong/works/dai-zai-e-yu-li.jpg",
+      imageAspect: [1024, 863],
+      seriesId: "shu-zi-ban-hua",
+    },
+    {
+      id: "16",
+      title: {
+        zh: "熊孩子",
+        fr: "Enfant turbulent",
+        en: "Naughty Child",
+      },
+      year: 2022,
+      medium: {
+        zh: "数字版画",
+        fr: "Estampe numérique",
+        en: "Digital print",
+      },
+      dimensions: "58 × 48 cm",
+      image: "/artists/su-hong/works/xiong-hai-zi.jpg",
+      imageAspect: [1024, 855],
+      seriesId: "shu-zi-ban-hua",
+    },
+    {
+      id: "17",
+      title: {
+        zh: "野风 NO.1",
+        fr: "Vent sauvage NO.1",
+        en: "Wild Wind NO.1",
+      },
+      year: 2018,
+      medium: {
+        zh: "数字版画",
+        fr: "Estampe numérique",
+        en: "Digital print",
+      },
+      dimensions: "65 × 52 cm",
+      image: "/artists/su-hong/works/ye-feng-no-1.jpg",
+      imageAspect: [824, 1024],
+      seriesId: "shu-zi-ban-hua",
+    },
+    {
+      id: "5",
+      title: {
+        zh: "《纹饰系列》",
+        fr: "Série des ornements",
+        en: "Ornament Series",
+      },
+      year: 2022,
+      medium: {
+        zh: "综合材料",
+        fr: "Technique mixte",
+        en: "Mixed media",
+      },
+      dimensions: "",
+      image: "/artists/su-hong/works/wen-shi-series.jpg",
+      imageAspect: [688, 614],
+      seriesId: "wen-shi",
+      layoutPair: { group: "wen-shi", role: "main", equal: true },
+    },
+    {
+      id: "8",
+      title: {
+        zh: "假如山上有花纹",
+        fr: "Si les montagnes avaient des motifs",
+        en: "If the Mountains Had Patterns",
+      },
+      year: 2022,
+      medium: {
+        zh: "纸本综合材料",
+        fr: "Technique mixte sur papier",
+        en: "Mixed media on paper",
+      },
+      dimensions: "78 × 110 cm",
+      image: "/artists/su-hong/works/ru-shan-shang-you-hua-wen.jpg",
+      seriesId: "wen-shi",
+      layoutPair: { group: "wen-shi", role: "side", equal: true },
     },
   ],
   professionalReputation: {

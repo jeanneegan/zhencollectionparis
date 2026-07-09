@@ -370,8 +370,12 @@ function ArtworkCard({
     <article className={`group ${articleClass || layout.articleClass}`}>
       <div
         className={`grid gap-4 ${
-          views.length > 1 && artwork.viewsLayout !== "stack"
-            ? "sm:grid-cols-2"
+          views.length > 1
+            ? artwork.viewsLayout === "stack"
+              ? ""
+              : artwork.viewsLayout === "row"
+                ? "grid-cols-2"
+                : "sm:grid-cols-2"
             : ""
         }`}
       >
