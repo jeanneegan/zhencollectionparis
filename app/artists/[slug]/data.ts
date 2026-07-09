@@ -163,7 +163,7 @@ const willyLeNalbaut: ArtistProfile = {
         en: "ESAG Penninghen",
       },
       degree: {
-        zh: "平面设计 / 美术指导（一年级）",
+        zh: "平面设计 / 美术指导",
         fr: "Graphisme / Direction artistique — 1re année",
         en: "Graphic Design / Art Direction — 1st year",
       },
