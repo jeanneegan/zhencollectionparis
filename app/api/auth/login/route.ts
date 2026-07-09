@@ -1,10 +1,8 @@
 import { NextResponse } from "next/server";
 import {
+  authenticateMember,
   CLIENT_AUTH_COOKIE,
   CLIENT_AUTH_FLAG,
-  isValidCredentials,
-  MOCK_SESSION_TOKEN,
-  MOCK_USER,
   SESSION_COOKIE,
 } from "@/app/lib/auth";
 
@@ -14,21 +12,26 @@ export async function POST(request: Request) {
     password?: string;
   };
 
-  if (!body.email || !body.password || !isValidCredentials(body.email, body.password)) {
+  const member =
+    body.email && body.password
+      ? authenticateMember(body.email, body.password)
+      : null;
+
+  if (!member) {
     return NextResponse.json({ error: "invalid_credentials" }, { status: 401 });
   }
 
   const response = NextResponse.json({
     ok: true,
     user: {
-      email: MOCK_USER.email,
-      type: MOCK_USER.type,
-      name: MOCK_USER.name,
-      memberType: MOCK_USER.memberType,
+      email: member.email,
+      type: member.type,
+      name: member.name,
+      memberType: member.memberType,
     },
   });
 
-  response.cookies.set(SESSION_COOKIE, MOCK_SESSION_TOKEN, {
+  response.cookies.set(SESSION_COOKIE, member.sessionToken, {
     httpOnly: true,
     sameSite: "lax",
     secure: process.env.NODE_ENV === "production",

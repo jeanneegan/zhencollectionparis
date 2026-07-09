@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { EspaceView } from "./espace-view";
-import { isAuthenticatedSession, MOCK_USER, SESSION_COOKIE } from "@/app/lib/auth";
+import { isAuthenticatedSession, getMemberBySession, SESSION_COOKIE } from "@/app/lib/auth";
 import { createPageMetadata } from "@/app/lib/site-metadata";
 
 export const metadata: Metadata = createPageMetadata({
@@ -14,9 +14,11 @@ export default async function EspacePage() {
   const cookieStore = await cookies();
   const session = cookieStore.get(SESSION_COOKIE)?.value;
 
-  if (!isAuthenticatedSession(session)) {
+  const member = getMemberBySession(session);
+
+  if (!isAuthenticatedSession(session) || !member) {
     redirect("/connexion");
   }
 
-  return <EspaceView userEmail={MOCK_USER.email} />;
+  return <EspaceView member={member} />;
 }

@@ -15,13 +15,15 @@ import { getExhibitionBySlug } from "@/app/exhibitions/data";
 import {
   GALLERY_FOLLOWED_ARTIST_SLUGS,
   GALLERY_REPRESENTED_ARTIST_SLUGS,
-  MOCK_USER,
+  MOCK_GALLERY_USER,
+  type GalleryFocusId,
+  type MockMember,
 } from "@/app/lib/auth";
 import { GALLERY_RECEIVED_MESSAGES } from "@/app/lib/gallery-messages";
 import { RETURN_FROM_ESPACE, RETURN_FROM_ESPACE_EXHIBITIONS } from "@/app/lib/return-to";
 import { useLocale } from "@/app/lib/use-locale";
 
-type FocusId = keyof typeof MOCK_USER.focus;
+type FocusId = GalleryFocusId;
 
 const pageLabels: Record<
   Locale,
@@ -176,11 +178,164 @@ function artistsFromSlugs(slugs: readonly string[]) {
 }
 
 function focusLabel(locale: Locale, id: FocusId) {
-  const item = MOCK_USER.focus[id];
+  const item = MOCK_GALLERY_USER.focus![id];
   return locale === "en" ? item.en : `${item.fr} · ${item.zh}`;
 }
 
-export function EspaceView({ userEmail }: { userEmail: string }) {
+const artistLabels: Record<
+  Locale,
+  {
+    kicker: string;
+    kickerSub: string;
+    signedInAs: string;
+    memberTypeLabel: string;
+    welcome: string;
+    welcomeBody: string;
+    viewPassport: string;
+    passportBody: string;
+    viewAgreement: string;
+    agreementBody: string;
+    logout: string;
+  }
+> = {
+  zh: {
+    kicker: "Espace membre",
+    kickerSub: "成员空间",
+    signedInAs: "当前登录",
+    memberTypeLabel: "Type de membre · 成员类型",
+    welcome: "Bienvenue · 欢迎回来",
+    welcomeBody: "在此访问您的艺术家档案与合作存档协议。",
+    viewPassport: "Voir le passeport · 查看档案",
+    passportBody: "查看并分享您的艺术家护照页面。",
+    viewAgreement: "Accord de collaboration · 艺术家合作与档案协议",
+    agreementBody: "查阅巴黎臻藏与艺术家之间的合作与档案协议。",
+    logout: "Se déconnecter · 退出登录",
+  },
+  fr: {
+    kicker: "Espace membre",
+    kickerSub: "成员空间",
+    signedInAs: "Connecté en tant que",
+    memberTypeLabel: "Type de membre · 成员类型",
+    welcome: "Bienvenue",
+    welcomeBody: "Accédez ici à votre passeport artiste et à l'accord de collaboration.",
+    viewPassport: "Voir le passeport · 查看档案",
+    passportBody: "Consultez et partagez votre page passeport artiste.",
+    viewAgreement: "Accord de collaboration · 艺术家合作与档案协议",
+    agreementBody:
+      "Consultez l'accord de collaboration et d'archives d'artiste entre Zhen Collection Paris et l'artiste.",
+    logout: "Se déconnecter · 退出登录",
+  },
+  en: {
+    kicker: "Member space",
+    kickerSub: "",
+    signedInAs: "Signed in as",
+    memberTypeLabel: "Member type",
+    welcome: "Welcome back",
+    welcomeBody: "Access your artist passport and collaboration archive agreement here.",
+    viewPassport: "View passport",
+    passportBody: "View and share your artist passport page.",
+    viewAgreement: "Artist Collaboration & Archive Agreement",
+    agreementBody:
+      "Review the artist collaboration and archive agreement between Zhen Collection Paris and the artist.",
+    logout: "Sign out",
+  },
+};
+
+function ArtistEspaceView({ member }: { member: MockMember }) {
+  const router = useRouter();
+  const [locale, setLocale] = useLocale();
+  const l = artistLabels[locale];
+  const passportHref = member.artistSlug
+    ? `/artists/${member.artistSlug}`
+    : "/";
+
+  async function handleLogout() {
+    await fetch("/api/auth/logout", { method: "POST" });
+    router.push("/connexion");
+    router.refresh();
+  }
+
+  return (
+    <div className="min-h-screen bg-white text-stone-900">
+      <header className="sticky top-0 z-50 border-b border-stone-200 bg-white/95 backdrop-blur-sm">
+        <div className="flex items-center justify-between gap-4 px-5 py-4 md:px-10">
+          <Link
+            href="/"
+            className="text-[11px] uppercase tracking-[0.2em] text-stone-400 transition-colors hover:text-stone-900"
+          >
+            Zhen Collection Paris
+          </Link>
+          <div className="flex items-center gap-3 md:gap-4">
+            <LanguageSwitcher locale={locale} onChange={setLocale} />
+            <button
+              type="button"
+              onClick={handleLogout}
+              className="text-[11px] tracking-[0.08em] text-stone-500 transition-colors hover:text-stone-900"
+            >
+              {l.logout}
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main className="mx-auto max-w-2xl px-5 py-10 md:px-10">
+        <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-stone-400">
+          {l.kicker}
+        </p>
+        {locale !== "en" ? (
+          <p className="mt-1 text-[10px] tracking-[0.2em] text-stone-400">
+            {l.kickerSub}
+          </p>
+        ) : null}
+
+        <div className="mt-8 border-b border-stone-200 pb-8">
+          <p className="text-[10px] uppercase tracking-[0.15em] text-stone-400">
+            {l.signedInAs}
+          </p>
+          <p className="mt-2 text-sm font-medium text-stone-800">{member.email}</p>
+          <p className="mt-2 text-[10px] uppercase tracking-[0.15em] text-stone-400">
+            {l.memberTypeLabel}
+          </p>
+          <p className="mt-1 text-xs text-stone-500">{member.memberType[locale]}</p>
+          <p className="mt-4 text-lg font-medium text-stone-900">{member.name[locale]}</p>
+        </div>
+
+        <section className="mt-10">
+          <h1 className="text-sm font-medium text-stone-900">{l.welcome}</h1>
+          <p className="mt-3 text-sm leading-[1.8] text-stone-600">{l.welcomeBody}</p>
+        </section>
+
+        <ul className="mt-10 space-y-4">
+          <li>
+            <Link
+              href={passportHref}
+              className="block rounded-sm border border-stone-200 p-5 transition-colors hover:border-stone-400"
+            >
+              <p className="text-sm font-medium text-stone-900">{l.viewPassport}</p>
+              <p className="mt-2 text-sm leading-[1.8] text-stone-600">{l.passportBody}</p>
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/collaboration-archive-agreement"
+              className="block rounded-sm border border-stone-200 p-5 transition-colors hover:border-stone-400"
+            >
+              <p className="text-sm font-medium text-stone-900">{l.viewAgreement}</p>
+              <p className="mt-2 text-sm leading-[1.8] text-stone-600">{l.agreementBody}</p>
+            </Link>
+          </li>
+        </ul>
+      </main>
+    </div>
+  );
+}
+
+export function EspaceView({ member }: { member: MockMember }) {
+  if (member.type === "artist") {
+    return <ArtistEspaceView member={member} />;
+  }
+
+  const userEmail = member.email;
   const router = useRouter();
   const searchParams = useSearchParams();
   const [locale, setLocale] = useLocale();
@@ -265,7 +420,7 @@ export function EspaceView({ userEmail }: { userEmail: string }) {
             {l.memberTypeLabel}
           </p>
           <p className="mt-1 text-xs text-stone-500">
-            {MOCK_USER.memberType[locale]}
+            {member.memberType[locale]}
           </p>
         </div>
 

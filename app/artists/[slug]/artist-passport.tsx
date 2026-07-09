@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
 import { SiteBrandLink } from "@/app/components/site-brand-link";
 import { SiteFooter } from "@/app/components/site-footer";
+import { SiteTopLinks } from "@/app/components/site-top-links";
 import { PageBottomNav } from "@/app/components/page-bottom-nav";
 import { useLocale } from "@/app/lib/use-locale";
 import { type ArtistProfile, type Locale, getArtworkDisplayLayout, t } from "./data";
@@ -522,6 +523,10 @@ export function ArtistPassport({
           </div>
         </div>
       </header>
+
+      <div className="mx-auto max-w-7xl px-6 pt-8 md:px-10">
+        <SiteTopLinks locale={locale} showAgreement />
+      </div>
 
       {/* Hero */}
       <section

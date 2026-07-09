@@ -7,15 +7,39 @@ const connexionLabels: Record<Locale, string> = {
   en: "Invited Access",
 };
 
-export function SiteTopLinks({ locale }: { locale: Locale }) {
+const agreementLabels: Record<Locale, string> = {
+  fr: "Accord de collaboration et d'archives d'artiste · 艺术家合作与档案协议",
+  zh: "Accord de collaboration et d'archives d'artiste · 艺术家合作与档案协议",
+  en: "Artist Collaboration & Archive Agreement",
+};
+
+const linkClassName =
+  "text-xs tracking-[0.12em] text-stone-500 transition-colors hover:text-stone-900";
+
+export function SiteTopLinks({
+  locale,
+  showAgreement = false,
+}: {
+  locale: Locale;
+  showAgreement?: boolean;
+}) {
   return (
-    <div className="mb-10 text-center">
-      <Link
-        href="/connexion"
-        className="text-xs tracking-[0.12em] text-stone-500 transition-colors hover:text-stone-900"
-      >
-        {connexionLabels[locale]}
-      </Link>
+    <div className="mb-10 space-y-2 text-center">
+      <div>
+        <Link href="/connexion" className={linkClassName}>
+          {connexionLabels[locale]}
+        </Link>
+      </div>
+      {showAgreement ? (
+        <div>
+          <Link
+            href="/collaboration-archive-agreement"
+            className={linkClassName}
+          >
+            {agreementLabels[locale]}
+          </Link>
+        </div>
+      ) : null}
     </div>
   );
 }
