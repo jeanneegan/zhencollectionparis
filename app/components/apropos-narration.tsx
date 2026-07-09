@@ -33,10 +33,10 @@ const narrationLabels: Record<
   },
 };
 
-const narrationSources: Partial<Record<Locale, string>> = {
+const narrationSources: Record<Locale, string> = {
   zh: "/audio/apropos-zh.mp3",
-  fr: "/audio/apropos-zh.mp3",
-  en: "/audio/apropos-zh.mp3",
+  fr: "/audio/apropos-fr.mp3",
+  en: "/audio/apropos-en.mp3",
 };
 
 export function AproposNarration({ locale }: { locale: Locale }) {

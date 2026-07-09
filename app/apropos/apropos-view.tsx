@@ -161,10 +161,10 @@ const pageContent: Record<
         ],
       },
       {
-        label: "Cang (藏)",
+        label: "Collection (藏)",
         variant: "verse",
         paragraphs: [
-          "Cang ne signifie pas seulement collectionner. Collectionner une œuvre, c'est collectionner toute sa vie, collectionner les rencontres entre les êtres, la circulation des idées, et la compréhension qui ne cesse de naître entre les civilisations.",
+          "Collection ne signifie pas seulement collectionner. Collectionner une œuvre, c'est collectionner toute sa vie, collectionner les rencontres entre les êtres, la circulation des idées, et la compréhension qui ne cesse de naître entre les civilisations.",
           "Une œuvre peut traverser la création, l'exposition, la critique, la collection, la publication, une nouvelle exposition, une nouvelle collection ; chaque rencontre devient une part de sa vie. C'est pourquoi Zhen Collection Paris ne se contente pas de recueillir les artistes, mais continue de suivre les œuvres elles-mêmes, la manière dont elles traversent le temps, relient des personnes différentes, et deviennent une part de notre mémoire commune.",
         ],
       },
@@ -243,10 +243,10 @@ const pageContent: Record<
         ],
       },
       {
-        label: "Cang (藏)",
+        label: "Collection (藏)",
         variant: "verse",
         paragraphs: [
-          "Cang means more than collecting. To collect a work is to collect its entire life, to collect the encounters between people, the movement of ideas, and the understanding that keeps unfolding between civilizations.",
+          "Collection means more than collecting. To collect a work is to collect its entire life, to collect the encounters between people, the movement of ideas, and the understanding that keeps unfolding between civilizations.",
           "A work may pass through creation, exhibition, criticism, collection, publication, further exhibition, and further collection. Each encounter becomes part of its life. This is why Zhen Collection Paris does not only record artists, but continues to follow the works themselves, tracing how they move through time, connect different people, and become part of our shared memory.",
         ],
       },
