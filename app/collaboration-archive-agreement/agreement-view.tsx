@@ -170,13 +170,13 @@ const sections: AgreementSection[] = [
     },
     body: {
       fr: [
-        "Le présent accord ne constitue pas un mandat de vente. Toute représentation ou vente fera l'objet d'un accord distinct.",
+        "L'Artiste autorise Zhen Collection Paris à présenter ses œuvres à des collectionneurs, galeries, institutions culturelles ainsi qu'à toute personne ou organisation susceptible de contribuer au développement de sa carrière artistique, et à assurer les échanges et le suivi relatifs à ces opportunités. Toute vente d'œuvre, représentation commerciale, collaboration commerciale, commission ou modalité de paiement fera l'objet d'un accord écrit distinct entre les parties.",
       ],
       en: [
-        "This Agreement is not a sales or representation agreement. Future commercial activities require a separate agreement.",
+        "The Artist authorizes Zhen Collection Paris to present their artworks to collectors, galleries, cultural institutions, and any individuals or organizations that may contribute to the development of the Artist's career, and to communicate and coordinate regarding such opportunities. Any artwork sale, commercial representation, commercial collaboration, commission arrangement, or payment terms shall be governed by a separate written agreement between the parties.",
       ],
       zh: [
-        "本协议不构成销售代理协议。未来涉及销售、代理或佣金合作，应另行签署协议。",
+        "艺术家授权巴黎臻藏向收藏家、画廊、文化机构及其他有助于艺术家职业发展的个人或机构介绍其作品，并就相关合作机会进行沟通与协调。任何作品销售、商业代理、商业合作、佣金安排或付款方式，均应由双方另行签署书面协议进行约定。",
       ],
     },
   },
