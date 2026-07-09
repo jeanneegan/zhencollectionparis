@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getAllArtists } from "@/app/artists/[slug]/data";
 import { EvaluationOeuvresView } from "./evaluation-oeuvres-view";
 import { createPageMetadata } from "@/app/lib/site-metadata";
+import { requireMember } from "@/app/lib/require-member";
 
 export const metadata: Metadata = createPageMetadata({
   title:
@@ -10,7 +11,8 @@ export const metadata: Metadata = createPageMetadata({
     "Pour les professionnels de l'art — évaluation en ligne des œuvres sur Zhen Collection Paris. · 供艺术专业人士进行在线作品评估。",
 });
 
-export default function EvaluationOeuvresPage() {
+export default async function EvaluationOeuvresPage() {
+  const member = await requireMember();
   const works = getAllArtists().flatMap((artist) =>
     artist.artworks.map((work) => ({
       id: `${artist.slug}-${work.id}`,
@@ -24,5 +26,5 @@ export default function EvaluationOeuvresPage() {
     })),
   );
 
-  return <EvaluationOeuvresView works={works} />;
+  return <EvaluationOeuvresView works={works} member={member} />;
 }

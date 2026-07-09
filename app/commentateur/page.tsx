@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getAllArtists } from "@/app/artists/[slug]/data";
 import { CommentateurView } from "./commentateur-view";
 import { createPageMetadata } from "@/app/lib/site-metadata";
+import { requireMember } from "@/app/lib/require-member";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Commentaire en ligne · 评论家在线评论 · Zhen Collection Paris",
@@ -9,7 +10,8 @@ export const metadata: Metadata = createPageMetadata({
     "Espace commentateur pour publier des commentaires professionnels sur les œuvres. · 评论家在线评论页面。",
 });
 
-export default function CommentateurPage() {
+export default async function CommentateurPage() {
+  const member = await requireMember();
   const works = getAllArtists().flatMap((artist) =>
     artist.artworks.map((work) => ({
       id: `${artist.slug}-${work.id}`,
@@ -23,5 +25,5 @@ export default function CommentateurPage() {
     })),
   );
 
-  return <CommentateurView works={works} />;
+  return <CommentateurView works={works} member={member} />;
 }

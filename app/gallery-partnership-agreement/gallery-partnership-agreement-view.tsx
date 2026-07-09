@@ -1,9 +1,8 @@
 "use client";
 
 import { Noto_Serif_SC } from "next/font/google";
-import { PageBottomNav } from "@/app/components/page-bottom-nav";
-import { SiteFooter } from "@/app/components/site-footer";
-import { SiteHeader } from "@/app/components/site-header";
+import { MemberWorkspaceLayout } from "@/app/components/member-workspace-layout";
+import type { MockMember } from "@/app/lib/auth";
 
 const serif = Noto_Serif_SC({
   subsets: ["latin"],
@@ -67,39 +66,35 @@ function TrilingualBlock({
   );
 }
 
-export function GalleryPartnershipAgreementView() {
+export function GalleryPartnershipAgreementView({
+  member,
+}: {
+  member: MockMember;
+}) {
   return (
-    <div className="min-h-screen bg-white text-stone-900">
-      <SiteHeader />
+    <MemberWorkspaceLayout member={member} contentClassName="max-w-3xl">
+      <header className="text-center md:text-left">
+        <h1 className="space-y-2 text-xl font-normal tracking-wide text-stone-900 md:text-2xl">
+          <span className="block">Gallery Partnership Agreement</span>
+          <span className="block text-stone-800">
+            Accord de partenariat galerie
+          </span>
+          <span className={`${serif.className} block text-stone-800`}>
+            合作画廊协议
+          </span>
+        </h1>
+        <p className="mt-6 text-[11px] uppercase tracking-[0.18em] text-stone-400">
+          Version 2026
+        </p>
+      </header>
 
-      <main className="mx-auto max-w-3xl px-6 py-12 md:py-16">
-        <header className="text-center">
-          <h1 className="space-y-2 text-xl font-normal tracking-wide text-stone-900 md:text-2xl">
-            <span className="block">Gallery Partnership Agreement</span>
-            <span className="block text-stone-800">
-              Accord de partenariat galerie
-            </span>
-            <span className={`${serif.className} block text-stone-800`}>
-              合作画廊协议
-            </span>
-          </h1>
-          <p className="mt-6 text-[11px] uppercase tracking-[0.18em] text-stone-400">
-            Version 2026
-          </p>
-        </header>
+      <div className="mt-10 border-y border-stone-200 py-8">
+        <TrilingualBlock body={prevailingNotice} />
+      </div>
 
-        <div className="mt-10 border-y border-stone-200 py-8">
-          <TrilingualBlock body={prevailingNotice} />
-        </div>
-
-        <section className="mt-12">
-          <TrilingualBlock body={mainContent} />
-        </section>
-
-        <PageBottomNav locale="fr" backHref="/espace" />
-      </main>
-
-      <SiteFooter locale="fr" />
-    </div>
+      <section className="mt-12">
+        <TrilingualBlock body={mainContent} />
+      </section>
+    </MemberWorkspaceLayout>
   );
 }

@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { LanguageSwitcher } from "@/app/components/language-switcher";
+import { MemberWorkspaceLayout } from "@/app/components/member-workspace-layout";
 import {
   getArtistBySlug,
   t,
@@ -15,11 +15,11 @@ import { getExhibitionBySlug } from "@/app/exhibitions/data";
 import {
   GALLERY_FOLLOWED_ARTIST_SLUGS,
   GALLERY_REPRESENTED_ARTIST_SLUGS,
-  MOCK_GALLERY_USER,
   type GalleryFocusId,
   type MockMember,
 } from "@/app/lib/auth";
 import { GALLERY_RECEIVED_MESSAGES } from "@/app/lib/gallery-messages";
+import { focusLabel } from "@/app/lib/member-nav";
 import { RETURN_FROM_ESPACE, RETURN_FROM_ESPACE_EXHIBITIONS } from "@/app/lib/return-to";
 import { useLocale } from "@/app/lib/use-locale";
 
@@ -28,57 +28,21 @@ type FocusId = GalleryFocusId;
 const pageLabels: Record<
   Locale,
   {
-    kicker: string;
-    kickerSub: string;
-    signedInAs: string;
-    navLabel: string;
-    logout: string;
     comingSoon: string;
     viewPassport: string;
     viewExhibition: string;
     galleryFollowNote: string;
     galleryFollowNotePlaceholder: string;
-    publicEvaluationLink: string;
-    galleryPartnershipLink: string;
-    artistPassportLink: string;
-    artistAgreementLink: string;
-    superKicker: string;
-    superKickerSub: string;
-    galleryNavSection: string;
-    artistNavSection: string;
-    criticNavSection: string;
-    criticPageLink: string;
-    criticArticleLink: string;
-    collectorNavSection: string;
-    collectorPageLink: string;
     modules: { id: FocusId; body: string }[];
   }
 > = {
   zh: {
-    kicker: "Espace membre sur invitation",
-    kickerSub: "受邀成员空间",
-    signedInAs: "当前登录",
-    navLabel: "Navigation · 导航",
-    logout: "Se déconnecter · 退出登录",
     comingSoon: "Bientôt disponible · 即将开放",
     viewPassport: "Voir le passeport · 查看档案",
     viewExhibition: "Voir l'exposition en ligne · 查看线上展览",
     galleryFollowNote: "Évaluation galerie · 关注画廊评价",
     galleryFollowNotePlaceholder:
       "记录您对该艺术家的观察、跟进与评价… · Notes d'observation, de suivi et d'évaluation…",
-    publicEvaluationLink: "Évaluation des œuvres en ligne · 在线作品评估",
-    galleryPartnershipLink: "Gallery Partnership Agreement · 合作画廊协议",
-    artistPassportLink: "Voir le passeport · 查看档案",
-    artistAgreementLink: "Accord de collaboration · 艺术家合作与档案协议",
-    superKicker: "Accès super utilisateur",
-    superKickerSub: "超级用户",
-    galleryNavSection: "Galerie · 画廊",
-    artistNavSection: "Artiste · 艺术家",
-    criticNavSection: "Commentateur · 评论家",
-    criticPageLink: "Commentaire en ligne · 评论家在线评论",
-    criticArticleLink: "Article indépendant · 评论家独立文章",
-    collectorNavSection: "Collectionneur · 藏家",
-    collectorPageLink: "Ma collection · 藏家藏品",
     modules: [
       {
         id: "representedArtists",
@@ -99,30 +63,12 @@ const pageLabels: Record<
     ],
   },
   fr: {
-    kicker: "Espace membre sur invitation",
-    kickerSub: "受邀成员空间",
-    signedInAs: "Connecté en tant que",
-    navLabel: "Navigation · 导航",
-    logout: "Se déconnecter · 退出登录",
     comingSoon: "Bientôt disponible · 即将开放",
     viewPassport: "Voir le passeport · 查看档案",
     viewExhibition: "Voir l'exposition en ligne · 查看线上展览",
     galleryFollowNote: "Évaluation galerie · 关注画廊评价",
     galleryFollowNotePlaceholder:
       "记录您对该艺术家的观察、跟进与评价… · Notes d'observation, de suivi et d'évaluation…",
-    publicEvaluationLink: "Évaluation des œuvres en ligne · 在线作品评估",
-    galleryPartnershipLink: "Gallery Partnership Agreement · 合作画廊协议",
-    artistPassportLink: "Voir le passeport · 查看档案",
-    artistAgreementLink: "Accord de collaboration · 艺术家合作与档案协议",
-    superKicker: "Accès super utilisateur",
-    superKickerSub: "超级用户",
-    galleryNavSection: "Galerie · 画廊",
-    artistNavSection: "Artiste · 艺术家",
-    criticNavSection: "Commentateur · 评论家",
-    criticPageLink: "Commentaire en ligne · 评论家在线评论",
-    criticArticleLink: "Article indépendant · 评论家独立文章",
-    collectorNavSection: "Collectionneur · 藏家",
-    collectorPageLink: "Ma collection · 藏家藏品",
     modules: [
       {
         id: "representedArtists",
@@ -143,30 +89,12 @@ const pageLabels: Record<
     ],
   },
   en: {
-    kicker: "Invited member space",
-    kickerSub: "",
-    signedInAs: "Signed in as",
-    navLabel: "Navigation",
-    logout: "Sign out",
     comingSoon: "Coming soon",
     viewPassport: "View passport",
     viewExhibition: "View online exhibition",
     galleryFollowNote: "Gallery follow evaluation",
     galleryFollowNotePlaceholder:
       "Record your observations, follow-up, and evaluation of this artist…",
-    publicEvaluationLink: "Online Artwork Evaluation",
-    galleryPartnershipLink: "Gallery Partnership Agreement",
-    artistPassportLink: "View passport",
-    artistAgreementLink: "Artist Collaboration & Archive Agreement",
-    superKicker: "Super user access",
-    superKickerSub: "",
-    galleryNavSection: "Gallery",
-    artistNavSection: "Artist",
-    criticNavSection: "Critic",
-    criticPageLink: "Online Review",
-    criticArticleLink: "Independent Article",
-    collectorNavSection: "Collector",
-    collectorPageLink: "My Collection",
     modules: [
       {
         id: "representedArtists",
@@ -213,178 +141,40 @@ function artistsFromSlugs(slugs: readonly string[]) {
   }) satisfies ArtistProfile[];
 }
 
-function focusLabel(locale: Locale, id: FocusId) {
-  const item = MOCK_GALLERY_USER.focus![id];
-  return locale === "en" ? item.en : `${item.fr} · ${item.zh}`;
-}
-
-function NavSection({
-  title,
-  children,
-}: {
-  title: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <div>
-      <p className="px-2 text-[10px] font-medium uppercase tracking-[0.15em] text-[#dc2626]">
-        {title}
-      </p>
-      <ul className="mt-2 space-y-1">{children}</ul>
-    </div>
-  );
-}
-
-function NavLinkItem({ href, label }: { href: string; label: string }) {
-  return (
-    <li>
-      <Link
-        href={href}
-        className="block rounded-sm px-3 py-2.5 text-left text-xs leading-[1.6] tracking-[0.04em] text-stone-600 transition-colors hover:bg-stone-100 hover:text-stone-900"
-      >
-        {label}
-      </Link>
-    </li>
-  );
-}
-
 const artistLabels: Record<
   Locale,
   {
-    kicker: string;
-    kickerSub: string;
-    signedInAs: string;
     welcome: string;
     welcomeBody: string;
-    viewPassport: string;
-    passportBody: string;
-    viewAgreement: string;
-    agreementBody: string;
-    logout: string;
   }
 > = {
   zh: {
-    kicker: "Espace membre sur invitation",
-    kickerSub: "受邀成员空间",
-    signedInAs: "当前登录",
     welcome: "Bienvenue · 欢迎回来",
-    welcomeBody: "在此访问您的艺术家档案与合作存档协议。",
-    viewPassport: "Voir le passeport · 查看档案",
-    passportBody: "查看并分享您的艺术家护照页面。",
-    viewAgreement: "Accord de collaboration · 艺术家合作与档案协议",
-    agreementBody: "查阅巴黎臻藏与艺术家之间的合作与档案协议。",
-    logout: "Se déconnecter · 退出登录",
+    welcomeBody: "请从左侧导航访问您的艺术家档案与合作存档协议。",
   },
   fr: {
-    kicker: "Espace membre sur invitation",
-    kickerSub: "受邀成员空间",
-    signedInAs: "Connecté en tant que",
     welcome: "Bienvenue",
-    welcomeBody: "Accédez ici à votre passeport artiste et à l'accord de collaboration.",
-    viewPassport: "Voir le passeport · 查看档案",
-    passportBody: "Consultez et partagez votre page passeport artiste.",
-    viewAgreement: "Accord de collaboration · 艺术家合作与档案协议",
-    agreementBody:
-      "Consultez l'accord de collaboration et d'archives d'artiste entre Zhen Collection Paris et l'artiste.",
-    logout: "Se déconnecter · 退出登录",
+    welcomeBody:
+      "Accédez à votre passeport artiste et à l'accord de collaboration via la navigation à gauche.",
   },
   en: {
-    kicker: "Invited member space",
-    kickerSub: "",
-    signedInAs: "Signed in as",
     welcome: "Welcome back",
-    welcomeBody: "Access your artist passport and collaboration archive agreement here.",
-    viewPassport: "View passport",
-    passportBody: "View and share your artist passport page.",
-    viewAgreement: "Artist Collaboration & Archive Agreement",
-    agreementBody:
-      "Review the artist collaboration and archive agreement between Zhen Collection Paris and the artist.",
-    logout: "Sign out",
+    welcomeBody:
+      "Access your artist passport and collaboration archive agreement from the navigation on the left.",
   },
 };
 
 function ArtistEspaceView({ member }: { member: MockMember }) {
-  const router = useRouter();
-  const [locale, setLocale] = useLocale();
+  const [locale] = useLocale();
   const l = artistLabels[locale];
-  const passportHref = member.artistSlug
-    ? `/artists/${member.artistSlug}`
-    : "/";
-
-  async function handleLogout() {
-    await fetch("/api/auth/logout", { method: "POST" });
-    router.push("/connexion");
-    router.refresh();
-  }
 
   return (
-    <div className="min-h-screen bg-white text-stone-900">
-      <header className="sticky top-0 z-50 border-b border-stone-200 bg-white/95 backdrop-blur-sm">
-        <div className="flex items-center justify-between gap-4 px-5 py-4 md:px-10">
-          <Link
-            href="/"
-            className="text-[11px] uppercase tracking-[0.2em] text-stone-400 transition-colors hover:text-stone-900"
-          >
-            Zhen Collection Paris
-          </Link>
-          <div className="flex items-center gap-3 md:gap-4">
-            <LanguageSwitcher locale={locale} onChange={setLocale} />
-            <button
-              type="button"
-              onClick={handleLogout}
-              className="text-[11px] tracking-[0.08em] text-stone-500 transition-colors hover:text-stone-900"
-            >
-              {l.logout}
-            </button>
-          </div>
-        </div>
-      </header>
-
-      <main className="mx-auto max-w-2xl px-5 py-10 md:px-10">
-        <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-stone-400">
-          {l.kicker}
-        </p>
-        {locale !== "en" ? (
-          <p className="mt-1 text-[10px] tracking-[0.2em] text-stone-400">
-            {l.kickerSub}
-          </p>
-        ) : null}
-
-        <div className="mt-8 border-b border-stone-200 pb-8">
-          <p className="text-[10px] uppercase tracking-[0.15em] text-stone-400">
-            {l.signedInAs}
-          </p>
-          <p className="mt-2 text-sm font-medium text-stone-800">{member.email}</p>
-          <p className="mt-4 text-lg font-medium text-stone-900">{member.name[locale]}</p>
-        </div>
-
-        <section className="mt-10">
-          <h1 className="text-sm font-medium text-stone-900">{l.welcome}</h1>
-          <p className="mt-3 text-sm leading-[1.8] text-stone-600">{l.welcomeBody}</p>
-        </section>
-
-        <ul className="mt-10 space-y-4">
-          <li>
-            <Link
-              href={passportHref}
-              className="block rounded-sm border border-stone-200 p-5 transition-colors hover:border-stone-400"
-            >
-              <p className="text-sm font-medium text-stone-900">{l.viewPassport}</p>
-              <p className="mt-2 text-sm leading-[1.8] text-stone-600">{l.passportBody}</p>
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/collaboration-archive-agreement"
-              className="block rounded-sm border border-stone-200 p-5 transition-colors hover:border-stone-400"
-            >
-              <p className="text-sm font-medium text-stone-900">{l.viewAgreement}</p>
-              <p className="mt-2 text-sm leading-[1.8] text-stone-600">{l.agreementBody}</p>
-            </Link>
-          </li>
-        </ul>
-      </main>
-    </div>
+    <MemberWorkspaceLayout member={member}>
+      <section>
+        <h1 className="text-sm font-medium text-stone-900">{l.welcome}</h1>
+        <p className="mt-3 text-sm leading-[1.8] text-stone-600">{l.welcomeBody}</p>
+      </section>
+    </MemberWorkspaceLayout>
   );
 }
 
@@ -393,14 +183,8 @@ export function EspaceView({ member }: { member: MockMember }) {
     return <ArtistEspaceView member={member} />;
   }
 
-  const isSuperUser = member.type === "super";
-  const userEmail = member.email;
-  const artistPassportHref = member.artistSlug
-    ? `/artists/${member.artistSlug}?from=${RETURN_FROM_ESPACE}`
-    : "/";
-  const router = useRouter();
   const searchParams = useSearchParams();
-  const [locale, setLocale] = useLocale();
+  const [locale] = useLocale();
   const [activeId, setActiveId] = useState<FocusId>("representedArtists");
   const l = pageLabels[locale];
   const activeModule = l.modules.find((module) => module.id === activeId)!;
@@ -433,148 +217,9 @@ export function EspaceView({ member }: { member: MockMember }) {
     });
   }
 
-  async function handleLogout() {
-    await fetch("/api/auth/logout", { method: "POST" });
-    router.push(isSuperUser ? "/connexion-super" : "/connexion");
-    router.refresh();
-  }
-
   return (
-    <div className="min-h-screen bg-white text-stone-900">
-      <header className="sticky top-0 z-50 border-b border-stone-200 bg-white/95 backdrop-blur-sm">
-        <div className="flex items-center justify-between gap-4 px-5 py-4 md:px-10">
-          <Link
-            href="/"
-            className="text-[11px] uppercase tracking-[0.2em] text-stone-400 transition-colors hover:text-stone-900"
-          >
-            Zhen Collection Paris
-          </Link>
-          <div className="flex items-center gap-3 md:gap-4">
-            <LanguageSwitcher locale={locale} onChange={setLocale} />
-            <button
-              type="button"
-              onClick={handleLogout}
-              className="text-[11px] tracking-[0.08em] text-stone-500 transition-colors hover:text-stone-900"
-            >
-              {l.logout}
-            </button>
-          </div>
-        </div>
-      </header>
-
-      <div className="md:flex">
-      <aside className="border-b border-stone-200 bg-stone-50/50 md:flex md:w-72 md:shrink-0 md:flex-col md:border-b-0 md:border-r">
-        <div className="border-b border-stone-200 px-5 py-4">
-          <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-stone-400">
-            {isSuperUser ? l.superKicker : l.kicker}
-          </p>
-          {locale !== "en" ? (
-            <p className="mt-1 text-[10px] tracking-[0.2em] text-stone-400">
-              {isSuperUser ? l.superKickerSub : l.kickerSub}
-            </p>
-          ) : null}
-          <p className="mt-4 text-[10px] uppercase tracking-[0.15em] text-stone-400">
-            {l.signedInAs}
-          </p>
-          <p className="mt-2 text-sm font-medium text-stone-800">{userEmail}</p>
-          <p className="mt-3 text-lg font-medium text-stone-900">
-            {member.name[locale]}
-          </p>
-          {isSuperUser ? (
-            <p className="mt-2 text-xs text-stone-500">
-              {member.memberType[locale === "en" ? "en" : "fr"]}
-              {locale !== "en" ? ` · ${member.memberType.zh}` : ""}
-            </p>
-          ) : null}
-        </div>
-
-        <nav
-          aria-label={l.navLabel}
-          className="px-3 py-4 md:flex-1"
-        >
-          <p className="px-2 text-[10px] uppercase tracking-[0.15em] text-stone-400">
-            {l.navLabel}
-          </p>
-          <div className="mt-3 space-y-5">
-            <NavSection title={l.galleryNavSection}>
-              <NavLinkItem
-                href="/evaluation-oeuvres"
-                label={l.publicEvaluationLink}
-              />
-              {l.modules.map((module) => {
-                const active = module.id === activeId;
-                const unreadCount =
-                  module.id === "receivedMessages"
-                    ? GALLERY_RECEIVED_MESSAGES.filter((message) => message.unread)
-                        .length
-                    : 0;
-
-                return (
-                  <li key={module.id}>
-                    <button
-                      type="button"
-                      onClick={() => setActiveId(module.id)}
-                      className={`flex w-full items-center justify-between gap-2 rounded-sm px-3 py-2.5 text-left text-xs leading-[1.6] tracking-[0.04em] transition-colors ${
-                        active
-                          ? "bg-stone-900 text-white"
-                          : "text-stone-600 hover:bg-stone-100 hover:text-stone-900"
-                      }`}
-                    >
-                      <span>{focusLabel(locale, module.id)}</span>
-                      {unreadCount > 0 ? (
-                        <span
-                          className={`rounded-full px-1.5 py-0.5 text-[10px] ${
-                            active
-                              ? "bg-white/15 text-white"
-                              : "bg-stone-200 text-stone-600"
-                          }`}
-                        >
-                          {unreadCount}
-                        </span>
-                      ) : null}
-                    </button>
-                  </li>
-                );
-              })}
-              <NavLinkItem
-                href="/gallery-partnership-agreement"
-                label={l.galleryPartnershipLink}
-              />
-            </NavSection>
-
-            {isSuperUser ? (
-              <>
-                <NavSection title={l.artistNavSection}>
-                  <NavLinkItem
-                    href={artistPassportHref}
-                    label={l.artistPassportLink}
-                  />
-                  <NavLinkItem
-                    href="/collaboration-archive-agreement"
-                    label={l.artistAgreementLink}
-                  />
-                </NavSection>
-                <NavSection title={l.criticNavSection}>
-                  <NavLinkItem href="/commentateur" label={l.criticPageLink} />
-                  <NavLinkItem
-                    href="/commentateur/article"
-                    label={l.criticArticleLink}
-                  />
-                </NavSection>
-                <NavSection title={l.collectorNavSection}>
-                  <NavLinkItem
-                    href="/collectionneur"
-                    label={l.collectorPageLink}
-                  />
-                </NavSection>
-              </>
-            ) : null}
-          </div>
-        </nav>
-      </aside>
-
-      <main className="flex-1 px-6 py-8 md:px-10 md:py-12">
-        <article className="max-w-2xl">
+    <MemberWorkspaceLayout member={member}>
+      <article>
           <h2 className="text-sm font-medium tracking-[0.06em] text-stone-900">
             {focusLabel(locale, activeModule.id)}
           </h2>
@@ -695,8 +340,6 @@ export function EspaceView({ member }: { member: MockMember }) {
             </p>
           )}
         </article>
-      </main>
-      </div>
-    </div>
+    </MemberWorkspaceLayout>
   );
 }

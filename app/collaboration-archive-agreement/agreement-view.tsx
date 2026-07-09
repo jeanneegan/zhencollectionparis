@@ -1,9 +1,8 @@
 "use client";
 
 import { Noto_Serif_SC } from "next/font/google";
-import { PageBottomNav } from "@/app/components/page-bottom-nav";
-import { SiteFooter } from "@/app/components/site-footer";
-import { SiteHeader } from "@/app/components/site-header";
+import { MemberWorkspaceLayout } from "@/app/components/member-workspace-layout";
+import type { MockMember } from "@/app/lib/auth";
 
 const serif = Noto_Serif_SC({
   subsets: ["latin"],
@@ -277,13 +276,10 @@ function SectionHeading({
   );
 }
 
-export function AgreementView() {
+export function AgreementView({ member }: { member: MockMember }) {
   return (
-    <div className="min-h-screen bg-white text-stone-900">
-      <SiteHeader />
-
-      <main className="mx-auto max-w-3xl px-6 py-12 md:py-16">
-        <header className="text-center">
+    <MemberWorkspaceLayout member={member} contentClassName="max-w-3xl">
+      <header className="text-center md:text-left">
           <h1 className="space-y-2 text-xl font-normal tracking-wide text-stone-900 md:text-2xl">
             <span className="block">
               Accord de collaboration et d&apos;archives d&apos;artiste
@@ -312,11 +308,6 @@ export function AgreementView() {
             </section>
           ))}
         </div>
-
-        <PageBottomNav locale="fr" />
-      </main>
-
-      <SiteFooter locale="fr" />
-    </div>
+    </MemberWorkspaceLayout>
   );
 }
