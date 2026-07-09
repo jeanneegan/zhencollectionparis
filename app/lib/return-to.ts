@@ -20,7 +20,7 @@ export function isAllowedReturnPath(path: string): boolean {
     return true;
   }
 
-  if (path === "/espace" || path.startsWith("/espace?") || path === "/espace/profil") {
+  if (path === "/espace" || path.startsWith("/espace?")) {
     return true;
   }
 
@@ -47,7 +47,7 @@ export function getReturnLabelKey(
     return "exhibitions";
   }
 
-  if (backHref === "/espace" || backHref.startsWith("/espace?") || backHref === "/espace/profil") {
+  if (backHref === "/espace" || backHref.startsWith("/espace?")) {
     return "workspace";
   }
 
