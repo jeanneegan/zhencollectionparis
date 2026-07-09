@@ -784,14 +784,12 @@ export function ArtistPassport({
             </li>
           ))}
         </ol>
-      </section>
 
-      {artist.introVideo ? (
-        <>
-          <div className="mx-auto max-w-7xl px-6 md:px-10">
-            <Divider />
-          </div>
-          <section className="mx-auto max-w-7xl px-6 py-20 md:px-10">
+        {artist.introVideo ? (
+          <div
+            id="passport-intro-video"
+            className="mt-20 scroll-mt-28 md:scroll-mt-32"
+          >
             <SectionTitle>{l.introVideo}</SectionTitle>
             <div className="mt-10 max-w-3xl">
               <video
@@ -803,9 +801,9 @@ export function ArtistPassport({
                 aria-label={t(artist.name, locale)}
               />
             </div>
-          </section>
-        </>
-      ) : null}
+          </div>
+        ) : null}
+      </section>
 
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <Divider />
