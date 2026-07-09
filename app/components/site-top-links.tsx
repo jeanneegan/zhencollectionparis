@@ -2,9 +2,9 @@ import Link from "next/link";
 import type { Locale } from "@/app/artists/[slug]/data";
 
 const connexionLabels: Record<Locale, string> = {
-  fr: "Connexion · 登录",
-  zh: "Connexion · 登录",
-  en: "Sign in",
+  fr: "Accès sur invitation · 受邀登录",
+  zh: "Accès sur invitation · 受邀登录",
+  en: "Invited Access",
 };
 
 export function SiteTopLinks({ locale }: { locale: Locale }) {
