@@ -7,6 +7,12 @@ const connexionLabels: Record<Locale, string> = {
   en: "Invited Access",
 };
 
+const galleryLabels: Record<Locale, string> = {
+  fr: "Espace galerie · 进入画廊页",
+  zh: "Espace galerie · 进入画廊页",
+  en: "Gallery workspace",
+};
+
 const agreementLabels: Record<Locale, string> = {
   fr: "Accord de collaboration et d'archives d'artiste · 艺术家合作与档案协议",
   zh: "Accord de collaboration et d'archives d'artiste · 艺术家合作与档案协议",
@@ -19,9 +25,11 @@ const linkClassName =
 export function SiteTopLinks({
   locale,
   showAgreement = false,
+  showGallery = false,
 }: {
   locale: Locale;
   showAgreement?: boolean;
+  showGallery?: boolean;
 }) {
   return (
     <div className="mb-10 space-y-2 text-center">
@@ -30,6 +38,13 @@ export function SiteTopLinks({
           {connexionLabels[locale]}
         </Link>
       </div>
+      {showGallery ? (
+        <div>
+          <Link href="/connexion?next=/espace" className={linkClassName}>
+            {galleryLabels[locale]}
+          </Link>
+        </div>
+      ) : null}
       {showAgreement ? (
         <div>
           <Link

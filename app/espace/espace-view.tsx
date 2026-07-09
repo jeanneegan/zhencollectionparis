@@ -42,8 +42,8 @@ const pageLabels: Record<
   }
 > = {
   zh: {
-    kicker: "Espace membre sur invitation",
-    kickerSub: "受邀成员空间",
+    kicker: "Espace galerie",
+    kickerSub: "画廊页",
     signedInAs: "当前登录",
     navLabel: "Navigation · 导航",
     logout: "Se déconnecter · 退出登录",
@@ -77,8 +77,8 @@ const pageLabels: Record<
     ],
   },
   fr: {
-    kicker: "Espace membre sur invitation",
-    kickerSub: "受邀成员空间",
+    kicker: "Espace galerie",
+    kickerSub: "画廊页",
     signedInAs: "Connecté en tant que",
     navLabel: "Navigation · 导航",
     logout: "Se déconnecter · 退出登录",
@@ -112,7 +112,7 @@ const pageLabels: Record<
     ],
   },
   en: {
-    kicker: "Invited member space",
+    kicker: "Gallery workspace",
     kickerSub: "",
     signedInAs: "Signed in as",
     navLabel: "Navigation",
