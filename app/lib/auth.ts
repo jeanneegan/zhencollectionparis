@@ -14,7 +14,6 @@ export type GalleryFocusId =
   | "representedArtists"
   | "followedArtists"
   | "exhibitions"
-  | "publicEvaluation"
   | "receivedMessages";
 
 export type MockMember = {
@@ -44,11 +43,6 @@ const galleryFocus: Record<GalleryFocusId, LocalizedLabel> = {
     zh: "展览",
     en: "Exhibitions",
   },
-  publicEvaluation: {
-    fr: "Évaluations du public",
-    zh: "公众评价",
-    en: "Public evaluation",
-  },
   receivedMessages: {
     fr: "Messages reçus",
     zh: "收到信息",
@@ -67,9 +61,9 @@ export const MOCK_GALLERY_USER: MockMember = {
     en: "Gallery",
   },
   name: {
-    fr: "Galerie",
-    zh: "画廊",
-    en: "Gallery",
+    fr: "H Studio",
+    zh: "H Studio",
+    en: "H Studio",
   },
   focus: galleryFocus,
 };

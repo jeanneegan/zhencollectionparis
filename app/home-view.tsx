@@ -80,7 +80,7 @@ function HomeBilingual({
 }) {
   return (
     <>
-      <SiteTopLinks locale={locale} showGallery />
+      <SiteTopLinks locale={locale} />
 
       <header className="text-center">
         <h1 className="text-2xl font-normal tracking-wide text-stone-900 md:text-3xl">
@@ -214,7 +214,7 @@ function HomeEnglish({
 }) {
   return (
     <>
-      <SiteTopLinks locale={locale} showGallery />
+      <SiteTopLinks locale={locale} />
 
       <header className="text-center">
         <h1 className="text-3xl font-normal tracking-wide text-stone-900 md:text-4xl">

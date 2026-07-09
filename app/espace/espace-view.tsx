@@ -38,12 +38,13 @@ const pageLabels: Record<
     viewExhibition: string;
     galleryFollowNote: string;
     galleryFollowNotePlaceholder: string;
+    publicEvaluationLink: string;
     modules: { id: FocusId; body: string }[];
   }
 > = {
   zh: {
-    kicker: "Espace galerie",
-    kickerSub: "画廊页",
+    kicker: "Espace membre sur invitation",
+    kickerSub: "受邀成员空间",
     signedInAs: "当前登录",
     navLabel: "Navigation · 导航",
     logout: "Se déconnecter · 退出登录",
@@ -53,6 +54,7 @@ const pageLabels: Record<
     galleryFollowNote: "Évaluation galerie · 关注画廊评价",
     galleryFollowNotePlaceholder:
       "记录您对该艺术家的观察、跟进与评价… · Notes d'observation, de suivi et d'évaluation…",
+    publicEvaluationLink: "Partager votre regard · 分享您的专业观点",
     modules: [
       {
         id: "representedArtists",
@@ -67,18 +69,14 @@ const pageLabels: Record<
         body: "",
       },
       {
-        id: "publicEvaluation",
-        body: "收集并呈现公众对展览、艺术家与画廊本身的评价、留言与共鸣。",
-      },
-      {
         id: "receivedMessages",
         body: "查看发送至画廊的收藏咨询、公众留言与平台通知。",
       },
     ],
   },
   fr: {
-    kicker: "Espace galerie",
-    kickerSub: "画廊页",
+    kicker: "Espace membre sur invitation",
+    kickerSub: "受邀成员空间",
     signedInAs: "Connecté en tant que",
     navLabel: "Navigation · 导航",
     logout: "Se déconnecter · 退出登录",
@@ -88,6 +86,7 @@ const pageLabels: Record<
     galleryFollowNote: "Évaluation galerie · 关注画廊评价",
     galleryFollowNotePlaceholder:
       "记录您对该艺术家的观察、跟进与评价… · Notes d'observation, de suivi et d'évaluation…",
+    publicEvaluationLink: "Partager votre regard · 分享您的专业观点",
     modules: [
       {
         id: "representedArtists",
@@ -102,17 +101,13 @@ const pageLabels: Record<
         body: "",
       },
       {
-        id: "publicEvaluation",
-        body: "Collecter et présenter les évaluations, messages et résonances du public sur vos expositions, artistes et la galerie elle-même.",
-      },
-      {
         id: "receivedMessages",
         body: "Consultez les demandes de collection, messages du public et notifications adressés à la galerie.",
       },
     ],
   },
   en: {
-    kicker: "Gallery workspace",
+    kicker: "Invited member space",
     kickerSub: "",
     signedInAs: "Signed in as",
     navLabel: "Navigation",
@@ -123,6 +118,7 @@ const pageLabels: Record<
     galleryFollowNote: "Gallery follow evaluation",
     galleryFollowNotePlaceholder:
       "Record your observations, follow-up, and evaluation of this artist…",
+    publicEvaluationLink: "Share Your Professional View",
     modules: [
       {
         id: "representedArtists",
@@ -135,10 +131,6 @@ const pageLabels: Record<
       {
         id: "exhibitions",
         body: "",
-      },
-      {
-        id: "publicEvaluation",
-        body: "Collect and present public evaluations, messages, and resonance about your exhibitions, artists, and the gallery itself.",
       },
       {
         id: "receivedMessages",
@@ -345,7 +337,6 @@ export function EspaceView({ member }: { member: MockMember }) {
       section === "exhibitions" ||
       section === "representedArtists" ||
       section === "followedArtists" ||
-      section === "publicEvaluation" ||
       section === "receivedMessages"
     ) {
       setActiveId(section as FocusId);
@@ -404,6 +395,9 @@ export function EspaceView({ member }: { member: MockMember }) {
             {l.signedInAs}
           </p>
           <p className="mt-2 text-sm font-medium text-stone-800">{userEmail}</p>
+          <p className="mt-3 text-lg font-medium text-stone-900">
+            {member.name[locale]}
+          </p>
         </div>
 
         <nav
@@ -414,7 +408,7 @@ export function EspaceView({ member }: { member: MockMember }) {
             {l.navLabel}
           </p>
           <ul className="mt-3 space-y-1">
-            {l.modules.map((module) => {
+            {l.modules.flatMap((module) => {
               const active = module.id === activeId;
               const unreadCount =
                 module.id === "receivedMessages"
@@ -422,7 +416,7 @@ export function EspaceView({ member }: { member: MockMember }) {
                       .length
                   : 0;
 
-              return (
+              const items = [
                 <li key={module.id}>
                   <button
                     type="button"
@@ -446,8 +440,23 @@ export function EspaceView({ member }: { member: MockMember }) {
                       </span>
                     ) : null}
                   </button>
-                </li>
-              );
+                </li>,
+              ];
+
+              if (module.id === "exhibitions") {
+                items.push(
+                  <li key="evaluation-oeuvres">
+                    <Link
+                      href="/evaluation-oeuvres"
+                      className="block rounded-sm px-3 py-2.5 text-left text-xs leading-[1.6] tracking-[0.04em] text-stone-600 transition-colors hover:bg-stone-100 hover:text-stone-900"
+                    >
+                      {l.publicEvaluationLink}
+                    </Link>
+                  </li>,
+                );
+              }
+
+              return items;
             })}
           </ul>
         </nav>
