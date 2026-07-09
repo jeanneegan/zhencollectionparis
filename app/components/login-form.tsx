@@ -86,7 +86,13 @@ export function LoginForm({
         return;
       }
 
-      router.push(resolvePostLoginPath(next));
+      const data = (await response.json()) as {
+        redirectTo?: string;
+      };
+
+      router.push(
+        resolvePostLoginPath(next, data.redirectTo ?? "/espace"),
+      );
       router.refresh();
     } catch {
       setError(true);

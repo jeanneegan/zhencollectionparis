@@ -14,21 +14,21 @@ const pageLabels: Record<
 > = {
   zh: {
     welcome: "Bienvenue · 欢迎回来",
-    welcomeBody: "请从左侧导航访问您的艺术家档案与合作存档协议。",
+    welcomeBody: "请从左侧导航访问您的线上藏品档案、持续评价与转售申请。",
   },
   fr: {
     welcome: "Bienvenue",
     welcomeBody:
-      "Accédez à votre passeport artiste et à l'accord de collaboration via la navigation à gauche.",
+      "Accédez à votre archive de collection en ligne, aux évaluations continues et aux demandes de revente via la navigation à gauche.",
   },
   en: {
     welcome: "Welcome back",
     welcomeBody:
-      "Access your artist passport and collaboration archive agreement from the navigation on the left.",
+      "Access your online collection archive, ongoing evaluations, and resale requests from the navigation on the left.",
   },
 };
 
-export function EspaceView({ member }: { member: MockMember }) {
+export function CollectionneurHomeView({ member }: { member: MockMember }) {
   const [locale] = useLocale();
   const l = pageLabels[locale];
 

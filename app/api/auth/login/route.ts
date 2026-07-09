@@ -3,6 +3,7 @@ import {
   authenticateMember,
   CLIENT_AUTH_COOKIE,
   CLIENT_AUTH_FLAG,
+  getMemberHomePath,
   SESSION_COOKIE,
 } from "@/app/lib/auth";
 
@@ -23,6 +24,7 @@ export async function POST(request: Request) {
 
   const response = NextResponse.json({
     ok: true,
+    redirectTo: getMemberHomePath(member),
     user: {
       email: member.email,
       type: member.type,

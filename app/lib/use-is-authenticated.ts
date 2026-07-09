@@ -71,6 +71,10 @@ export function shouldHidePublicNav(
   isAuthenticated: boolean,
   from?: string | null,
 ): boolean {
+  if (pathname.startsWith("/galerie")) {
+    return true;
+  }
+
   if (pathname.startsWith("/espace")) {
     return true;
   }
@@ -88,6 +92,10 @@ export function shouldHidePublicNav(
   }
 
   if (pathname.startsWith("/collectionneur")) {
+    return true;
+  }
+
+  if (pathname.startsWith("/critics/")) {
     return true;
   }
 

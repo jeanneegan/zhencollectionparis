@@ -35,11 +35,15 @@ const memberNavLabels: Record<
     artistPassportLink: string;
     artistAgreementLink: string;
     galleryNavSection: string;
+    galleryPageLink: string;
     artistNavSection: string;
     criticNavSection: string;
     criticPageLink: string;
+    criticHomeLink: string;
+    criticPassportLink: string;
     criticArticleLink: string;
     collectorNavSection: string;
+    collectorHomeLink: string;
     collectorPageLink: string;
   }
 > = {
@@ -56,11 +60,15 @@ const memberNavLabels: Record<
     artistPassportLink: "Voir le passeport · 查看档案",
     artistAgreementLink: "Accord de collaboration · 艺术家合作与档案协议",
     galleryNavSection: "Galerie · 画廊",
+    galleryPageLink: "Espace galerie · 画廊空间",
     artistNavSection: "Artiste · 艺术家",
     criticNavSection: "Commentateur · 评论家",
+    criticHomeLink: "Espace commentateur · 评论家空间",
+    criticPassportLink: "Voir l'archive · 查看档案",
     criticPageLink: "Commentaire en ligne · 评论家在线评论",
     criticArticleLink: "Article indépendant · 评论家独立文章",
     collectorNavSection: "Collectionneur · 藏家",
+    collectorHomeLink: "Espace collectionneur · 藏家空间",
     collectorPageLink: "Ma collection · 藏家藏品",
   },
   fr: {
@@ -76,11 +84,15 @@ const memberNavLabels: Record<
     artistPassportLink: "Voir le passeport · 查看档案",
     artistAgreementLink: "Accord de collaboration · 艺术家合作与档案协议",
     galleryNavSection: "Galerie · 画廊",
+    galleryPageLink: "Espace galerie · 画廊空间",
     artistNavSection: "Artiste · 艺术家",
     criticNavSection: "Commentateur · 评论家",
+    criticHomeLink: "Espace commentateur · 评论家空间",
+    criticPassportLink: "Voir l'archive · 查看档案",
     criticPageLink: "Commentaire en ligne · 评论家在线评论",
     criticArticleLink: "Article indépendant · 评论家独立文章",
     collectorNavSection: "Collectionneur · 藏家",
+    collectorHomeLink: "Espace collectionneur · 藏家空间",
     collectorPageLink: "Ma collection · 藏家藏品",
   },
   en: {
@@ -96,11 +108,15 @@ const memberNavLabels: Record<
     artistPassportLink: "View passport",
     artistAgreementLink: "Artist Collaboration & Archive Agreement",
     galleryNavSection: "Gallery",
+    galleryPageLink: "Gallery space",
     artistNavSection: "Artist",
     criticNavSection: "Critic",
+    criticHomeLink: "Critic space",
+    criticPassportLink: "View archive",
     criticPageLink: "Online Review",
     criticArticleLink: "Independent Article",
     collectorNavSection: "Collector",
+    collectorHomeLink: "Collector space",
     collectorPageLink: "My Collection",
   },
 };
@@ -138,28 +154,33 @@ export function getMemberNavGroups(
       title: l.galleryNavSection,
       links: [
         {
+          id: "galerie-home",
+          href: "/galerie",
+          label: l.galleryPageLink,
+        },
+        {
           id: "evaluation-oeuvres",
           href: "/evaluation-oeuvres",
           label: l.publicEvaluationLink,
         },
         {
-          id: "espace-representedArtists",
-          href: "/espace?section=representedArtists",
+          id: "galerie-representedArtists",
+          href: "/galerie?section=representedArtists",
           label: focusLabel(locale, "representedArtists", focus),
         },
         {
-          id: "espace-followedArtists",
-          href: "/espace?section=followedArtists",
+          id: "galerie-followedArtists",
+          href: "/galerie?section=followedArtists",
           label: focusLabel(locale, "followedArtists", focus),
         },
         {
-          id: "espace-exhibitions",
-          href: "/espace?section=exhibitions",
+          id: "galerie-exhibitions",
+          href: "/galerie?section=exhibitions",
           label: focusLabel(locale, "exhibitions", focus),
         },
         {
-          id: "espace-receivedMessages",
-          href: "/espace?section=receivedMessages",
+          id: "galerie-receivedMessages",
+          href: "/galerie?section=receivedMessages",
           label: focusLabel(locale, "receivedMessages", focus),
           badge: unreadCount > 0 ? unreadCount : undefined,
         },
@@ -191,36 +212,56 @@ export function getMemberNavGroups(
     });
   }
 
-  if (member.type === "super") {
-    groups.push(
-      {
-        id: "critic",
-        title: l.criticNavSection,
-        links: [
-          {
-            id: "commentateur",
-            href: "/commentateur",
-            label: l.criticPageLink,
-          },
-          {
-            id: "commentateur-article",
-            href: "/commentateur/article",
-            label: l.criticArticleLink,
-          },
-        ],
-      },
-      {
-        id: "collector",
-        title: l.collectorNavSection,
-        links: [
-          {
-            id: "collectionneur",
-            href: "/collectionneur",
-            label: l.collectorPageLink,
-          },
-        ],
-      },
-    );
+  if (member.type === "critic" || member.type === "super") {
+    const criticArchiveHref = member.criticSlug
+      ? `/critics/${member.criticSlug}`
+      : "/critics/lin-wei";
+
+    groups.push({
+      id: "critic",
+      title: l.criticNavSection,
+      links: [
+        {
+          id: "commentateur-home",
+          href: "/commentateur",
+          label: l.criticHomeLink,
+        },
+        {
+          id: "critic-archive",
+          href: criticArchiveHref,
+          label: l.criticPassportLink,
+        },
+        {
+          id: "commentateur-commentaire",
+          href: "/commentateur/commentaire",
+          label: l.criticPageLink,
+        },
+        {
+          id: "commentateur-article",
+          href: "/commentateur/article",
+          label: l.criticArticleLink,
+        },
+      ],
+    });
+  }
+
+  if (member.type === "collector" || member.type === "super") {
+    groups.push({
+      id: "collector",
+      title: l.collectorNavSection,
+      links: [
+        {
+          id: "collectionneur-home",
+          href: "/collectionneur",
+          label: l.collectorHomeLink,
+        },
+        {
+          id: "collectionneur-collection",
+          href: "/collectionneur/collection",
+          label: l.collectorPageLink,
+        },
+      ],
+    });
   }
 
   return groups;
@@ -231,13 +272,17 @@ export function isMemberNavLinkActive(
   searchParams: URLSearchParams,
   link: MemberNavLink,
 ): boolean {
-  if (link.id.startsWith("espace-")) {
-    if (pathname !== "/espace") {
+  if (link.id === "galerie-home") {
+    return pathname === "/galerie" && !searchParams.get("section");
+  }
+
+  if (link.id.startsWith("galerie-")) {
+    if (pathname !== "/galerie") {
       return false;
     }
 
-    const section = link.id.replace("espace-", "");
-    const current = searchParams.get("section") ?? "representedArtists";
+    const section = link.id.replace("galerie-", "");
+    const current = searchParams.get("section") ?? "";
     return current === section;
   }
 
@@ -249,8 +294,24 @@ export function isMemberNavLinkActive(
     return pathname === "/commentateur/article";
   }
 
-  if (link.id === "commentateur") {
+  if (link.id === "commentateur-commentaire") {
+    return pathname === "/commentateur/commentaire";
+  }
+
+  if (link.id === "commentateur-home") {
     return pathname === "/commentateur";
+  }
+
+  if (link.id === "critic-archive") {
+    return pathname.startsWith("/critics/");
+  }
+
+  if (link.id === "collectionneur-home") {
+    return pathname === "/collectionneur";
+  }
+
+  if (link.id === "collectionneur-collection") {
+    return pathname === "/collectionneur/collection";
   }
 
   return pathname === link.href;

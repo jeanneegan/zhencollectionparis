@@ -2,7 +2,7 @@ export const SESSION_COOKIE = "zcp-session";
 export const CLIENT_AUTH_COOKIE = "zcp-auth-client";
 export const CLIENT_AUTH_FLAG = "1";
 
-export type MemberType = "gallery" | "artist" | "super";
+export type MemberType = "gallery" | "artist" | "critic" | "collector" | "super";
 
 type LocalizedLabel = {
   fr: string;
@@ -24,6 +24,7 @@ export type MockMember = {
   memberType: LocalizedLabel;
   name: LocalizedLabel;
   artistSlug?: string;
+  criticSlug?: string;
   focus?: Record<GalleryFocusId, LocalizedLabel>;
 };
 
@@ -86,6 +87,41 @@ export const MOCK_ARTIST_USER: MockMember = {
   },
 };
 
+export const MOCK_CRITIC_USER: MockMember = {
+  email: "commentateur@gmail.com",
+  password: "123456",
+  type: "critic",
+  sessionToken: "mock-critic-session",
+  memberType: {
+    fr: "Commentateur",
+    zh: "评论家",
+    en: "Critic",
+  },
+  name: {
+    fr: "Lin Wei",
+    zh: "林薇",
+    en: "Lin Wei",
+  },
+  criticSlug: "lin-wei",
+};
+
+export const MOCK_COLLECTOR_USER: MockMember = {
+  email: "collectionneur@gmail.com",
+  password: "123456",
+  type: "collector",
+  sessionToken: "mock-collector-session",
+  memberType: {
+    fr: "Collectionneur",
+    zh: "藏家",
+    en: "Collector",
+  },
+  name: {
+    fr: "Lin Mingyuan",
+    zh: "林明远",
+    en: "Lin Mingyuan",
+  },
+};
+
 export const MOCK_SUPER_USER: MockMember = {
   email: "egan@gmail.com",
   password: "123456",
@@ -103,13 +139,31 @@ export const MOCK_SUPER_USER: MockMember = {
     en: "Egan",
   },
   focus: galleryFocus,
+  criticSlug: "lin-wei",
 };
 
 export const MOCK_MEMBERS = [
   MOCK_GALLERY_USER,
   MOCK_ARTIST_USER,
+  MOCK_CRITIC_USER,
+  MOCK_COLLECTOR_USER,
   MOCK_SUPER_USER,
 ] as const;
+
+export function getMemberHomePath(member: MockMember): string {
+  switch (member.type) {
+    case "gallery":
+      return "/galerie";
+    case "critic":
+      return "/commentateur";
+    case "collector":
+      return "/collectionneur";
+    case "artist":
+    case "super":
+    default:
+      return "/espace";
+  }
+}
 
 /** @deprecated Use MOCK_GALLERY_USER */
 export const MOCK_USER = MOCK_GALLERY_USER;
