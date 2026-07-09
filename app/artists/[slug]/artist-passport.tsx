@@ -514,6 +514,7 @@ export function ArtistPassport({
   const cultureQuestionText = isFrenchArtist ? chinaText : franceText;
   const hasCollectionQuestions =
     Boolean(cultureQuestionText) || Boolean(hopeToLeaveText);
+  const pageWrap = member ? "w-full" : "mx-auto max-w-7xl";
 
   const passportContent = (
     <>
@@ -528,8 +529,12 @@ export function ArtistPassport({
         id="passport-artist"
         className="scroll-mt-28 border-b border-stone-200 bg-white md:scroll-mt-32"
       >
-        <div className="mx-auto grid max-w-7xl grid-cols-1 md:grid-cols-2">
-          <div className="relative aspect-[3/4] md:aspect-auto md:min-h-[640px]">
+        <div className={`${pageWrap} grid grid-cols-1 md:grid-cols-2`}>
+          <div
+            className={`relative aspect-[3/4] bg-stone-100 md:aspect-auto ${
+              member ? "md:min-h-[420px]" : "md:min-h-[640px]"
+            }`}
+          >
             <Image
               src={artist.portrait}
               alt={t(artist.name, locale)}
@@ -540,16 +545,24 @@ export function ArtistPassport({
             />
           </div>
 
-          <div className="flex flex-col justify-center px-6 py-16 md:px-16 lg:px-20">
-            <p className={passportType.heroPassport}>{l.passport}</p>
-            <h1 className={`mt-4 ${passportType.heroName}`}>
-              {t(artist.name, locale)}
-            </h1>
-            <p className={`mt-8 max-w-md ${passportType.heroTagline}`}>
-              {t(artist.tagline, locale)}
-            </p>
+          <div
+            className={`flex flex-col justify-center ${
+              member ? "px-6 py-10 md:px-10" : "px-6 py-16 md:px-16 lg:px-20"
+            }`}
+          >
+            {!member ? (
+              <>
+                <p className={passportType.heroPassport}>{l.passport}</p>
+                <h1 className={`mt-4 ${passportType.heroName}`}>
+                  {t(artist.name, locale)}
+                </h1>
+                <p className={`mt-8 max-w-md ${passportType.heroTagline}`}>
+                  {t(artist.tagline, locale)}
+                </p>
+              </>
+            ) : null}
 
-            <dl className="mt-12 grid grid-cols-2 gap-x-8 gap-y-6">
+            <dl className={`grid grid-cols-2 gap-x-8 gap-y-6 ${member ? "" : "mt-12"}`}>
               <div>
                 <dt className={passportType.meta}>{l.birthYear}</dt>
                 <dd className={`mt-1 ${passportType.heroValue}`}>
@@ -596,7 +609,7 @@ export function ArtistPassport({
       </section>
 
       {/* Education · Representation */}
-      <section className="mx-auto max-w-7xl px-6 py-20 md:px-10">
+      <section className={`${pageWrap} px-6 py-20 md:px-10`}>
         <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-12">
           <div>
             <SectionTitle>{l.education}</SectionTitle>
@@ -634,13 +647,13 @@ export function ArtistPassport({
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-6 md:px-10">
+      <div className={`${pageWrap} px-6 md:px-10`}>
         <Divider />
       </div>
 
       {/* Zhen Collection Paris · questions */}
       {(isFrenchArtist || isChineseArtist) && (
-        <section className="mx-auto max-w-7xl px-6 py-20 md:px-10">
+        <section className={`${pageWrap} px-6 py-20 md:px-10`}>
           <SectionTitle>{l.collectionQuestions}</SectionTitle>
           {hasCollectionQuestions ? (
             <div className="mt-10 max-w-3xl space-y-12 border-l border-stone-200 pl-6 md:pl-8">
@@ -666,7 +679,7 @@ export function ArtistPassport({
       )}
 
       {!isFrenchArtist && !isChineseArtist && (chinaText || franceText) ? (
-        <section className="mx-auto max-w-7xl px-6 py-20 md:px-10">
+        <section className={`${pageWrap} px-6 py-20 md:px-10`}>
           <SectionTitle>{l.whyChinaFrance}</SectionTitle>
           <div className="mt-12 grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
             {chinaText ? (
@@ -687,12 +700,12 @@ export function ArtistPassport({
         </section>
       ) : null}
 
-      <div className="mx-auto max-w-7xl px-6 md:px-10">
+      <div className={`${pageWrap} px-6 md:px-10`}>
         <Divider />
       </div>
 
       {/* Artist Statement */}
-      <section className="mx-auto max-w-7xl px-6 py-20 md:px-10">
+      <section className={`${pageWrap} px-6 py-20 md:px-10`}>
         <SectionTitle>{l.artistStatement}</SectionTitle>
         <div className="mt-10 max-w-3xl space-y-6">
           <ProseParagraphs text={t(artist.artistStatement, locale)} />
@@ -712,14 +725,14 @@ export function ArtistPassport({
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-6 md:px-10">
+      <div className={`${pageWrap} px-6 md:px-10`}>
         <Divider />
       </div>
 
       {/* Exhibitions */}
       <section
         id="passport-exhibitions"
-        className="mx-auto max-w-7xl scroll-mt-28 px-6 py-20 md:scroll-mt-32 md:px-10"
+        className={`${pageWrap} scroll-mt-28 px-6 py-20 md:scroll-mt-32 md:px-10`}
       >
         <SectionTitle>{l.exhibitions}</SectionTitle>
         <div className="mt-12 overflow-x-auto">
@@ -765,12 +778,12 @@ export function ArtistPassport({
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-6 md:px-10">
+      <div className={`${pageWrap} px-6 md:px-10`}>
         <Divider />
       </div>
 
       {/* Career Timeline */}
-      <section className="mx-auto max-w-7xl px-6 py-20 md:px-10">
+      <section className={`${pageWrap} px-6 py-20 md:px-10`}>
         <SectionTitle>{l.careerTimeline}</SectionTitle>
         <ol className="relative mt-12 border-l border-stone-200 pl-8 md:pl-10">
           {artist.careerTimeline.map((item, index) => (
@@ -793,14 +806,14 @@ export function ArtistPassport({
         </ol>
       </section>
 
-      <div className="mx-auto max-w-7xl px-6 md:px-10">
+      <div className={`${pageWrap} px-6 md:px-10`}>
         <Divider />
       </div>
 
       {/* Selected Works */}
       <section
         id="passport-works"
-        className="mx-auto max-w-7xl scroll-mt-28 px-6 py-20 md:scroll-mt-32 md:px-10"
+        className={`${pageWrap} scroll-mt-28 px-6 py-20 md:scroll-mt-32 md:px-10`}
       >
         <SectionTitle>{l.selectedWorks}</SectionTitle>
         <div className="mt-12 grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2">
@@ -877,12 +890,12 @@ export function ArtistPassport({
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-6 md:px-10">
+      <div className={`${pageWrap} px-6 md:px-10`}>
         <Divider />
       </div>
 
       {/* Professional Reputation */}
-      <section className="mx-auto max-w-7xl px-6 py-20 md:px-10">
+      <section className={`${pageWrap} px-6 py-20 md:px-10`}>
         <SectionTitle>{l.professionalReputation}</SectionTitle>
 
         <div className="mt-16 space-y-20">
@@ -983,7 +996,7 @@ export function ArtistPassport({
 
   if (member) {
     return (
-      <MemberWorkspaceLayout member={member} contentClassName="max-w-7xl">
+      <MemberWorkspaceLayout member={member} contentClassName="w-full max-w-none min-w-0">
         <header className="border-b border-stone-200 pb-6">
           <p className={passportType.heroPassport}>{l.passport}</p>
           <h1 className={`mt-3 ${passportType.heroName}`}>
@@ -992,12 +1005,9 @@ export function ArtistPassport({
           <p className={`mt-4 max-w-2xl ${passportType.heroTagline}`}>
             {t(artist.tagline, locale)}
           </p>
-          <div className="mt-6">
-            <PassportSectionNav labels={navLabels} />
-          </div>
         </header>
 
-        <div className="mt-8 min-w-0 bg-stone-50 text-stone-900">
+        <div className="mt-8 -mx-6 min-w-0 bg-stone-50 text-stone-900 md:-mx-10">
           {passportContent}
         </div>
       </MemberWorkspaceLayout>
