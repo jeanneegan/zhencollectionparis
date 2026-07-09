@@ -601,27 +601,6 @@ export function ArtistPassport({
         </div>
       </section>
 
-      {artist.introVideo ? (
-        <>
-          <div className="mx-auto max-w-7xl px-6 md:px-10">
-            <Divider />
-          </div>
-          <section className="mx-auto max-w-7xl px-6 py-20 md:px-10">
-            <SectionTitle>{l.introVideo}</SectionTitle>
-            <div className="mt-10 max-w-3xl">
-              <video
-                src={artist.introVideo}
-                controls
-                playsInline
-                preload="metadata"
-                className="aspect-video w-full bg-stone-900"
-                aria-label={t(artist.name, locale)}
-              />
-            </div>
-          </section>
-        </>
-      ) : null}
-
       {/* Education · Representation */}
       <section className="mx-auto max-w-7xl px-6 py-20 md:px-10">
         <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-12">
@@ -806,6 +785,27 @@ export function ArtistPassport({
           ))}
         </ol>
       </section>
+
+      {artist.introVideo ? (
+        <>
+          <div className="mx-auto max-w-7xl px-6 md:px-10">
+            <Divider />
+          </div>
+          <section className="mx-auto max-w-7xl px-6 py-20 md:px-10">
+            <SectionTitle>{l.introVideo}</SectionTitle>
+            <div className="mt-10 max-w-3xl">
+              <video
+                src={artist.introVideo}
+                controls
+                playsInline
+                preload="metadata"
+                className="aspect-video w-full bg-stone-900"
+                aria-label={t(artist.name, locale)}
+              />
+            </div>
+          </section>
+        </>
+      ) : null}
 
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <Divider />
