@@ -1596,7 +1596,7 @@ If blue-and-white is a visual sign, each traditional motif painted on a porcelai
         en: "Acrylic on canvas",
       },
       dimensions: "100 × 130 cm",
-      image: "/artists/su-hong/works/ma-gui.jpg",
+      image: "/artists/su-hong/works/ma-gui-1.jpg",
       imageAspect: [777, 1024],
       seriesId: "ma-gui",
     },
