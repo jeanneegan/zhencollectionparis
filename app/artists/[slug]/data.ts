@@ -912,7 +912,7 @@ const suHong: ArtistProfile = {
     en: "",
   },
   portrait: "/artists/su-hong/portrait.png",
-  introVideo: "/artists/su-hong/intro-2.mp4",
+  introVideo: "/artists/su-hong/intro-3.mp4",
   tagline: {
     zh: "传统与现代的结合一直是我研究的方向，快与慢，动与静，物质本质就是一体两面的结合。",
     fr: "L'alliance tradition-modernité est depuis longtemps ma direction de recherche — rapide et lent, mouvement et immobilité ; l'essence de la matière est une union de deux faces.",
