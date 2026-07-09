@@ -39,6 +39,18 @@ const pageLabels: Record<
     galleryFollowNote: string;
     galleryFollowNotePlaceholder: string;
     publicEvaluationLink: string;
+    galleryPartnershipLink: string;
+    artistPassportLink: string;
+    artistAgreementLink: string;
+    superKicker: string;
+    superKickerSub: string;
+    galleryNavSection: string;
+    artistNavSection: string;
+    criticNavSection: string;
+    criticPageLink: string;
+    criticArticleLink: string;
+    collectorNavSection: string;
+    collectorPageLink: string;
     modules: { id: FocusId; body: string }[];
   }
 > = {
@@ -50,19 +62,31 @@ const pageLabels: Record<
     logout: "Se déconnecter · 退出登录",
     comingSoon: "Bientôt disponible · 即将开放",
     viewPassport: "Voir le passeport · 查看档案",
-    viewExhibition: "Voir l'exposition · 查看展览",
+    viewExhibition: "Voir l'exposition en ligne · 查看线上展览",
     galleryFollowNote: "Évaluation galerie · 关注画廊评价",
     galleryFollowNotePlaceholder:
       "记录您对该艺术家的观察、跟进与评价… · Notes d'observation, de suivi et d'évaluation…",
     publicEvaluationLink: "Évaluation des œuvres en ligne · 在线作品评估",
+    galleryPartnershipLink: "Gallery Partnership Agreement · 合作画廊协议",
+    artistPassportLink: "Voir le passeport · 查看档案",
+    artistAgreementLink: "Accord de collaboration · 艺术家合作与档案协议",
+    superKicker: "Accès super utilisateur",
+    superKickerSub: "超级用户",
+    galleryNavSection: "Galerie · 画廊",
+    artistNavSection: "Artiste · 艺术家",
+    criticNavSection: "Commentateur · 评论家",
+    criticPageLink: "Commentaire en ligne · 评论家在线评论",
+    criticArticleLink: "Article indépendant · 评论家独立文章",
+    collectorNavSection: "Collectionneur · 藏家",
+    collectorPageLink: "Ma collection · 藏家藏品",
     modules: [
       {
         id: "representedArtists",
-        body: "记录您代理的艺术家、合作年限、代理关系与对外可见的呈现方式。",
+        body: "记录您线上代理的艺术家、合作年限、代理关系与对外可见的呈现方式。",
       },
       {
         id: "followedArtists",
-        body: "标记您持续关注的艺术家——尚未代理，但正在观察、跟踪与思考的关系。",
+        body: "标记您线上持续关注的艺术家——尚未代理，但正在观察、跟踪与思考的关系。",
       },
       {
         id: "exhibitions",
@@ -82,19 +106,31 @@ const pageLabels: Record<
     logout: "Se déconnecter · 退出登录",
     comingSoon: "Bientôt disponible · 即将开放",
     viewPassport: "Voir le passeport · 查看档案",
-    viewExhibition: "Voir l'exposition · 查看展览",
+    viewExhibition: "Voir l'exposition en ligne · 查看线上展览",
     galleryFollowNote: "Évaluation galerie · 关注画廊评价",
     galleryFollowNotePlaceholder:
       "记录您对该艺术家的观察、跟进与评价… · Notes d'observation, de suivi et d'évaluation…",
     publicEvaluationLink: "Évaluation des œuvres en ligne · 在线作品评估",
+    galleryPartnershipLink: "Gallery Partnership Agreement · 合作画廊协议",
+    artistPassportLink: "Voir le passeport · 查看档案",
+    artistAgreementLink: "Accord de collaboration · 艺术家合作与档案协议",
+    superKicker: "Accès super utilisateur",
+    superKickerSub: "超级用户",
+    galleryNavSection: "Galerie · 画廊",
+    artistNavSection: "Artiste · 艺术家",
+    criticNavSection: "Commentateur · 评论家",
+    criticPageLink: "Commentaire en ligne · 评论家在线评论",
+    criticArticleLink: "Article indépendant · 评论家独立文章",
+    collectorNavSection: "Collectionneur · 藏家",
+    collectorPageLink: "Ma collection · 藏家藏品",
     modules: [
       {
         id: "representedArtists",
-        body: "Documenter les artistes que vous représentez, la durée de la relation, le statut de représentation et leur présentation visible.",
+        body: "Documenter les artistes que vous représentez en ligne, la durée de la relation, le statut de représentation et leur présentation visible.",
       },
       {
         id: "followedArtists",
-        body: "Marquer les artistes que vous suivez — pas encore représentés, mais observés, suivis et pensés dans le temps.",
+        body: "Marquer les artistes que vous suivez en ligne — pas encore représentés, mais observés, suivis et pensés dans le temps.",
       },
       {
         id: "exhibitions",
@@ -114,19 +150,31 @@ const pageLabels: Record<
     logout: "Sign out",
     comingSoon: "Coming soon",
     viewPassport: "View passport",
-    viewExhibition: "View exhibition",
+    viewExhibition: "View online exhibition",
     galleryFollowNote: "Gallery follow evaluation",
     galleryFollowNotePlaceholder:
       "Record your observations, follow-up, and evaluation of this artist…",
     publicEvaluationLink: "Online Artwork Evaluation",
+    galleryPartnershipLink: "Gallery Partnership Agreement",
+    artistPassportLink: "View passport",
+    artistAgreementLink: "Artist Collaboration & Archive Agreement",
+    superKicker: "Super user access",
+    superKickerSub: "",
+    galleryNavSection: "Gallery",
+    artistNavSection: "Artist",
+    criticNavSection: "Critic",
+    criticPageLink: "Online Review",
+    criticArticleLink: "Independent Article",
+    collectorNavSection: "Collector",
+    collectorPageLink: "My Collection",
     modules: [
       {
         id: "representedArtists",
-        body: "Document the artists you represent, the duration of each relationship, representation status, and how they appear publicly.",
+        body: "Document the artists you represent online, the duration of each relationship, representation status, and how they appear publicly.",
       },
       {
         id: "followedArtists",
-        body: "Mark the artists you follow—not yet represented, but observed, tracked, and considered over time.",
+        body: "Mark the artists you follow online—not yet represented, but observed, tracked, and considered over time.",
       },
       {
         id: "exhibitions",
@@ -168,6 +216,36 @@ function artistsFromSlugs(slugs: readonly string[]) {
 function focusLabel(locale: Locale, id: FocusId) {
   const item = MOCK_GALLERY_USER.focus![id];
   return locale === "en" ? item.en : `${item.fr} · ${item.zh}`;
+}
+
+function NavSection({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div>
+      <p className="px-2 text-[10px] font-medium uppercase tracking-[0.15em] text-[#dc2626]">
+        {title}
+      </p>
+      <ul className="mt-2 space-y-1">{children}</ul>
+    </div>
+  );
+}
+
+function NavLinkItem({ href, label }: { href: string; label: string }) {
+  return (
+    <li>
+      <Link
+        href={href}
+        className="block rounded-sm px-3 py-2.5 text-left text-xs leading-[1.6] tracking-[0.04em] text-stone-600 transition-colors hover:bg-stone-100 hover:text-stone-900"
+      >
+        {label}
+      </Link>
+    </li>
+  );
 }
 
 const artistLabels: Record<
@@ -315,7 +393,11 @@ export function EspaceView({ member }: { member: MockMember }) {
     return <ArtistEspaceView member={member} />;
   }
 
+  const isSuperUser = member.type === "super";
   const userEmail = member.email;
+  const artistPassportHref = member.artistSlug
+    ? `/artists/${member.artistSlug}?from=${RETURN_FROM_ESPACE}`
+    : "/";
   const router = useRouter();
   const searchParams = useSearchParams();
   const [locale, setLocale] = useLocale();
@@ -353,7 +435,7 @@ export function EspaceView({ member }: { member: MockMember }) {
 
   async function handleLogout() {
     await fetch("/api/auth/logout", { method: "POST" });
-    router.push("/connexion");
+    router.push(isSuperUser ? "/connexion-super" : "/connexion");
     router.refresh();
   }
 
@@ -384,11 +466,11 @@ export function EspaceView({ member }: { member: MockMember }) {
       <aside className="border-b border-stone-200 bg-stone-50/50 md:flex md:w-72 md:shrink-0 md:flex-col md:border-b-0 md:border-r">
         <div className="border-b border-stone-200 px-5 py-4">
           <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-stone-400">
-            {l.kicker}
+            {isSuperUser ? l.superKicker : l.kicker}
           </p>
           {locale !== "en" ? (
             <p className="mt-1 text-[10px] tracking-[0.2em] text-stone-400">
-              {l.kickerSub}
+              {isSuperUser ? l.superKickerSub : l.kickerSub}
             </p>
           ) : null}
           <p className="mt-4 text-[10px] uppercase tracking-[0.15em] text-stone-400">
@@ -398,6 +480,12 @@ export function EspaceView({ member }: { member: MockMember }) {
           <p className="mt-3 text-lg font-medium text-stone-900">
             {member.name[locale]}
           </p>
+          {isSuperUser ? (
+            <p className="mt-2 text-xs text-stone-500">
+              {member.memberType[locale === "en" ? "en" : "fr"]}
+              {locale !== "en" ? ` · ${member.memberType.zh}` : ""}
+            </p>
+          ) : null}
         </div>
 
         <nav
@@ -407,51 +495,81 @@ export function EspaceView({ member }: { member: MockMember }) {
           <p className="px-2 text-[10px] uppercase tracking-[0.15em] text-stone-400">
             {l.navLabel}
           </p>
-          <ul className="mt-3 space-y-1">
-            <li>
-              <Link
+          <div className="mt-3 space-y-5">
+            <NavSection title={l.galleryNavSection}>
+              <NavLinkItem
                 href="/evaluation-oeuvres"
-                className="block rounded-sm px-3 py-2.5 text-left text-xs leading-[1.6] tracking-[0.04em] text-stone-600 transition-colors hover:bg-stone-100 hover:text-stone-900"
-              >
-                {l.publicEvaluationLink}
-              </Link>
-            </li>
-            {l.modules.map((module) => {
-              const active = module.id === activeId;
-              const unreadCount =
-                module.id === "receivedMessages"
-                  ? GALLERY_RECEIVED_MESSAGES.filter((message) => message.unread)
-                      .length
-                  : 0;
+                label={l.publicEvaluationLink}
+              />
+              {l.modules.map((module) => {
+                const active = module.id === activeId;
+                const unreadCount =
+                  module.id === "receivedMessages"
+                    ? GALLERY_RECEIVED_MESSAGES.filter((message) => message.unread)
+                        .length
+                    : 0;
 
-              return (
-                <li key={module.id}>
-                  <button
-                    type="button"
-                    onClick={() => setActiveId(module.id)}
-                    className={`flex w-full items-center justify-between gap-2 rounded-sm px-3 py-2.5 text-left text-xs leading-[1.6] tracking-[0.04em] transition-colors ${
-                      active
-                        ? "bg-stone-900 text-white"
-                        : "text-stone-600 hover:bg-stone-100 hover:text-stone-900"
-                    }`}
-                  >
-                    <span>{focusLabel(locale, module.id)}</span>
-                    {unreadCount > 0 ? (
-                      <span
-                        className={`rounded-full px-1.5 py-0.5 text-[10px] ${
-                          active
-                            ? "bg-white/15 text-white"
-                            : "bg-stone-200 text-stone-600"
-                        }`}
-                      >
-                        {unreadCount}
-                      </span>
-                    ) : null}
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
+                return (
+                  <li key={module.id}>
+                    <button
+                      type="button"
+                      onClick={() => setActiveId(module.id)}
+                      className={`flex w-full items-center justify-between gap-2 rounded-sm px-3 py-2.5 text-left text-xs leading-[1.6] tracking-[0.04em] transition-colors ${
+                        active
+                          ? "bg-stone-900 text-white"
+                          : "text-stone-600 hover:bg-stone-100 hover:text-stone-900"
+                      }`}
+                    >
+                      <span>{focusLabel(locale, module.id)}</span>
+                      {unreadCount > 0 ? (
+                        <span
+                          className={`rounded-full px-1.5 py-0.5 text-[10px] ${
+                            active
+                              ? "bg-white/15 text-white"
+                              : "bg-stone-200 text-stone-600"
+                          }`}
+                        >
+                          {unreadCount}
+                        </span>
+                      ) : null}
+                    </button>
+                  </li>
+                );
+              })}
+              <NavLinkItem
+                href="/gallery-partnership-agreement"
+                label={l.galleryPartnershipLink}
+              />
+            </NavSection>
+
+            {isSuperUser ? (
+              <>
+                <NavSection title={l.artistNavSection}>
+                  <NavLinkItem
+                    href={artistPassportHref}
+                    label={l.artistPassportLink}
+                  />
+                  <NavLinkItem
+                    href="/collaboration-archive-agreement"
+                    label={l.artistAgreementLink}
+                  />
+                </NavSection>
+                <NavSection title={l.criticNavSection}>
+                  <NavLinkItem href="/commentateur" label={l.criticPageLink} />
+                  <NavLinkItem
+                    href="/commentateur/article"
+                    label={l.criticArticleLink}
+                  />
+                </NavSection>
+                <NavSection title={l.collectorNavSection}>
+                  <NavLinkItem
+                    href="/collectionneur"
+                    label={l.collectorPageLink}
+                  />
+                </NavSection>
+              </>
+            ) : null}
+          </div>
         </nav>
       </aside>
 

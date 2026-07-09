@@ -2,7 +2,7 @@ export const SESSION_COOKIE = "zcp-session";
 export const CLIENT_AUTH_COOKIE = "zcp-auth-client";
 export const CLIENT_AUTH_FLAG = "1";
 
-export type MemberType = "gallery" | "artist";
+export type MemberType = "gallery" | "artist" | "super";
 
 type LocalizedLabel = {
   fr: string;
@@ -29,19 +29,19 @@ export type MockMember = {
 
 const galleryFocus: Record<GalleryFocusId, LocalizedLabel> = {
   representedArtists: {
-    fr: "Artistes représentés",
-    zh: "代理艺术家",
-    en: "Represented artists",
+    fr: "Artistes représentés en ligne",
+    zh: "线上代理艺术家",
+    en: "Online represented artists",
   },
   followedArtists: {
-    fr: "Artistes suivis",
-    zh: "关注艺术家",
-    en: "Artists followed",
+    fr: "Artistes suivis en ligne",
+    zh: "线上关注艺术家",
+    en: "Online artists followed",
   },
   exhibitions: {
-    fr: "Expositions",
-    zh: "展览",
-    en: "Exhibitions",
+    fr: "Expositions en ligne",
+    zh: "线上展览",
+    en: "Online exhibitions",
   },
   receivedMessages: {
     fr: "Messages reçus",
@@ -86,7 +86,30 @@ export const MOCK_ARTIST_USER: MockMember = {
   },
 };
 
-export const MOCK_MEMBERS = [MOCK_GALLERY_USER, MOCK_ARTIST_USER] as const;
+export const MOCK_SUPER_USER: MockMember = {
+  email: "egan@gmail.com",
+  password: "123456",
+  type: "super",
+  sessionToken: "mock-super-session",
+  artistSlug: "su-hong",
+  memberType: {
+    fr: "Super utilisateur",
+    zh: "超级用户",
+    en: "Super user",
+  },
+  name: {
+    fr: "Egan",
+    zh: "Egan",
+    en: "Egan",
+  },
+  focus: galleryFocus,
+};
+
+export const MOCK_MEMBERS = [
+  MOCK_GALLERY_USER,
+  MOCK_ARTIST_USER,
+  MOCK_SUPER_USER,
+] as const;
 
 /** @deprecated Use MOCK_GALLERY_USER */
 export const MOCK_USER = MOCK_GALLERY_USER;

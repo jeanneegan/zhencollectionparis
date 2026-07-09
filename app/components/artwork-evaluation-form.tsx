@@ -16,7 +16,7 @@ export type EvaluationWork = {
   image: string;
 };
 
-const formLabels: Record<
+const evaluationFormLabels: Record<
   Locale,
   {
     evaluation: string;
@@ -64,20 +64,71 @@ const formLabels: Record<
   },
 };
 
+const criticFormLabels: Record<
+  Locale,
+  {
+    evaluation: string;
+    evaluationPlaceholder: string;
+    submit: string;
+    thanks: string;
+    thanksSub: string;
+    artistLabel: string;
+    workLabel: string;
+    selectWork: string;
+  }
+> = {
+  zh: {
+    evaluation: "Commentaire · 评论文章",
+    evaluationPlaceholder:
+      "请以评论者身份撰写评论：可分析作品的语言、语境、艺术家脉络、美学立场或当代意义…",
+    submit: "Publier · 提交评论",
+    thanks: "Merci · 我们已收到您的评论，感谢参与。",
+    thanksSub: "Thank you · Your review has been received.",
+    artistLabel: "Artiste · 艺术家",
+    workLabel: "Œuvre · 作品信息",
+    selectWork: "Choisir une œuvre · 选择作品",
+  },
+  fr: {
+    evaluation: "Commentaire · 评论文章",
+    evaluationPlaceholder:
+      "Rédigez votre commentaire : langage de l'œuvre, contexte, trajectoire de l'artiste, position esthétique ou portée contemporaine…",
+    submit: "Publier · 提交评论",
+    thanks: "Merci · Votre commentaire a bien été reçu.",
+    thanksSub: "Thank you · Your review has been received.",
+    artistLabel: "Artiste · 艺术家",
+    workLabel: "Œuvre · 作品信息",
+    selectWork: "Choisir une œuvre · 选择作品",
+  },
+  en: {
+    evaluation: "Review",
+    evaluationPlaceholder:
+      "Write your review: the work's language, context, the artist's trajectory, aesthetic position, or contemporary relevance…",
+    submit: "Submit review",
+    thanks: "Thank you · Your review has been received.",
+    thanksSub: "We appreciate your contribution.",
+    artistLabel: "Artist",
+    workLabel: "Artwork",
+    selectWork: "Choose an artwork",
+  },
+};
+
 const inputClass =
   "mt-2 w-full rounded-sm border border-stone-300 bg-white px-4 py-2.5 text-sm text-stone-800 placeholder:text-stone-400 focus:border-stone-900 focus:outline-none";
 
 export function ArtworkEvaluationForm({
   locale = "fr",
   works,
+  variant = "evaluation",
 }: {
   locale?: Locale;
   works: EvaluationWork[];
+  variant?: "evaluation" | "critic";
 }) {
   const [selectedId, setSelectedId] = useState(works[0]?.id ?? "");
   const [evaluation, setEvaluation] = useState("");
   const [submitted, setSubmitted] = useState(false);
-  const l = formLabels[locale];
+  const l =
+    variant === "critic" ? criticFormLabels[locale] : evaluationFormLabels[locale];
   const selectedWork =
     works.find((work) => work.id === selectedId) ?? works[0] ?? null;
 

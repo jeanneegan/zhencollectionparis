@@ -15,9 +15,9 @@ const workspaceBackLabels: Record<Locale, string> = {
 };
 
 const exhibitionsBackLabels: Record<Locale, string> = {
-  fr: "← Retour aux expositions · 返回展览",
-  zh: "← Retour aux expositions · 返回展览",
-  en: "← Back to exhibitions",
+  fr: "← Retour aux expositions en ligne · 返回线上展览",
+  zh: "← Retour aux expositions en ligne · 返回线上展览",
+  en: "← Back to online exhibitions",
 };
 
 const linkClass =

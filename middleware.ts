@@ -21,9 +21,13 @@ export function middleware(request: NextRequest) {
     );
   }
 
+  if (pathname === "/connexion-super" && isAuthed) {
+    return NextResponse.redirect(new URL("/espace", request.url));
+  }
+
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ["/espace/:path*", "/connexion"],
+  matcher: ["/espace/:path*", "/connexion", "/connexion-super"],
 };

@@ -79,6 +79,18 @@ export function shouldHidePublicNav(
     return true;
   }
 
+  if (pathname.startsWith("/gallery-partnership-agreement")) {
+    return true;
+  }
+
+  if (pathname.startsWith("/commentateur")) {
+    return true;
+  }
+
+  if (pathname.startsWith("/collectionneur")) {
+    return true;
+  }
+
   if (!isAuthenticated) {
     return false;
   }
