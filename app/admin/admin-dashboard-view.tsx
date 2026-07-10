@@ -13,7 +13,6 @@ const dashboardLabels = {
       "巴黎臻藏平台数据概览 — 艺术家、画廊、作品、藏家与成员账号的集中管理入口。",
     stats: {
       artists: "Artistes · 艺术家",
-      galleries: "Galeries · 画廊",
       artworks: "Œuvres · 作品",
       critics: "Commentateurs · 评论家",
       collectors: "Collectionneurs · 藏家",
@@ -30,7 +29,6 @@ const dashboardLabels = {
       "Vue d'ensemble de la plateforme Zhen Collection Paris — accès centralisé aux entités et contenus.",
     stats: {
       artists: "Artistes · 艺术家",
-      galleries: "Galeries · 画廊",
       artworks: "Œuvres · 作品",
       critics: "Commentateurs · 评论家",
       collectors: "Collectionneurs · 藏家",
@@ -47,7 +45,6 @@ const dashboardLabels = {
       "Overview of the Zhen Collection Paris platform — centralized access to entities and content.",
     stats: {
       artists: "Artists",
-      galleries: "Galleries",
       artworks: "Artworks",
       critics: "Critics",
       collectors: "Collectors",
@@ -68,7 +65,6 @@ export function AdminDashboardView() {
 
   const statCards = [
     { label: l.stats.artists, value: counts.artists, href: "/admin/artists" },
-    { label: l.stats.galleries, value: counts.galleries, href: "/admin/galleries" },
     { label: l.stats.artworks, value: counts.artworks, href: "/admin/artworks" },
     { label: l.stats.critics, value: counts.critics, href: "/admin/critics" },
     { label: l.stats.collectors, value: counts.collectors, href: "/admin/collectors" },

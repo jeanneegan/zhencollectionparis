@@ -22,10 +22,7 @@ const labels: Record<
     currentCity: string;
     nationality: string;
     practice: string;
-    representedBy: string;
     education: string;
-    representation: string;
-    since: string;
     whyChinaFrance: string;
     whyChina: string;
     whyFrance: string;
@@ -34,6 +31,7 @@ const labels: Record<
     china: string;
     france: string;
     artistStatement: string;
+    curatorSection: string;
     exhibitions: string;
     year: string;
     exhibition: string;
@@ -50,7 +48,6 @@ const labels: Record<
     collectionLink: string;
     viewArtworkPassport: string;
     professionalReputation: string;
-    galleryRecognition: string;
     collectorRecognition: string;
     curatorMediaRecognition: string;
     publicResonance: string;
@@ -63,10 +60,7 @@ const labels: Record<
     currentCity: "现居城市",
     nationality: "国籍",
     practice: "艺术实践",
-    representedBy: "代理画廊",
     education: "Formation · 教育背景",
-    representation: "Représentation · 代理画廊",
-    since: "自",
     whyChinaFrance:
       "Pourquoi la Chine / Pourquoi la France｜为什么中国 / 为什么法国",
     whyChina: "Pourquoi la Chine｜为什么中国",
@@ -76,6 +70,7 @@ const labels: Record<
     china: "中国",
     france: "法国",
     artistStatement: "Texte de l'artiste｜创作陈述",
+    curatorSection: "Commissaires · 策展人",
     exhibitions: "Expositions｜展览",
     year: "年份",
     exhibition: "展览",
@@ -93,7 +88,6 @@ const labels: Record<
     collectionLink: "Demander · 咨询收藏",
     viewArtworkPassport: "Voir le passeport œuvre · 查看作品护照",
     professionalReputation: "Réputation professionnelle｜职业声誉",
-    galleryRecognition: "Reconnaissance des galeries · 画廊认可",
     collectorRecognition: "Reconnaissance des collectionneurs · 藏家认可",
     curatorMediaRecognition:
       "Reconnaissance curateurs / médias · 策展人与媒体认可",
@@ -106,10 +100,7 @@ const labels: Record<
     currentCity: "Ville actuelle",
     nationality: "Nationalité",
     practice: "Pratique artistique",
-    representedBy: "Galerie représentante",
     education: "Formation · 教育背景",
-    representation: "Représentation · 代理画廊",
-    since: "Depuis",
     whyChinaFrance:
       "Pourquoi la Chine / Pourquoi la France｜为什么中国 / 为什么法国",
     whyChina: "Pourquoi la Chine｜为什么中国",
@@ -119,6 +110,7 @@ const labels: Record<
     china: "Chine",
     france: "France",
     artistStatement: "Texte de l'artiste｜创作陈述",
+    curatorSection: "Commissaires · 策展人",
     exhibitions: "Expositions｜展览",
     year: "Année",
     exhibition: "Exposition",
@@ -136,7 +128,6 @@ const labels: Record<
     collectionLink: "Demander · 咨询收藏",
     viewArtworkPassport: "Voir le passeport œuvre · 查看作品护照",
     professionalReputation: "Réputation professionnelle｜职业声誉",
-    galleryRecognition: "Reconnaissance des galeries · 画廊认可",
     collectorRecognition: "Reconnaissance des collectionneurs · 藏家认可",
     curatorMediaRecognition:
       "Reconnaissance curateurs / médias · 策展人与媒体认可",
@@ -149,10 +140,7 @@ const labels: Record<
     currentCity: "Current City",
     nationality: "Nationality",
     practice: "Practice",
-    representedBy: "Represented By",
     education: "Education",
-    representation: "Representation",
-    since: "Since",
     whyChinaFrance: "Why China / Why France",
     whyChina: "Why China",
     whyFrance: "Why France",
@@ -161,6 +149,7 @@ const labels: Record<
     china: "China",
     france: "France",
     artistStatement: "Artist Statement",
+    curatorSection: "Curators",
     exhibitions: "Exhibitions",
     year: "Year",
     exhibition: "Exhibition",
@@ -177,7 +166,6 @@ const labels: Record<
     collectionLink: "Inquire",
     viewArtworkPassport: "View artwork passport",
     professionalReputation: "Professional Reputation",
-    galleryRecognition: "Gallery Recognition",
     collectorRecognition: "Collector Recognition",
     curatorMediaRecognition: "Curator / Media Recognition",
     publicResonance: "Public Resonance",
@@ -251,6 +239,60 @@ function exhibitionTypeClass(type: "solo" | "duo" | "group"): string {
   if (type === "solo") return "text-stone-900";
   if (type === "duo") return "text-stone-700";
   return "text-stone-400";
+}
+
+function ExhibitionsTable({
+  artist,
+  locale,
+  l,
+}: {
+  artist: ArtistProfile;
+  locale: Locale;
+  l: (typeof labels)[Locale];
+}) {
+  return (
+    <div className="overflow-x-auto">
+      <table className="w-full min-w-[600px] text-left">
+        <thead>
+          <tr className={`border-b border-stone-200 ${passportType.tableHead}`}>
+            <th className="pb-4 pr-8 font-medium">{l.year}</th>
+            <th className="pb-4 pr-8 font-medium">{l.exhibition}</th>
+            <th className="pb-4 pr-8 font-medium">{l.venue}</th>
+            <th className="pb-4 pr-8 font-medium">{l.city}</th>
+            <th className="pb-4 font-medium">{l.type}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {artist.exhibitions.map((exhibition) => (
+            <tr
+              key={`${exhibition.year}-${t(exhibition.title, "fr")}`}
+              className="border-b border-stone-100"
+            >
+              <td className={`py-5 pr-8 ${passportType.tableYear}`}>
+                {exhibition.year}
+              </td>
+              <td className={`py-5 pr-8 ${passportType.tableCellStrong}`}>
+                {t(exhibition.title, locale)}
+              </td>
+              <td className={`py-5 pr-8 ${passportType.tableCell}`}>
+                {exhibition.venue}
+              </td>
+              <td className={`py-5 pr-8 ${passportType.tableCell}`}>
+                {t(exhibition.city, locale)}
+              </td>
+              <td className="py-5">
+                <span
+                  className={`inline-block ${passportType.metaPlain} uppercase ${exhibitionTypeClass(exhibition.type)}`}
+                >
+                  {exhibitionTypeLabel(exhibition.type, l)}
+                </span>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
 }
 
 function Divider() {
@@ -539,58 +581,27 @@ export function ArtistPassport({
                   {t(artist.practice, locale)}
                 </dd>
               </div>
-              {t(artist.representedBy, locale) ? (
-                <div className="col-span-2">
-                  <dt className={passportType.meta}>{l.representedBy}</dt>
-                  <dd
-                    className={`mt-1 ${passportType.heroValue} leading-relaxed`}
-                  >
-                    {t(artist.representedBy, locale)}
-                  </dd>
-                </div>
-              ) : null}
             </dl>
           </div>
         </div>
       </section>
 
-      {/* Education · Representation */}
+      {/* Education */}
       <section className={`${pageWrap} px-6 py-20 md:px-10`}>
-        <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-12">
-          <div>
-            <SectionTitle>{l.education}</SectionTitle>
-            <ul className="mt-8 space-y-6">
-              {artist.education.map((item) => (
-                <li key={`${item.year}-${t(item.institution, "fr")}`}>
-                  <p className={passportType.metaPlain}>{item.year}</p>
-                  <p className={`mt-1 ${passportType.listTitle}`}>
-                    {t(item.institution, locale)}
-                  </p>
-                  <p className={`mt-0.5 ${passportType.listMeta}`}>
-                    {t(item.degree, locale)} · {t(item.city, locale)}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <SectionTitle>{l.representation}</SectionTitle>
-            <ul className="mt-8 space-y-6">
-              {artist.galleries.map((gallery) => (
-                <li key={gallery.name}>
-                  <p className={passportType.listTitle}>{gallery.name}</p>
-                  <p className={`mt-0.5 ${passportType.listMeta}`}>
-                    {t(gallery.city, locale)} · {t(gallery.role, locale)}
-                  </p>
-                  <p className={`mt-0.5 ${passportType.metaPlain}`}>
-                    {l.since} {gallery.since}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+        <SectionTitle>{l.education}</SectionTitle>
+        <ul className="mt-8 max-w-2xl space-y-6">
+          {artist.education.map((item) => (
+            <li key={`${item.year}-${t(item.institution, "fr")}`}>
+              <p className={passportType.metaPlain}>{item.year}</p>
+              <p className={`mt-1 ${passportType.listTitle}`}>
+                {t(item.institution, locale)}
+              </p>
+              <p className={`mt-0.5 ${passportType.listMeta}`}>
+                {t(item.degree, locale)} · {t(item.city, locale)}
+              </p>
+            </li>
+          ))}
+        </ul>
       </section>
 
       <div className={`${pageWrap} px-6 md:px-10`}>
@@ -675,52 +686,49 @@ export function ArtistPassport({
         <Divider />
       </div>
 
-      {/* Exhibitions */}
+      {/* Curator */}
       <section
         id="passport-exhibitions"
         className={`${pageWrap} scroll-mt-28 px-6 py-20 md:scroll-mt-32 md:px-10`}
       >
-        <SectionTitle>{l.exhibitions}</SectionTitle>
-        <div className="mt-12 overflow-x-auto">
-          <table className="w-full min-w-[600px] text-left">
-            <thead>
-              <tr className={`border-b border-stone-200 ${passportType.tableHead}`}>
-                <th className="pb-4 pr-8 font-medium">{l.year}</th>
-                <th className="pb-4 pr-8 font-medium">{l.exhibition}</th>
-                <th className="pb-4 pr-8 font-medium">{l.venue}</th>
-                <th className="pb-4 pr-8 font-medium">{l.city}</th>
-                <th className="pb-4 font-medium">{l.type}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {artist.exhibitions.map((exhibition) => (
-                <tr
-                  key={`${exhibition.year}-${t(exhibition.title, "fr")}`}
-                  className="border-b border-stone-100"
-                >
-                  <td className={`py-5 pr-8 ${passportType.tableYear}`}>
-                    {exhibition.year}
-                  </td>
-                  <td className={`py-5 pr-8 ${passportType.tableCellStrong}`}>
-                    {t(exhibition.title, locale)}
-                  </td>
-                  <td className={`py-5 pr-8 ${passportType.tableCell}`}>
-                    {exhibition.venue}
-                  </td>
-                  <td className={`py-5 pr-8 ${passportType.tableCell}`}>
-                    {t(exhibition.city, locale)}
-                  </td>
-                  <td className="py-5">
-                    <span
-                      className={`inline-block ${passportType.metaPlain} uppercase ${exhibitionTypeClass(exhibition.type)}`}
+        <SectionTitle>{l.curatorSection}</SectionTitle>
+
+        {artist.professionalReputation.curatorMediaRecognition.length > 0 ? (
+          <div className="mt-12 space-y-6">
+            <h3 className={passportType.meta}>{l.curatorMediaRecognition}</h3>
+            <div className="space-y-6">
+              {artist.professionalReputation.curatorMediaRecognition.map(
+                (item) => (
+                  <figure
+                    key={t(item.source, "fr")}
+                    className="flex flex-col gap-4 border-l-2 border-stone-200 pl-6 md:flex-row md:items-start md:gap-12"
+                  >
+                    <p
+                      className={`shrink-0 md:w-36 ${passportType.meta} tracking-[0.12em]`}
                     >
-                      {exhibitionTypeLabel(exhibition.type, l)}
-                    </span>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                      {t(item.source, locale)}
+                    </p>
+                    <blockquote className={passportType.quote}>
+                      {t(item.quote, locale)}
+                    </blockquote>
+                  </figure>
+                ),
+              )}
+            </div>
+          </div>
+        ) : null}
+
+        <div
+          className={
+            artist.professionalReputation.curatorMediaRecognition.length > 0
+              ? "mt-16"
+              : "mt-12"
+          }
+        >
+          <h3 className={passportType.meta}>{l.exhibitions}</h3>
+          <div className="mt-8">
+            <ExhibitionsTable artist={artist} locale={locale} l={l} />
+          </div>
         </div>
       </section>
 
@@ -858,25 +866,6 @@ export function ArtistPassport({
 
         <div className="mt-16 space-y-20">
           <div>
-            <h3 className={passportType.meta}>{l.galleryRecognition}</h3>
-            <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2">
-              {artist.professionalReputation.galleryRecognition.map((item) => (
-                <figure
-                  key={item.name}
-                  className="rounded-sm border border-stone-200 bg-white p-8"
-                >
-                  <blockquote className={passportType.quote}>
-                    「{t(item.quote, locale)}」
-                  </blockquote>
-                  <figcaption className="mt-6 border-t border-stone-100 pt-4">
-                    <p className={passportType.listTitle}>{item.name}</p>
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-          </div>
-
-          <div>
             <h3 className={passportType.meta}>{l.collectorRecognition}</h3>
             <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2">
               {artist.professionalReputation.collectorRecognition.map(
@@ -894,29 +883,6 @@ export function ArtistPassport({
                         {t(item.title, locale)}
                       </p>
                     </figcaption>
-                  </figure>
-                ),
-              )}
-            </div>
-          </div>
-
-          <div>
-            <h3 className={passportType.meta}>{l.curatorMediaRecognition}</h3>
-            <div className="mt-8 space-y-6">
-              {artist.professionalReputation.curatorMediaRecognition.map(
-                (item) => (
-                  <figure
-                    key={t(item.source, "fr")}
-                    className="flex flex-col gap-4 border-l-2 border-stone-200 pl-6 md:flex-row md:items-start md:gap-12"
-                  >
-                    <p
-                      className={`shrink-0 md:w-36 ${passportType.meta} tracking-[0.12em]`}
-                    >
-                      {t(item.source, locale)}
-                    </p>
-                    <blockquote className={passportType.quote}>
-                      {t(item.quote, locale)}
-                    </blockquote>
                   </figure>
                 ),
               )}

@@ -36,6 +36,8 @@ const memberNavLabels: Record<
     artistAgreementLink: string;
     galleryNavSection: string;
     galleryPageLink: string;
+    curatorNavSection: string;
+    curatorExhibitionsLink: string;
     artistNavSection: string;
     criticNavSection: string;
     criticPageLink: string;
@@ -63,6 +65,8 @@ const memberNavLabels: Record<
     artistAgreementLink: "Accord de collaboration · 艺术家合作与档案协议",
     galleryNavSection: "Galerie · 画廊",
     galleryPageLink: "Espace galerie · 画廊空间",
+    curatorNavSection: "Commissaires · 策展人",
+    curatorExhibitionsLink: "Expositions en ligne · 线上展览",
     artistNavSection: "Artiste · 艺术家",
     criticNavSection: "Commentateur · 评论家",
     criticHomeLink: "Espace commentateur · 评论家空间",
@@ -89,6 +93,8 @@ const memberNavLabels: Record<
     artistAgreementLink: "Accord de collaboration · 艺术家合作与档案协议",
     galleryNavSection: "Galerie · 画廊",
     galleryPageLink: "Espace galerie · 画廊空间",
+    curatorNavSection: "Commissaires · 策展人",
+    curatorExhibitionsLink: "Expositions en ligne · 线上展览",
     artistNavSection: "Artiste · 艺术家",
     criticNavSection: "Commentateur · 评论家",
     criticHomeLink: "Espace commentateur · 评论家空间",
@@ -115,6 +121,8 @@ const memberNavLabels: Record<
     artistAgreementLink: "Artist Collaboration & Archive Agreement",
     galleryNavSection: "Gallery",
     galleryPageLink: "Gallery space",
+    curatorNavSection: "Curators",
+    curatorExhibitionsLink: "Online exhibitions",
     artistNavSection: "Artist",
     criticNavSection: "Critic",
     criticHomeLink: "Critic space",
@@ -170,7 +178,7 @@ export function getMemberNavGroups(
     });
   }
 
-  if (member.type === "gallery" || member.type === "super") {
+  if (member.type === "gallery") {
     groups.push({
       id: "gallery",
       title: l.galleryNavSection,
@@ -196,11 +204,6 @@ export function getMemberNavGroups(
           label: focusLabel(locale, "followedArtists", focus),
         },
         {
-          id: "galerie-exhibitions",
-          href: "/galerie?section=exhibitions",
-          label: focusLabel(locale, "exhibitions", focus),
-        },
-        {
           id: "galerie-receivedMessages",
           href: "/galerie?section=receivedMessages",
           label: focusLabel(locale, "receivedMessages", focus),
@@ -210,6 +213,20 @@ export function getMemberNavGroups(
           id: "gallery-partnership",
           href: "/gallery-partnership-agreement",
           label: l.galleryPartnershipLink,
+        },
+      ],
+    });
+  }
+
+  if (member.type === "super") {
+    groups.push({
+      id: "curator",
+      title: l.curatorNavSection,
+      links: [
+        {
+          id: "curator-exhibitions",
+          href: "/admin/exhibitions",
+          label: l.curatorExhibitionsLink,
         },
       ],
     });
@@ -306,6 +323,10 @@ export function isMemberNavLinkActive(
     const section = link.id.replace("galerie-", "");
     const current = searchParams.get("section") ?? "";
     return current === section;
+  }
+
+  if (link.id === "curator-exhibitions") {
+    return pathname === "/admin/exhibitions";
   }
 
   if (link.id === "artist-passport") {

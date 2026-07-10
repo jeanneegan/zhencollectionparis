@@ -26,13 +26,13 @@ const adminNavLabels: Record<
     notesLink: string;
     entitiesSection: string;
     artistsLink: string;
-    galleriesLink: string;
     artworksLink: string;
     criticsLink: string;
     collectorsLink: string;
     membersLink: string;
-    contentSection: string;
+    curatorsSection: string;
     exhibitionsLink: string;
+    contentSection: string;
     passportsLink: string;
     memberSpaceLink: string;
   }
@@ -48,13 +48,13 @@ const adminNavLabels: Record<
     notesLink: "Notes · 笔记",
     entitiesSection: "Entités · 实体",
     artistsLink: "Artistes · 艺术家",
-    galleriesLink: "Galeries · 画廊",
     artworksLink: "Œuvres · 作品",
     criticsLink: "Commentateurs · 评论家",
     collectorsLink: "Collectionneurs · 藏家",
     membersLink: "Membres · 成员账号",
-    contentSection: "Contenu · 内容",
+    curatorsSection: "Commissaires · 策展人",
     exhibitionsLink: "Expositions · 展览",
+    contentSection: "Contenu · 内容",
     passportsLink: "Passeports œuvre · 作品护照",
     memberSpaceLink: "Espace membre · 成员空间",
   },
@@ -69,13 +69,13 @@ const adminNavLabels: Record<
     notesLink: "Notes · 笔记",
     entitiesSection: "Entités · 实体",
     artistsLink: "Artistes · 艺术家",
-    galleriesLink: "Galeries · 画廊",
     artworksLink: "Œuvres · 作品",
     criticsLink: "Commentateurs · 评论家",
     collectorsLink: "Collectionneurs · 藏家",
     membersLink: "Membres · 成员账号",
-    contentSection: "Contenu · 内容",
+    curatorsSection: "Commissaires · 策展人",
     exhibitionsLink: "Expositions · 展览",
+    contentSection: "Contenu · 内容",
     passportsLink: "Passeports œuvre · 作品护照",
     memberSpaceLink: "Espace membre · 成员空间",
   },
@@ -90,13 +90,13 @@ const adminNavLabels: Record<
     notesLink: "Notes",
     entitiesSection: "Entities",
     artistsLink: "Artists",
-    galleriesLink: "Galleries",
     artworksLink: "Artworks",
     criticsLink: "Critics",
     collectorsLink: "Collectors",
     membersLink: "Member accounts",
-    contentSection: "Content",
+    curatorsSection: "Curators",
     exhibitionsLink: "Exhibitions",
+    contentSection: "Content",
     passportsLink: "Artwork passports",
     memberSpaceLink: "Member space",
   },
@@ -141,12 +141,6 @@ export function getAdminNavGroups(
           badge: counts.artists,
         },
         {
-          id: "admin-galleries",
-          href: "/admin/galleries",
-          label: l.galleriesLink,
-          badge: counts.galleries,
-        },
-        {
           id: "admin-artworks",
           href: "/admin/artworks",
           label: l.artworksLink,
@@ -173,8 +167,8 @@ export function getAdminNavGroups(
       ],
     },
     {
-      id: "content",
-      title: l.contentSection,
+      id: "curators",
+      title: l.curatorsSection,
       links: [
         {
           id: "admin-exhibitions",
@@ -182,6 +176,12 @@ export function getAdminNavGroups(
           label: l.exhibitionsLink,
           badge: counts.exhibitions,
         },
+      ],
+    },
+    {
+      id: "content",
+      title: l.contentSection,
+      links: [
         {
           id: "admin-passports",
           href: "/admin/passports",
