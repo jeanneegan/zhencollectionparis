@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
 import { SiteBrandLink } from "@/app/components/site-brand-link";
 import { SiteFooter } from "@/app/components/site-footer";
@@ -18,9 +17,6 @@ const labels: Record<
   Locale,
   {
     passport: string;
-    navArtist: string;
-    navWorks: string;
-    navExhibitions: string;
     birthYear: string;
     birthplace: string;
     currentCity: string;
@@ -62,9 +58,6 @@ const labels: Record<
 > = {
   zh: {
     passport: "Passeport Artiste · 艺术家护照",
-    navArtist: "艺术家",
-    navWorks: "作品",
-    navExhibitions: "展览",
     birthYear: "出生年份",
     birthplace: "出生地",
     currentCity: "现居城市",
@@ -108,9 +101,6 @@ const labels: Record<
   },
   fr: {
     passport: "Passeport Artiste · 艺术家护照",
-    navArtist: "Artistes",
-    navWorks: "Œuvres",
-    navExhibitions: "Expositions",
     birthYear: "Année de naissance",
     birthplace: "Lieu de naissance",
     currentCity: "Ville actuelle",
@@ -154,9 +144,6 @@ const labels: Record<
   },
   en: {
     passport: "Artist Passport",
-    navArtist: "Artists",
-    navWorks: "Works",
-    navExhibitions: "Exhibitions",
     birthYear: "Birth Year",
     birthplace: "Birthplace",
     currentCity: "Current City",
@@ -268,77 +255,6 @@ function exhibitionTypeClass(type: "solo" | "duo" | "group"): string {
 
 function Divider() {
   return <hr className="border-stone-200" />;
-}
-
-const passportSections = [
-  { id: "passport-artist", key: "artist" },
-  { id: "passport-exhibitions", key: "exhibitions" },
-  { id: "passport-works", key: "works" },
-] as const;
-
-type PassportSection = (typeof passportSections)[number]["key"];
-
-function PassportSectionNav({
-  labels,
-}: {
-  labels: { navArtist: string; navWorks: string; navExhibitions: string };
-}) {
-  const [activeSection, setActiveSection] = useState<PassportSection>("artist");
-
-  useEffect(() => {
-    const updateActiveSection = () => {
-      const offset = 160;
-      let next: PassportSection = "artist";
-
-      for (const section of passportSections) {
-        const element = document.getElementById(section.id);
-        if (!element) continue;
-        if (element.getBoundingClientRect().top - offset <= 0) {
-          next = section.key;
-        }
-      }
-
-      setActiveSection(next);
-    };
-
-    updateActiveSection();
-    window.addEventListener("scroll", updateActiveSection, { passive: true });
-    return () => window.removeEventListener("scroll", updateActiveSection);
-  }, []);
-
-  const items: { key: PassportSection; label: string; id: string }[] = [
-    { key: "artist", label: labels.navArtist, id: "passport-artist" },
-    { key: "works", label: labels.navWorks, id: "passport-works" },
-    {
-      key: "exhibitions",
-      label: labels.navExhibitions,
-      id: "passport-exhibitions",
-    },
-  ];
-
-  return (
-    <nav className="flex flex-wrap gap-x-8 gap-y-2 text-[11px] font-medium uppercase tracking-[0.15em]">
-      {items.map(({ key, label, id }) => (
-        <button
-          key={key}
-          type="button"
-          onClick={() =>
-            document.getElementById(id)?.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            })
-          }
-          className={`transition-colors ${
-            activeSection === key
-              ? "text-stone-900"
-              : "text-stone-400 hover:text-stone-900"
-          }`}
-        >
-          {label}
-        </button>
-      ))}
-    </nav>
-  );
 }
 
 type ArtistArtwork = ArtistProfile["artworks"][number];
@@ -535,11 +451,6 @@ export function ArtistPassport({
 }) {
   const [locale, setLocale] = useLocale();
   const l = labels[locale];
-  const navLabels = {
-    navArtist: l.navArtist,
-    navWorks: l.navWorks,
-    navExhibitions: l.navExhibitions,
-  };
   const isFrenchArtist = artist.nationality.en === "French";
   const isChineseArtist = artist.nationality.en === "Chinese";
   const chinaText = t(artist.whyChinaFrance.china, locale);
@@ -1067,7 +978,6 @@ export function ArtistPassport({
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-5 md:px-10">
           <SiteBrandLink className="shrink-0" />
           <div className="flex shrink-0 items-center gap-4 md:gap-6">
-            <PassportSectionNav labels={navLabels} />
             <LanguageSwitcher locale={locale} onChange={setLocale} />
           </div>
         </div>
