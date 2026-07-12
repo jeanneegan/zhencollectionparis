@@ -79,7 +79,7 @@ export type ArtistProfile = {
       role: "main" | "side";
       equal?: boolean;
     };
-    displayLayout?: "compact";
+    displayLayout?: "compact" | "wide";
     viewsLayout?: "row" | "stack";
   }[];
   professionalReputation: {
@@ -567,6 +567,8 @@ The exhibition theme was the « people's house »—hence the potato, a cheap, p
       dimensions: "20 × 31 cm",
       image: "/artists/willy-le-nalbaut/works/mais-cest-le-mitch.jpg",
       imageAspect: [1010, 646],
+      displayLayout: "compact",
+      layoutPair: { group: "mitch-korrigan", role: "main", equal: true },
       description: {
         fr: `Dans ce tableau, je fais un portrait de ma poule Mitch — elle est la seule survivante d'une attaque de renards.
 
@@ -595,6 +597,8 @@ I use gold paint for fine lines or borders, somewhat like paintings that represe
       dimensions: "20 × 30 cm",
       image: "/artists/willy-le-nalbaut/works/saupoudrez-dun-peu-de-korrigan.jpg",
       imageAspect: [1024, 680],
+      displayLayout: "compact",
+      layoutPair: { group: "mitch-korrigan", role: "side", equal: true },
       description: {
         fr: `Dans cette peinture, j'ai d'abord commencé par le bouquet de fleurs comme une nature morte ; après l'avoir laissé quelques mois sans y toucher, je suis revenu par derrière pour y rajouter les personnages et le paysage.`,
         zh: `在这幅画里，我起初以花束作静物起稿；搁置数月未动之后，我又回到画前，在后方添上人物与风景。`,
@@ -645,7 +649,7 @@ A fragment of an underlying layer remains at the bottom left; and, as in the pre
       dimensions: "38 × 46 cm",
       image: "/artists/willy-le-nalbaut/works/limaces.jpg",
       imageAspect: [1024, 822],
-      layoutPair: { group: "limaces-goeiedag", role: "main" },
+      displayLayout: "wide",
       description: {
         fr: `La tortue représente la lenteur, et la vitesse à laquelle je peins ; il y a des escargots sur son dos, façon poupée russe. Sa carapace est peinte ; elle est dans mon jardin, entourée de mes chats et de ma poule. On y retrouve tous les éléments : on voit mon atelier à gauche, les plantes, le cerisier, etc. Un élément imaginaire : le chapeau en osier avec la planète et une ampoule qui fait lampe. J'ai voulu faire un damier pour donner un côté métaphysique.`,
         zh: `乌龟代表缓慢，也代表我作画的速度；它背上有蜗牛，像俄罗斯套娃。龟壳被画了出来；它在我的花园里，被我的猫和母鸡环绕。画中汇集了各种元素：左侧可见我的画室、植物、樱桃树等。一个想象的元素：藤编帽上的星球与充当灯盏的灯泡。我想用棋盘格营造一种形而上的气息。`,
@@ -668,7 +672,6 @@ A fragment of an underlying layer remains at the bottom left; and, as in the pre
       dimensions: "",
       image: "/artists/willy-le-nalbaut/works/goeiedag.jpg",
       imageAspect: [1024, 698],
-      layoutPair: { group: "limaces-goeiedag", role: "side" },
       description: {
         fr: `Dans cette peinture on peut voir Andrea faire de la mini-pelle et sa pote Cake conduire un super poids lourd. Avec la mini-pelle elle creuse des trous pour pouvoir planter des arbres, et le camion ramène des fleurs de Hollande pour pouvoir les planter. Plein d'éléments flottent au-dessus.`,
         zh: `在这幅画里，Andrea 开着迷你铲，她的朋友 Cake 开着一辆重型卡车。她用迷你铲挖坑种树，卡车从荷兰运来鲜花以便栽种。许多元素漂浮在上方。`,
@@ -691,10 +694,34 @@ A fragment of an underlying layer remains at the bottom left; and, as in the pre
       dimensions: "",
       image: "/artists/willy-le-nalbaut/works/sans-titre.jpg",
       imageAspect: [256, 1024],
+      layoutPair: { group: "arbre-moine", role: "main" },
       description: {
         fr: `Pendant un moment j'étais fasciné par les plus grands arbres du monde en Californie. En voyant ce format qui au début était dans l'autre sens, je l'ai retourné et je me suis dit que c'était parfait pour peindre un arbre géant. Il y a des personnages en bas à droite pour qu'on se rende compte de l'échelle. Un mangeoir à oiseau à gauche et un bichon-nuage à droite.`,
         zh: `有一阵子，我着迷于加州世界上最高的那些大树。看见这块画布——起初是横向的——我把它转过来，心想正好可以画一棵巨树。右下方有几个小人，让人感受比例。左边有一只喂鸟器，右边有一只云朵比熊。`,
         en: `For a while I was fascinated by the tallest trees in the world in California. Seeing this format — which at first was the other way round — I turned it and thought it was perfect for painting a giant tree. There are figures at the bottom right so you can sense the scale. A bird feeder on the left and a cloud bichon on the right.`,
+      },
+    },
+    {
+      id: "11",
+      title: {
+        zh: "« Le moine »",
+        fr: "« Le moine »",
+        en: "The Monk",
+      },
+      year: 2025,
+      medium: {
+        zh: "油画 · 木板",
+        fr: "Huile sur bois",
+        en: "Oil on wood panel",
+      },
+      dimensions: "41 × 33 cm",
+      image: "/artists/willy-le-nalbaut/works/le-moine.jpg",
+      imageAspect: [812, 1024],
+      layoutPair: { group: "arbre-moine", role: "side" },
+      description: {
+        fr: `J'ai fait cette peinture avec la volonté de devenir plus sage. Je médite en lévitation au-dessus d'un tabouret dans un pub. À gauche et à droite, mes signes astrologiques : à droite le taureau, à gauche le serpent (astrologie chinoise). Un ibis pique un billet avec son long bec. Les deux cercles représentent des sous-bocks avec les histoires d'une mouche à l'intérieur.`,
+        zh: `我带着想变得更智慧的愿望画了这幅画。我在一家酒吧里，悬浮在凳子上方冥想。左右两侧是我的星座：右边是金牛，左边是蛇（中国占星）。一只朱鹭用长喙叼走一张钞票。两个圆圈代表杯垫，里面是一只苍蝇的故事。`,
+        en: `I made this painting with the wish to become wiser. I meditate in levitation above a stool in a pub. On the left and right, my astrological signs: the bull on the right and the snake on the left (Chinese astrology). An ibis picks up a banknote with its long beak. The two circles represent beer coasters with the stories of a fly inside.`,
       },
     },
     {
@@ -717,28 +744,6 @@ A fragment of an underlying layer remains at the bottom left; and, as in the pre
         fr: `Je passais devant en bagnole et j'ai vu ces oiseaux se baigner dans cette flaque ; j'ai décidé de les peindre. La scène se passe juste à côté de chez moi, on peut voir les vignes en fond.`,
         zh: `开车经过时，我看见这些鸟在这片水洼里洗澡，便决定把它们画下来。场景就在我家旁边，背景可见葡萄园。`,
         en: `I was driving past and saw these birds bathing in the puddle; I decided to paint them. The scene is right next to my home — you can see the vineyards in the background.`,
-      },
-    },
-    {
-      id: "11",
-      title: {
-        zh: "« Le moine »",
-        fr: "« Le moine »",
-        en: "The Monk",
-      },
-      year: 2025,
-      medium: {
-        zh: "油画 · 木板",
-        fr: "Huile sur bois",
-        en: "Oil on wood panel",
-      },
-      dimensions: "41 × 33 cm",
-      image: "/artists/willy-le-nalbaut/works/le-moine.jpg",
-      imageAspect: [812, 1024],
-      description: {
-        fr: `J'ai fait cette peinture avec la volonté de devenir plus sage. Je médite en lévitation au-dessus d'un tabouret dans un pub. À gauche et à droite, mes signes astrologiques : à droite le taureau, à gauche le serpent (astrologie chinoise). Un ibis pique un billet avec son long bec. Les deux cercles représentent des sous-bocks avec les histoires d'une mouche à l'intérieur.`,
-        zh: `我带着想变得更智慧的愿望画了这幅画。我在一家酒吧里，悬浮在凳子上方冥想。左右两侧是我的星座：右边是金牛，左边是蛇（中国占星）。一只朱鹭用长喙叼走一张钞票。两个圆圈代表杯垫，里面是一只苍蝇的故事。`,
-        en: `I made this painting with the wish to become wiser. I meditate in levitation above a stool in a pub. On the left and right, my astrological signs: the bull on the right and the snake on the left (Chinese astrology). An ibis picks up a banknote with its long beak. The two circles represent beer coasters with the stories of a fly inside.`,
       },
     },
     {
@@ -1939,7 +1944,7 @@ export function getArtworkDisplayLayout(artwork: {
   imageAspect?: [number, number];
   views?: unknown[];
   layoutPair?: { role: "main" | "side"; equal?: boolean };
-  displayLayout?: "compact";
+  displayLayout?: "compact" | "wide";
   viewsLayout?: "row" | "stack";
 }): {
   aspect: [number, number];
@@ -1965,6 +1970,15 @@ export function getArtworkDisplayLayout(artwork: {
       articleClass: "mx-auto w-full max-w-[360px]",
       imageSizes: "(max-width: 640px) 80vw, 360px",
       frameStyle: { aspectRatio, marginInline: "auto" },
+    };
+  }
+
+  if (artwork.displayLayout === "wide") {
+    return {
+      aspect,
+      articleClass: "sm:col-span-2",
+      imageSizes: "(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 860px",
+      frameStyle: { aspectRatio },
     };
   }
 
