@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Noto_Serif_SC } from "next/font/google";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
-import { SiteBrandLogo } from "@/app/components/site-brand-logo";
+import { BRAND_LOGO_SRC } from "@/app/components/site-brand-logo";
 import { PublicMessageForm } from "@/app/components/public-message-form";
 import { PageBottomNav } from "@/app/components/page-bottom-nav";
 import { SiteFooter } from "@/app/components/site-footer";
@@ -135,7 +135,15 @@ function DialogueIdentity({ avatar }: { avatar: DialogueAvatar }) {
   if (avatar.type === "brand") {
     return (
       <div className="flex items-center gap-4">
-        <SiteBrandLogo size="sm" />
+        <div className="relative h-14 w-14 shrink-0 bg-white">
+          <Image
+            src={BRAND_LOGO_SRC}
+            alt="Zhen Collection Paris · 巴黎臻藏"
+            fill
+            className="object-contain object-center"
+            sizes="56px"
+          />
+        </div>
         <p className="text-[10px] leading-relaxed tracking-[0.1em] text-stone-400">
           {avatar.label ?? avatar.alt}
         </p>

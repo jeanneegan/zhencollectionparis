@@ -43,7 +43,7 @@ export function SiteBrandLogo({
         width={420}
         height={420}
         priority
-        className={`h-auto w-44 md:w-52 ${className}`}
+        className={`h-auto w-20 md:w-24 ${className}`}
       />
     );
   }

@@ -855,9 +855,13 @@ export function ArtistPassport({
                     >
                       <p className={passportType.body}>{t(item.source, locale)}</p>
                       {t(item.quote, locale) ? (
-                        <p className={`mt-2 ${passportType.body}`}>
-                          {t(item.quote, locale)}
-                        </p>
+                        <blockquote className={`mt-2 ${passportType.quote}`}>
+                          {locale === "fr"
+                            ? `« ${t(item.quote, locale)} »`
+                            : locale === "zh"
+                              ? `「${t(item.quote, locale)}」`
+                              : `"${t(item.quote, locale)}"`}
+                        </blockquote>
                       ) : null}
                       {item.url ? (
                         <a
