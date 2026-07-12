@@ -48,6 +48,7 @@ const labels: Record<
     collectionLink: string;
     viewArtworkPassport: string;
     professionalReputation: string;
+    prizesLabel: string;
     collectorRecognition: string;
     curatorMediaRecognition: string;
     publicResonance: string;
@@ -70,7 +71,7 @@ const labels: Record<
     china: "中国",
     france: "法国",
     artistStatement: "Texte de l'artiste｜创作陈述",
-    curatorSection: "Commissaires · 策展人",
+    curatorSection: "Prix",
     exhibitions: "Expositions｜展览",
     year: "年份",
     exhibition: "展览",
@@ -88,6 +89,7 @@ const labels: Record<
     collectionLink: "Demander · 咨询收藏",
     viewArtworkPassport: "Voir le passeport œuvre · 查看作品护照",
     professionalReputation: "Réputation professionnelle｜职业声誉",
+    prizesLabel: "Prix",
     collectorRecognition: "Reconnaissance des collectionneurs · 藏家认可",
     curatorMediaRecognition:
       "Reconnaissance curateurs / médias · 策展人与媒体认可",
@@ -110,7 +112,7 @@ const labels: Record<
     china: "Chine",
     france: "France",
     artistStatement: "Texte de l'artiste｜创作陈述",
-    curatorSection: "Commissaires · 策展人",
+    curatorSection: "Prix",
     exhibitions: "Expositions｜展览",
     year: "Année",
     exhibition: "Exposition",
@@ -128,6 +130,7 @@ const labels: Record<
     collectionLink: "Demander · 咨询收藏",
     viewArtworkPassport: "Voir le passeport œuvre · 查看作品护照",
     professionalReputation: "Réputation professionnelle｜职业声誉",
+    prizesLabel: "Prix",
     collectorRecognition: "Reconnaissance des collectionneurs · 藏家认可",
     curatorMediaRecognition:
       "Reconnaissance curateurs / médias · 策展人与媒体认可",
@@ -149,7 +152,7 @@ const labels: Record<
     china: "China",
     france: "France",
     artistStatement: "Artist Statement",
-    curatorSection: "Curators",
+    curatorSection: "Prix",
     exhibitions: "Exhibitions",
     year: "Year",
     exhibition: "Exhibition",
@@ -166,6 +169,7 @@ const labels: Record<
     collectionLink: "Inquire",
     viewArtworkPassport: "View artwork passport",
     professionalReputation: "Professional Reputation",
+    prizesLabel: "Prix",
     collectorRecognition: "Collector Recognition",
     curatorMediaRecognition: "Curator / Media Recognition",
     publicResonance: "Public Resonance",
@@ -617,9 +621,12 @@ export function ArtistPassport({
               <div>
                 <p className={passportType.meta}>{cultureQuestionLabel}</p>
                 {cultureQuestionText ? (
-                  <p className={`mt-4 ${passportType.bodyStrong}`}>
-                    {cultureQuestionText}
-                  </p>
+                  <div className="mt-4 space-y-4">
+                    <ProseParagraphs
+                      text={cultureQuestionText}
+                      className={passportType.bodyStrong}
+                    />
+                  </div>
                 ) : null}
               </div>
               <div>
@@ -693,38 +700,7 @@ export function ArtistPassport({
       >
         <SectionTitle>{l.curatorSection}</SectionTitle>
 
-        {artist.professionalReputation.curatorMediaRecognition.length > 0 ? (
-          <div className="mt-12 space-y-6">
-            <h3 className={passportType.meta}>{l.curatorMediaRecognition}</h3>
-            <div className="space-y-6">
-              {artist.professionalReputation.curatorMediaRecognition.map(
-                (item) => (
-                  <figure
-                    key={t(item.source, "fr")}
-                    className="flex flex-col gap-4 border-l-2 border-stone-200 pl-6 md:flex-row md:items-start md:gap-12"
-                  >
-                    <p
-                      className={`shrink-0 md:w-36 ${passportType.meta} tracking-[0.12em]`}
-                    >
-                      {t(item.source, locale)}
-                    </p>
-                    <blockquote className={passportType.quote}>
-                      {t(item.quote, locale)}
-                    </blockquote>
-                  </figure>
-                ),
-              )}
-            </div>
-          </div>
-        ) : null}
-
-        <div
-          className={
-            artist.professionalReputation.curatorMediaRecognition.length > 0
-              ? "mt-16"
-              : "mt-12"
-          }
-        >
+        <div className="mt-12">
           <h3 className={passportType.meta}>{l.exhibitions}</h3>
           <div className="mt-8">
             <ExhibitionsTable artist={artist} locale={locale} l={l} />
@@ -752,9 +728,11 @@ export function ArtistPassport({
               <h3 className={`mt-2 ${passportType.listTitle}`}>
                 {t(item.title, locale)}
               </h3>
-              <p className={`mt-2 max-w-2xl ${passportType.body}`}>
-                {t(item.description, locale)}
-              </p>
+              {t(item.description, locale) ? (
+                <p className={`mt-2 max-w-2xl ${passportType.body}`}>
+                  {t(item.description, locale)}
+                </p>
+              ) : null}
             </li>
           ))}
         </ol>
@@ -865,6 +843,40 @@ export function ArtistPassport({
         <SectionTitle>{l.professionalReputation}</SectionTitle>
 
         <div className="mt-16 space-y-20">
+          {artist.professionalReputation.curatorMediaRecognition.length > 0 ? (
+            <div>
+              <h3 className={passportType.meta}>{l.prizesLabel}</h3>
+              <div className="mt-8 space-y-6">
+                {artist.professionalReputation.curatorMediaRecognition.map(
+                  (item) => (
+                    <figure
+                      key={t(item.source, "fr")}
+                      className="border-l-2 border-stone-200 pl-6"
+                    >
+                      <p className={passportType.body}>{t(item.source, locale)}</p>
+                      {t(item.quote, locale) ? (
+                        <p className={`mt-2 ${passportType.body}`}>
+                          {t(item.quote, locale)}
+                        </p>
+                      ) : null}
+                      {item.url ? (
+                        <a
+                          href={item.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-3 inline-block text-sm text-stone-500 underline decoration-stone-300 underline-offset-2 transition-colors hover:text-stone-800 hover:decoration-stone-600"
+                        >
+                          Beaux Arts
+                        </a>
+                      ) : null}
+                    </figure>
+                  ),
+                )}
+              </div>
+            </div>
+          ) : null}
+
+          {artist.professionalReputation.collectorRecognition.length > 0 ? (
           <div>
             <h3 className={passportType.meta}>{l.collectorRecognition}</h3>
             <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2">
@@ -888,6 +900,7 @@ export function ArtistPassport({
               )}
             </div>
           </div>
+          ) : null}
 
           {artist.professionalReputation.publicResonance.length > 0 ? (
             <div>

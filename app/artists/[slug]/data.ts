@@ -89,7 +89,7 @@ export type ArtistProfile = {
       title: LocalizedText;
       quote: LocalizedText;
     }[];
-    curatorMediaRecognition: { source: LocalizedText; quote: LocalizedText }[];
+    curatorMediaRecognition: { source: LocalizedText; quote: LocalizedText; url?: string }[];
     publicResonance: { source: LocalizedText; quote: LocalizedText }[];
   };
 };
@@ -180,81 +180,27 @@ Je représente des paysages, des scènes de vie, des figures, des portraits, des
 
 Du cynisme et de l'humour, on peut voir un animal, un dieu et un objet banal au même plan, tous au même niveau, sans souci de perspective ou de hiérarchie.
 
-Ce que permet la magie de la peinture, de l'image et de l'imagination, la représentation confondue avec le mystique, le religieux.
-
-Mes tableaux peuvent être parfois métaphoriques, critiques et symboliques.
-
-Je travaille à la peinture à l'huile sur bois ; depuis peu, je trouve ce support plus adapté à ma manière de peindre, et de temps en temps sur toile pour des formats plus grands.
-
-Je peins en plusieurs couches ; je garde parfois des zones plus abstraites ou des éléments entre les couches.
-
-J'ai peint beaucoup de petits et moyens formats ces dernières années — plus pratiques pour les déplacements, et plus abordables.
-
-Je peins beaucoup d'après images, que je vais chercher sur internet, quelquefois d'après modèle. J'aimerais me détacher un peu de l'ordinateur pour peindre.
-
-Je ne fais pas vraiment de dessin préparatoire, à part au pinceau directement.
-
-Je pars souvent d'une idée que j'ai en tête, mais d'autres arrivent pendant que le tableau se construit.
-
-Il m'arrive d'abandonner une peinture quelque temps, peut-être pour la laisser mûrir, puis je la reprends en effaçant ou en repassant certains éléments et en en gardant d'autres, ce qui vient renforcer le côté absurde de mes peintures.
-
-Je ne travaille pas par série, mais dans une recherche constante, et tous les jours si possible.`,
+Ce que permet la magie de la peinture, de l'image et de l'imagination, la représentation confondue avec le mystique, le religieux.`,
     zh: `我的绘画趋向现实主义，但另有他物——一种属于我的现实主义，有时贴近更抽象的形式，有时由绘画本身 dictate 的形式，我时而明确，时而改造，时而保留。
 
 近年来，我受十六、十七世纪荷兰绘画现实主义的影响（Jacobus Vrel、Jan Jansz Van de Velde、Brueghel……于场景与静物），也受十九世纪法国绘画影响（Théodore Rousseau、Millet……于风景），还有当代画家（Marcos Carrasquer、Kati Heck……）促使我更深入画中的每个细节。
 
 我描绘周遭与想象中的风景、场景、人物、肖像、动物与物件——它们是荒诞剧场的演员与布景，是梦境的堆积，是思想的释放。
 
-带着犬儒与幽默，动物、神祇与平凡之物可以处于同一层面，同一高度，无需透视或等级的顾虑——这正是绘画、图像与想象力的魔法，是再现与神秘、宗教的混融。
-
-我的作品有时隐喻、有时批判、有时象征。
-
-我近年以木板油画为主，觉得这一载体更契合我的画法；偶尔也在画布上创作更大尺幅。
-
-我以多层方式作画，保留抽象区域与层间元素。
-
-近年来我画了许多中小尺幅——便于搬运，也更容易被收藏。
-
-我常依据网络图像作画，有时也依据模特。我希望逐渐减少对电脑的依赖。
-
-我很少做预备素描，通常直接用画笔起稿。
-
-我常从脑中一个想法出发，却在绘制过程中让新念头进入。
-
-我有时会搁置一幅画，让它沉淀，再重新拾起——擦去或覆盖某些部分，保留另一些，这往往强化了我作品中的荒诞感。
-
-我不按系列工作，而是持续每日探索。`,
+带着犬儒与幽默，动物、神祇与平凡之物可以处于同一层面，同一高度，无需透视或等级的顾虑——这正是绘画、图像与想象力的魔法，是再现与神秘、宗教的混融。`,
     en: `My paintings tend toward realism, but there is something else — a realism of my own, sometimes bordering on more abstract forms, forms dictated by painting itself. I may clarify, transform, or leave things as they are.
 
 Recently I have been influenced by the realism of sixteenth- and seventeenth-century Dutch painting (Jacobus Vrel, Jan Jansz Van de Velde, Brueghel... for scenes and still lifes), nineteenth-century French painting (Théodore Rousseau, Millet... for landscapes), and also by more contemporary painters (Marcos Carrasquer, Kati Heck...) who have led me into the detail of every element in my canvases.
 
 I depict landscapes, scenes of life, figures, portraits, animals, and objects from my surroundings, my daily life, or my imagination — all of them actors and sets in an absurd theatre, a dreamlike accumulation, a discharge of ideas, a mental release.
 
-With cynicism and humour, an animal, a god, and a mundane object can appear on the same plane, at the same level, without concern for perspective or hierarchy — what the magic of painting, image, and imagination allows, representation mingled with the mystical and the religious.
-
-My canvases can be metaphorical, critical, and symbolic.
-
-I work in oil on wood panel; recently I have found this support better suited to my way of painting, and from time to time on canvas for larger formats.
-
-I paint in layers, sometimes keeping more abstract zones or elements between the layers.
-
-I have painted many small and medium formats in recent years — more practical to move, and more affordable.
-
-I often paint from images found online, sometimes from models. I would like to detach myself a little from the computer when I paint.
-
-I do not really make preparatory drawings, except directly with the brush.
-
-I often start from an idea in my head, but others arrive while the canvas is being built.
-
-I sometimes abandon a painting for a while, perhaps to let it ripen, then return to it by erasing or repainting certain elements while keeping others — which reinforces the absurd side of my paintings.
-
-I do not work in series, but in constant research, every day if possible.`,
+With cynicism and humour, an animal, a god, and a mundane object can appear on the same plane, at the same level, without concern for perspective or hierarchy — what the magic of painting, image, and imagination allows, representation mingled with the mystical and the religious.`,
   },
   whyChinaFrance: {
     china: {
-      zh: "我试着学过中文——学得很慢，也从未真正学会；哪怕不懂中文，我也从未到过中国。笔记本上仍留着半途而废的汉字和发音练习。我不是为了旅行，也不是为了给自己添一个标签。而是因为我想触碰到另一种命名世界的方式，有一天能真正与一位中国艺术家对话，而不必把一切转译成英语或法语。巴黎臻藏的对话，对我来说正是这种努力的延伸。",
-      fr: "J'ai essayé d'apprendre le chinois — doucement, maladroitement, sans jamais vraiment y parvenir ; je ne comprends pas le chinois, et je ne suis jamais allé en Chine. Il reste dans mes cahiers des caractères abandonnés à mi-chemin et des exercices de prononciation. Ce n'était pas pour voyager ou ajouter une étiquette. C'était pour toucher du doigt une autre manière de nommer le monde, et pour avoir, un jour, une conversation vraie avec un artiste chinois — sans faire passer tout par l'anglais ou le français. Zhen Collection Paris est pour moi une extension de cet effort.",
-      en: "I tried to learn Chinese — slowly, awkwardly, without ever really succeeding; I do not understand Chinese, and I have never been to China. My notebooks still hold half-finished characters and pronunciation drills. It was not to travel or to collect a label. It was to touch another way of naming the world, and someday to have a real conversation with a Chinese artist — without routing everything through English or French. Zhen Collection Paris extends that effort for me.",
+      zh: "首先，我一直对中国美食很有兴趣。\n\n我听说过 Duolingo——那个每天学一点语言的 app。有一天早上醒来，不太清楚那天要做什么，我就想在 app 上学一门语言，选了中文，学了两个月，但并没记住多少。\n\n后来有一天，Jeanne 偶然来看了我的展览，她提议把我的作品带到中国展出，我想：为什么不呢。",
+      fr: "Tout d'abord j'ai toujours eu un attrait pour la gastronomie chinoise.\n\nJ'avais entendu parler de Duolingo, l'application pour apprendre une langue un peu tous les jours ; un matin je me suis réveillé sans trop savoir ce que j'allais faire ce jour-là, je me suis dit que j'allais commencer à apprendre une langue sur cette appli et j'ai choisi le chinois, j'en ai fait pendant deux mois, mais je n'ai pas retenu grand-chose.\n\nPuis un jour j'ai rencontré Jeanne, qui est passée à mon exposition par hasard ; elle m'a proposé de diffuser mes œuvres en Chine, alors je me suis dit : pourquoi pas.",
+      en: "First, I have always been drawn to Chinese cuisine.\n\nI had heard of Duolingo, the app for learning a bit of a language every day. One morning I woke up without really knowing what I would do that day; I told myself I would start learning a language on the app and chose Chinese. I did it for two months, but I did not retain much.\n\nThen one day I met Jeanne, who happened to come to my exhibition; she offered to show my work in China, so I thought: why not.",
     },
     france: { zh: "", fr: "", en: "" },
   },
@@ -263,28 +209,11 @@ I do not work in series, but in constant research, every day if possible.`,
     {
       year: "2007",
       title: {
-        zh: "ESAG Penninghen 预科",
-        fr: "Année préparatoire · ESAG Penninghen",
-        en: "Preparatory year · ESAG Penninghen",
+        zh: "ESAG Penninghen",
+        fr: "ESAG Penninghen",
+        en: "ESAG Penninghen",
       },
-      description: {
-        zh: "进入 ESAG Penninghen 预科学习。",
-        fr: "Entrée en année préparatoire à l'ESAG Penninghen.",
-        en: "Entered preparatory year at ESAG Penninghen.",
-      },
-    },
-    {
-      year: "2017",
-      title: {
-        zh: "Pilotenkueche · Leipzig",
-        fr: "Pilotenkueche · Leipzig",
-        en: "Pilotenkueche · Leipzig",
-      },
-      description: {
-        zh: "群展 « What did you expect ? », Pilotenkueche, 莱比锡。",
-        fr: "Exposition collective « What did you expect ? », Pilotenkueche, Leipzig.",
-        en: "Group show 'What did you expect?', Pilotenkueche, Leipzig.",
-      },
+      description: { zh: "", fr: "", en: "" },
     },
     {
       year: "2021",
@@ -293,53 +222,78 @@ I do not work in series, but in constant research, every day if possible.`,
         fr: "Prix Marin",
         en: "Prix Marin",
       },
-      description: {
-        zh: "Prix Marin 群展，Galerie Julio Gonzalez, Arcueil。",
-        fr: "Prix Marin, exposition collective, Galerie Julio Gonzalez, Arcueil.",
-        en: "Prix Marin group exhibition, Galerie Julio Gonzalez, Arcueil.",
-      },
-    },
-    {
-      year: "2022",
-      title: {
-        zh: "Bleu charette 个展",
-        fr: "Exposition solo « Bleu charette »",
-        en: "Solo show 'Bleu charette'",
-      },
-      description: {
-        zh: "Yotta.Iota, 里尔。",
-        fr: "Yotta.Iota, Lille.",
-        en: "Yotta.Iota, Lille.",
-      },
+      description: { zh: "", fr: "", en: "" },
     },
     {
       year: "2024",
       title: {
-        zh: "Alain in the dark 个展",
-        fr: "Exposition solo « Alain in the dark »",
-        en: "Solo show 'Alain in the dark'",
+        zh: "Alain in the dark",
+        fr: "Alain in the dark",
+        en: "Alain in the dark",
       },
       description: {
-        zh: "La Volonté 93, Saint-Ouen sur Seine；同年 ADAF 布鲁塞尔展出《PDT》。",
-        fr: "La Volonté 93, Saint-Ouen ; même année ADAF Bruxelles avec « PDT ».",
-        en: "La Volonté 93, Saint-Ouen; same year ADAF Brussels with 'PDT'.",
+        zh: "同年 ADAF",
+        fr: "Même année ADAF",
+        en: "Same year ADAF",
       },
     },
     {
       year: "2025",
       title: {
-        zh: "Galerie ArtLim' 群展",
-        fr: "Exposition collective · Galerie ArtLim'",
-        en: "Group exhibition · Galerie ArtLim'",
+        zh: "Novembre à Vitry",
+        fr: "Novembre à Vitry",
+        en: "Novembre à Vitry",
       },
-      description: {
-        zh: "当代艺术群展，利摩日。",
-        fr: "Exposition collective d'art contemporain, Limoges.",
-        en: "Contemporary art group exhibition, Limoges.",
+      description: { zh: "", fr: "", en: "" },
+    },
+    {
+      year: "2026",
+      title: {
+        zh: "Galerie du Haut-Pavé / Fainting",
+        fr: "Galerie du Haut-Pavé / Fainting",
+        en: "Galerie du Haut-Pavé / Fainting",
       },
+      description: { zh: "", fr: "", en: "" },
     },
   ],
   exhibitions: [
+    {
+      year: 2026,
+      title: {
+        zh: "Fainting",
+        fr: "Fainting",
+        en: "Fainting",
+      },
+      venue: "—",
+      city: { zh: "巴黎", fr: "Paris", en: "Paris" },
+      type: "group",
+    },
+    {
+      year: 2026,
+      title: {
+        zh: "Pérégrinations girouette",
+        fr: "Pérégrinations girouette",
+        en: "Pérégrinations girouette",
+      },
+      venue: "Galerie du Haut-Pavé",
+      city: { zh: "巴黎", fr: "Paris", en: "Paris" },
+      type: "solo",
+    },
+    {
+      year: 2025,
+      title: {
+        zh: "Novembre à Vitry · 国际绘画奖",
+        fr: "Novembre à Vitry · Prix international de Peinture",
+        en: "Novembre à Vitry · International Painting Prize",
+      },
+      venue: "Galerie Municipale Jean-Collet",
+      city: {
+        zh: "维特里塞纳",
+        fr: "Vitry-sur-Seine",
+        en: "Vitry-sur-Seine",
+      },
+      type: "group",
+    },
     {
       year: 2025,
       title: {
@@ -692,6 +646,11 @@ A fragment of an underlying layer remains at the bottom left; and, as in the pre
       image: "/artists/willy-le-nalbaut/works/limaces.jpg",
       imageAspect: [1024, 822],
       layoutPair: { group: "limaces-goeiedag", role: "main" },
+      description: {
+        fr: `La tortue représente la lenteur, et la vitesse à laquelle je peins ; il y a des escargots sur son dos, façon poupée russe. Sa carapace est peinte ; elle est dans mon jardin, entourée de mes chats et de ma poule. On y retrouve tous les éléments : on voit mon atelier à gauche, les plantes, le cerisier, etc. Un élément imaginaire : le chapeau en osier avec la planète et une ampoule qui fait lampe. J'ai voulu faire un damier pour donner un côté métaphysique.`,
+        zh: `乌龟代表缓慢，也代表我作画的速度；它背上有蜗牛，像俄罗斯套娃。龟壳被画了出来；它在我的花园里，被我的猫和母鸡环绕。画中汇集了各种元素：左侧可见我的画室、植物、樱桃树等。一个想象的元素：藤编帽上的星球与充当灯盏的灯泡。我想用棋盘格营造一种形而上的气息。`,
+        en: `The turtle stands for slowness, and for the speed at which I paint; snails on its back, like a Russian doll. Its shell is painted; it is in my garden, surrounded by my cats and my hen. Every element is there: my studio on the left, the plants, the cherry tree, and so on. An imaginary element: the wicker hat with the planet and a light bulb serving as a lamp. I wanted a checkerboard pattern to give a metaphysical feel.`,
+      },
     },
     {
       id: "8",
@@ -710,6 +669,11 @@ A fragment of an underlying layer remains at the bottom left; and, as in the pre
       image: "/artists/willy-le-nalbaut/works/goeiedag.jpg",
       imageAspect: [1024, 698],
       layoutPair: { group: "limaces-goeiedag", role: "side" },
+      description: {
+        fr: `Dans cette peinture on peut voir Andrea faire de la mini-pelle et sa pote Cake conduire un super poids lourd. Avec la mini-pelle elle creuse des trous pour pouvoir planter des arbres, et le camion ramène des fleurs de Hollande pour pouvoir les planter. Plein d'éléments flottent au-dessus.`,
+        zh: `在这幅画里，Andrea 开着迷你铲，她的朋友 Cake 开着一辆重型卡车。她用迷你铲挖坑种树，卡车从荷兰运来鲜花以便栽种。许多元素漂浮在上方。`,
+        en: `In this painting Andrea is on the mini-digger and her friend Cake is driving a heavy truck. With the mini-digger she digs holes to plant trees, and the lorry brings flowers from Holland to plant them. Many elements float above.`,
+      },
     },
     {
       id: "9",
@@ -727,6 +691,11 @@ A fragment of an underlying layer remains at the bottom left; and, as in the pre
       dimensions: "",
       image: "/artists/willy-le-nalbaut/works/sans-titre.jpg",
       imageAspect: [256, 1024],
+      description: {
+        fr: `Pendant un moment j'étais fasciné par les plus grands arbres du monde en Californie. En voyant ce format qui au début était dans l'autre sens, je l'ai retourné et je me suis dit que c'était parfait pour peindre un arbre géant. Il y a des personnages en bas à droite pour qu'on se rende compte de l'échelle. Un mangeoir à oiseau à gauche et un bichon-nuage à droite.`,
+        zh: `有一阵子，我着迷于加州世界上最高的那些大树。看见这块画布——起初是横向的——我把它转过来，心想正好可以画一棵巨树。右下方有几个小人，让人感受比例。左边有一只喂鸟器，右边有一只云朵比熊。`,
+        en: `For a while I was fascinated by the tallest trees in the world in California. Seeing this format — which at first was the other way round — I turned it and thought it was perfect for painting a giant tree. There are figures at the bottom right so you can sense the scale. A bird feeder on the left and a cloud bichon on the right.`,
+      },
     },
     {
       id: "10",
@@ -744,6 +713,11 @@ A fragment of an underlying layer remains at the bottom left; and, as in the pre
       dimensions: "37.5 × 39.5 cm",
       image: "/artists/willy-le-nalbaut/works/flaque-aux-oiseaux.jpg",
       imageAspect: [1024, 951],
+      description: {
+        fr: `Je passais devant en bagnole et j'ai vu ces oiseaux se baigner dans cette flaque ; j'ai décidé de les peindre. La scène se passe juste à côté de chez moi, on peut voir les vignes en fond.`,
+        zh: `开车经过时，我看见这些鸟在这片水洼里洗澡，便决定把它们画下来。场景就在我家旁边，背景可见葡萄园。`,
+        en: `I was driving past and saw these birds bathing in the puddle; I decided to paint them. The scene is right next to my home — you can see the vineyards in the background.`,
+      },
     },
     {
       id: "11",
@@ -761,6 +735,11 @@ A fragment of an underlying layer remains at the bottom left; and, as in the pre
       dimensions: "41 × 33 cm",
       image: "/artists/willy-le-nalbaut/works/le-moine.jpg",
       imageAspect: [812, 1024],
+      description: {
+        fr: `J'ai fait cette peinture avec la volonté de devenir plus sage. Je médite en lévitation au-dessus d'un tabouret dans un pub. À gauche et à droite, mes signes astrologiques : à droite le taureau, à gauche le serpent (astrologie chinoise). Un ibis pique un billet avec son long bec. Les deux cercles représentent des sous-bocks avec les histoires d'une mouche à l'intérieur.`,
+        zh: `我带着想变得更智慧的愿望画了这幅画。我在一家酒吧里，悬浮在凳子上方冥想。左右两侧是我的星座：右边是金牛，左边是蛇（中国占星）。一只朱鹭用长喙叼走一张钞票。两个圆圈代表杯垫，里面是一只苍蝇的故事。`,
+        en: `I made this painting with the wish to become wiser. I meditate in levitation above a stool in a pub. On the left and right, my astrological signs: the bull on the right and the snake on the left (Chinese astrology). An ibis picks up a banknote with its long beak. The two circles represent beer coasters with the stories of a fly inside.`,
+      },
     },
     {
       id: "12",
@@ -778,6 +757,11 @@ A fragment of an underlying layer remains at the bottom left; and, as in the pre
       dimensions: "30 × 30 cm",
       image: "/artists/willy-le-nalbaut/works/eh-pad-flower.jpg",
       imageAspect: [1011, 1024],
+      description: {
+        fr: `Ceci est une fleur de San Pedro, un cactus d'Amérique du Sud ; la fleur s'ouvre seulement la nuit. Nous en avons un à la maison que nous avons pu observer. On voit un chien qui dort. C'est la nuit...`,
+        zh: `这是圣佩德罗（San Pedro）的花，一种南美洲仙人掌；它的花只在夜间开放。家里有一株，我们得以观察。画中有一只睡着的狗。是夜晚……`,
+        en: `This is a San Pedro flower, a cactus from South America; the flower opens only at night. We have one at home that we were able to observe. A sleeping dog is visible. It is night...`,
+      },
     },
   ],
   professionalReputation: {
@@ -786,15 +770,24 @@ A fragment of an underlying layer remains at the bottom left; and, as in the pre
     curatorMediaRecognition: [
       {
         source: {
-          zh: "Prix Marin · 2021",
-          fr: "Prix Marin · 2021",
-          en: "Prix Marin · 2021",
+          zh: "Prix Marin · 2021，Parrainé par Antonio Seguí",
+          fr: "Prix Marin · 2021, Parrainé par Antonio Seguí",
+          en: "Prix Marin · 2021, Patroned by Antonio Seguí",
+        },
+        quote: { zh: "", fr: "", en: "" },
+      },
+      {
+        source: {
+          zh: "Prix international de peinture · Novembre à Vitry · 2025",
+          fr: "Prix international de peinture · Novembre à Vitry · 2025",
+          en: "International Painting Prize · Novembre à Vitry · 2025",
         },
         quote: {
-          zh: "Prix Marin 群展，Galerie Julio Gonzalez, Arcueil——法国青年绘画的重要平台之一。",
-          fr: "Prix Marin, Galerie Julio Gonzalez, Arcueil — l'une des plateformes importantes pour la jeune peinture en France.",
-          en: "Prix Marin, Galerie Julio Gonzalez, Arcueil — one of France's important platforms for young painting.",
+          zh: "正如每年一样，入选艺术家均未满 40 岁，呈现当代绘画极为多样的探索。展览汇集了脱离画框的作品（Raphaël Quentin）、悬挂屏风（Willy Le Nalbaut）以及以珐琅绘制的瓷砖（Héloïse Farago）等。",
+          fr: `Comme chaque année, tous les artistes sélectionnés ont moins de 40 ans, et représentent les recherches très diverses de la peinture actuelle. L'exposition réunit des toiles qui se détachent de leur châssis (Raphaël Quentin), des paravents suspendus (Willy Le Nalbaut) ou encore des carreaux de faïence peints à l'émail (Héloïse Farago).`,
+          en: "As every year, all selected artists are under 40 and represent the very diverse researches of current painting. The exhibition brings together canvases that detach from their stretchers (Raphaël Quentin), suspended screens (Willy Le Nalbaut), and faience tiles painted in enamel (Héloïse Farago).",
         },
+        url: "https://www.beauxarts.com/expos/qui-sont-les-jeunes-peintres-daujourdhui-reponse-a-vitry-avec-une-expo-gratuite-et-un-prix-international/",
       },
     ],
     publicResonance: [
@@ -1063,9 +1056,9 @@ Compositions built on pure construction, without clear light-and-shadow structur
         en: "International design awards",
       },
       description: {
-        zh: "ICAD 国际当代青年美术设计大赛银奖；BICC 中英国际创意大赛铜奖。",
-        fr: "Argent ICAD ; bronze BICC.",
-        en: "ICAD silver; BICC bronze.",
+        zh: "第二届 ICAD 国际当代青年美术设计大赛银奖；第二届 BICC 中英国际创意大赛铜奖；SGADC 新加坡金沙艺术设计大赛铜奖。",
+        fr: "Argent · 2e ICAD ; bronze · 2e BICC ; bronze SGADC Sands Singapore.",
+        en: "Silver · 2nd ICAD; Bronze · 2nd BICC; Bronze · SGADC Singapore Sands Art & Design Competition.",
       },
     },
     {
@@ -1897,27 +1890,27 @@ If blue-and-white is a visual sign, each traditional motif painted on a porcelai
     curatorMediaRecognition: [
       {
         source: {
-          zh: "ICAD 国际当代青年美术设计大赛",
-          fr: "ICAD",
-          en: "ICAD",
+          zh: "2022 年 · 第二届 ICAD 国际当代青年美术设计大赛 · 银奖",
+          fr: "2022 · 2e ICAD — Concours international d'art et de design — argent",
+          en: "2022 · 2nd ICAD International Contemporary Young Art & Design Competition — Silver Award",
         },
-        quote: {
-          zh: "2022 年银奖——表彰其在传统装饰语言与当代视觉设计之间的创新融合。",
-          fr: "Argent 2022 — récompense l'innovation entre ornement traditionnel et design visuel contemporain.",
-          en: "2022 Silver Award—recognizing innovation between traditional ornament and contemporary visual design.",
-        },
+        quote: { zh: "", fr: "", en: "" },
       },
       {
         source: {
-          zh: "BICC 中英国际创意大赛",
-          fr: "BICC",
-          en: "BICC",
+          zh: "2022 年 · 第二届 BICC 中英国际创意大赛 · 铜奖",
+          fr: "2022 · 2e BICC — Concours créatif sino-britannique — bronze",
+          en: "2022 · 2nd BICC Sino-British International Creative Competition — Bronze Award",
         },
-        quote: {
-          zh: "2022 年铜奖——作品在跨文化视觉表达中呈现独特个体意识。",
-          fr: "Bronze 2022 — une conscience individuelle singulière dans l'expression visuelle transculturelle.",
-          en: "2022 Bronze—distinct individual consciousness in cross-cultural visual expression.",
+        quote: { zh: "", fr: "", en: "" },
+      },
+      {
+        source: {
+          zh: "2022 年 · SGADC 新加坡金沙艺术设计大赛 · 铜奖",
+          fr: "2022 · SGADC — Concours d'art et de design Sands Singapore — bronze",
+          en: "2022 · SGADC Singapore Sands Art & Design Competition — Bronze Award",
         },
+        quote: { zh: "", fr: "", en: "" },
       },
     ],
     publicResonance: [],

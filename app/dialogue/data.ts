@@ -14,6 +14,7 @@ export type DialogueExchange = {
   questionFrom?: DialogueAvatar;
   answer?: LocalizedText;
   answerFrom?: DialogueAvatar;
+  answers?: { answer: LocalizedText; answerFrom: DialogueAvatar }[];
 };
 
 export type ObserverQuestion = {
@@ -65,6 +66,21 @@ export const episodes: DialogueEpisode[] = [
         fr: "Cette année est l'année du Cheval dans le calendrier chinois. Vous avez tous les deux représenté des chevaux dans votre travail. Que représente le cheval pour vous, et pourquoi ?",
         en: "This year is the Year of the Horse in the Chinese calendar. You have both depicted horses in your work. What does the horse mean to you, and why?",
       },
+      answers: [
+        {
+          answerFrom: {
+            type: "portrait",
+            src: "/artists/su-hong/portrait.png",
+            alt: "苏泓 Su Hong",
+            label: "苏泓 Su Hong",
+          },
+          answer: {
+            zh: "说到马，我第一个想到就是中华传统文化里十二地支的「午」，「午」在生肖中就是指的马这种动物。我们小时候都会背诵的属相顺口溜「……辰龙，巳蛇，午马，未羊……」！在中国人的五行中「午马」也代表「火」元素，按照中国古代的干支纪年法，2026年是丙午马年，「丙」在十天干中为「阳火」，所以今年可以说是「火马年」，火即为能量！另外再说到马会联想到速度，蓝天白云大草原上一群乌黑健硕的骏马在驰骋，就像是人生一世自由自在奔放的状态。能量流动不止，物质生生不息！",
+            fr: "Quand on parle du cheval, la première chose à laquelle je pense, c'est « wu » (午), la septième des douze branches terrestres de la culture traditionnelle chinoise — dans le zodiaque, « wu » désigne précisément le cheval. Nous avons tous appris, enfants, la comptine des signes : « … chen long, si serpent, wu cheval, wei chèvre… » ! Dans les cinq éléments, « wu cheval » représente aussi le feu ; selon le cycle sexagésimal, 2026 est l'année bingwu du Cheval — « bing », parmi les dix troncs célestes, est le « feu yang », donc on peut dire que cette année est celle du « cheval de feu » : le feu, c'est l'énergie ! Le cheval évoque aussi la vitesse : sous un ciel bleu et des nuages blancs, sur la grande prairie, un troupeau de chevaux noirs et robustes au galop — comme une vie vécue librement et avec fougue. L'énergie circule sans fin ; la matière se renouvelle sans cesse !",
+            en: "When it comes to the horse, the first thing I think of is « wu » (午), the seventh of the twelve earthly branches in traditional Chinese culture—in the zodiac, « wu » refers precisely to the horse. As children we all learned the mnemonic for the signs: « … chen dragon, si snake, wu horse, wei goat… »! In the five elements, « wu horse » also stands for fire; according to the ancient sexagenary cycle, 2026 is the bingwu Year of the Horse—« bing », among the ten heavenly stems, is « yang fire », so this year could be called the « fire horse year »: fire is energy! The horse also brings to mind speed: under blue sky and white clouds, on the vast grassland, a herd of dark, sturdy steeds galloping—like a life lived freely and expansively. Energy flows without end; matter renews itself endlessly!",
+          },
+        },
+      ],
     },
     willyToSuHong: {
       questionFrom: {

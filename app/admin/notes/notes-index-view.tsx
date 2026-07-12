@@ -14,6 +14,11 @@ const notes = [
     title: "笔记 2",
     description: "逻辑统一与使命定位 — 四个核心问题、各方参与动机，以及「理解」作为平台中心。",
   },
+  {
+    href: "/admin/notes/3",
+    title: "巴黎臻藏 V1 商业生态图",
+    description: "使命、共同建设者、行动、专业服务与共同记忆金字塔 — 可长期扩展的战略地图。",
+  },
 ];
 
 export function NotesIndexView() {
@@ -24,7 +29,7 @@ export function NotesIndexView() {
         description="巴黎臻藏内部战略笔记 — 商业模式、共同体逻辑与使命定位。"
       />
 
-      <ul className="grid gap-3 sm:grid-cols-2">
+      <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {notes.map((note) => (
           <li key={note.href}>
             <Link

@@ -212,6 +212,15 @@ function ExchangeBlock({
           ) : null}
           <QuestionContent text={exchange.answer} locale={locale} />
         </div>
+      ) : exchange.answers && exchange.answers.length > 0 ? (
+        <div className="space-y-8 border-t border-stone-200 pt-6">
+          {exchange.answers.map((item) => (
+            <div key={item.answerFrom.label ?? item.answerFrom.alt} className="space-y-4">
+              <DialogueIdentity avatar={item.answerFrom} />
+              <QuestionContent text={item.answer} locale={locale} />
+            </div>
+          ))}
+        </div>
       ) : (
         <div className="border-t border-stone-200 pt-6">
           {exchange.answerFrom ? (
