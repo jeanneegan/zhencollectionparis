@@ -12,7 +12,6 @@ import {
   getArtworkDisplayLayout,
   type Locale,
 } from "@/app/artists/[slug]/data";
-import { getArtistPriceHistory } from "@/app/lib/artist-price-history";
 import type { MockMember } from "@/app/lib/auth";
 import {
   t,
@@ -32,8 +31,7 @@ const labels: Record<
     medium: string;
     dimensions: string;
     archiveId: string;
-    initiatedBy: string;
-    initiatedYear: string;
+    collector: string;
     status: string;
     series: string;
     description: string;
@@ -41,8 +39,6 @@ const labels: Record<
     collectorNote: string;
     provenance: string;
     referencePrice: string;
-    priceHistory: string;
-    priceHistoryNote: string;
     evaluations: string;
     exhibitions: string;
     venue: string;
@@ -63,8 +59,7 @@ const labels: Record<
     medium: "Medium · 媒材",
     dimensions: "Dimensions · 尺寸",
     archiveId: "Archive ID · 档案编号",
-    initiatedBy: "Initié par · 发起者",
-    initiatedYear: "Initié en · 发起年份",
+    collector: "Collectionneur · 藏家",
     status: "Statut · 状态",
     series: "Série · 系列",
     description: "Description · 作品描述",
@@ -72,8 +67,6 @@ const labels: Record<
     collectorNote: "Note du collectionneur · 藏家说明",
     provenance: "Provenance · 来源",
     referencePrice: "Prix de référence · 参考价格",
-    priceHistory: "Évolution des prix de l'artiste · 艺术家价格走势",
-    priceHistoryNote: "Prix médian annuel de référence · 年度市场参考中位价",
     evaluations: "Évaluations · 专业评价",
     exhibitions: "Expositions · 展览记录",
     venue: "Lieu · 场馆",
@@ -93,8 +86,7 @@ const labels: Record<
     medium: "Medium · 媒材",
     dimensions: "Dimensions · 尺寸",
     archiveId: "Archive ID · 档案编号",
-    initiatedBy: "Initié par · 发起者",
-    initiatedYear: "Initié en · 发起年份",
+    collector: "Collectionneur · 藏家",
     status: "Statut · 状态",
     series: "Série · 系列",
     description: "Description · 作品描述",
@@ -102,8 +94,6 @@ const labels: Record<
     collectorNote: "Note du collectionneur · 藏家说明",
     provenance: "Provenance · 来源",
     referencePrice: "Prix de référence · 参考价格",
-    priceHistory: "Évolution des prix de l'artiste · 艺术家价格走势",
-    priceHistoryNote: "Prix médian annuel de référence · 年度市场参考中位价",
     evaluations: "Évaluations · 专业评价",
     exhibitions: "Expositions · 展览记录",
     venue: "Lieu · 场馆",
@@ -123,8 +113,7 @@ const labels: Record<
     medium: "Medium",
     dimensions: "Dimensions",
     archiveId: "Archive ID",
-    initiatedBy: "Initiated by",
-    initiatedYear: "Initiated in",
+    collector: "Collector",
     status: "Status",
     series: "Series",
     description: "Description",
@@ -132,8 +121,6 @@ const labels: Record<
     collectorNote: "Collector's note",
     provenance: "Provenance",
     referencePrice: "Reference Price",
-    priceHistory: "Artist price trend",
-    priceHistoryNote: "Annual reference median price",
     evaluations: "Evaluations",
     exhibitions: "Exhibition History",
     venue: "Venue",
@@ -311,7 +298,6 @@ export function ArtworkPassportView({
     navEvaluations: l.navEvaluations,
   };
   const pageWrap = member ? "w-full" : "mx-auto max-w-7xl";
-  const priceHistory = getArtistPriceHistory(passport.artistSlug);
   const description = passport.description ? t(passport.description, locale) : "";
 
   const passportContent = (
@@ -356,18 +342,14 @@ export function ArtworkPassportView({
                   </Link>
                 </dd>
               </div>
-              <div className="col-span-2">
-                <dt className={passportType.meta}>{l.initiatedBy}</dt>
-                <dd className={`mt-1 ${passportType.heroValue}`}>
-                  {t(passport.initiatedBy, locale)}
-                </dd>
-              </div>
-              <div>
-                <dt className={passportType.meta}>{l.initiatedYear}</dt>
-                <dd className={`mt-1 ${passportType.heroValue}`}>
-                  {passport.initiatedYear}
-                </dd>
-              </div>
+              {passport.collectorName ? (
+                <div className="col-span-2">
+                  <dt className={passportType.meta}>{l.collector}</dt>
+                  <dd className={`mt-1 ${passportType.heroValue}`}>
+                    {t(passport.collectorName, locale)}
+                  </dd>
+                </div>
+              ) : null}
               <div>
                 <dt className={passportType.meta}>{l.archiveId}</dt>
                 <dd className={`mt-1 ${passportType.heroValue}`}>{passport.archiveId}</dd>
@@ -460,11 +442,6 @@ export function ArtworkPassportView({
             <p className={`mt-6 ${passportType.listTitle}`}>
               {t(passport.referencePrice, locale)}
             </p>
-            {passport.priceHistoryNote ? (
-              <p className={`mt-2 ${passportType.listMeta}`}>
-                {t(passport.priceHistoryNote, locale)}
-              </p>
-            ) : null}
           </div>
         ) : null}
 
@@ -481,27 +458,6 @@ export function ArtworkPassportView({
                   <p className={`mt-1 ${passportType.listMeta}`}>
                     {entry.venue} · {t(entry.city, locale)}
                   </p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ) : null}
-
-        {priceHistory.length > 0 ? (
-          <div>
-            <SectionTitle>{l.priceHistory}</SectionTitle>
-            <p className={`mt-4 ${passportType.listMeta}`}>{l.priceHistoryNote}</p>
-            <ul className="mt-6 max-w-md space-y-4">
-              {priceHistory.map((point) => (
-                <li key={point.year}>
-                  <div className="flex items-baseline justify-between gap-4">
-                    <span className="text-sm tabular-nums text-stone-700">
-                      {point.year}
-                    </span>
-                    <span className="text-sm font-medium text-stone-900">
-                      {t(point.value, locale)}
-                    </span>
-                  </div>
                 </li>
               ))}
             </ul>
@@ -570,7 +526,7 @@ export function ArtworkPassportView({
           <p className={passportType.heroPassport}>{l.passport}</p>
           <h1 className={`mt-3 ${passportType.heroName}`}>{t(passport.title, locale)}</h1>
           <p className={`mt-4 max-w-2xl ${passportType.heroTagline}`}>
-            {t(passport.initiatedBy, locale)} · {passport.initiatedYear}
+            {t(passport.artistName, locale)}
           </p>
         </header>
 

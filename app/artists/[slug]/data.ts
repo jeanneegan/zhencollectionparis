@@ -246,28 +246,8 @@ With cynicism and humour, an animal, a god, and a mundane object can appear on t
       },
       description: { zh: "", fr: "", en: "" },
     },
-    {
-      year: "2026",
-      title: {
-        zh: "Galerie du Haut-Pavé / Fainting",
-        fr: "Galerie du Haut-Pavé / Fainting",
-        en: "Galerie du Haut-Pavé / Fainting",
-      },
-      description: { zh: "", fr: "", en: "" },
-    },
   ],
   exhibitions: [
-    {
-      year: 2026,
-      title: {
-        zh: "Fainting",
-        fr: "Fainting",
-        en: "Fainting",
-      },
-      venue: "—",
-      city: { zh: "巴黎", fr: "Paris", en: "Paris" },
-      type: "group",
-    },
     {
       year: 2026,
       title: {
@@ -767,6 +747,23 @@ A fragment of an underlying layer remains at the bottom left; and, as in the pre
         zh: `这是圣佩德罗（San Pedro）的花，一种南美洲仙人掌；它的花只在夜间开放。家里有一株，我们得以观察。画中有一只睡着的狗。是夜晚……`,
         en: `This is a San Pedro flower, a cactus from South America; the flower opens only at night. We have one at home that we were able to observe. A sleeping dog is visible. It is night...`,
       },
+    },
+    {
+      id: "16",
+      title: {
+        zh: "表",
+        fr: "Horloge",
+        en: "Clock",
+      },
+      year: 2025,
+      medium: {
+        zh: "彩绘钟表 · 镀金金属",
+        fr: "Horloge peinte, métal doré",
+        en: "Painted clock, gilt metal",
+      },
+      dimensions: "",
+      image: "/artists/willy-le-nalbaut/works/horloge.jpg",
+      imageAspect: [1024, 768],
     },
   ],
   professionalReputation: {

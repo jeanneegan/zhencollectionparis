@@ -33,6 +33,7 @@ export type CollectorHolding = {
   evaluations: HoldingEvaluation[];
   resalePending?: boolean;
   passportInitiated?: boolean;
+  collectorName?: LocalizedText;
 };
 
 export const MOCK_COLLECTOR: CollectorProfile = {
@@ -373,4 +374,63 @@ export const MOCK_COLLECTOR_HOLDINGS: CollectorHolding[] = [
       },
     ],
   },
+  {
+    id: "holding-willy-horloge",
+    artistSlug: "willy-le-nalbaut",
+    artistName: {
+      zh: "威利·勒纳尔博",
+      fr: "Willy Le Nalbaut",
+      en: "Willy Le Nalbaut",
+    },
+    title: {
+      zh: "表",
+      fr: "Horloge",
+      en: "Clock",
+    },
+    year: 2025,
+    medium: {
+      zh: "彩绘钟表 · 镀金金属",
+      fr: "Horloge peinte, métal doré",
+      en: "Painted clock, gilt metal",
+    },
+    dimensions: "",
+    image: "/artists/willy-le-nalbaut/works/horloge.jpg",
+    price: {
+      zh: "€ 600",
+      fr: "600 €",
+      en: "€600",
+    },
+    acquiredYear: 2026,
+    acquiredFrom: {
+      zh: "艺术家工作室",
+      fr: "Atelier de l'artiste",
+      en: "Artist's studio",
+    },
+    location: {
+      zh: "巴黎 · Jeanneegan CUI 私人寓所",
+      fr: "Paris · résidence privée de Jeanneegan CUI",
+      en: "Paris · Jeanneegan CUI private residence",
+    },
+    condition: {
+      zh: "良好 · 可正常运转",
+      fr: "Bon état · en fonctionnement",
+      en: "Good condition · in working order",
+    },
+    notes: {
+      zh: "藏家 Jeanneegan CUI 入藏；巴黎臻藏为威利这件可运转的彩绘钟表建立作品护照档案。",
+      fr: "Entrée en collection de Jeanneegan CUI ; Zhen Collection Paris a initié le passeport de cette horloge peinte fonctionnelle de Willy.",
+      en: "Acquired by collector Jeanneegan CUI; Zhen Collection Paris initiated the artwork passport for Willy's functional painted clock.",
+    },
+    collectorName: {
+      zh: "Jeanneegan CUI",
+      fr: "Jeanneegan CUI",
+      en: "Jeanneegan CUI",
+    },
+    passportInitiated: true,
+    evaluations: [],
+  },
 ];
+
+export function getHoldingsForDefaultCollector(): CollectorHolding[] {
+  return MOCK_COLLECTOR_HOLDINGS.filter((holding) => !holding.collectorName);
+}

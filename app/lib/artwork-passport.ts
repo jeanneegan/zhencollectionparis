@@ -53,6 +53,7 @@ export type ArtworkPassport = {
   };
   passportNote: LocalizedText;
   collectorNote: LocalizedText;
+  collectorName?: LocalizedText;
   status: LocalizedText;
   provenance: LocalizedText[];
   referencePrice?: LocalizedText;
@@ -132,6 +133,37 @@ const passportEnrichment: Record<
         city: { zh: "巴黎", fr: "Paris", en: "Paris" },
       },
     ],
+  },
+  "willy-le-nalbaut-16": {
+    initiatedYear: 2026,
+    description: {
+      zh: "镀金金属射线框托起一枚手绘表盘：下方是俯瞰的田亩格纹，上方漂浮着细茎花朵与雾气般的天空。既是可运转的钟表，也是威利将绘画嵌入日常物件的又一例证。",
+      fr: "Un cadre de rayons en métal doré soutient un cadran peint à la main : en bas, champs vus en plongée ; en haut, fleurs sur tiges fines et ciel brumeux. Objet fonctionnel et nouvelle preuve que Willy fait entrer la peinture dans le quotidien.",
+      en: "A gilt metal sunburst frame holds a hand-painted dial: gridded fields seen from above below, fine-stemmed flowers and a misty sky above. A working clock and another instance of Willy embedding painting in everyday objects.",
+    },
+    passportNote: {
+      zh: "本作品护照由巴黎臻藏为威利《表》建立，归档这件可运转的彩绘钟表及其专业阅读记录。",
+      fr: "Ce passeport d'œuvre est initié par Zhen Collection Paris pour « Horloge » de Willy — archive de cette horloge peinte fonctionnelle et de sa lecture professionnelle.",
+      en: "This artwork passport is initiated by Zhen Collection Paris for Willy's « Clock »—archiving this functional painted timepiece and its professional reading.",
+    },
+    provenance: [
+      {
+        zh: "2026 · 入藏 Jeanneegan CUI 私人收藏 · 巴黎 · € 600",
+        fr: "2026 · Entrée dans la collection privée de Jeanneegan CUI · Paris · 600 €",
+        en: "2026 · Acquired by Jeanneegan CUI private collection · Paris · €600",
+      },
+      {
+        zh: "2026 · 艺术家工作室",
+        fr: "2026 · Atelier de l'artiste",
+        en: "2026 · Artist's studio",
+      },
+    ],
+    referencePrice: {
+      zh: "€ 600",
+      fr: "600 €",
+      en: "€600",
+    },
+    exhibitionHistory: [],
   },
   "su-hong-1": {
     initiatedYear: 2025,
@@ -293,6 +325,7 @@ export function getArtworkPassport(
       : undefined,
     passportNote: enrichment?.passportNote ?? defaultPassportNote,
     collectorNote: holding.notes,
+    collectorName: holding.collectorName,
     status: enrichment?.status ?? defaultStatus,
     provenance: enrichment?.provenance ?? [
       {

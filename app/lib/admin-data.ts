@@ -11,7 +11,7 @@ import {
   hasArtworkPassport,
   listArtworkPassportRoutes,
 } from "@/app/lib/artwork-passport";
-import { MOCK_COLLECTOR, MOCK_COLLECTOR_HOLDINGS } from "@/app/lib/collector-collection";
+import { MOCK_COLLECTOR, getHoldingsForDefaultCollector } from "@/app/lib/collector-collection";
 import { GALLERY_RECEIVED_MESSAGES } from "@/app/lib/gallery-messages";
 
 export type AdminCounts = {
@@ -39,7 +39,7 @@ export function getAdminCounts(): AdminCounts {
     members: MOCK_MEMBERS.length,
     exhibitions: getAllExhibitionSlugs().length,
     passports: listArtworkPassportRoutes().length,
-    holdings: MOCK_COLLECTOR_HOLDINGS.length,
+    holdings: getHoldingsForDefaultCollector().length,
     unreadMessages: GALLERY_RECEIVED_MESSAGES.filter((message) => message.unread).length,
   };
 }
@@ -102,8 +102,8 @@ export function getAdminCollectorRows(locale: Locale) {
       name: t(MOCK_COLLECTOR.name, locale),
       city: t(MOCK_COLLECTOR.city, locale),
       collectingSince: MOCK_COLLECTOR.collectingSince,
-      holdingCount: MOCK_COLLECTOR_HOLDINGS.length,
-      passportCount: MOCK_COLLECTOR_HOLDINGS.filter((holding) => holding.passportInitiated)
+      holdingCount: getHoldingsForDefaultCollector().length,
+      passportCount: getHoldingsForDefaultCollector().filter((holding) => holding.passportInitiated)
         .length,
       href: "/collectionneur",
     },

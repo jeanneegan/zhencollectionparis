@@ -11,7 +11,7 @@ import { t } from "@/app/artists/[slug]/data";
 import { getArtistPriceHistory, type ArtistPricePoint } from "@/app/lib/artist-price-history";
 import {
   MOCK_COLLECTOR,
-  MOCK_COLLECTOR_HOLDINGS,
+  getHoldingsForDefaultCollector,
   type CollectorHolding,
 } from "@/app/lib/collector-collection";
 import type { MockMember } from "@/app/lib/auth";
@@ -324,11 +324,10 @@ export function CollectionneurView({ member }: { member: MockMember }) {
   const [locale] = useLocale();
   const l = pageLabels[locale];
   const collector = MOCK_COLLECTOR;
-  const [selectedId, setSelectedId] = useState(MOCK_COLLECTOR_HOLDINGS[0]?.id ?? "");
+  const holdings = getHoldingsForDefaultCollector();
+  const [selectedId, setSelectedId] = useState(holdings[0]?.id ?? "");
   const selectedHolding =
-    MOCK_COLLECTOR_HOLDINGS.find((holding) => holding.id === selectedId) ??
-    MOCK_COLLECTOR_HOLDINGS[0] ??
-    null;
+    holdings.find((holding) => holding.id === selectedId) ?? holdings[0] ?? null;
 
   return (
     <MemberWorkspaceLayout member={member} contentClassName="max-w-6xl">
@@ -378,7 +377,7 @@ export function CollectionneurView({ member }: { member: MockMember }) {
             {l.holdings}
           </p>
           <ul className="mt-3 flex gap-2 overflow-x-auto pb-2 lg:max-h-[calc(100vh-8rem)] lg:flex-col lg:gap-1 lg:overflow-y-auto lg:overflow-x-hidden lg:pb-0 lg:pr-1">
-            {MOCK_COLLECTOR_HOLDINGS.map((holding) => {
+            {holdings.map((holding) => {
               const active = holding.id === selectedId;
 
               return (
