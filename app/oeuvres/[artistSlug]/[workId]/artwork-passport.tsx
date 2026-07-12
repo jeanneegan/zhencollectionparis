@@ -36,6 +36,7 @@ const labels: Record<
     collectorNote: string;
     provenance: string;
     referencePrice: string;
+    memberOnlyPrice: string;
     evaluations: string;
     exhibitions: string;
     venue: string;
@@ -62,6 +63,7 @@ const labels: Record<
     collectorNote: "Note du collectionneur · 藏家说明",
     provenance: "Provenance · 来源",
     referencePrice: "Prix de référence · 参考价格",
+    memberOnlyPrice: "Visible pour les collectionneurs inscrits · 注册藏家可见",
     evaluations: "Évaluations · 专业评价",
     exhibitions: "Expositions · 展览记录",
     venue: "Lieu · 场馆",
@@ -87,6 +89,7 @@ const labels: Record<
     collectorNote: "Note du collectionneur · 藏家说明",
     provenance: "Provenance · 来源",
     referencePrice: "Prix de référence · 参考价格",
+    memberOnlyPrice: "Visible pour les collectionneurs inscrits · 注册藏家可见",
     evaluations: "Évaluations · 专业评价",
     exhibitions: "Expositions · 展览记录",
     venue: "Lieu · 场馆",
@@ -112,6 +115,7 @@ const labels: Record<
     collectorNote: "Collector's note",
     provenance: "Provenance",
     referencePrice: "Reference Price",
+    memberOnlyPrice: "Visible to registered collectors",
     evaluations: "Evaluations",
     exhibitions: "Exhibition History",
     venue: "Venue",
@@ -367,7 +371,9 @@ export function ArtworkPassportView({
           <div>
             <SectionTitle>{l.referencePrice}</SectionTitle>
             <p className={`mt-6 ${passportType.listTitle}`}>
-              {t(passport.referencePrice, locale)}
+              {member
+                ? t(passport.referencePrice, locale)
+                : l.memberOnlyPrice}
             </p>
           </div>
         ) : null}

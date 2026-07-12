@@ -149,9 +149,9 @@ const passportEnrichment: Record<
     },
     provenance: [
       {
-        zh: "2026 · 入藏 Jeanneegan CUI 私人收藏 · 巴黎 · € 600",
-        fr: "2026 · Entrée dans la collection privée de Jeanneegan CUI · Paris · 600 €",
-        en: "2026 · Acquired by Jeanneegan CUI private collection · Paris · €600",
+        zh: "2026 · 入藏 Jeanneegan CUI 私人收藏 · 巴黎",
+        fr: "2026 · Entrée dans la collection privée de Jeanneegan CUI · Paris",
+        en: "2026 · Acquired by Jeanneegan CUI private collection · Paris",
       },
       {
         zh: "2026 · 艺术家工作室",
