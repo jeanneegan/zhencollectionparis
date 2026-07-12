@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
 import { PageBottomNav } from "@/app/components/page-bottom-nav";
 import { SiteBrandLink } from "@/app/components/site-brand-link";
@@ -23,9 +22,6 @@ const labels: Record<
   Locale,
   {
     passport: string;
-    navWork: string;
-    navArchive: string;
-    navEvaluations: string;
     artist: string;
     year: string;
     medium: string;
@@ -51,9 +47,6 @@ const labels: Record<
 > = {
   zh: {
     passport: "Passeport Œuvre · 作品护照",
-    navWork: "作品",
-    navArchive: "档案",
-    navEvaluations: "评价",
     artist: "Artiste · 艺术家",
     year: "Année · 年份",
     medium: "Medium · 媒材",
@@ -78,9 +71,6 @@ const labels: Record<
   },
   fr: {
     passport: "Passeport Œuvre · 作品护照",
-    navWork: "Œuvre",
-    navArchive: "Archive",
-    navEvaluations: "Évaluations",
     artist: "Artiste · 艺术家",
     year: "Année · 年份",
     medium: "Medium · 媒材",
@@ -105,9 +95,6 @@ const labels: Record<
   },
   en: {
     passport: "Artwork Passport",
-    navWork: "Work",
-    navArchive: "Archive",
-    navEvaluations: "Evaluations",
     artist: "Artist",
     year: "Year",
     medium: "Medium",
@@ -149,75 +136,8 @@ const passportType = {
   quote: "text-sm leading-[1.9] text-stone-600 md:text-base",
 } as const;
 
-const passportSections = [
-  { id: "passport-work", key: "work" },
-  { id: "passport-archive", key: "archive" },
-  { id: "passport-evaluations", key: "evaluations" },
-] as const;
-
-type PassportSection = (typeof passportSections)[number]["key"];
-
 function SectionTitle({ children }: { children: React.ReactNode }) {
   return <h2 className={passportType.sectionTitle}>{children}</h2>;
-}
-
-function PassportSectionNav({
-  labels: navLabels,
-}: {
-  labels: { navWork: string; navArchive: string; navEvaluations: string };
-}) {
-  const [activeSection, setActiveSection] = useState<PassportSection>("work");
-
-  useEffect(() => {
-    const updateActiveSection = () => {
-      const offset = 160;
-      let next: PassportSection = "work";
-
-      for (const section of passportSections) {
-        const element = document.getElementById(section.id);
-        if (!element) continue;
-        if (element.getBoundingClientRect().top - offset <= 0) {
-          next = section.key;
-        }
-      }
-
-      setActiveSection(next);
-    };
-
-    updateActiveSection();
-    window.addEventListener("scroll", updateActiveSection, { passive: true });
-    return () => window.removeEventListener("scroll", updateActiveSection);
-  }, []);
-
-  const items: { key: PassportSection; label: string; id: string }[] = [
-    { key: "work", label: navLabels.navWork, id: "passport-work" },
-    { key: "archive", label: navLabels.navArchive, id: "passport-archive" },
-    { key: "evaluations", label: navLabels.navEvaluations, id: "passport-evaluations" },
-  ];
-
-  return (
-    <nav className="flex flex-wrap gap-x-8 gap-y-2 text-[11px] font-medium uppercase tracking-[0.15em]">
-      {items.map(({ key, label, id }) => (
-        <button
-          key={key}
-          type="button"
-          onClick={() =>
-            document.getElementById(id)?.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            })
-          }
-          className={`transition-colors ${
-            activeSection === key
-              ? "text-stone-900"
-              : "text-stone-400 hover:text-stone-900"
-          }`}
-        >
-          {label}
-        </button>
-      ))}
-    </nav>
-  );
 }
 
 function ArtworkImage({
@@ -292,11 +212,6 @@ export function ArtworkPassportView({
 }) {
   const [locale, setLocale] = useLocale();
   const l = labels[locale];
-  const navLabels = {
-    navWork: l.navWork,
-    navArchive: l.navArchive,
-    navEvaluations: l.navEvaluations,
-  };
   const pageWrap = member ? "w-full" : "mx-auto max-w-7xl";
   const description = passport.description ? t(passport.description, locale) : "";
 
@@ -543,7 +458,6 @@ export function ArtworkPassportView({
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-5 md:px-10">
           <SiteBrandLink className="shrink-0" />
           <div className="flex shrink-0 items-center gap-4 md:gap-6">
-            <PassportSectionNav labels={navLabels} />
             <LanguageSwitcher locale={locale} onChange={setLocale} />
           </div>
         </div>
