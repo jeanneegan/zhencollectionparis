@@ -54,6 +54,7 @@ export type ArtworkPassport = {
   passportNote: LocalizedText;
   collectorNote: LocalizedText;
   collectorName?: LocalizedText;
+  locationCity?: LocalizedText;
   status: LocalizedText;
   provenance: LocalizedText[];
   referencePrice?: LocalizedText;
@@ -192,6 +193,14 @@ const passportEnrichment: Record<
   },
 };
 
+function cityFromLocation(location: LocalizedText): LocalizedText {
+  return {
+    zh: location.zh.split(" · ")[0]?.trim() || location.zh,
+    fr: location.fr.split(" · ")[0]?.trim() || location.fr,
+    en: location.en.split(" · ")[0]?.trim() || location.en,
+  };
+}
+
 function passportKey(artistSlug: string, workId: string) {
   return `${artistSlug}-${workId}`;
 }
@@ -326,6 +335,7 @@ export function getArtworkPassport(
     passportNote: enrichment?.passportNote ?? defaultPassportNote,
     collectorNote: holding.notes,
     collectorName: holding.collectorName,
+    locationCity: cityFromLocation(holding.location),
     status: enrichment?.status ?? defaultStatus,
     provenance: enrichment?.provenance ?? [
       {
