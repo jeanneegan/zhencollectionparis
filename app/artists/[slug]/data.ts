@@ -81,6 +81,7 @@ export type ArtistProfile = {
     };
     displayLayout?: "compact" | "wide";
     viewsLayout?: "row" | "stack";
+    hideOnPassport?: boolean;
   }[];
   professionalReputation: {
     galleryRecognition: { name: string; quote: LocalizedText }[];
@@ -764,6 +765,7 @@ A fragment of an underlying layer remains at the bottom left; and, as in the pre
       dimensions: "",
       image: "/artists/willy-le-nalbaut/works/horloge.jpg",
       imageAspect: [1024, 768],
+      hideOnPassport: true,
     },
   ],
   professionalReputation: {
@@ -2035,6 +2037,10 @@ export function getArtworkDisplayLayout(artwork: {
     imageSizes: "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 380px",
     frameStyle: { aspectRatio },
   };
+}
+
+export function getArtistPassportArtworks(artist: ArtistProfile) {
+  return artist.artworks.filter((artwork) => !artwork.hideOnPassport);
 }
 
 export function getAllArtists(): ArtistProfile[] {

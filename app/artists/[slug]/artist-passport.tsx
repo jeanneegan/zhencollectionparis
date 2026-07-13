@@ -11,7 +11,13 @@ import { MemberWorkspaceLayout } from "@/app/components/member-workspace-layout"
 import type { MockMember } from "@/app/lib/auth";
 import { hasArtworkPassport } from "@/app/lib/artwork-passport";
 import { useLocale } from "@/app/lib/use-locale";
-import { type ArtistProfile, type Locale, getArtworkDisplayLayout, t } from "./data";
+import {
+  type ArtistProfile,
+  type Locale,
+  getArtistPassportArtworks,
+  getArtworkDisplayLayout,
+  t,
+} from "./data";
 
 const labels: Record<
   Locale,
@@ -507,6 +513,7 @@ export function ArtistPassport({
   const hasCollectionQuestions =
     Boolean(cultureQuestionText) || Boolean(hopeToLeaveText);
   const pageWrap = member ? "w-full" : "mx-auto max-w-7xl";
+  const passportArtworks = getArtistPassportArtworks(artist);
 
   const passportContent = (
     <>
@@ -753,7 +760,7 @@ export function ArtistPassport({
             const renderedSeries = new Set<string>();
             const nodes: React.ReactNode[] = [];
 
-            for (const artwork of artist.artworks) {
+            for (const artwork of passportArtworks) {
               if (artwork.seriesId) {
                 if (renderedSeries.has(artwork.seriesId)) continue;
                 renderedSeries.add(artwork.seriesId);
@@ -761,7 +768,7 @@ export function ArtistPassport({
                 const series = artist.series?.find(
                   (item) => item.id === artwork.seriesId,
                 );
-                const seriesArtworks = artist.artworks.filter(
+                const seriesArtworks = passportArtworks.filter(
                   (item) => item.seriesId === artwork.seriesId,
                 );
 
