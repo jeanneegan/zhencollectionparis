@@ -205,7 +205,11 @@ With cynicism and humour, an animal, a god, and a mundane object can appear on t
     },
     france: { zh: "", fr: "", en: "" },
   },
-  hopeToLeave: { zh: "", fr: "", en: "" },
+  hopeToLeave: {
+    zh: "希望大家能认出我作为画家的个性。🤷",
+    fr: "Qu'on reconnaisse ma personnalité en tant que peintre. 🤷",
+    en: "That people recognise my personality as a painter. 🤷",
+  },
   careerTimeline: [
     {
       year: "2007",
