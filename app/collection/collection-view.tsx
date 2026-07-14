@@ -28,25 +28,24 @@ const pageLabels: Record<
   }
 > = {
   zh: {
-    title: "Collection inquiry",
-    titleSub: "收藏咨询",
-    intro: "如对某位艺术家或其作品有收藏意向，请留下联系方式，我们会尽快回复。",
+    title: "Inquiry",
+    titleSub: "咨询",
+    intro: "欢迎就艺术家、作品或合作事宜与我们联系，我们会尽快回复。",
     introSub:
-      "Pour toute demande de collection concernant un artiste ou une œuvre, laissez-nous vos coordonnées.",
+      "Contactez-nous pour toute question relative à un artiste, une œuvre ou une collaboration.",
   },
   fr: {
-    title: "Collection inquiry",
-    titleSub: "收藏咨询",
+    title: "Inquiry",
+    titleSub: "咨询",
     intro:
-      "Pour toute demande de collection concernant un artiste ou une œuvre, laissez-nous vos coordonnées.",
-    introSub:
-      "如对某位艺术家或其作品有收藏意向，请留下联系方式，我们会尽快回复。",
+      "Contactez-nous pour toute question relative à un artiste, une œuvre ou une collaboration.",
+    introSub: "欢迎就艺术家、作品或合作事宜与我们联系，我们会尽快回复。",
   },
   en: {
-    title: "Collection Inquiry",
+    title: "Inquiry",
     titleSub: "",
     intro:
-      "If you are interested in collecting an artist or artwork, leave your details and we will respond soon.",
+      "Contact us about an artist, artwork, or collaboration — we will respond soon.",
     introSub: "",
   },
 };

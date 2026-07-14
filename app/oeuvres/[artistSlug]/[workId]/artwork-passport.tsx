@@ -69,9 +69,10 @@ const labels: Record<
     venue: "Lieu · 场馆",
     city: "Ville · 城市",
     viewArtist: "Voir l'artiste · 查看艺术家",
-    collectionInquiry: "Collection inquiry · 收藏咨询",
-    collectionNote: "对该作品有收藏或研究意向 · Demande relative à cette œuvre",
-    collectionLink: "Demander · 咨询",
+    collectionInquiry: "Inquiry · 咨询",
+    collectionNote:
+      "关于该作品的咨询与合作 · Inquiry and collaboration regarding this work",
+    collectionLink: "咨询 · Inquiry",
   },
   fr: {
     passport: "Passeport Œuvre · 作品护照",
@@ -95,9 +96,10 @@ const labels: Record<
     venue: "Lieu · 场馆",
     city: "Ville · 城市",
     viewArtist: "Voir l'artiste · 查看艺术家",
-    collectionInquiry: "Collection inquiry · 收藏咨询",
-    collectionNote: "对该作品有收藏或研究意向 · Demande relative à cette œuvre",
-    collectionLink: "Demander · 咨询",
+    collectionInquiry: "Inquiry · 咨询",
+    collectionNote:
+      "关于该作品的咨询与合作 · Inquiry and collaboration regarding this work",
+    collectionLink: "咨询 · Inquiry",
   },
   en: {
     passport: "Artwork Passport",
@@ -121,9 +123,9 @@ const labels: Record<
     venue: "Venue",
     city: "City",
     viewArtist: "View artist",
-    collectionInquiry: "Collection Inquiry",
-    collectionNote: "Interested in this work for collection or research",
-    collectionLink: "Inquire",
+    collectionInquiry: "Inquiry",
+    collectionNote: "Inquiry and collaboration regarding this work",
+    collectionLink: "Inquiry",
   },
 };
 
