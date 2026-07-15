@@ -33,19 +33,15 @@ const pageContent: Record<
   }
 > = {
   zh: {
-    title: "为什么是巴黎臻藏？",
+    title: "为什么是对话？",
     sections: [
       {
         paragraphs: [
           "世界并不缺少艺术，缺少的是一个能让艺术持续生长、让人与人真正相遇、让共同记忆得以保存的地方。",
           "今天，我们每天观看无数图像，却越来越少停下来面对一件作品；越来越少认真倾听一位艺术家；也越来越少愿意走进另一种文化，只为理解，而非判断。",
-          "于是，巴黎臻藏诞生了。",
-        ],
-      },
-      {
-        variant: "callout",
-        paragraphs: [
-          "它不是为了增加一种声音，而是为了创造一种相遇，更为了珍藏那些因相遇而生的共同记忆。",
+          "艺术本身不会说话，真正让艺术不断生长的，是人与人之间持续发生的观看、理解、回应与交流。",
+          "因此，我们相信，对话不是艺术之外的附属品，而是艺术生命的一部分。每一次真诚的交流，都可能改变一件作品的意义；每一次跨越文化的相遇，都可能让我们重新理解彼此，也重新理解自己。",
+          "正因为如此，巴黎臻藏选择以对话作为开始，也希望通过一次次真实的交流，记录艺术如何连接不同的人、不同的文化，以及不同的文明。",
         ],
       },
       {
@@ -115,19 +111,15 @@ const pageContent: Record<
     ],
   },
   fr: {
-    title: "Pourquoi Zhen Collection Paris ?",
+    title: "Pourquoi le Dialogue ?",
     sections: [
       {
         paragraphs: [
           "Le monde ne manque pas d'art. Ce qui lui manque, c'est un lieu où l'art puisse continuer à grandir, où les êtres humains puissent vraiment se rencontrer, et où la mémoire commune puisse être préservée.",
           "Aujourd'hui, nous regardons chaque jour d'innombrables images, mais nous nous arrêtons de moins en moins devant une œuvre ; nous écoutons de moins en moins vraiment un artiste ; et nous acceptons de moins en moins d'entrer dans une autre culture, simplement pour comprendre, et non pour juger.",
-          "C'est ainsi qu'est né Zhen Collection Paris.",
-        ],
-      },
-      {
-        variant: "callout",
-        paragraphs: [
-          "Il ne s'agit pas d'ajouter une voix de plus, mais de créer une rencontre, et plus encore, de préserver les mémoires communes que ces rencontres font naître.",
+          "L'art lui-même ne parle pas. Ce qui fait réellement grandir l'art, c'est le regard, la compréhension, la réponse et l'échange qui se produisent sans cesse entre les êtres humains.",
+          "Nous croyons donc que le dialogue n'est pas un accessoire extérieur à l'art, mais une part de la vie même de l'art. Chaque échange sincère peut modifier le sens d'une œuvre ; chaque rencontre transculturelle peut nous faire mieux comprendre l'autre, et mieux nous comprendre nous-mêmes.",
+          "C'est pour cette raison que Zhen Collection Paris choisit le dialogue comme point de départ, et espère, à travers des échanges authentiques, documenter comment l'art relie des personnes différentes, des cultures différentes et des civilisations différentes.",
         ],
       },
       {
@@ -197,19 +189,15 @@ const pageContent: Record<
     ],
   },
   en: {
-    title: "Why Zhen Collection Paris?",
+    title: "Why Dialogue?",
     sections: [
       {
         paragraphs: [
           "The world does not lack art. What it lacks is a place where art can keep growing, where people can truly meet one another, and where shared memory can be preserved.",
           "Today, we look at countless images every day, yet we stop less and less often to face a single work of art. We listen less and less to an artist. And we are less and less willing to step into another culture simply to understand it, rather than to judge it.",
-          "This is why Zhen Collection Paris was born.",
-        ],
-      },
-      {
-        variant: "callout",
-        paragraphs: [
-          "It is not meant to add one more voice. It is meant to create an encounter, and more than that, to preserve the shared memories that such encounters bring into being.",
+          "Art itself does not speak. What truly keeps art growing is the ongoing looking, understanding, responding, and exchange that happen between people.",
+          "Therefore, we believe dialogue is not an accessory outside art, but part of the life of art itself. Every sincere exchange may change the meaning of a work; every cross-cultural encounter may help us understand one another anew, and understand ourselves anew.",
+          "This is why Zhen Collection Paris chooses dialogue as its starting point, and hopes, through one authentic exchange after another, to record how art connects different people, different cultures, and different civilizations.",
         ],
       },
       {
