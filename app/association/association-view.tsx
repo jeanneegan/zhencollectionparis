@@ -38,11 +38,11 @@ const pageContent: Record<
   fr: {
     title: "Pourquoi Zhen Collection Paris ?",
     paragraphs: [
-      "Zhen Collection Paris （巴黎臻藏） est une association culturelle et artistique internationale fondée à Paris.",
-      "Ancrée à Paris, l'association a pour mission de favoriser des échanges durables, professionnels et réciproques entre les écosystèmes de l'art contemporain de Paris et de la Chine, en créant une plateforme internationale de coopération réunissant artistes, critiques d'art, commissaires d'exposition, galeries, collectionneurs et institutions culturelles.",
-      "Paris rassemble des artistes, critiques d'art, commissaires d'exposition, galeries, collectionneurs et institutions culturelles venus du monde entier. Véritable carrefour de la création contemporaine, la ville constitue un lieu privilégié de dialogue artistique international. Zhen Collection Paris s'attache à faire découvrir au public chinois des artistes internationaux vivant et travaillant à Paris ainsi que leurs pratiques artistiques, tout en faisant connaître aux critiques d'art, commissaires d'exposition, galeries, collectionneurs et institutions culturelles parisiens les artistes contemporains chinois, leurs pratiques et leurs regards sur le monde, afin de favoriser des échanges toujours plus profonds, durables et créatifs entre les deux écosystèmes artistiques.",
-      "À travers des dialogues entre artistes, des expositions, des textes critiques, des publications, des archives artistiques et des projets de coopération internationale, l'association documente les échanges interculturels dans l'art contemporain, encourage la circulation des idées, des pratiques artistiques et des ressources professionnelles, crée de nouvelles opportunités de développement pour les artistes et favorise la rencontre, la coopération et la croissance commune des professionnels issus de différents horizons culturels.",
-      "Nous croyons que l'art dépasse les frontières, les langues et les cultures, et qu'il constitue un langage privilégié pour favoriser la compréhension entre les civilisations. Depuis Paris, Zhen Collection Paris souhaite construire, avec la Chine dans un premier temps puis progressivement avec d'autres pays et régions du monde, un réseau international ouvert et durable, fondé sur le dialogue, réunissant artistes, critiques d'art, commissaires d'exposition, galeries, collectionneurs et institutions culturelles, afin que chaque rencontre contribue au dialogue entre les civilisations.",
+      "Zhen Collection Paris (巴黎臻藏) est une association culturelle et artistique internationale fondée à Paris.",
+      "Ancrée à Paris, l'association a pour vocation de favoriser des échanges durables, professionnels et réciproques entre les écosystèmes artistiques contemporains de Paris et de la Chine, tout en développant progressivement un réseau international de coopération réunissant artistes, critiques d'art, commissaires d'exposition, galeries, collectionneurs et institutions culturelles.",
+      "Paris rassemble des artistes et des professionnels de l'art venus du monde entier. Véritable carrefour international de la création contemporaine, la ville offre un environnement unique où se rencontrent des pratiques, des regards et des cultures multiples. Zhen Collection Paris souhaite faire découvrir au public chinois les artistes internationaux vivant et travaillant à Paris ainsi que leurs pratiques artistiques, tout en faisant connaître à Paris les artistes contemporains chinois, leurs démarches et leurs regards sur le monde, afin d'encourager des échanges toujours plus profonds, durables et créatifs entre les deux scènes artistiques.",
+      "À travers des dialogues entre artistes, des expositions, des textes critiques, des publications, des archives artistiques et des projets de coopération internationale, l'association souhaite documenter les échanges interculturels dans l'art contemporain, favoriser le partage des idées, des pratiques artistiques et des ressources professionnelles, offrir aux artistes de nouvelles opportunités de développement international, et créer un espace de rencontre, de dialogue et de coopération entre les professionnels issus de différents horizons culturels.",
+      "Nous croyons que l'art dépasse les frontières, les langues et les cultures, et qu'il constitue un langage privilégié pour favoriser la compréhension entre les civilisations. Depuis Paris, Zhen Collection Paris souhaite créer des liens avec la Chine, puis progressivement avec d'autres pays et régions du monde, afin de construire, avec l'ensemble des acteurs du monde de l'art, un réseau international d'échanges culturels ouvert, durable et fondé sur le dialogue, où chaque rencontre contribue à une meilleure compréhension entre les cultures et les civilisations.",
     ],
     closing:
       "Relier Paris, relier la Chine ; favoriser le dialogue entre les civilisations par l'art.",
@@ -65,6 +65,8 @@ export function AssociationView() {
   const [locale, setLocale] = useLocale();
   const content = pageContent[locale];
   const useSerif = locale === "zh";
+  const bodyParagraphClass =
+    locale === "fr" ? `${proseClass} text-justify hyphens-auto` : proseClass;
 
   return (
     <div className="min-h-screen bg-white text-stone-900">
@@ -87,7 +89,7 @@ export function AssociationView() {
 
         <div className={`mt-12 space-y-5 ${useSerif ? serif.className : ""}`}>
           {content.paragraphs.map((paragraph, index) => (
-            <p key={index} className={proseClass}>
+            <p key={index} lang={locale} className={bodyParagraphClass}>
               {paragraph}
             </p>
           ))}
