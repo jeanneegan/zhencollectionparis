@@ -12,8 +12,8 @@ export function getArtistShareImage(artist: ArtistProfile) {
 
 export function getExhibitionShareImage(exhibition: Exhibition) {
   const artist = getArtistBySlug(exhibition.artistSlug);
-  const firstWork = artist?.artworks.find((work) =>
-    exhibition.workIds.includes(work.id),
+  const firstWork = artist?.artworks.find(
+    (work) => exhibition.workIds.includes(work.id) && work.image,
   );
 
   if (!firstWork) {
@@ -21,7 +21,7 @@ export function getExhibitionShareImage(exhibition: Exhibition) {
   }
 
   return shareImageFromPath(
-    firstWork.image,
+    firstWork.image!,
     `${t(firstWork.title, "fr")} · ${t(exhibition.title, "fr")}`,
   );
 }

@@ -13,16 +13,18 @@ export const metadata: Metadata = createPageMetadata({
 export default async function CommentairePage() {
   const member = await requireMember();
   const works = getAllArtists().flatMap((artist) =>
-    artist.artworks.map((work) => ({
-      id: `${artist.slug}-${work.id}`,
-      artistSlug: artist.slug,
-      artistName: artist.name,
-      title: work.title,
-      year: work.year,
-      medium: work.medium,
-      dimensions: work.dimensions,
-      image: work.image,
-    })),
+    artist.artworks
+      .filter((work) => work.image)
+      .map((work) => ({
+        id: `${artist.slug}-${work.id}`,
+        artistSlug: artist.slug,
+        artistName: artist.name,
+        title: work.title,
+        year: work.year,
+        medium: work.medium,
+        dimensions: work.dimensions,
+        image: work.image!,
+      })),
   );
 
   return <CommentateurView works={works} member={member} />;

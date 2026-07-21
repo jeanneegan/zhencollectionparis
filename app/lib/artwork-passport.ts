@@ -321,7 +321,7 @@ export function getArtworkPassport(
     year: artwork.year,
     medium: artwork.medium,
     dimensions: artwork.dimensions,
-    image: artwork.image,
+    image: artwork.image ?? "",
     imageAspect: artwork.imageAspect,
     views: artwork.views,
     viewsLayout: artwork.viewsLayout,

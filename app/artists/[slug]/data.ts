@@ -66,7 +66,8 @@ export type ArtistProfile = {
     year: number;
     medium: LocalizedText;
     dimensions: string;
-    image: string;
+    image?: string;
+    externalUrl?: string;
     imageAspect?: [number, number];
     seriesId?: string;
     views?: {
@@ -550,7 +551,7 @@ The exhibition theme was the « people's house »—hence the potato, a cheap, p
         en: "Oil on wood panel",
       },
       dimensions: "20 × 31 cm",
-      image: "/artists/willy-le-nalbaut/works/mais-cest-le-mitch.jpg",
+      externalUrl: "https://willy-cochon.hotglue.me/?start.head.177452232635",
       imageAspect: [1010, 646],
       displayLayout: "compact",
       layoutPair: { group: "mitch-korrigan", role: "main", equal: true },

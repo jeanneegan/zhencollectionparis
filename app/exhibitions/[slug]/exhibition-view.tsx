@@ -9,6 +9,7 @@ import {
   t,
   type Locale,
 } from "@/app/artists/[slug]/data";
+import { ArtworkExternalLink } from "@/app/components/artwork-external-link";
 import { CollectionInquiryForm } from "@/app/components/collection-inquiry-form";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
 import { MemberShareLink } from "@/app/components/member-share-link";
@@ -132,18 +133,27 @@ export function ExhibitionView({
 
             return (
               <article key={work.id} className="border-t border-stone-200 pt-12">
-                <div
-                  className="relative w-full overflow-hidden bg-stone-100"
-                  style={layout.frameStyle}
-                >
-                  <Image
-                    src={work.image}
-                    alt={t(work.title, locale)}
-                    fill
-                    className="object-contain object-center"
-                    sizes={layout.imageSizes}
+                {work.externalUrl ? (
+                  <ArtworkExternalLink
+                    href={work.externalUrl}
+                    title={t(work.title, locale)}
+                    locale={locale}
+                    frameStyle={layout.frameStyle}
                   />
-                </div>
+                ) : (
+                  <div
+                    className="relative w-full overflow-hidden bg-stone-100"
+                    style={layout.frameStyle}
+                  >
+                    <Image
+                      src={work.image ?? ""}
+                      alt={t(work.title, locale)}
+                      fill
+                      className="object-contain object-center"
+                      sizes={layout.imageSizes}
+                    />
+                  </div>
+                )}
                 <div className="mt-5">
                   <h2 className="text-sm font-medium tracking-[0.06em] text-stone-900">
                     {t(work.title, locale)}

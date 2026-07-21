@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { ArtworkExternalLink } from "@/app/components/artwork-external-link";
 import Link from "next/link";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
 import { SiteBrandLink } from "@/app/components/site-brand-link";
@@ -325,11 +326,63 @@ function ArtworkCard({
   articleClass?: string;
 }) {
   const layout = getArtworkDisplayLayout(artwork);
+  const externalUrl = artwork.externalUrl;
+
+  if (externalUrl) {
+    return (
+      <article className={`group ${articleClass || layout.articleClass}`}>
+        <ArtworkExternalLink
+          href={externalUrl}
+          title={t(artwork.title, locale)}
+          locale={locale}
+          frameStyle={layout.frameStyle}
+        />
+        <div className="mt-5">
+          <h3 className={passportType.artworkTitle}>
+            {t(artwork.title, locale)}
+          </h3>
+          {artwork.subtitle ? (
+            <p className={`mt-1 ${passportType.artworkMeta} leading-relaxed`}>
+              {t(artwork.subtitle, locale)}
+            </p>
+          ) : null}
+          <p className={`mt-1 ${passportType.caption}`}>{artwork.year}</p>
+          <p className={`mt-2 ${passportType.artworkMeta} leading-relaxed`}>
+            {t(artwork.medium, locale)}
+          </p>
+          {artwork.dimensions ? (
+            <p className={`mt-1 ${passportType.metaPlain}`}>
+              {artwork.dimensions}
+            </p>
+          ) : null}
+          {artwork.description ? (
+            <div className={`mt-4 space-y-3 ${passportType.body}`}>
+              {t(artwork.description, locale)
+                .split(/\n\n+/)
+                .filter(Boolean)
+                .map((paragraph) => (
+                  <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+                ))}
+            </div>
+          ) : null}
+          {hasArtworkPassport(artistSlug, artwork.id) ? (
+            <Link
+              href={`/oeuvres/${artistSlug}/${artwork.id}?from=${encodeURIComponent(`artist:${artistSlug}`)}`}
+              className="mt-4 inline-block text-[11px] tracking-[0.08em] text-stone-500 transition-colors hover:text-stone-900"
+            >
+              {viewArtworkPassportLabel}
+            </Link>
+          ) : null}
+        </div>
+      </article>
+    );
+  }
+
   const views =
     artwork.views ??
     ([
       {
-        src: artwork.image,
+        src: artwork.image ?? "",
         label: {
           zh: "",
           fr: "",
