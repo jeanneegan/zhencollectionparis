@@ -25,10 +25,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return createPageMetadata({ title: "Artist · Zhen Collection Paris" });
   }
 
+  const shareImage = getArtistShareImage(artist);
+
   return createPageMetadata({
     title: `${t(artist.name, "fr")} · Zhen Collection Paris`,
     description: t(artist.tagline, "fr"),
-    images: [getArtistShareImage(artist)],
+    ...(shareImage ? { images: [shareImage] } : {}),
   });
 }
 

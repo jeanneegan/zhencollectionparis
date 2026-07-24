@@ -244,15 +244,17 @@ function GallerySectionView({
                   className="rounded-sm border border-stone-200 p-4 transition-colors hover:border-stone-400"
                 >
                   <div className="flex gap-4">
-                    <div className="relative h-20 w-16 shrink-0 overflow-hidden bg-stone-100">
-                      <Image
-                        src={artist.portrait}
-                        alt={t(artist.name, locale)}
-                        fill
-                        className="object-cover"
-                        sizes="64px"
-                      />
-                    </div>
+                    {artist.portrait ? (
+                      <div className="relative h-20 w-16 shrink-0 overflow-hidden bg-stone-100">
+                        <Image
+                          src={artist.portrait}
+                          alt={t(artist.name, locale)}
+                          fill
+                          className="object-cover"
+                          sizes="64px"
+                        />
+                      </div>
+                    ) : null}
                     <div className="min-w-0 flex-1">
                       <p className="text-sm font-medium text-stone-900">
                         {t(artist.name, locale)}

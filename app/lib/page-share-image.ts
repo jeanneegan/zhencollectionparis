@@ -4,8 +4,15 @@ import type { Exhibition } from "@/app/exhibitions/data";
 import { shareImageFromPath } from "@/app/lib/site-metadata";
 
 export function getArtistShareImage(artist: ArtistProfile) {
+  const image =
+    artist.portrait || artist.artworks.find((work) => work.image)?.image;
+
+  if (!image) {
+    return undefined;
+  }
+
   return shareImageFromPath(
-    artist.portrait,
+    image,
     `${t(artist.name, "fr")} · ${t(artist.name, "zh")}`,
   );
 }

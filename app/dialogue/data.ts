@@ -85,7 +85,6 @@ export const episodes: DialogueEpisode[] = [
     willyToSuHong: {
       questionFrom: {
         type: "portrait",
-        src: "/artists/willy-le-nalbaut/portrait.jpg",
         alt: "Willy Le Nalbaut",
         label: "Willy Le Nalbaut",
       },
@@ -115,7 +114,6 @@ export const episodes: DialogueEpisode[] = [
       },
       answerFrom: {
         type: "portrait",
-        src: "/artists/willy-le-nalbaut/portrait.jpg",
         alt: "Willy Le Nalbaut",
         label: "Willy Le Nalbaut",
       },

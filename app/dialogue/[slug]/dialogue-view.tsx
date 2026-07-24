@@ -153,17 +153,19 @@ function DialogueIdentity({ avatar }: { avatar: DialogueAvatar }) {
 
   return (
     <div className="flex items-center gap-4">
-      <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full bg-stone-100">
-        <Image
-          src={avatar.src!}
-          alt={avatar.alt}
-          fill
-          className={`object-cover object-center${
-            avatar.src?.includes("willy-le-nalbaut") ? "" : " grayscale"
-          }`}
-          sizes="56px"
-        />
-      </div>
+      {avatar.src ? (
+        <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full bg-stone-100">
+          <Image
+            src={avatar.src}
+            alt={avatar.alt}
+            fill
+            className={`object-cover object-center${
+              avatar.src.includes("willy-le-nalbaut") ? "" : " grayscale"
+            }`}
+            sizes="56px"
+          />
+        </div>
+      ) : null}
       <p className="text-[10px] tracking-[0.12em] text-stone-400">
         {avatar.label ?? avatar.alt}
       </p>

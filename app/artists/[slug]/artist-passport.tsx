@@ -567,6 +567,7 @@ export function ArtistPassport({
     Boolean(cultureQuestionText) || Boolean(hopeToLeaveText);
   const pageWrap = member ? "w-full" : "mx-auto max-w-7xl";
   const passportArtworks = getArtistPassportArtworks(artist);
+  const hasPortrait = Boolean(artist.portrait);
 
   const passportContent = (
     <>
@@ -581,26 +582,32 @@ export function ArtistPassport({
         id="passport-artist"
         className="scroll-mt-28 border-b border-stone-200 bg-white md:scroll-mt-32"
       >
-        <div className={`${pageWrap} grid grid-cols-1 md:grid-cols-2`}>
-          <div
-            className={`relative aspect-[3/4] bg-stone-100 md:aspect-auto ${
-              member ? "md:min-h-[420px]" : "md:min-h-[640px]"
-            }`}
-          >
-            <Image
-              src={artist.portrait}
-              alt={t(artist.name, locale)}
-              fill
-              priority
-              className="object-cover object-center"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-          </div>
+        <div
+          className={`${pageWrap} grid grid-cols-1 ${
+            hasPortrait ? "md:grid-cols-2" : ""
+          }`}
+        >
+          {hasPortrait ? (
+            <div
+              className={`relative aspect-[3/4] bg-stone-100 md:aspect-auto ${
+                member ? "md:min-h-[420px]" : "md:min-h-[640px]"
+              }`}
+            >
+              <Image
+                src={artist.portrait}
+                alt={t(artist.name, locale)}
+                fill
+                priority
+                className="object-cover object-center"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+          ) : null}
 
           <div
             className={`flex flex-col justify-center ${
               member ? "px-6 py-10 md:px-10" : "px-6 py-16 md:px-16 lg:px-20"
-            }`}
+            } ${hasPortrait ? "" : "md:max-w-3xl md:mx-auto md:w-full"}`}
           >
             {!member ? (
               <>
@@ -740,7 +747,7 @@ export function ArtistPassport({
                 controls
                 playsInline
                 preload="metadata"
-                poster={artist.introVideoPoster ?? artist.portrait}
+                poster={artist.introVideoPoster || undefined}
                 className="aspect-video w-full bg-stone-900"
                 aria-label={t(artist.name, locale)}
               />

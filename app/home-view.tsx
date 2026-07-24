@@ -322,17 +322,7 @@ function ArtistsSection({
           <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-stone-400">
             {artistFr}
           </p>
-          <div className="relative mt-5 aspect-square w-full max-w-[220px] overflow-hidden bg-stone-100">
-            <Image
-              src="/artists/willy-le-nalbaut/portrait.jpg"
-              alt="Willy Le Nalbaut"
-              fill
-              className="object-cover object-center"
-              sizes="220px"
-              priority
-            />
-          </div>
-          <p className="mt-5 text-base tracking-wide text-stone-900">
+          <p className="mt-8 text-base tracking-wide text-stone-900">
             Willy Le Nalbaut
           </p>
         </Link>
