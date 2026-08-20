@@ -18,6 +18,10 @@ import {
   getArtworkPassportPath,
   hasArtworkPassport,
 } from "@/app/lib/artwork-passport";
+import {
+  getEditionCopyPassportPath,
+  hasEditionCopyPassport,
+} from "@/app/lib/edition-copy-passport";
 import { useLocale } from "@/app/lib/use-locale";
 
 const serif = Noto_Serif_SC({
@@ -33,6 +37,7 @@ const pageLabels: Record<
     artist: string;
     viewArtist: string;
     viewPassport: string;
+    viewCopyPassport: string;
     inquiry: string;
     editionSize: string;
   }
@@ -43,6 +48,7 @@ const pageLabels: Record<
     artist: "Artiste · 艺术家",
     viewArtist: "Voir l'artiste · 查看艺术家",
     viewPassport: "Voir le passeport œuvre · 查看作品护照",
+    viewCopyPassport: "Exemplaire 1/6 · 第 1/6 号护照",
     inquiry: "咨询 · Inquiry",
     editionSize: "版数 · Tirage",
   },
@@ -52,6 +58,7 @@ const pageLabels: Record<
     artist: "Artiste · 艺术家",
     viewArtist: "Voir l'artiste · 查看艺术家",
     viewPassport: "Voir le passeport œuvre · 查看作品护照",
+    viewCopyPassport: "Exemplaire 1/6 · 第 1/6 号护照",
     inquiry: "Demande · 咨询",
     editionSize: "Tirage · 版数",
   },
@@ -61,6 +68,7 @@ const pageLabels: Record<
     artist: "Artist",
     viewArtist: "View artist",
     viewPassport: "View artwork passport",
+    viewCopyPassport: "Exemplar 1/6 passport",
     inquiry: "Inquiry",
     editionSize: "Edition size",
   },
@@ -170,6 +178,14 @@ export function EditionView({ edition }: { edition: Edition }) {
               >
                 {l.viewArtist}
               </Link>
+              {hasEditionCopyPassport(edition.id, 1) ? (
+                <Link
+                  href={getEditionCopyPassportPath(edition.id, 1)}
+                  className="text-[11px] tracking-[0.08em] text-stone-500 transition-colors hover:text-stone-900"
+                >
+                  {l.viewCopyPassport}
+                </Link>
+              ) : null}
               {hasArtworkPassport(edition.artistSlug, edition.workId) ? (
                 <Link
                   href={getArtworkPassportPath(edition.artistSlug, edition.workId)}

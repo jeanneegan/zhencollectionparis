@@ -61,6 +61,10 @@ export type ArtworkPassport = {
   priceHistoryNote?: LocalizedText;
   evaluations: ArtworkEvaluation[];
   exhibitionHistory: ArtworkExhibitionEntry[];
+  editionCopy?: {
+    number: number;
+    total: number;
+  };
 };
 
 const defaultPassportNote: LocalizedText = {

@@ -29,6 +29,7 @@ const labels: Record<
     archiveId: string;
     collector: string;
     workCity: string;
+    editionCopy: string;
     status: string;
     series: string;
     description: string;
@@ -56,6 +57,7 @@ const labels: Record<
     archiveId: "Archive ID · 档案编号",
     collector: "Collectionneur · 藏家",
     workCity: "Ville · 作品所在城市",
+    editionCopy: "Exemplaire · 编号",
     status: "Statut · 状态",
     series: "Série · 系列",
     description: "Description · 作品描述",
@@ -83,6 +85,7 @@ const labels: Record<
     archiveId: "Archive ID · 档案编号",
     collector: "Collectionneur · 藏家",
     workCity: "Ville · 作品所在城市",
+    editionCopy: "Exemplaire · 编号",
     status: "Statut · 状态",
     series: "Série · 系列",
     description: "Description · 作品描述",
@@ -110,6 +113,7 @@ const labels: Record<
     archiveId: "Archive ID",
     collector: "Collector",
     workCity: "City",
+    editionCopy: "Exemplar",
     status: "Status",
     series: "Series",
     description: "Description",
@@ -280,6 +284,14 @@ export function ArtworkPassportView({
                   <dt className={passportType.meta}>{l.workCity}</dt>
                   <dd className={`mt-1 ${passportType.heroValue}`}>
                     {t(passport.locationCity, locale)}
+                  </dd>
+                </div>
+              ) : null}
+              {passport.editionCopy ? (
+                <div>
+                  <dt className={passportType.meta}>{l.editionCopy}</dt>
+                  <dd className={`mt-1 ${passportType.heroValue}`}>
+                    {passport.editionCopy.number} / {passport.editionCopy.total}
                   </dd>
                 </div>
               ) : null}
