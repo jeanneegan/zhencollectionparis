@@ -35,3 +35,19 @@ export function getSiteNavItems(): SiteNavItem[] {
     },
   ];
 }
+
+export function isArtworkPassportPath(pathname: string): boolean {
+  if (pathname.startsWith("/oeuvres/")) {
+    return true;
+  }
+
+  return /^\/edition\/[^/]+\/\d+$/.test(pathname);
+}
+
+export function getVisibleSiteNavItems(pathname: string): SiteNavItem[] {
+  const items = getSiteNavItems();
+  if (isArtworkPassportPath(pathname)) {
+    return items.filter((item) => !item.isDialogue);
+  }
+  return items;
+}

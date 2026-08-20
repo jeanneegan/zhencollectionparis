@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { CollectorEvaluationForm } from "@/app/components/collector-evaluation-form";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
 import { PageBottomNav } from "@/app/components/page-bottom-nav";
 import { SiteBrandLink } from "@/app/components/site-brand-link";
@@ -39,13 +40,12 @@ const labels: Record<
     referencePrice: string;
     memberOnlyPrice: string;
     evaluations: string;
+    collectorEvaluation: string;
+    collectorEvaluationIntro: string;
     exhibitions: string;
     venue: string;
     city: string;
     viewArtist: string;
-    collectionInquiry: string;
-    collectionNote: string;
-    collectionLink: string;
   }
 > = {
   zh: {
@@ -67,14 +67,13 @@ const labels: Record<
     referencePrice: "Prix de référence · 参考价格",
     memberOnlyPrice: "Visible pour les collectionneurs inscrits · 注册藏家可见",
     evaluations: "Évaluations · 专业评价",
+    collectorEvaluation: "Participation collectionneur · 藏家参与评价",
+    collectorEvaluationIntro:
+      "受邀藏家可在此留下对这件作品的专业阅读、持藏体会或持续评价。",
     exhibitions: "Expositions · 展览记录",
     venue: "Lieu · 场馆",
     city: "Ville · 城市",
     viewArtist: "Voir l'artiste · 查看艺术家",
-    collectionInquiry: "Inquiry · 咨询",
-    collectionNote:
-      "关于该作品的咨询与合作 · Inquiry and collaboration regarding this work",
-    collectionLink: "咨询 · Inquiry",
   },
   fr: {
     passport: "Passeport Œuvre · 作品护照",
@@ -95,14 +94,13 @@ const labels: Record<
     referencePrice: "Prix de référence · 参考价格",
     memberOnlyPrice: "Visible pour les collectionneurs inscrits · 注册藏家可见",
     evaluations: "Évaluations · 专业评价",
+    collectorEvaluation: "Participation collectionneur · 藏家参与评价",
+    collectorEvaluationIntro:
+      "受邀藏家可在此留下对这件作品的专业阅读、持藏体会或持续评价。",
     exhibitions: "Expositions · 展览记录",
     venue: "Lieu · 场馆",
     city: "Ville · 城市",
     viewArtist: "Voir l'artiste · 查看艺术家",
-    collectionInquiry: "Inquiry · 咨询",
-    collectionNote:
-      "关于该作品的咨询与合作 · Inquiry and collaboration regarding this work",
-    collectionLink: "咨询 · Inquiry",
   },
   en: {
     passport: "Artwork Passport",
@@ -123,13 +121,13 @@ const labels: Record<
     referencePrice: "Reference Price",
     memberOnlyPrice: "Visible to registered collectors",
     evaluations: "Evaluations",
+    collectorEvaluation: "Collector participation",
+    collectorEvaluationIntro:
+      "Invited collectors may leave a professional reading, holding note, or ongoing evaluation of this work.",
     exhibitions: "Exhibition History",
     venue: "Venue",
     city: "City",
     viewArtist: "View artist",
-    collectionInquiry: "Inquiry",
-    collectionNote: "Inquiry and collaboration regarding this work",
-    collectionLink: "Inquiry",
   },
 };
 
@@ -326,6 +324,16 @@ export function ArtworkPassportView({
             </dl>
           </div>
         </div>
+
+        <div
+          className={`${pageWrap} border-t border-stone-200 px-6 py-12 md:px-10 md:py-14`}
+        >
+          <SectionTitle>{l.collectorEvaluation}</SectionTitle>
+          <p className={`mt-4 max-w-3xl ${passportType.body}`}>
+            {l.collectorEvaluationIntro}
+          </p>
+          <CollectorEvaluationForm locale={locale} />
+        </div>
       </section>
 
       <section
@@ -410,17 +418,6 @@ export function ArtworkPassportView({
             </ul>
           </div>
         ) : null}
-
-        <div className="rounded-sm border border-stone-200 bg-white p-6 md:p-8">
-          <p className={passportType.meta}>{l.collectionInquiry}</p>
-          <p className={`mt-3 ${passportType.body}`}>{l.collectionNote}</p>
-          <Link
-            href={`/collection?artist=${passport.artistSlug}`}
-            className="mt-5 inline-block text-[11px] tracking-[0.08em] text-stone-500 transition-colors hover:text-stone-900"
-          >
-            {l.collectionLink}
-          </Link>
-        </div>
       </section>
 
       <section
@@ -501,7 +498,7 @@ export function ArtworkPassportView({
         <PageBottomNav locale={locale} backHref={returnTo ?? "/"} />
       </div>
 
-      <SiteFooter wide />
+      <SiteFooter wide locale={locale} />
     </div>
   );
 }

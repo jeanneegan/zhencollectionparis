@@ -99,10 +99,6 @@ export function shouldHidePublicNav(
     return true;
   }
 
-  if (pathname.startsWith("/oeuvres/")) {
-    return true;
-  }
-
   if (!isAuthenticated) {
     return false;
   }

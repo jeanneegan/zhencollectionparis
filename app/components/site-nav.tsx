@@ -2,15 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { getSiteNavItems } from "./site-nav-config";
+import { getVisibleSiteNavItems } from "./site-nav-config";
 
 const artistActiveClass = "bg-stone-900 text-white";
 const dialogueActiveClass = "bg-[#5a2323] text-white";
 
-const items = getSiteNavItems();
-
 export function SiteNav({ wide = false }: { wide?: boolean }) {
   const pathname = usePathname();
+  const items = getVisibleSiteNavItems(pathname);
 
   return (
     <nav
@@ -18,9 +17,9 @@ export function SiteNav({ wide = false }: { wide?: boolean }) {
       className="hidden border-t border-stone-200 bg-white/95 backdrop-blur-sm md:block"
     >
       <div
-        className={`mx-auto grid grid-cols-3 px-6 ${
+        className={`mx-auto grid px-6 ${
           wide ? "max-w-7xl md:px-10" : "max-w-3xl"
-        }`}
+        } ${items.length === 2 ? "grid-cols-2" : "grid-cols-3"}`}
       >
         {items.map(({ href, labelFr, labelZh, isDialogue, isActive }) => {
           const active = isActive(pathname);

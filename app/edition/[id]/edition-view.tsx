@@ -38,7 +38,6 @@ const pageLabels: Record<
     viewArtist: string;
     viewPassport: string;
     viewCopyPassport: string;
-    inquiry: string;
     editionSize: string;
   }
 > = {
@@ -49,7 +48,6 @@ const pageLabels: Record<
     viewArtist: "Voir l'artiste · 查看艺术家",
     viewPassport: "Voir le passeport œuvre · 查看作品护照",
     viewCopyPassport: "Exemplaire 1/6 · 第 1/6 号护照",
-    inquiry: "咨询 · Inquiry",
     editionSize: "版数 · Tirage",
   },
   fr: {
@@ -59,7 +57,6 @@ const pageLabels: Record<
     viewArtist: "Voir l'artiste · 查看艺术家",
     viewPassport: "Voir le passeport œuvre · 查看作品护照",
     viewCopyPassport: "Exemplaire 1/6 · 第 1/6 号护照",
-    inquiry: "Demande · 咨询",
     editionSize: "Tirage · 版数",
   },
   en: {
@@ -69,7 +66,6 @@ const pageLabels: Record<
     viewArtist: "View artist",
     viewPassport: "View artwork passport",
     viewCopyPassport: "Exemplar 1/6 passport",
-    inquiry: "Inquiry",
     editionSize: "Edition size",
   },
 };
@@ -194,12 +190,6 @@ export function EditionView({ edition }: { edition: Edition }) {
                   {l.viewPassport}
                 </Link>
               ) : null}
-              <Link
-                href={`/collection?artist=${artist.slug}&work=${work.id}`}
-                className="inline-flex rounded-full border border-stone-900 px-4 py-2 text-[11px] font-medium tracking-[0.1em] text-stone-900 transition-colors hover:bg-stone-900 hover:text-white"
-              >
-                {l.inquiry}
-              </Link>
             </div>
           </div>
         </article>

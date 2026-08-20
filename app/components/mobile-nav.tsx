@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
-import { getSiteNavItems } from "./site-nav-config";
+import { getVisibleSiteNavItems } from "./site-nav-config";
 import {
   readReturnFromParam,
   shouldHidePublicNav,
@@ -13,8 +13,6 @@ import {
 const artistActiveClass = "bg-stone-900 text-white";
 const dialogueActiveClass = "bg-[#5a2323] text-white";
 
-const items = getSiteNavItems();
-
 export function MobileNav() {
   const pathname = usePathname();
   const isAuthenticated = useIsAuthenticated();
@@ -23,6 +21,7 @@ export function MobileNav() {
     isAuthenticated,
     readReturnFromParam(),
   );
+  const items = getVisibleSiteNavItems(pathname);
 
   useEffect(() => {
     if (hideNav) {
@@ -45,7 +44,11 @@ export function MobileNav() {
       aria-label="Navigation mobile"
       className="fixed inset-x-0 bottom-0 z-50 border-t border-stone-200 bg-white/95 backdrop-blur-sm"
     >
-      <div className="mx-auto grid max-w-3xl grid-cols-3 px-6">
+      <div
+        className={`mx-auto grid max-w-3xl px-6 ${
+          items.length === 2 ? "grid-cols-2" : "grid-cols-3"
+        }`}
+      >
         {items.map(({ href, labelFr, labelZh, isDialogue, isActive }) => {
           const active = isActive(pathname);
           const mutedClass =
