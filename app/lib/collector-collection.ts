@@ -429,6 +429,75 @@ export const MOCK_COLLECTOR_HOLDINGS: CollectorHolding[] = [
     passportInitiated: true,
     evaluations: [],
   },
+  {
+    id: "holding-elaine-edition-1",
+    artistSlug: "elaine-erlan-wang",
+    artistName: {
+      zh: "王尔兰",
+      fr: "Elaine Erlan Wang",
+      en: "Elaine Erlan Wang",
+    },
+    title: {
+      zh: "无题",
+      fr: "Sans titre",
+      en: "Untitled",
+    },
+    year: 2026,
+    medium: {
+      zh: "数字作品",
+      fr: "Œuvre numérique",
+      en: "Digital work",
+    },
+    dimensions: "",
+    image: "/editions/1/work.jpg",
+    price: {
+      zh: "",
+      fr: "",
+      en: "",
+    },
+    acquiredYear: 2026,
+    acquiredFrom: {
+      zh: "巴黎臻藏出版计划 · Édition 1",
+      fr: "Collection éditoriale Zhen Collection Paris · Édition 1",
+      en: "Zhen Collection Paris editions programme · Edition 1",
+    },
+    location: {
+      zh: "巴黎 · 巴黎臻藏出版档案",
+      fr: "Paris · archive éditoriale Zhen Collection Paris",
+      en: "Paris · Zhen Collection Paris editorial archive",
+    },
+    condition: {
+      zh: "数字母版 · 6 版",
+      fr: "Fichier source · tirage 6 exemplaires",
+      en: "Digital master · edition of 6",
+    },
+    notes: {
+      zh: "巴黎臻藏出版计划第一件作品；本护照归档王尔兰这件数字作品及其专业阅读记录。",
+      fr: "Première œuvre de la collection éditoriale ZCP ; ce passeport archive cette œuvre numérique de Wang et sa lecture professionnelle.",
+      en: "First work in the ZCP editions programme; this passport archives Wang's digital work and its professional reading.",
+    },
+    passportInitiated: true,
+    evaluations: [
+      {
+        date: "2026-08",
+        author: {
+          zh: "巴黎臻藏",
+          fr: "Zhen Collection Paris",
+          en: "Zhen Collection Paris",
+        },
+        role: {
+          zh: "出版计划",
+          fr: "Programme éditorial",
+          en: "Editions programme",
+        },
+        quote: {
+          zh: "《无题》以红与青绿两团高能量笔触构成数字语言的集中样本；作为出版计划首件，建议与后续 Édition 并置观察艺术家语言的延续与变化。",
+          fr: "« Sans titre » concentre la langue numérique de l'artiste en deux masses énergétiques — rouge et bleu vert ; en tant que première édition, à mettre en dialogue avec les Éditions suivantes pour suivre la continuité et l'évolution.",
+          en: "« Untitled » concentrates the artist's digital language in two high-energy masses—red and blue-green; as the first edition, it invites comparison with later Éditions to track continuity and change.",
+        },
+      },
+    ],
+  },
 ];
 
 export function getHoldingsForDefaultCollector(): CollectorHolding[] {

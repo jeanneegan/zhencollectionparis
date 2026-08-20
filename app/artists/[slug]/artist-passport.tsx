@@ -622,12 +622,14 @@ export function ArtistPassport({
             ) : null}
 
             <dl className={`grid grid-cols-2 gap-x-8 gap-y-6 ${member ? "" : "mt-12"}`}>
-              <div>
-                <dt className={passportType.meta}>{l.birthYear}</dt>
-                <dd className={`mt-1 ${passportType.heroValue}`}>
-                  {artist.birthYear}
-                </dd>
-              </div>
+              {artist.birthYear ? (
+                <div>
+                  <dt className={passportType.meta}>{l.birthYear}</dt>
+                  <dd className={`mt-1 ${passportType.heroValue}`}>
+                    {artist.birthYear}
+                  </dd>
+                </div>
+              ) : null}
               <div>
                 <dt className={passportType.meta}>{l.birthplace}</dt>
                 <dd className={`mt-1 ${passportType.heroValue}`}>

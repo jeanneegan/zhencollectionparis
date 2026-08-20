@@ -191,6 +191,37 @@ const passportEnrichment: Record<
       },
     ],
   },
+  "elaine-erlan-wang-1": {
+    initiatedYear: 2026,
+    description: {
+      zh: "上部以饱和的红色笔触与细线交织，中部有一点深色签记；下部是青绿色与蓝绿的重叠层，白、黄、红线条斜切其间。整幅画面在数字笔触中保持高能量与流动性，是王尔兰数字语言的一次集中呈现。",
+      fr: "En haut, touches rouges saturées entrecroisées de fines lignes ; au centre, une petite tache sombre ; en bas, strates bleu vert et turquoise traversées de traits blancs, jaunes et rouges. L'ensemble garde une énergie fluide propre à la langue numérique de Wang.",
+      en: "Above, saturated red strokes interwoven with fine lines; at center, a small dark mark; below, blue-green and turquoise layers cut through by white, yellow, and red lines. The whole retains the fluid energy of Wang's digital language.",
+    },
+    passportNote: {
+      zh: "本作品护照由巴黎臻藏为出版计划第一件作品——王尔兰《无题》建立，归档这件数字作品及其专业阅读记录。",
+      fr: "Ce passeport d'œuvre est initié par Zhen Collection Paris pour « Sans titre » de Elaine Erlan Wang — première œuvre de la collection éditoriale, archive de cette œuvre numérique et de sa lecture professionnelle.",
+      en: "This artwork passport is initiated by Zhen Collection Paris for Elaine Erlan Wang's « Untitled »—the first work in the editions programme, archiving this digital work and its professional reading.",
+    },
+    status: {
+      zh: "巴黎臻藏出版 · 作品护照档案",
+      fr: "Édition ZCP · archive passeport d'œuvre",
+      en: "ZCP edition · artwork passport archive",
+    },
+    provenance: [
+      {
+        zh: "2026 · 巴黎臻藏出版计划 · Édition 1 · 6 版",
+        fr: "2026 · Collection éditoriale Zhen Collection Paris · Édition 1 · tirage 6 exemplaires",
+        en: "2026 · Zhen Collection Paris editions programme · Edition 1 · edition of 6",
+      },
+      {
+        zh: "2026 · 艺术家工作室 · 巴黎",
+        fr: "2026 · Atelier de l'artiste · Paris",
+        en: "2026 · Artist's studio · Paris",
+      },
+    ],
+    exhibitionHistory: [],
+  },
 };
 
 function cityFromLocation(location: LocalizedText): LocalizedText {

@@ -5,7 +5,7 @@ export type LocalizedText = Record<Locale, string>;
 export type ArtistProfile = {
   slug: string;
   name: LocalizedText;
-  birthYear: number;
+  birthYear?: number;
   birthplace: LocalizedText;
   currentCity: LocalizedText;
   nationality: LocalizedText;
@@ -1926,9 +1926,91 @@ If blue-and-white is a visual sign, each traditional motif painted on a porcelai
   },
 };
 
+const elaineErlanWang: ArtistProfile = {
+  slug: "elaine-erlan-wang",
+  name: {
+    zh: "王尔兰",
+    fr: "Elaine Erlan Wang",
+    en: "Elaine Erlan Wang",
+  },
+  birthplace: {
+    zh: "北京",
+    fr: "Pékin",
+    en: "Beijing",
+  },
+  currentCity: {
+    zh: "巴黎",
+    fr: "Paris",
+    en: "Paris",
+  },
+  nationality: { zh: "中国", fr: "Chinoise", en: "Chinese" },
+  practice: {
+    zh: "数字作品",
+    fr: "Œuvre numérique",
+    en: "Digital work",
+  },
+  representedBy: { zh: "", fr: "", en: "" },
+  portrait: "",
+  tagline: { zh: "", fr: "", en: "" },
+  contact: {
+    email: "",
+    phone: "",
+    website: "",
+    instagram: "",
+    wechat: "",
+  },
+  education: [
+    {
+      year: "2007",
+      institution: {
+        zh: "里昂美术学院",
+        fr: "École des Beaux-Arts de Lyon",
+        en: "École des Beaux-Arts de Lyon",
+      },
+      degree: { zh: "", fr: "", en: "" },
+      city: { zh: "里昂", fr: "Lyon", en: "Lyon" },
+    },
+  ],
+  galleries: [],
+  artistStatement: { zh: "", fr: "", en: "" },
+  whyChinaFrance: {
+    china: { zh: "", fr: "", en: "" },
+    france: { zh: "", fr: "", en: "" },
+  },
+  hopeToLeave: { zh: "", fr: "", en: "" },
+  careerTimeline: [],
+  exhibitions: [],
+  artworks: [
+    {
+      id: "1",
+      title: {
+        zh: "无题",
+        fr: "Sans titre",
+        en: "Untitled",
+      },
+      year: 2026,
+      medium: {
+        zh: "数字作品",
+        fr: "Œuvre numérique",
+        en: "Digital work",
+      },
+      dimensions: "",
+      image: "/editions/1/work.jpg",
+      imageAspect: [714, 1024],
+    },
+  ],
+  professionalReputation: {
+    galleryRecognition: [],
+    collectorRecognition: [],
+    curatorMediaRecognition: [],
+    publicResonance: [],
+  },
+};
+
 const artists: Record<string, ArtistProfile> = {
   "willy-le-nalbaut": willyLeNalbaut,
   "su-hong": suHong,
+  "elaine-erlan-wang": elaineErlanWang,
 };
 
 export function getArtworkAspectRatio(artwork: {
