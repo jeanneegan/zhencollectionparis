@@ -9,6 +9,7 @@ import {
   RETURN_FROM_ESPACE,
   RETURN_FROM_ESPACE_EXHIBITIONS,
 } from "@/app/lib/return-to";
+import { isArtworkPassportPath } from "@/app/components/site-nav-config";
 
 const CLIENT_AUTH_MAX_AGE = 60 * 60 * 24 * 7;
 
@@ -96,6 +97,10 @@ export function shouldHidePublicNav(
   }
 
   if (pathname.startsWith("/critics/")) {
+    return true;
+  }
+
+  if (isArtworkPassportPath(pathname)) {
     return true;
   }
 
