@@ -1929,7 +1929,7 @@ If blue-and-white is a visual sign, each traditional motif painted on a porcelai
 const elaineErlanWang: ArtistProfile = {
   slug: "elaine-erlan-wang",
   name: {
-    zh: "王尔兰",
+    zh: "王爾蘭",
     fr: "Elaine Erlan Wang",
     en: "Elaine Erlan Wang",
   },

@@ -433,7 +433,7 @@ export const MOCK_COLLECTOR_HOLDINGS: CollectorHolding[] = [
     id: "holding-elaine-edition-1",
     artistSlug: "elaine-erlan-wang",
     artistName: {
-      zh: "王尔兰",
+      zh: "王爾蘭",
       fr: "Elaine Erlan Wang",
       en: "Elaine Erlan Wang",
     },
@@ -472,7 +472,7 @@ export const MOCK_COLLECTOR_HOLDINGS: CollectorHolding[] = [
       en: "Digital master · edition of 6",
     },
     notes: {
-      zh: "巴黎臻藏出版计划第一件作品；本护照归档王尔兰这件数字作品及其专业阅读记录。",
+      zh: "巴黎臻藏出版计划第一件作品；本护照归档王爾蘭这件数字作品及其专业阅读记录。",
       fr: "Première œuvre de la collection éditoriale ZCP ; ce passeport archive cette œuvre numérique de Wang et sa lecture professionnelle.",
       en: "First work in the ZCP editions programme; this passport archives Wang's digital work and its professional reading.",
     },
