@@ -65,6 +65,8 @@ export type ArtworkPassport = {
     number: number;
     total: number;
   };
+  salesLink?: string;
+  salesLinkLabel?: LocalizedText;
 };
 
 const defaultPassportNote: LocalizedText = {
@@ -94,6 +96,8 @@ const passportEnrichment: Record<
       | "description"
       | "evaluations"
       | "exhibitionHistory"
+      | "salesLink"
+      | "salesLinkLabel"
     >
   >
 > = {
@@ -225,6 +229,13 @@ const passportEnrichment: Record<
       },
     ],
     exhibitionHistory: [],
+    salesLink:
+      "https://zbrv5b-vd.myshopify.com/products/oeuvre-sans-titre-2024-elaine-erlan-wang",
+    salesLinkLabel: {
+      zh: "再次收藏",
+      fr: "Collectionner à nouveau · 再次收藏",
+      en: "Collect again · 再次收藏",
+    },
   },
 };
 
@@ -383,6 +394,8 @@ export function getArtworkPassport(
     priceHistoryNote: enrichment?.priceHistoryNote ?? latestPrice?.note,
     evaluations: mergeEvaluations(holding.evaluations, enrichment?.evaluations),
     exhibitionHistory,
+    salesLink: enrichment?.salesLink,
+    salesLinkLabel: enrichment?.salesLinkLabel,
   };
 }
 

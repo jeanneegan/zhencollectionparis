@@ -46,6 +46,7 @@ const labels: Record<
     venue: string;
     city: string;
     viewArtist: string;
+    salesLink: string;
   }
 > = {
   zh: {
@@ -74,6 +75,7 @@ const labels: Record<
     venue: "Lieu · 场馆",
     city: "Ville · 城市",
     viewArtist: "Voir l'artiste · 查看艺术家",
+    salesLink: "再次收藏",
   },
   fr: {
     passport: "Passeport Œuvre · 作品护照",
@@ -101,6 +103,7 @@ const labels: Record<
     venue: "Lieu · 场馆",
     city: "Ville · 城市",
     viewArtist: "Voir l'artiste · 查看艺术家",
+    salesLink: "再次收藏",
   },
   en: {
     passport: "Artwork Passport",
@@ -128,6 +131,7 @@ const labels: Record<
     venue: "Venue",
     city: "City",
     viewArtist: "View artist",
+    salesLink: "Collect again · 再次收藏",
   },
 };
 
@@ -324,6 +328,24 @@ export function ArtworkPassportView({
             </dl>
           </div>
         </div>
+
+        {passport.salesLink ? (
+          <div
+            className={`${pageWrap} border-t border-stone-200 px-6 py-10 md:px-10 md:py-12`}
+          >
+            <a
+              href={passport.salesLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-stone-900 px-6 py-2.5 text-[11px] font-medium tracking-[0.1em] text-stone-900 transition-colors hover:bg-stone-900 hover:text-white"
+            >
+              {passport.salesLinkLabel
+                ? t(passport.salesLinkLabel, locale)
+                : l.salesLink}
+              <span aria-hidden>→</span>
+            </a>
+          </div>
+        ) : null}
 
         <div
           className={`${pageWrap} border-t border-stone-200 px-6 py-12 md:px-10 md:py-14`}
