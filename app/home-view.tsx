@@ -110,7 +110,7 @@ function getEpisodeArtistPortraits(episode: DialogueEpisode, locale: Locale) {
         src: string;
         alt: string;
         aspect: [number, number];
-        credit?: string;
+        credit: string | undefined;
       } => item !== null,
     );
 }
