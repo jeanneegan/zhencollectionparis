@@ -36,10 +36,10 @@ const spotlightLabels: Record<
 > = {
   zh: {
     conversationKicker: "CURRENT CONVERSATION · 当前对话",
-    conversationCta: "DÉCOUVRIR LA CONVERSATION →",
+    conversationCta: "Découvrir la conversation · 进入对话 →",
     editionKicker: "LATEST EDITION · 最新限量作品",
     editionMeta: (copies, price) => `限量 ${copies} 版 · ${price} €`,
-    editionCta: "COLLECTIONNER L'ŒUVRE →",
+    editionCta: "Collectionner l'œuvre · 收藏作品 →",
     festivalKicker: "FESTIVAL · 艺术节",
     festivalRoute: "Paris ↔ Shenzhen",
     festivalTagline: "在日常空间发生的国际艺术节",
@@ -47,10 +47,10 @@ const spotlightLabels: Record<
   },
   fr: {
     conversationKicker: "CURRENT CONVERSATION · 当前对话",
-    conversationCta: "DÉCOUVRIR LA CONVERSATION →",
+    conversationCta: "Découvrir la conversation · 进入对话 →",
     editionKicker: "LATEST EDITION · 最新限量作品",
     editionMeta: (copies, price) => `Édition de ${copies} · ${price} €`,
-    editionCta: "COLLECTIONNER L'ŒUVRE →",
+    editionCta: "Collectionner l'œuvre · 收藏作品 →",
     festivalKicker: "FESTIVAL · 艺术节",
     festivalRoute: "Paris ↔ Shenzhen",
     festivalTagline:
