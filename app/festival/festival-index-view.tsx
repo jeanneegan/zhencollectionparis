@@ -16,7 +16,6 @@ const pageLabels: Record<
     subtitle: string;
     route: string;
     tagline: string;
-    when: string;
     status: string;
     view: string;
     empty: string;
@@ -27,7 +26,6 @@ const pageLabels: Record<
     subtitle: "巴黎臻藏艺术节与公共项目。",
     route: "Paris ↔ Shenzhen",
     tagline: "在日常空间发生的国际艺术节。",
-    when: "深圳坪山 · 每年十月",
     status: "项目筹备中，欢迎持续关注。",
     view: "Voir le festival · 查看艺术节",
     empty: "艺术节项目筹备中，敬请期待。",
@@ -38,7 +36,6 @@ const pageLabels: Record<
     route: "Paris ↔ Shenzhen",
     tagline:
       "Festival international d'art dans les espaces du quotidien.",
-    when: "Pingshan · Shenzhen · chaque octobre",
     status: "Projet en préparation — restez informés.",
     view: "Voir le festival · 查看艺术节",
     empty: "Les projets festival sont en préparation.",
@@ -48,7 +45,6 @@ const pageLabels: Record<
     subtitle: "Zhen Collection Paris festivals and public programmes.",
     route: "Paris ↔ Shenzhen",
     tagline: "Annual international art festival in everyday spaces.",
-    when: "Pingshan · Shenzhen · every October",
     status: "Project in preparation — follow for updates.",
     view: "View festival",
     empty: "Festival projects are in preparation.",
@@ -84,9 +80,6 @@ export function FestivalIndexView() {
             </p>
             <p className="mx-auto mt-4 max-w-md text-sm leading-[1.9] text-stone-600">
               {l.tagline}
-            </p>
-            <p className="mt-3 text-xs tracking-[0.08em] text-stone-500">
-              {l.when}
             </p>
             <p className="mt-6 text-sm leading-[1.9] text-stone-500">
               {l.status}

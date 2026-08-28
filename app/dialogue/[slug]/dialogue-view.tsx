@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Noto_Serif_SC } from "next/font/google";
+import { DialogueEpisodeNav } from "@/app/components/dialogue-episode-nav";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
 import { BRAND_LOGO_SRC } from "@/app/components/site-brand-logo";
 import { PublicMessageForm } from "@/app/components/public-message-form";
@@ -448,6 +449,7 @@ export function DialogueView({
       </main>
 
       <SiteFooter />
+      <DialogueEpisodeNav episode={episode} locale={locale} />
     </div>
   );
 }

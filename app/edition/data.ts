@@ -34,7 +34,7 @@ const editions: Record<string, Edition> = {
     },
     shopProductPath: "/products/oeuvre-sans-titre-2024-elaine-erlan-wang",
     shopPriceEur: 179,
-    shopCopies: 2,
+    shopCopies: 6,
     workDisplayYear: 2024,
   },
 };

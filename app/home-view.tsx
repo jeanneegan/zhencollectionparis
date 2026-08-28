@@ -31,7 +31,6 @@ const spotlightLabels: Record<
     festivalKicker: string;
     festivalRoute: string;
     festivalTagline: string;
-    festivalWhen: string;
     festivalCta: string;
   }
 > = {
@@ -44,7 +43,6 @@ const spotlightLabels: Record<
     festivalKicker: "FESTIVAL · 艺术节",
     festivalRoute: "Paris ↔ Shenzhen",
     festivalTagline: "在日常空间发生的国际艺术节",
-    festivalWhen: "深圳坪山 · 每年十月",
     festivalCta: "Découvrir le projet · 了解项目",
   },
   fr: {
@@ -58,7 +56,6 @@ const spotlightLabels: Record<
     festivalRoute: "Paris ↔ Shenzhen",
     festivalTagline:
       "Festival international d'art dans les espaces du quotidien",
-    festivalWhen: "Pingshan · Shenzhen · chaque octobre",
     festivalCta: "Découvrir le projet · 了解项目",
   },
   en: {
@@ -71,7 +68,6 @@ const spotlightLabels: Record<
     festivalRoute: "Paris ↔ Shenzhen",
     festivalTagline:
       "Annual international art festival in everyday spaces",
-    festivalWhen: "Pingshan · Shenzhen · every October",
     festivalCta: "Discover the project",
   },
 };
@@ -264,9 +260,6 @@ export function HomeView() {
             } mx-auto mt-4 max-w-md text-center text-sm leading-[1.9] text-stone-600`}
           >
             {l.festivalTagline}
-          </p>
-          <p className="mt-3 text-center text-xs tracking-[0.08em] text-stone-500">
-            {l.festivalWhen}
           </p>
 
           <div className="mt-10 flex justify-center">
