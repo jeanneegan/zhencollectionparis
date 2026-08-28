@@ -261,17 +261,6 @@ export function HomeView() {
             </Link>
           </div>
         </section>
-
-        <p className="text-center">
-          <Link
-            href="/dialogues"
-            className="text-xs tracking-[0.12em] text-stone-500 transition-colors hover:text-stone-900"
-          >
-            {locale === "en"
-              ? "All conversations →"
-              : "Voir toutes les conversations · 查看全部对话 →"}
-          </Link>
-        </p>
       </main>
 
       <SiteFooter locale={locale} />
