@@ -60,7 +60,7 @@ export function DialogueEpisodeNav({
 
   const items = [
     {
-      href: `/artists/${artistA.slug}`,
+      href: `/artists/${artistA.slug}?dialogue=${episode.slug}`,
       ...artistNavLabels(artistA, locale),
       isDialogue: false,
       isActive: pathname === `/artists/${artistA.slug}`,
@@ -72,7 +72,7 @@ export function DialogueEpisodeNav({
       isActive: pathname.startsWith("/dialogue/"),
     },
     {
-      href: `/artists/${artistB.slug}`,
+      href: `/artists/${artistB.slug}?dialogue=${episode.slug}`,
       ...artistNavLabels(artistB, locale),
       isDialogue: false,
       isActive: pathname === `/artists/${artistB.slug}`,

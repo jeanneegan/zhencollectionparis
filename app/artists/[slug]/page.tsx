@@ -14,7 +14,7 @@ import { resolveReturnTo } from "@/app/lib/return-to";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
-  searchParams: Promise<{ from?: string }>;
+  searchParams: Promise<{ from?: string; dialogue?: string }>;
 };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function ArtistPage({ params, searchParams }: PageProps) {
   const { slug } = await params;
-  const { from } = await searchParams;
+  const { from, dialogue } = await searchParams;
   const artist = getArtistBySlug(slug);
 
   if (!artist) {
@@ -47,11 +47,13 @@ export default async function ArtistPage({ params, searchParams }: PageProps) {
   const session = cookieStore.get(SESSION_COOKIE)?.value;
   const member =
     isAuthenticatedSession(session) ? getMemberBySession(session) : null;
+  const dialoguePath = dialogue ? `/dialogue/${dialogue}` : undefined;
 
   return (
     <ArtistPassport
       artist={artist}
-      returnTo={resolveReturnTo(from)}
+      returnTo={resolveReturnTo(from) ?? dialoguePath}
+      dialogueSlug={dialogue}
       member={member ?? undefined}
     />
   );

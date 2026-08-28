@@ -8,8 +8,10 @@ import { SiteFooter } from "@/app/components/site-footer";
 import { SiteHeader } from "@/app/components/site-header";
 import { SiteTopLinks } from "@/app/components/site-top-links";
 import { PageBottomNav } from "@/app/components/page-bottom-nav";
+import { DialogueEpisodeNav } from "@/app/components/dialogue-episode-nav";
 import { MemberWorkspaceLayout } from "@/app/components/member-workspace-layout";
 import type { MockMember } from "@/app/lib/auth";
+import { getEpisodeBySlug } from "@/app/dialogue/data";
 import { hasArtworkPassport } from "@/app/lib/artwork-passport";
 import { useLocale } from "@/app/lib/use-locale";
 import {
@@ -548,14 +550,17 @@ function renderArtworkGridItems(
 export function ArtistPassport({
   artist,
   returnTo,
+  dialogueSlug,
   member,
 }: {
   artist: ArtistProfile;
   returnTo?: string;
+  dialogueSlug?: string;
   member?: MockMember;
 }) {
   const [locale, setLocale] = useLocale();
   const l = labels[locale];
+  const dialogueEpisode = dialogueSlug ? getEpisodeBySlug(dialogueSlug) : null;
   const isFrenchArtist = artist.nationality.en === "French";
   const isChineseArtist = artist.nationality.en === "Chinese";
   const chinaText = t(artist.whyChinaFrance.china, locale);
@@ -1045,6 +1050,9 @@ export function ArtistPassport({
       </div>
 
       <SiteFooter wide />
+      {dialogueEpisode ? (
+        <DialogueEpisodeNav episode={dialogueEpisode} locale={locale} />
+      ) : null}
     </div>
   );
 }
