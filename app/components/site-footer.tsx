@@ -2,16 +2,13 @@ import Link from "next/link";
 import type { Locale } from "@/app/artists/[slug]/data";
 import { AproposLink } from "@/app/components/apropos-link";
 import { EditionsLink } from "@/app/components/editions-link";
-import { ZhenAssociationLink } from "@/app/components/zhen-association-link";
 
 export function SiteFooter({
   wide = false,
   locale = "fr",
-  showDialogueLinks = true,
 }: {
   wide?: boolean;
   locale?: Locale;
-  showDialogueLinks?: boolean;
 }) {
   return (
     <footer className="border-t border-stone-200 bg-white">
@@ -26,13 +23,10 @@ export function SiteFooter({
         >
           Zhen Collection Paris 巴黎臻藏
         </Link>
-        <ZhenAssociationLink locale={locale} />
+        <AproposLink locale={locale} />
         <EditionsLink locale={locale} />
-        {showDialogueLinks ? <AproposLink locale={locale} /> : null}
         <p className="text-[11px] text-stone-400">
-          {showDialogueLinks
-            ? "Paris × Chine · 巴黎 × 中国 · Conversations · Rencontres · Une autre voix"
-            : "Paris × Chine · 巴黎 × 中国"}
+          Paris × Chine · 巴黎 × 中国 · Conversations · Rencontres · Une autre voix
         </p>
       </div>
     </footer>

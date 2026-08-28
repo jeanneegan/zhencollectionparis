@@ -42,6 +42,16 @@ export const aboutSections: AboutSection[] = [
         "Zhen means continually approaching truth and beauty; cang means archiving not only a work's life, but also the encounters and shared memory between people.",
       ],
     },
+    links: [
+      {
+        href: "/apropos/pourquoi-le-dialogue",
+        label: {
+          zh: "为什么是对话？ · Pourquoi le Dialogue ?",
+          fr: "Pourquoi le Dialogue ? · 为什么是对话？",
+          en: "Why Dialogue?",
+        },
+      },
+    ],
   },
   {
     id: "archive",
@@ -174,9 +184,9 @@ export const aboutSections: AboutSection[] = [
     },
     pageHref: "/association",
     pageLabel: {
-      zh: "协会详情 · Association",
-      fr: "Voir l'association · 协会详情",
-      en: "View association page",
+      zh: "为什么是巴黎臻藏？",
+      fr: "Pourquoi Zhen Collection Paris ?",
+      en: "Why Zhen Collection Paris?",
     },
   },
   {
