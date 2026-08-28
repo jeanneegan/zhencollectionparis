@@ -1,7 +1,6 @@
 import Link from "next/link";
 import type { Locale } from "@/app/artists/[slug]/data";
-import { ContactLink } from "@/app/components/contact-link";
-import { EditionsLink } from "@/app/components/editions-link";
+import { SiteFooterNav } from "@/app/components/site-footer-nav";
 import { SiteSocialLinks } from "@/app/components/site-social-links";
 
 export function SiteFooter({
@@ -24,8 +23,7 @@ export function SiteFooter({
         >
           Zhen Collection Paris 巴黎臻藏
         </Link>
-        <ContactLink locale={locale} />
-        <EditionsLink locale={locale} />
+        <SiteFooterNav locale={locale} />
         <SiteSocialLinks />
         <p className="text-[11px] text-stone-400">
           Paris × Chine · 巴黎 × 中国 · Conversations · Rencontres · Une autre voix
