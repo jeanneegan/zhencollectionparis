@@ -11,21 +11,18 @@ import { useLocale } from "@/app/lib/use-locale";
 
 const pageLabels: Record<
   Locale,
-  { title: string; subtitle: string; view: string }
+  { title: string; view: string }
 > = {
   zh: {
     title: "ARTISTS · 艺术家",
-    subtitle: "巴黎臻藏平台艺术家档案。",
     view: "Voir le passeport · 查看艺术家护照",
   },
   fr: {
     title: "ARTISTS · 艺术家",
-    subtitle: "Passeports artistes sur Zhen Collection Paris.",
     view: "Voir le passeport · 查看艺术家护照",
   },
   en: {
     title: "ARTISTS",
-    subtitle: "Artist passports on Zhen Collection Paris.",
     view: "View artist passport",
   },
 };
@@ -84,9 +81,6 @@ export function ArtistsIndexView() {
           <h1 className="text-2xl font-light tracking-wide text-stone-900 md:text-3xl">
             {l.title}
           </h1>
-          <p className="mx-auto mt-6 max-w-xl text-sm leading-[1.9] text-stone-600">
-            {l.subtitle}
-          </p>
         </header>
 
         <ul className="mt-12 space-y-4">

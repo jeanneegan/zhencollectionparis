@@ -15,21 +15,18 @@ import { useLocale } from "@/app/lib/use-locale";
 
 const pageLabels: Record<
   Locale,
-  { title: string; subtitle: string; view: string }
+  { title: string; view: string }
 > = {
   zh: {
     title: "ARTWORKS · 作品",
-    subtitle: "已开通作品护照的线上档案。",
     view: "Voir le passeport œuvre · 查看作品护照",
   },
   fr: {
     title: "ARTWORKS · 作品",
-    subtitle: "Archives des œuvres avec passeport initié par ZCP.",
     view: "Voir le passeport œuvre · 查看作品护照",
   },
   en: {
     title: "ARTWORKS",
-    subtitle: "Online archives for works with ZCP-initiated passports.",
     view: "View artwork passport",
   },
 };
@@ -51,9 +48,6 @@ export function OeuvresIndexView() {
           <h1 className="text-2xl font-light tracking-wide text-stone-900 md:text-3xl">
             {l.title}
           </h1>
-          <p className="mx-auto mt-6 max-w-xl text-sm leading-[1.9] text-stone-600">
-            {l.subtitle}
-          </p>
         </header>
 
         <ul className="mt-12 space-y-4">
