@@ -88,20 +88,19 @@ function formatEpisodeArtists(episodeArtists: string[], locale: Locale) {
     .join(" × ");
 }
 
-function getEpisodeFeaturedImages(episode: DialogueEpisode) {
-  return episode.featuredWorks
-    .map(({ artistSlug, artworkId, image, displayAspect }) => {
+function getEpisodeArtistPortraits(episode: DialogueEpisode, locale: Locale) {
+  return episode.artists
+    .map((artistSlug) => {
       const artist = getArtistBySlug(artistSlug);
-      const artwork = artist?.artworks.find((item) => item.id === artworkId);
-      const src = image ?? artwork?.image;
-      if (!artwork || !src) {
+      if (!artist?.portrait) {
         return null;
       }
 
       return {
-        src,
-        alt: t(artwork.title, "fr"),
-        aspect: displayAspect ?? artwork.imageAspect ?? [3, 4],
+        src: artist.portrait,
+        alt: t(artist.name, locale),
+        aspect: [1, 1] as [number, number],
+        credit: artist.portraitCredit,
       };
     })
     .filter(
@@ -111,34 +110,44 @@ function getEpisodeFeaturedImages(episode: DialogueEpisode) {
         src: string;
         alt: string;
         aspect: [number, number];
+        credit?: string;
       } => item !== null,
     );
 }
 
-function SpotlightArtwork({
+function SpotlightPortrait({
   src,
   alt,
   aspect,
+  credit,
   priority = false,
 }: {
   src: string;
   alt: string;
   aspect: [number, number];
+  credit?: string;
   priority?: boolean;
 }) {
   return (
-    <div
-      className="relative w-full overflow-hidden bg-stone-100"
-      style={{ aspectRatio: `${aspect[0]} / ${aspect[1]}` }}
-    >
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        className="object-contain object-center"
-        sizes="(max-width: 768px) 45vw, 280px"
-        priority={priority}
-      />
+    <div>
+      <div
+        className="relative w-full overflow-hidden bg-stone-100"
+        style={{ aspectRatio: `${aspect[0]} / ${aspect[1]}` }}
+      >
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          className="object-cover object-center"
+          sizes="(max-width: 768px) 45vw, 280px"
+          priority={priority}
+        />
+      </div>
+      {credit ? (
+        <p className="mt-1 text-right text-[9px] tracking-[0.04em] text-stone-400">
+          {credit}
+        </p>
+      ) : null}
     </div>
   );
 }
@@ -149,7 +158,7 @@ export function HomeView() {
   const useSerif = locale === "zh";
   const episode = getCurrentEpisode();
   const dialoguePath = getCurrentDialoguePath();
-  const featuredImages = getEpisodeFeaturedImages(episode);
+  const artistPortraits = getEpisodeArtistPortraits(episode, locale);
   const latestEdition = getLatestEdition();
   const editionArtist = latestEdition
     ? getArtistBySlug(latestEdition.artistSlug)
@@ -174,12 +183,12 @@ export function HomeView() {
           <div className="md:hidden">
             <p className={`${kickerClass} text-center`}>{l.conversationKicker}</p>
 
-            {featuredImages.length > 0 ? (
+            {artistPortraits.length > 0 ? (
               <div className="mt-6 grid grid-cols-2 gap-3">
-                {featuredImages.map((image, index) => (
-                  <SpotlightArtwork
-                    key={image.src}
-                    {...image}
+                {artistPortraits.map((portrait, index) => (
+                  <SpotlightPortrait
+                    key={portrait.src}
+                    {...portrait}
                     priority={index === 0}
                   />
                 ))}
@@ -216,8 +225,8 @@ export function HomeView() {
           </div>
 
           <div className="hidden gap-6 md:grid md:grid-cols-[minmax(0,1fr)_minmax(240px,300px)_minmax(0,1fr)] md:items-center lg:gap-10">
-            {featuredImages[0] ? (
-              <SpotlightArtwork {...featuredImages[0]} priority />
+            {artistPortraits[0] ? (
+              <SpotlightPortrait {...artistPortraits[0]} priority />
             ) : (
               <div aria-hidden />
             )}
@@ -252,8 +261,8 @@ export function HomeView() {
               </div>
             </div>
 
-            {featuredImages[1] ? (
-              <SpotlightArtwork {...featuredImages[1]} />
+            {artistPortraits[1] ? (
+              <SpotlightPortrait {...artistPortraits[1]} />
             ) : (
               <div aria-hidden />
             )}

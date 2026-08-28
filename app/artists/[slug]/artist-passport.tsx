@@ -588,19 +588,26 @@ export function ArtistPassport({
           }`}
         >
           {hasPortrait ? (
-            <div
-              className={`relative aspect-[3/4] bg-stone-100 md:aspect-auto ${
-                member ? "md:min-h-[420px]" : "md:min-h-[640px]"
-              }`}
-            >
-              <Image
-                src={artist.portrait}
-                alt={t(artist.name, locale)}
-                fill
-                priority
-                className="object-cover object-center"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
+            <div>
+              <div
+                className={`relative aspect-[3/4] bg-stone-100 md:aspect-auto ${
+                  member ? "md:min-h-[420px]" : "md:min-h-[640px]"
+                }`}
+              >
+                <Image
+                  src={artist.portrait}
+                  alt={t(artist.name, locale)}
+                  fill
+                  priority
+                  className="object-cover object-center"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+              {artist.portraitCredit ? (
+                <p className="px-4 py-2 text-right text-[10px] tracking-[0.06em] text-stone-400 md:px-6">
+                  {artist.portraitCredit}
+                </p>
+              ) : null}
             </div>
           ) : null}
 
