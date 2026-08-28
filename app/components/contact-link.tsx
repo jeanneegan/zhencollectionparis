@@ -1,13 +1,13 @@
+import Link from "next/link";
 import type { Locale } from "@/app/artists/[slug]/data";
-import { getEditionShopHomeUrl } from "@/app/lib/edition-shop";
 
 const labels: Record<Locale, string> = {
-  fr: "Éditions · 出版",
-  zh: "Éditions · 出版",
-  en: "Editions",
+  fr: "Contact · 联系我们",
+  zh: "Contact · 联系我们",
+  en: "Contact",
 };
 
-export function EditionsLink({
+export function ContactLink({
   locale = "fr",
   variant = "footer",
 }: {
@@ -15,15 +15,13 @@ export function EditionsLink({
   variant?: "footer" | "page-bottom";
 }) {
   return (
-    <a
-      href={getEditionShopHomeUrl()}
-      target="_blank"
-      rel="noopener noreferrer"
+    <Link
+      href="/apropos#contact"
       className={`tracking-[0.12em] text-stone-500 transition-colors hover:text-stone-900 ${
         variant === "page-bottom" ? "text-xs" : "text-[11px]"
       }`}
     >
       {labels[locale]}
-    </a>
+    </Link>
   );
 }
