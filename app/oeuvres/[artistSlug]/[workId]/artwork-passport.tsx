@@ -5,8 +5,8 @@ import Link from "next/link";
 import { CollectorEvaluationForm } from "@/app/components/collector-evaluation-form";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
 import { PageBottomNav } from "@/app/components/page-bottom-nav";
-import { SiteBrandLink } from "@/app/components/site-brand-link";
 import { SiteFooter } from "@/app/components/site-footer";
+import { SiteHeader } from "@/app/components/site-header";
 import { MemberWorkspaceLayout } from "@/app/components/member-workspace-layout";
 import {
   getArtworkDisplayLayout,
@@ -333,17 +333,29 @@ export function ArtworkPassportView({
           <div
             className={`${pageWrap} border-t border-stone-200 px-6 py-10 md:px-10 md:py-12`}
           >
-            <a
-              href={passport.salesLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-stone-900 px-6 py-2.5 text-[11px] font-medium tracking-[0.1em] text-stone-900 transition-colors hover:bg-stone-900 hover:text-white"
-            >
-              {passport.salesLinkLabel
-                ? t(passport.salesLinkLabel, locale)
-                : l.salesLink}
-              <span aria-hidden>→</span>
-            </a>
+            {passport.salesLink.startsWith("/") ? (
+              <Link
+                href={passport.salesLink}
+                className="inline-flex items-center gap-2 rounded-full border border-stone-900 px-6 py-2.5 text-[11px] font-medium tracking-[0.1em] text-stone-900 transition-colors hover:bg-stone-900 hover:text-white"
+              >
+                {passport.salesLinkLabel
+                  ? t(passport.salesLinkLabel, locale)
+                  : l.salesLink}
+                <span aria-hidden>→</span>
+              </Link>
+            ) : (
+              <a
+                href={passport.salesLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-stone-900 px-6 py-2.5 text-[11px] font-medium tracking-[0.1em] text-stone-900 transition-colors hover:bg-stone-900 hover:text-white"
+              >
+                {passport.salesLinkLabel
+                  ? t(passport.salesLinkLabel, locale)
+                  : l.salesLink}
+                <span aria-hidden>→</span>
+              </a>
+            )}
           </div>
         ) : null}
 
@@ -505,14 +517,10 @@ export function ArtworkPassportView({
 
   return (
     <div className="min-h-screen bg-stone-50 text-stone-900">
-      <header className="sticky top-0 z-50 border-b border-stone-200 bg-white/95 backdrop-blur-sm">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-5 md:px-10">
-          <SiteBrandLink className="shrink-0" />
-          <div className="flex shrink-0 items-center gap-4 md:gap-6">
-            <LanguageSwitcher locale={locale} onChange={setLocale} />
-          </div>
-        </div>
-      </header>
+      <SiteHeader
+        wide
+        trailing={<LanguageSwitcher locale={locale} onChange={setLocale} />}
+      />
 
       {passportContent}
 

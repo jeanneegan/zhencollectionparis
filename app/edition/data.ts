@@ -1,4 +1,5 @@
 import type { LocalizedText } from "@/app/artists/[slug]/data";
+import { getEditionShopProductUrl } from "@/app/lib/edition-shop";
 
 export type Edition = {
   id: string;
@@ -8,6 +9,7 @@ export type Edition = {
   year: number;
   copies: number;
   intro: LocalizedText;
+  shopProductPath?: string;
 };
 
 const editions: Record<string, Edition> = {
@@ -27,6 +29,7 @@ const editions: Record<string, Edition> = {
       fr: "Première œuvre de la collection éditoriale Zhen Collection Paris — Elaine Erlan Wang (王爾蘭).",
       en: "The first work in the Zhen Collection Paris editions programme — Elaine Erlan Wang (王爾蘭).",
     },
+    shopProductPath: "/products/oeuvre-sans-titre-2024-elaine-erlan-wang",
   },
 };
 
@@ -36,6 +39,31 @@ export function getEditionById(id: string): Edition | null {
 
 export function getAllEditionIds(): string[] {
   return Object.keys(editions);
+}
+
+export function getEditionShopUrl(editionId: string): string | null {
+  const edition = getEditionById(editionId);
+  if (!edition?.shopProductPath) {
+    return null;
+  }
+  return getEditionShopProductUrl(edition.shopProductPath);
+}
+
+export function getEditionShopUrlForArtwork(
+  artistSlug: string,
+  workId: string,
+): string | null {
+  for (const id of getAllEditionIds()) {
+    const edition = getEditionById(id);
+    if (
+      edition?.artistSlug === artistSlug &&
+      edition.workId === workId &&
+      edition.shopProductPath
+    ) {
+      return getEditionShopProductUrl(edition.shopProductPath);
+    }
+  }
+  return null;
 }
 
 export type EditionCopyRecord = {

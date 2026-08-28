@@ -4,8 +4,8 @@ import Image from "next/image";
 import { ArtworkExternalLink } from "@/app/components/artwork-external-link";
 import Link from "next/link";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
-import { SiteBrandLink } from "@/app/components/site-brand-link";
 import { SiteFooter } from "@/app/components/site-footer";
+import { SiteHeader } from "@/app/components/site-header";
 import { SiteTopLinks } from "@/app/components/site-top-links";
 import { PageBottomNav } from "@/app/components/page-bottom-nav";
 import { MemberWorkspaceLayout } from "@/app/components/member-workspace-layout";
@@ -1026,14 +1026,10 @@ export function ArtistPassport({
 
   return (
     <div className="min-h-screen bg-stone-50 text-stone-900">
-      <header className="sticky top-0 z-50 border-b border-stone-200 bg-white/95 backdrop-blur-sm">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-5 md:px-10">
-          <SiteBrandLink className="shrink-0" />
-          <div className="flex shrink-0 items-center gap-4 md:gap-6">
-            <LanguageSwitcher locale={locale} onChange={setLocale} />
-          </div>
-        </div>
-      </header>
+      <SiteHeader
+        wide
+        trailing={<LanguageSwitcher locale={locale} onChange={setLocale} />}
+      />
 
       {passportContent}
 

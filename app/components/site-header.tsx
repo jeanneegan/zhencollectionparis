@@ -1,15 +1,18 @@
 "use client";
 
 import { SiteBrandLink } from "@/app/components/site-brand-link";
+import { PrimaryNav } from "@/app/components/primary-nav";
 
 export function SiteHeader({
   trailing,
   wide = false,
   sticky = true,
+  showPrimaryNav = true,
 }: {
   trailing?: React.ReactNode;
   wide?: boolean;
   sticky?: boolean;
+  showPrimaryNav?: boolean;
 }) {
   return (
     <header
@@ -25,6 +28,7 @@ export function SiteHeader({
         <SiteBrandLink className="shrink-0" />
         {trailing}
       </div>
+      {showPrimaryNav ? <PrimaryNav wide={wide} /> : null}
     </header>
   );
 }

@@ -8,6 +8,7 @@ import { getArtistPriceHistory } from "@/app/lib/artist-price-history";
 import {
   MOCK_COLLECTOR_HOLDINGS,
 } from "@/app/lib/collector-collection";
+import { getEditionShopUrlForArtwork } from "@/app/edition/data";
 
 const ZCP_INITIATOR: LocalizedText = {
   zh: "巴黎臻藏",
@@ -229,8 +230,6 @@ const passportEnrichment: Record<
       },
     ],
     exhibitionHistory: [],
-    salesLink:
-      "https://zbrv5b-vd.myshopify.com/products/oeuvre-sans-titre-2024-elaine-erlan-wang",
     salesLinkLabel: {
       zh: "再次收藏",
       fr: "Collectionner à nouveau · 再次收藏",
@@ -394,7 +393,10 @@ export function getArtworkPassport(
     priceHistoryNote: enrichment?.priceHistoryNote ?? latestPrice?.note,
     evaluations: mergeEvaluations(holding.evaluations, enrichment?.evaluations),
     exhibitionHistory,
-    salesLink: enrichment?.salesLink,
+    salesLink:
+      enrichment?.salesLink ??
+      getEditionShopUrlForArtwork(artistSlug, workId) ??
+      undefined,
     salesLinkLabel: enrichment?.salesLinkLabel,
   };
 }

@@ -14,6 +14,7 @@ import { PageBottomNav } from "@/app/components/page-bottom-nav";
 import { SiteFooter } from "@/app/components/site-footer";
 import { SiteHeader } from "@/app/components/site-header";
 import type { Edition } from "@/app/edition/data";
+import { getEditionShopUrl } from "@/app/edition/data";
 import {
   getArtworkPassportPath,
   hasArtworkPassport,
@@ -39,6 +40,9 @@ const pageLabels: Record<
     viewPassport: string;
     viewCopyPassport: string;
     editionSize: string;
+    shopKicker: string;
+    shopIntro: string;
+    shopCta: string;
   }
 > = {
   zh: {
@@ -49,6 +53,9 @@ const pageLabels: Record<
     viewPassport: "Voir le passeport œuvre · 查看作品护照",
     viewCopyPassport: "Exemplaire 1/6 · 第 1/6 号护照",
     editionSize: "版数 · Tirage",
+    shopKicker: "Boutique · 商店",
+    shopIntro: "本出版可在臻藏商店收藏。",
+    shopCta: "进入商店 · 再次收藏",
   },
   fr: {
     kicker: "Édition",
@@ -58,6 +65,9 @@ const pageLabels: Record<
     viewPassport: "Voir le passeport œuvre · 查看作品护照",
     viewCopyPassport: "Exemplaire 1/6 · 第 1/6 号护照",
     editionSize: "Tirage · 版数",
+    shopKicker: "Boutique · 商店",
+    shopIntro: "Cette édition est disponible dans la boutique ZCP.",
+    shopCta: "Accéder à la boutique · 再次收藏",
   },
   en: {
     kicker: "Edition",
@@ -67,6 +77,9 @@ const pageLabels: Record<
     viewPassport: "View artwork passport",
     viewCopyPassport: "Exemplar 1/6 passport",
     editionSize: "Edition size",
+    shopKicker: "Shop",
+    shopIntro: "This edition is available in the ZCP shop.",
+    shopCta: "Visit shop · Collect again",
   },
 };
 
@@ -88,6 +101,7 @@ export function EditionView({ edition }: { edition: Edition }) {
     viewsLayout: work.viewsLayout,
     views: work.views,
   });
+  const shopUrl = getEditionShopUrl(edition.id);
 
   return (
     <div className="min-h-screen bg-white text-stone-900">
@@ -193,6 +207,26 @@ export function EditionView({ edition }: { edition: Edition }) {
             </div>
           </div>
         </article>
+
+        {shopUrl ? (
+          <section className="mt-14 border-t border-stone-200 pt-12 text-center">
+            <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-stone-400">
+              {l.shopKicker}
+            </p>
+            <p className="mx-auto mt-6 max-w-md text-sm leading-[1.9] text-stone-600">
+              {l.shopIntro}
+            </p>
+            <a
+              href={shopUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex items-center gap-2 rounded-full border border-stone-900 px-6 py-2.5 text-[11px] font-medium tracking-[0.1em] text-stone-900 transition-colors hover:bg-stone-900 hover:text-white"
+            >
+              {l.shopCta}
+              <span aria-hidden>→</span>
+            </a>
+          </section>
+        ) : null}
 
         <PageBottomNav locale={locale} />
       </main>
