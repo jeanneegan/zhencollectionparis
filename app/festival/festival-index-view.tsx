@@ -11,23 +11,45 @@ import { useLocale } from "@/app/lib/use-locale";
 
 const pageLabels: Record<
   Locale,
-  { title: string; subtitle: string; view: string; empty: string }
+  {
+    title: string;
+    subtitle: string;
+    route: string;
+    tagline: string;
+    when: string;
+    status: string;
+    view: string;
+    empty: string;
+  }
 > = {
   zh: {
     title: "FESTIVAL · 艺术节",
     subtitle: "巴黎臻藏艺术节与公共项目。",
+    route: "Paris ↔ Shenzhen",
+    tagline: "在日常空间发生的国际艺术节。",
+    when: "深圳坪山 · 每年十月",
+    status: "项目筹备中，欢迎持续关注。",
     view: "Voir le festival · 查看艺术节",
     empty: "艺术节项目筹备中，敬请期待。",
   },
   fr: {
     title: "FESTIVAL · 艺术节",
     subtitle: "Festivals et projets publics de Zhen Collection Paris.",
+    route: "Paris ↔ Shenzhen",
+    tagline:
+      "Festival international d'art dans les espaces du quotidien.",
+    when: "Pingshan · Shenzhen · chaque octobre",
+    status: "Projet en préparation — restez informés.",
     view: "Voir le festival · 查看艺术节",
     empty: "Les projets festival sont en préparation.",
   },
   en: {
     title: "FESTIVAL",
     subtitle: "Zhen Collection Paris festivals and public programmes.",
+    route: "Paris ↔ Shenzhen",
+    tagline: "Annual international art festival in everyday spaces.",
+    when: "Pingshan · Shenzhen · every October",
+    status: "Project in preparation — follow for updates.",
     view: "View festival",
     empty: "Festival projects are in preparation.",
   },
@@ -56,9 +78,20 @@ export function FestivalIndexView() {
         </header>
 
         {festivalIds.length === 0 ? (
-          <p className="mt-12 text-center text-sm leading-[1.9] text-stone-500">
-            {l.empty}
-          </p>
+          <section className="mt-12 border border-stone-200 bg-stone-50/50 px-6 py-10 text-center md:px-10">
+            <p className="text-sm font-medium tracking-[0.12em] text-stone-700">
+              {l.route}
+            </p>
+            <p className="mx-auto mt-4 max-w-md text-sm leading-[1.9] text-stone-600">
+              {l.tagline}
+            </p>
+            <p className="mt-3 text-xs tracking-[0.08em] text-stone-500">
+              {l.when}
+            </p>
+            <p className="mt-6 text-sm leading-[1.9] text-stone-500">
+              {l.status}
+            </p>
+          </section>
         ) : (
           <ul className="mt-12 space-y-4">
             {festivalIds.map((id) => {

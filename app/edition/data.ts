@@ -10,6 +10,9 @@ export type Edition = {
   copies: number;
   intro: LocalizedText;
   shopProductPath?: string;
+  shopPriceEur?: number;
+  shopCopies?: number;
+  workDisplayYear?: number;
 };
 
 const editions: Record<string, Edition> = {
@@ -30,6 +33,9 @@ const editions: Record<string, Edition> = {
       en: "The first work — Elaine Erlan Wang (王爾蘭).",
     },
     shopProductPath: "/products/oeuvre-sans-titre-2024-elaine-erlan-wang",
+    shopPriceEur: 179,
+    shopCopies: 2,
+    workDisplayYear: 2024,
   },
 };
 
@@ -39,6 +45,14 @@ export function getEditionById(id: string): Edition | null {
 
 export function getAllEditionIds(): string[] {
   return Object.keys(editions);
+}
+
+export function getLatestEdition(): Edition | null {
+  const ids = getAllEditionIds();
+  if (ids.length === 0) {
+    return null;
+  }
+  return getEditionById(ids[ids.length - 1]);
 }
 
 export function getEditionShopUrl(editionId: string): string | null {
