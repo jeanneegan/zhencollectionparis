@@ -9,6 +9,20 @@ export type DialogueAvatar = {
   label?: string;
 };
 
+const willyPortraitAvatar: DialogueAvatar = {
+  type: "portrait",
+  src: "/artists/willy-le-nalbaut/portrait.jpg",
+  alt: "Willy Le Nalbaut",
+  label: "Willy Le Nalbaut",
+};
+
+const suHongPortraitAvatar: DialogueAvatar = {
+  type: "portrait",
+  src: "/artists/su-hong/portrait.png",
+  alt: "苏泓 Su Hong",
+  label: "苏泓 Su Hong",
+};
+
 export type DialogueExchange = {
   question: LocalizedText;
   questionFrom?: DialogueAvatar;
@@ -68,12 +82,7 @@ export const episodes: DialogueEpisode[] = [
       },
       answers: [
         {
-          answerFrom: {
-            type: "portrait",
-            src: "/artists/su-hong/portrait.png",
-            alt: "苏泓 Su Hong",
-            label: "苏泓 Su Hong",
-          },
+          answerFrom: suHongPortraitAvatar,
           answer: {
             zh: "说到马，我第一个想到就是中华传统文化里十二地支的「午」，「午」在生肖中就是指的马这种动物。我们小时候都会背诵的属相顺口溜「……辰龙，巳蛇，午马，未羊……」！在中国人的五行中「午马」也代表「火」元素，按照中国古代的干支纪年法，2026年是丙午马年，「丙」在十天干中为「阳火」，所以今年可以说是「火马年」，火即为能量！另外再说到马会联想到速度，蓝天白云大草原上一群乌黑健硕的骏马在驰骋，就像是人生一世自由自在奔放的状态。能量流动不止，物质生生不息！",
             fr: "Quand on parle du cheval, la première chose à laquelle je pense, c'est « wu » (午), la septième des douze branches terrestres de la culture traditionnelle chinoise — dans le zodiaque, « wu » désigne précisément le cheval. Nous avons tous appris, enfants, la comptine des signes : « … chen long, si serpent, wu cheval, wei chèvre… » ! Dans les cinq éléments, « wu cheval » représente aussi le feu ; selon le cycle sexagésimal, 2026 est l'année bingwu du Cheval — « bing », parmi les dix troncs célestes, est le « feu yang », donc on peut dire que cette année est celle du « cheval de feu » : le feu, c'est l'énergie ! Le cheval évoque aussi la vitesse : sous un ciel bleu et des nuages blancs, sur la grande prairie, un troupeau de chevaux noirs et robustes au galop — comme une vie vécue librement et avec fougue. L'énergie circule sans fin ; la matière se renouvelle sans cesse !",
@@ -83,40 +92,22 @@ export const episodes: DialogueEpisode[] = [
       ],
     },
     willyToSuHong: {
-      questionFrom: {
-        type: "portrait",
-        alt: "Willy Le Nalbaut",
-        label: "Willy Le Nalbaut",
-      },
+      questionFrom: willyPortraitAvatar,
       question: {
         zh: "（Willy 向苏泓提问 · 待发布）",
         fr: "(Question de Willy à Su Hong · à venir)",
         en: "(Question from Willy to Su Hong · coming soon)",
       },
-      answerFrom: {
-        type: "portrait",
-        src: "/artists/su-hong/portrait.png",
-        alt: "苏泓 Su Hong",
-        label: "苏泓 Su Hong",
-      },
+      answerFrom: suHongPortraitAvatar,
     },
     suHongToWilly: {
-      questionFrom: {
-        type: "portrait",
-        src: "/artists/su-hong/portrait.png",
-        alt: "苏泓 Su Hong",
-        label: "苏泓 Su Hong",
-      },
+      questionFrom: suHongPortraitAvatar,
       question: {
         zh: "（苏泓向 Willy 提问 · 待发布）",
         fr: "(Question de Su Hong à Willy · à venir)",
         en: "(Question from Su Hong to Willy · coming soon)",
       },
-      answerFrom: {
-        type: "portrait",
-        alt: "Willy Le Nalbaut",
-        label: "Willy Le Nalbaut",
-      },
+      answerFrom: willyPortraitAvatar,
     },
     observerQuestions: [
       {
