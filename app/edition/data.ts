@@ -25,9 +25,9 @@ const editions: Record<string, Edition> = {
     year: 2026,
     copies: 6,
     intro: {
-      zh: "巴黎臻藏出版计划第一件作品——Elaine Erlan Wang（王爾蘭）。",
-      fr: "Première œuvre de la collection éditoriale Zhen Collection Paris — Elaine Erlan Wang (王爾蘭).",
-      en: "The first work in the Zhen Collection Paris editions programme — Elaine Erlan Wang (王爾蘭).",
+      zh: "第一件作品——Elaine Erlan Wang（王爾蘭）。",
+      fr: "Première œuvre — Elaine Erlan Wang (王爾蘭).",
+      en: "The first work — Elaine Erlan Wang (王爾蘭).",
     },
     shopProductPath: "/products/oeuvre-sans-titre-2024-elaine-erlan-wang",
   },

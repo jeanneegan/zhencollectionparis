@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getArtistBySlug, t, type Locale } from "@/app/artists/[slug]/data";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
+import { EditionProgrammeIntro } from "@/app/components/edition-programme-link";
 import { PageBottomNav } from "@/app/components/page-bottom-nav";
 import { SiteFooter } from "@/app/components/site-footer";
 import { SiteHeader } from "@/app/components/site-header";
@@ -12,25 +13,25 @@ import { useLocale } from "@/app/lib/use-locale";
 
 const pageLabels: Record<
   Locale,
-  { title: string; subtitle: string; view: string; shop: string; copies: string }
+  { title: string; subtitleSuffix: string; view: string; shop: string; copies: string }
 > = {
   zh: {
     title: "EDITIONS · 出版",
-    subtitle: "巴黎臻藏出版计划。",
+    subtitleSuffix: "。",
     view: "Voir l'édition · 查看出版",
     shop: "Boutique · 商店",
     copies: "版",
   },
   fr: {
     title: "EDITIONS · 出版",
-    subtitle: "Collection éditoriale Zhen Collection Paris.",
+    subtitleSuffix: ".",
     view: "Voir l'édition · 查看出版",
     shop: "Boutique · 商店",
     copies: "exemplaires",
   },
   en: {
     title: "EDITIONS",
-    subtitle: "Zhen Collection Paris editions programme.",
+    subtitleSuffix: ".",
     view: "View edition",
     shop: "Shop",
     copies: "copies",
@@ -54,9 +55,11 @@ export function EditionsIndexView() {
           <h1 className="text-2xl font-light tracking-wide text-stone-900 md:text-3xl">
             {l.title}
           </h1>
-          <p className="mx-auto mt-6 max-w-xl text-sm leading-[1.9] text-stone-600">
-            {l.subtitle}
-          </p>
+          <EditionProgrammeIntro
+            locale={locale}
+            suffix={{ zh: l.subtitleSuffix, fr: l.subtitleSuffix, en: l.subtitleSuffix }}
+            className="mx-auto mt-6 max-w-xl text-sm leading-[1.9] text-stone-600"
+          />
         </header>
 
         <ul className="mt-12 space-y-4">
@@ -100,9 +103,11 @@ export function EditionsIndexView() {
                     <p className="mt-1 text-xs text-stone-500">
                       {edition.year} · {edition.copies} {l.copies}
                     </p>
-                    <p className="mt-3 text-sm leading-relaxed text-stone-600">
-                      {t(edition.intro, locale)}
-                    </p>
+                    <EditionProgrammeIntro
+                      locale={locale}
+                      suffix={edition.intro}
+                      className="mt-3 text-sm leading-relaxed text-stone-600"
+                    />
                     <div className="mt-4 flex flex-wrap gap-4">
                       <Link
                         href={`/edition/${edition.id}`}

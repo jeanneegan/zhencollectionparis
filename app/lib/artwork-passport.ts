@@ -208,9 +208,9 @@ const passportEnrichment: Record<
       en: "Above, saturated red strokes interwoven with fine lines; at center, a small dark mark; below, blue-green and turquoise layers cut through by white, yellow, and red lines. The whole retains the fluid energy of Wang's digital language.",
     },
     passportNote: {
-      zh: "本作品护照由巴黎臻藏为出版计划第一件作品——王爾蘭《无题》建立，归档这件数字作品及其专业阅读记录。",
-      fr: "Ce passeport d'œuvre est initié par Zhen Collection Paris pour « Sans titre » de Elaine Erlan Wang — première œuvre de la collection éditoriale, archive de cette œuvre numérique et de sa lecture professionnelle.",
-      en: "This artwork passport is initiated by Zhen Collection Paris for Elaine Erlan Wang's « Untitled »—the first work in the editions programme, archiving this digital work and its professional reading.",
+      zh: "本作品护照由巴黎臻藏为出版计划第一件作品——王爾蘭《无题》建立，归档这件数字绘画及其专业阅读记录。",
+      fr: "Ce passeport d'œuvre est initié par Zhen Collection Paris pour « Sans titre » de Elaine Erlan Wang — première œuvre de la collection éditoriale, archive de cette peinture numérique et de sa lecture professionnelle.",
+      en: "This artwork passport is initiated by Zhen Collection Paris for Elaine Erlan Wang's « Untitled »—the first work in the editions programme, archiving this digital painting and its professional reading.",
     },
     status: {
       zh: "巴黎臻藏出版 · 作品护照档案",

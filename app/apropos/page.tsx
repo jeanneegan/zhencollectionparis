@@ -3,9 +3,9 @@ import { AproposView } from "./apropos-view";
 import { createPageMetadata } from "@/app/lib/site-metadata";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Pourquoi le Dialogue ? · 为什么是对话？",
+  title: "About · 关于 · Zhen Collection Paris",
   description:
-    "Pourquoi le Dialogue — une plateforme pour la rencontre entre artistes, cultures et publics. · 对话为何存在——为艺术家、文化与公众创造相遇。",
+    "Who we are, archive, partners, participation, association, and contact. · 我们是谁、档案、合作、参与、协会与联系方式。",
 });
 
 export default function AproposPage() {

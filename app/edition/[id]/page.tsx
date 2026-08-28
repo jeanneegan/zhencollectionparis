@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getArtistBySlug, t } from "@/app/artists/[slug]/data";
 import { EditionView } from "./edition-view";
 import { getEditionById, getAllEditionIds } from "../data";
+import { EDITION_PROGRAMME_LABEL } from "@/app/components/edition-programme-link";
 import { createPageMetadata, shareImageFromPath } from "@/app/lib/site-metadata";
 
 type PageProps = {
@@ -32,7 +33,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return createPageMetadata({
     title: `${t(edition.title, "fr")} · Zhen Collection Paris`,
-    description: t(edition.intro, "fr"),
+    description: `${t(EDITION_PROGRAMME_LABEL, "fr")}${t(edition.intro, "fr")}`,
     ...(shareImage ? { images: [shareImage] } : {}),
   });
 }

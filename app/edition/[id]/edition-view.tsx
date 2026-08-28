@@ -10,6 +10,7 @@ import {
   type Locale,
 } from "@/app/artists/[slug]/data";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
+import { EditionProgrammeIntro } from "@/app/components/edition-programme-link";
 import { PageBottomNav } from "@/app/components/page-bottom-nav";
 import { SiteFooter } from "@/app/components/site-footer";
 import { SiteHeader } from "@/app/components/site-header";
@@ -129,9 +130,11 @@ export function EditionView({ edition }: { edition: Edition }) {
           </p>
         </header>
 
-        <p className="mx-auto mt-10 max-w-xl text-center text-sm leading-[1.9] text-stone-600">
-          {t(edition.intro, locale)}
-        </p>
+        <EditionProgrammeIntro
+          locale={locale}
+          suffix={edition.intro}
+          className="mx-auto mt-10 max-w-xl text-center text-sm leading-[1.9] text-stone-600"
+        />
 
         <article className="mt-14 border-t border-stone-200 pt-12">
           {work.image ? (

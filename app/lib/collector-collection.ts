@@ -444,9 +444,9 @@ export const MOCK_COLLECTOR_HOLDINGS: CollectorHolding[] = [
     },
     year: 2026,
     medium: {
-      zh: "数字作品",
-      fr: "Œuvre numérique",
-      en: "Digital work",
+      zh: "数字绘画",
+      fr: "Peinture numérique",
+      en: "Digital painting",
     },
     dimensions: "",
     image: "/editions/1/work.jpg",
@@ -472,9 +472,9 @@ export const MOCK_COLLECTOR_HOLDINGS: CollectorHolding[] = [
       en: "Digital master · edition of 6",
     },
     notes: {
-      zh: "巴黎臻藏出版计划第一件作品；本护照归档王爾蘭这件数字作品及其专业阅读记录。",
-      fr: "Première œuvre de la collection éditoriale ZCP ; ce passeport archive cette œuvre numérique de Wang et sa lecture professionnelle.",
-      en: "First work in the ZCP editions programme; this passport archives Wang's digital work and its professional reading.",
+      zh: "巴黎臻藏出版计划第一件作品；本护照归档王爾蘭这件数字绘画及其专业阅读记录。",
+      fr: "Première œuvre de la collection éditoriale ZCP ; ce passeport archive cette peinture numérique de Wang et sa lecture professionnelle.",
+      en: "First work in the ZCP editions programme; this passport archives Wang's digital painting and its professional reading.",
     },
     passportInitiated: true,
     evaluations: [

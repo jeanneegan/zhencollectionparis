@@ -2,9 +2,9 @@ import Link from "next/link";
 import type { Locale } from "@/app/artists/[slug]/data";
 
 const labels: Record<Locale, string> = {
-  fr: "Pourquoi le Dialogue ?",
-  zh: "为什么是对话？",
-  en: "Why Dialogue?",
+  fr: "About · 关于",
+  zh: "About · 关于",
+  en: "About",
 };
 
 export function AproposLink({
