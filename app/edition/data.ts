@@ -33,7 +33,7 @@ const editions: Record<string, Edition> = {
       en: "The first work — Elaine Erlan Wang (王爾蘭).",
     },
     shopProductPath: "/products/oeuvre-sans-titre-2024-elaine-erlan-wang",
-    shopPriceEur: 179,
+    shopPriceEur: 169,
     shopCopies: 6,
     workDisplayYear: 2024,
   },

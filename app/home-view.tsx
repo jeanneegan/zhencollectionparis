@@ -39,7 +39,7 @@ const spotlightLabels: Record<
     conversationCta: "Découvrir la conversation · 进入对话",
     editionKicker: "LATEST EDITION · 最新出版",
     editionMeta: (copies, price) => `${copies} 版 · €${price}`,
-    editionCta: "Découvrir l'édition · 进入商店",
+    editionCta: "Collectionner l'œuvre · 收藏作品",
     festivalKicker: "FESTIVAL · 艺术节",
     festivalRoute: "Paris ↔ Shenzhen",
     festivalTagline: "在日常空间发生的国际艺术节",
@@ -51,7 +51,7 @@ const spotlightLabels: Record<
     editionKicker: "LATEST EDITION · 最新出版",
     editionMeta: (copies, price) =>
       `Tirage de ${copies} exemplaires · ${price} €`,
-    editionCta: "Découvrir l'édition · 进入商店",
+    editionCta: "Collectionner l'œuvre · 收藏作品",
     festivalKicker: "FESTIVAL · 艺术节",
     festivalRoute: "Paris ↔ Shenzhen",
     festivalTagline:
@@ -63,7 +63,7 @@ const spotlightLabels: Record<
     conversationCta: "Discover the conversation",
     editionKicker: "LATEST EDITION",
     editionMeta: (copies, price) => `Edition of ${copies} · €${price}`,
-    editionCta: "Discover the edition",
+    editionCta: "Collect the artwork",
     festivalKicker: "FESTIVAL",
     festivalRoute: "Paris ↔ Shenzhen",
     festivalTagline:
@@ -226,7 +226,7 @@ export function HomeView() {
               </div>
             </div>
 
-            <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+            <div className="mt-10 flex justify-center">
               <a
                 href={editionShopUrl}
                 target="_blank"
@@ -236,14 +236,6 @@ export function HomeView() {
                 {l.editionCta}
                 <span aria-hidden>→</span>
               </a>
-              <Link
-                href={`/edition/${latestEdition.id}`}
-                className={ctaSecondaryClass}
-              >
-                {locale === "en"
-                  ? "View on ZCP"
-                  : "Voir sur ZCP · 查看出版"}
-              </Link>
             </div>
           </section>
         ) : null}
