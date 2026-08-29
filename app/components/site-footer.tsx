@@ -16,9 +16,6 @@ export function SiteFooter({
           wide ? "max-w-7xl md:px-10" : "max-w-3xl"
         }`}
       >
-        <p className="text-[11px] uppercase tracking-[0.2em] text-stone-400">
-          Zhen Collection Paris 巴黎臻藏
-        </p>
         <SiteFooterNav locale={locale} />
         <SiteSocialLinks />
         <p className="text-[11px] text-stone-400">
