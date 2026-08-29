@@ -20,11 +20,7 @@ export function SiteHeader({
         sticky ? "sticky top-0 z-50" : ""
       }`}
     >
-      <div
-        className={`mx-auto flex items-center justify-between gap-4 px-6 py-5 ${
-          wide ? "max-w-7xl md:px-10" : "max-w-3xl"
-        }`}
-      >
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-6 py-5 md:px-10">
         <SiteBrandLink className="shrink-0" />
         {trailing}
       </div>
