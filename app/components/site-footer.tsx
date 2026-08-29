@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { Locale } from "@/app/artists/[slug]/data";
 import { SiteFooterNav } from "@/app/components/site-footer-nav";
 import { SiteSocialLinks } from "@/app/components/site-social-links";
@@ -17,12 +16,9 @@ export function SiteFooter({
           wide ? "max-w-7xl md:px-10" : "max-w-3xl"
         }`}
       >
-        <Link
-          href="/"
-          className="text-[11px] uppercase tracking-[0.2em] text-stone-400 transition-colors hover:text-stone-900"
-        >
+        <p className="text-[11px] uppercase tracking-[0.2em] text-stone-400">
           Zhen Collection Paris 巴黎臻藏
-        </Link>
+        </p>
         <SiteFooterNav locale={locale} />
         <SiteSocialLinks />
         <p className="text-[11px] text-stone-400">
