@@ -55,6 +55,17 @@ function SocialIcon({
           <path d="M6 4h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm1.2 2v12h9.6V6H7.2Zm2.1 1.8h5.4v1.5H9.3V7.8Zm0 2.7h5.4v1.5H9.3v-1.5Zm0 2.7h3.6v1.5H9.3v-1.5Z" />
         </svg>
       );
+    case "linkedin":
+      return (
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden
+          className={className}
+          fill="currentColor"
+        >
+          <path d="M6.5 8.5a2 2 0 1 1 0-4 2 2 0 0 1 0 4ZM4.75 20v-9.5h3.5V20h-3.5ZM13.25 10.5c-1.88 0-3.25 1.03-3.75 2.02V10.5h-3.5V20h3.5v-5.25c0-1.45 1.1-2.62 2.5-2.62s2.25 1.05 2.25 2.5V20h3.5v-5.75c0-3.05-1.82-5.25-4.5-5.25Z" />
+        </svg>
+      );
   }
 }
 

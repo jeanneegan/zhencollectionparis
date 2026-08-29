@@ -1,5 +1,5 @@
 export type SiteSocialNetwork = {
-  id: "instagram" | "wechat" | "xiaohongshu";
+  id: "instagram" | "wechat" | "xiaohongshu" | "linkedin";
   label: string;
   href?: string;
   contactAnchor?: boolean;
@@ -19,6 +19,11 @@ export const siteSocialNetworks: SiteSocialNetwork[] = [
   {
     id: "xiaohongshu",
     label: "小红书",
+    href: "",
+  },
+  {
+    id: "linkedin",
+    label: "LinkedIn",
     href: "",
   },
 ];
