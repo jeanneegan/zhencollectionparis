@@ -9,17 +9,14 @@ const footerNavItems: Record<
   { href: string; label: string; external?: boolean }[]
 > = {
   zh: [
-    { href: "/editions", label: "ÉDITIONS · 限量作品" },
     { href: "/apropos", label: "ABOUT · 关于" },
     { href: "/apropos#contact", label: "CONTACT · 联系我们" },
   ],
   fr: [
-    { href: "/editions", label: "ÉDITIONS · 限量作品" },
     { href: "/apropos", label: "ABOUT · 关于" },
     { href: "/apropos#contact", label: "CONTACT · 联系我们" },
   ],
   en: [
-    { href: "/editions", label: "EDITIONS · Limited editions" },
     { href: "/apropos", label: "ABOUT · About" },
     { href: "/apropos#contact", label: "CONTACT · Contact us" },
   ],

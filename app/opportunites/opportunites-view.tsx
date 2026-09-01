@@ -126,6 +126,9 @@ export function OpportunitesView() {
           <h1 className="text-2xl font-light tracking-wide text-stone-900 md:text-3xl">
             {l.title}
           </h1>
+          <p className="mx-auto mt-4 max-w-xl text-xs leading-[1.9] tracking-wide text-stone-500 md:text-sm">
+            De Paris et de Chine, vers d&apos;autres villes du monde.
+          </p>
         </header>
 
         <div className="mt-12 space-y-6">
