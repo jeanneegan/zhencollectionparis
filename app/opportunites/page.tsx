@@ -3,9 +3,9 @@ import { OpportunitesView } from "./opportunites-view";
 import { createPageMetadata } from "@/app/lib/site-metadata";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Opportunités · 机会 · Zhen Collection Paris",
+  title: "Résidences · 驻地 · Zhen Collection Paris",
   description:
-    "De Paris et de Chine, vers d'autres villes du monde. · 从巴黎与中国出发，连接世界各地的城市。 · From Paris and China to cities around the world.",
+    "ZCP Residencies, partner residencies, and open residencies across France, China, and other cities. · 巴黎臻藏发起、合作及开放申请的驻地项目。",
 });
 
 export default function OpportunitesPage() {
