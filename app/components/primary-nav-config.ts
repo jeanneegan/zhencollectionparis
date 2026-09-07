@@ -1,5 +1,3 @@
-import { isArtworkPassportPath } from "@/app/components/site-nav-config";
-
 export type PrimaryNavItem = {
   id: string;
   href: string;
@@ -23,14 +21,6 @@ export const primaryNavItems: PrimaryNavItem[] = [
     labelZh: "艺术家",
     isActive: (pathname) =>
       pathname === "/artists" || pathname.startsWith("/artists/"),
-  },
-  {
-    id: "artworks",
-    href: "/oeuvres",
-    label: "ARTWORKS",
-    labelZh: "作品",
-    isActive: (pathname) =>
-      pathname === "/oeuvres" || isArtworkPassportPath(pathname),
   },
   {
     id: "editions",
