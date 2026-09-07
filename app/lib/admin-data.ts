@@ -25,6 +25,7 @@ export type AdminCounts = {
   passports: number;
   holdings: number;
   unreadMessages: number;
+  dialogueMessages: number;
 };
 
 export function getAdminCounts(): AdminCounts {
@@ -41,6 +42,7 @@ export function getAdminCounts(): AdminCounts {
     passports: listArtworkPassportRoutes().length,
     holdings: getHoldingsForDefaultCollector().length,
     unreadMessages: GALLERY_RECEIVED_MESSAGES.filter((message) => message.unread).length,
+    dialogueMessages: 0,
   };
 }
 

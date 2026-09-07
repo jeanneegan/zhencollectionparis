@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import type { Locale } from "@/app/artists/[slug]/data";
 
@@ -13,6 +14,7 @@ const formLabels: Record<
     submit: string;
     thanks: string;
     thanksSub: string;
+    error: string;
   }
 > = {
   zh: {
@@ -23,6 +25,7 @@ const formLabels: Record<
     submit: "Laisser un message · 发送留言",
     thanks: "Merci · 感谢您的留言，我们会尽快纳入对话。",
     thanksSub: "Thank you · Your message has been received.",
+    error: "发送失败，请稍后再试。",
   },
   fr: {
     message: "Message · 留言",
@@ -33,6 +36,7 @@ const formLabels: Record<
     thanks:
       "Merci · Votre message a bien été reçu et sera intégré à la conversation.",
     thanksSub: "Thank you · Your message has been received.",
+    error: "Échec de l'envoi. Veuillez réessayer.",
   },
   en: {
     message: "Message",
@@ -42,25 +46,56 @@ const formLabels: Record<
     submit: "Send message",
     thanks: "Thank you · Your message has been received.",
     thanksSub: "We will include it in the conversation soon.",
+    error: "Unable to send your message. Please try again.",
   },
 };
 
 export function PublicMessageForm({
+  episodeSlug,
   inverted = false,
   locale = "fr",
 }: {
+  episodeSlug: string;
   inverted?: boolean;
   locale?: Locale;
 }) {
+  const router = useRouter();
   const [message, setMessage] = useState("");
   const [name, setName] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const l = formLabels[locale];
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!message.trim()) return;
-    setSubmitted(true);
+    if (!message.trim() || submitting) return;
+
+    setSubmitting(true);
+    setError(null);
+
+    try {
+      const response = await fetch("/api/dialogue/messages", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          episodeSlug,
+          message,
+          name: name.trim() || undefined,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("submit-failed");
+      }
+
+      setSubmitted(true);
+      router.refresh();
+    } catch {
+      setError(l.error);
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   const labelClass = inverted ? "text-red-100/70" : "text-stone-400";
@@ -118,10 +153,15 @@ export function PublicMessageForm({
         />
       </label>
 
+      {error ? (
+        <p className="text-center text-xs text-red-600">{error}</p>
+      ) : null}
+
       <div className="flex justify-center pt-2">
         <button
           type="submit"
-          className={`rounded-full border px-6 py-2.5 text-xs font-medium tracking-[0.12em] transition-colors ${buttonClass}`}
+          disabled={submitting}
+          className={`rounded-full border px-6 py-2.5 text-xs font-medium tracking-[0.12em] transition-colors disabled:cursor-not-allowed disabled:opacity-60 ${buttonClass}`}
         >
           {l.submit}
         </button>

@@ -34,6 +34,7 @@ const adminNavLabels: Record<
     exhibitionsLink: string;
     contentSection: string;
     passportsLink: string;
+    dialogueMessagesLink: string;
     memberSpaceLink: string;
   }
 > = {
@@ -56,6 +57,7 @@ const adminNavLabels: Record<
     exhibitionsLink: "Expositions · 展览",
     contentSection: "Contenu · 内容",
     passportsLink: "Passeports œuvre · 作品护照",
+    dialogueMessagesLink: "Messages du public · 公众留言",
     memberSpaceLink: "Espace membre · 成员空间",
   },
   fr: {
@@ -77,6 +79,7 @@ const adminNavLabels: Record<
     exhibitionsLink: "Expositions · 展览",
     contentSection: "Contenu · 内容",
     passportsLink: "Passeports œuvre · 作品护照",
+    dialogueMessagesLink: "Messages du public · 公众留言",
     memberSpaceLink: "Espace membre · 成员空间",
   },
   en: {
@@ -98,6 +101,7 @@ const adminNavLabels: Record<
     exhibitionsLink: "Exhibitions",
     contentSection: "Content",
     passportsLink: "Artwork passports",
+    dialogueMessagesLink: "Public messages",
     memberSpaceLink: "Member space",
   },
 };
@@ -117,6 +121,7 @@ export function getAdminNavGroups(
     members: number;
     exhibitions: number;
     passports: number;
+    dialogueMessages: number;
   },
 ): AdminNavGroup[] {
   const l = adminNavLabels[locale];
@@ -188,6 +193,12 @@ export function getAdminNavGroups(
           label: l.passportsLink,
           badge: counts.passports,
         },
+        {
+          id: "admin-dialogue-messages",
+          href: "/admin/dialogue-messages",
+          label: l.dialogueMessagesLink,
+          badge: counts.dialogueMessages,
+        },
       ],
     },
     {
@@ -205,6 +216,10 @@ export function isAdminNavLinkActive(pathname: string, link: AdminNavLink): bool
 
   if (link.id === "admin-notes") {
     return pathname === "/admin/notes" || pathname.startsWith("/admin/notes/");
+  }
+
+  if (link.id === "admin-dialogue-messages") {
+    return pathname === "/admin/dialogue-messages";
   }
 
   return pathname === link.href || pathname.startsWith(`${link.href}/`);

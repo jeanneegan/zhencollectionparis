@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getArtistBySlug } from "@/app/artists/[slug]/data";
 import { getArtworkPassport } from "@/app/lib/artwork-passport";
+import { listDialogueMessagesForEpisode } from "@/app/lib/dialogue-messages-store";
 import { createPageMetadata } from "@/app/lib/site-metadata";
 import { getDialogueShareImage } from "@/app/lib/page-share-image";
 import { getEpisodeBySlug } from "../data";
@@ -42,11 +43,14 @@ export default async function DialoguePage({ params }: PageProps) {
     notFound();
   }
 
-  const featured: FeaturedWork[] = episode.featuredWorks
+  const featured = episode.featuredWorks
     .map(({ artistSlug, artworkId, image, displayAspect }) => {
       const artist = getArtistBySlug(artistSlug);
       const artwork = artist?.artworks.find((a) => a.id === artworkId);
       if (!artist || !artwork) return null;
+
+      const artworkImage = image ?? artwork.image;
+      if (!artworkImage) return null;
 
       const aspectMatch = artwork.dimensions.match(
         /(\d+(?:\.\d+)?)\s*×\s*(\d+(?:\.\d+)?)/,
@@ -58,6 +62,7 @@ export default async function DialoguePage({ params }: PageProps) {
           : [4, 3];
 
       const passport = getArtworkPassport(artistSlug, artworkId);
+      const description = passport?.description ?? artwork.description;
 
       return {
         artistSlug: artist.slug,
@@ -68,15 +73,21 @@ export default async function DialoguePage({ params }: PageProps) {
           title: artwork.title,
           medium: artwork.medium,
           year: artwork.year,
-          image: image ?? artwork.image,
-          description: passport?.description ?? artwork.description,
+          image: artworkImage,
+          ...(description ? { description } : {}),
         },
         aspect,
-      };
+      } satisfies FeaturedWork;
     })
     .filter((item): item is FeaturedWork => item !== null);
 
+  const publicMessages = await listDialogueMessagesForEpisode(episode.slug);
+
   return (
-    <DialogueView episode={episode} featured={featured} />
+    <DialogueView
+      episode={episode}
+      featured={featured}
+      publicMessages={publicMessages}
+    />
   );
 }

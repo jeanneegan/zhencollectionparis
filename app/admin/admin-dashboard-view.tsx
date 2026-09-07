@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { AdminPageHeader } from "@/app/components/admin-data-table";
-import { getAdminCounts } from "@/app/lib/admin-data";
+import type { AdminCounts } from "@/app/lib/admin-data";
 import { getAdminNavLabels } from "@/app/lib/admin-nav";
 import { useLocale } from "@/app/lib/use-locale";
 
@@ -21,6 +21,7 @@ const dashboardLabels = {
       passports: "Passeports · 作品护照",
       holdings: "Entrées collection · 藏品记录",
       unreadMessages: "Messages non lus · 未读消息",
+      dialogueMessages: "Messages du public · 公众留言",
     },
   },
   fr: {
@@ -37,6 +38,7 @@ const dashboardLabels = {
       passports: "Passeports · 作品护照",
       holdings: "Entrées collection · 藏品记录",
       unreadMessages: "Messages non lus · 未读消息",
+      dialogueMessages: "Messages du public · 公众留言",
     },
   },
   en: {
@@ -53,15 +55,15 @@ const dashboardLabels = {
       passports: "Artwork passports",
       holdings: "Collection entries",
       unreadMessages: "Unread messages",
+      dialogueMessages: "Public messages",
     },
   },
 };
 
-export function AdminDashboardView() {
+export function AdminDashboardView({ counts }: { counts: AdminCounts }) {
   const [locale] = useLocale();
   const l = dashboardLabels[locale];
   const nav = getAdminNavLabels(locale);
-  const counts = getAdminCounts();
 
   const statCards = [
     { label: l.stats.artists, value: counts.artists, href: "/admin/artists" },
@@ -76,6 +78,11 @@ export function AdminDashboardView() {
       label: l.stats.unreadMessages,
       value: counts.unreadMessages,
       href: "/galerie?section=receivedMessages",
+    },
+    {
+      label: l.stats.dialogueMessages,
+      value: counts.dialogueMessages,
+      href: "/admin/dialogue-messages",
     },
   ];
 

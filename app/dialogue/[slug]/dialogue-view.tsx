@@ -7,6 +7,7 @@ import { DialogueEpisodeNav } from "@/app/components/dialogue-episode-nav";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
 import { BRAND_LOGO_SRC } from "@/app/components/site-brand-logo";
 import { PublicMessageForm } from "@/app/components/public-message-form";
+import { PublicMessagesList } from "@/app/components/public-messages-list";
 import { PageBottomNav } from "@/app/components/page-bottom-nav";
 import { SiteFooter } from "@/app/components/site-footer";
 import { SiteHeader } from "@/app/components/site-header";
@@ -23,6 +24,7 @@ import {
   type DialogueExchange,
   type ObserverQuestion,
 } from "../data";
+import type { DialoguePublicMessage } from "@/app/lib/dialogue-messages-store";
 
 const serif = Noto_Serif_SC({
   subsets: ["latin"],
@@ -184,7 +186,7 @@ function QuestionContent({
 }) {
   return (
     <p
-      className={`${serif.className} text-sm leading-[1.9] text-stone-800`}
+      className={`${serif.className} whitespace-pre-line text-sm leading-[1.9] text-stone-800`}
     >
       {t(text, locale)}
     </p>
@@ -293,9 +295,11 @@ function ObserverBlock({
 export function DialogueView({
   episode,
   featured,
+  publicMessages,
 }: {
   episode: DialogueEpisode;
   featured: FeaturedWork[];
+  publicMessages: DialoguePublicMessage[];
 }) {
   const [locale, setLocale] = useLocale();
   const l = labels[locale];
@@ -383,7 +387,10 @@ export function DialogueView({
             {t(episode.publicParticipation.note, locale)}
           </p>
           {episode.publicParticipation.open ? (
-            <PublicMessageForm locale={locale} />
+            <>
+              <PublicMessageForm locale={locale} episodeSlug={episode.slug} />
+              <PublicMessagesList messages={publicMessages} locale={locale} />
+            </>
           ) : null}
         </section>
 
