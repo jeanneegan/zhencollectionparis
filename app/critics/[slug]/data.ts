@@ -238,7 +238,7 @@ const linWei: CriticProfile = {
         en: "Willy Le Nalbaut",
       },
       artworkTitle: {
-        zh: "« La flaque aux oiseaux »",
+        zh: "《鸟之小水洼》",
         fr: "« La flaque aux oiseaux »",
         en: "The puddle with birds",
       },

@@ -70,7 +70,7 @@ export const MOCK_COLLECTOR_HOLDINGS: CollectorHolding[] = [
       en: "Willy Le Nalbaut",
     },
     title: {
-      zh: "« La flaque aux oiseaux »",
+      zh: "《鸟之小水洼》",
       fr: "« La flaque aux oiseaux »",
       en: "The puddle with birds",
     },
@@ -89,7 +89,7 @@ export const MOCK_COLLECTOR_HOLDINGS: CollectorHolding[] = [
     },
     acquiredYear: 2025,
     acquiredFrom: {
-      zh: "Pérégrinations girouettes 群展 · 巴黎",
+      zh: "风向标巡礼群展 · 巴黎",
       fr: "Exposition Pérégrinations girouettes · Paris",
       en: "Pérégrinations girouettes exhibition · Paris",
     },
@@ -151,7 +151,7 @@ export const MOCK_COLLECTOR_HOLDINGS: CollectorHolding[] = [
       en: "Willy Le Nalbaut",
     },
     title: {
-      zh: "« Le moine »",
+      zh: "《僧侣》",
       fr: "« Le moine »",
       en: "The Monk",
     },
@@ -302,7 +302,7 @@ export const MOCK_COLLECTOR_HOLDINGS: CollectorHolding[] = [
       en: "Willy Le Nalbaut",
     },
     title: {
-      zh: "« Attachez vos ceintures ! »",
+      zh: "《系好安全带！》",
       fr: "« Attachez vos ceintures ! »",
       en: "« Attachez vos ceintures ! »",
     },

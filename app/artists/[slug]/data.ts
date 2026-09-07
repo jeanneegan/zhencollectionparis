@@ -217,7 +217,7 @@ With cynicism and humour, an animal, a god, and a mundane object can appear on t
     {
       year: "2007",
       title: {
-        zh: "ESAG Penninghen",
+        zh: "ESAG Penninghen · 巴黎高等应用艺术学院",
         fr: "ESAG Penninghen",
         en: "ESAG Penninghen",
       },
@@ -226,7 +226,7 @@ With cynicism and humour, an animal, a god, and a mundane object can appear on t
     {
       year: "2021",
       title: {
-        zh: "Prix Marin",
+        zh: "马兰奖 · Prix Marin",
         fr: "Prix Marin",
         en: "Prix Marin",
       },
@@ -235,7 +235,7 @@ With cynicism and humour, an animal, a god, and a mundane object can appear on t
     {
       year: "2024",
       title: {
-        zh: "Alain in the dark",
+        zh: "《黑暗中的阿兰》· Alain in the dark",
         fr: "Alain in the dark",
         en: "Alain in the dark",
       },
@@ -248,7 +248,7 @@ With cynicism and humour, an animal, a god, and a mundane object can appear on t
     {
       year: "2025",
       title: {
-        zh: "Novembre à Vitry",
+        zh: "维特里之十一月 · Novembre à Vitry",
         fr: "Novembre à Vitry",
         en: "Novembre à Vitry",
       },
@@ -259,7 +259,7 @@ With cynicism and humour, an animal, a god, and a mundane object can appear on t
     {
       year: 2026,
       title: {
-        zh: "Pérégrinations girouette",
+        zh: "风向标巡礼 · Pérégrinations girouette",
         fr: "Pérégrinations girouette",
         en: "Pérégrinations girouette",
       },
@@ -296,7 +296,7 @@ With cynicism and humour, an animal, a god, and a mundane object can appear on t
     {
       year: 2024,
       title: {
-        zh: "ADAF · A domestic art fair",
+        zh: "ADAF · 家居艺术博览会",
         fr: "ADAF · A domestic art fair",
         en: "ADAF · A domestic art fair",
       },
@@ -307,7 +307,7 @@ With cynicism and humour, an animal, a god, and a mundane object can appear on t
     {
       year: 2024,
       title: {
-        zh: "Bords perdus festival · 第二届",
+        zh: "失落边缘艺术节 · 第二届",
         fr: "Bords perdus festival · 2e édition",
         en: "Bords perdus festival · 2nd edition",
       },
@@ -318,7 +318,7 @@ With cynicism and humour, an animal, a god, and a mundane object can appear on t
     {
       year: 2024,
       title: {
-        zh: "« Alain in the dark »",
+        zh: "《黑暗中的阿兰》",
         fr: "« Alain in the dark »",
         en: "« Alain in the dark »",
       },
@@ -333,7 +333,7 @@ With cynicism and humour, an animal, a god, and a mundane object can appear on t
     {
       year: 2023,
       title: {
-        zh: "« éclair »",
+        zh: "《闪电》",
         fr: "« éclair »",
         en: "« éclair »",
       },
@@ -344,7 +344,7 @@ With cynicism and humour, an animal, a god, and a mundane object can appear on t
     {
       year: 2023,
       title: {
-        zh: "« Les balladeuses » · 与 Quentin Caillaud 双人展",
+        zh: "《漫步者》· 与 Quentin Caillaud 双人展",
         fr: "« Les balladeuses » · duo avec Quentin Caillaud",
         en: "« Les balladeuses » · duo with Quentin Caillaud",
       },
@@ -355,7 +355,7 @@ With cynicism and humour, an animal, a god, and a mundane object can appear on t
     {
       year: 2023,
       title: {
-        zh: "« Dévellopé couché » · 与 Quentin Caillaud 双人展",
+        zh: "《展开而卧》· 与 Quentin Caillaud 双人展",
         fr: "« Dévellopé couché » · duo avec Quentin Caillaud",
         en: "« Dévellopé couché » · duo with Quentin Caillaud",
       },
@@ -366,7 +366,7 @@ With cynicism and humour, an animal, a god, and a mundane object can appear on t
     {
       year: 2022,
       title: {
-        zh: "« Bleu charette »",
+        zh: "《手推车之蓝》",
         fr: "« Bleu charette »",
         en: "« Bleu charette »",
       },
@@ -377,7 +377,7 @@ With cynicism and humour, an animal, a god, and a mundane object can appear on t
     {
       year: 2021,
       title: {
-        zh: "Prix Marin",
+        zh: "马兰奖 · Prix Marin",
         fr: "Prix Marin",
         en: "Prix Marin",
       },
@@ -388,7 +388,7 @@ With cynicism and humour, an animal, a god, and a mundane object can appear on t
     {
       year: 2020,
       title: {
-        zh: "« Chien »",
+        zh: "《狗》",
         fr: "« Chien »",
         en: "« Chien »",
       },
@@ -399,7 +399,7 @@ With cynicism and humour, an animal, a god, and a mundane object can appear on t
     {
       year: 2019,
       title: {
-        zh: "« Plus qu'assez ! Simple »",
+        zh: "《够了！简单》",
         fr: "« Plus qu'assez ! Simple »",
         en: "« Plus qu'assez ! Simple »",
       },
@@ -410,7 +410,7 @@ With cynicism and humour, an animal, a god, and a mundane object can appear on t
     {
       year: 2019,
       title: {
-        zh: "« Bill & Bob »",
+        zh: "《Bill & Bob》",
         fr: "« Bill & Bob »",
         en: "« Bill & Bob »",
       },
@@ -421,7 +421,7 @@ With cynicism and humour, an animal, a god, and a mundane object can appear on t
     {
       year: 2018,
       title: {
-        zh: "« Low-cost »",
+        zh: "《低成本》",
         fr: "« Low-cost »",
         en: "« Low-cost »",
       },
@@ -432,7 +432,7 @@ With cynicism and humour, an animal, a god, and a mundane object can appear on t
     {
       year: 2018,
       title: {
-        zh: "« C'était mieux demain #4 »",
+        zh: "《明天会更好 #4》",
         fr: "« C'était mieux demain #4 »",
         en: "« C'était mieux demain #4 »",
       },
@@ -454,7 +454,7 @@ With cynicism and humour, an animal, a god, and a mundane object can appear on t
     {
       year: 2017,
       title: {
-        zh: "« What did you expect ? »",
+        zh: "《你还指望什么？》",
         fr: "« What did you expect ? »",
         en: "« What did you expect ? »",
       },
@@ -466,9 +466,9 @@ With cynicism and humour, an animal, a god, and a mundane object can appear on t
   artworks: [
     {
       id: "1",
-      title: { zh: "« PDT »", fr: "« PDT »", en: "« PDT »" },
+      title: { zh: "《PDT》", fr: "« PDT »", en: "« PDT »" },
       subtitle: {
-        zh: "（Paravent suspendu pour l'ADAF, Bruxelles, Septembre 2024）",
+        zh: "（2024 年 9 月布鲁塞尔 ADAF 悬挂屏风）",
         fr: "(Paravent suspendu pour l'ADAF, Bruxelles, Septembre 2024)",
         en: "(Suspended screen for ADAF, Brussels, September 2024)",
       },
@@ -520,7 +520,7 @@ The exhibition theme was the « people's house »—hence the potato, a cheap, p
     {
       id: "3",
       title: {
-        zh: "L'âne à ses raisons que les sabots ignorent.",
+        zh: "驴自有其理，铁蹄不能知",
         fr: "L'âne à ses raisons que les sabots ignorent.",
         en: "The donkey has its reasons that hooves ignore.",
       },
@@ -542,7 +542,7 @@ The exhibition theme was the « people's house »—hence the potato, a cheap, p
     {
       id: "13",
       title: {
-        zh: "« Mais c'est le Mitch ! »",
+        zh: "《是 Mitch 啊！》",
         fr: "« Mais c'est le Mitch ! »",
         en: "« Mais c'est le Mitch ! »",
       },
@@ -572,7 +572,7 @@ I use gold paint for fine lines or borders, somewhat like paintings that represe
     {
       id: "15",
       title: {
-        zh: "« Saupoudrez d'un peu de Korrigan »",
+        zh: "《撒一点小精灵》",
         fr: "« Saupoudrez d'un peu de Korrigan »",
         en: "« Saupoudrez d'un peu de Korrigan »",
       },
@@ -596,7 +596,7 @@ I use gold paint for fine lines or borders, somewhat like paintings that represe
     {
       id: "14",
       title: {
-        zh: "« Attachez vos ceintures ! »",
+        zh: "《系好安全带！》",
         fr: "« Attachez vos ceintures ! »",
         en: "« Attachez vos ceintures ! »",
       },
@@ -624,7 +624,7 @@ A fragment of an underlying layer remains at the bottom left; and, as in the pre
     {
       id: "7",
       title: {
-        zh: "« Limaces sous dômes »",
+        zh: "《穹顶下的蜗牛》",
         fr: "« Limaces sous dômes »",
         en: "Slugs under domes",
       },
@@ -647,7 +647,7 @@ A fragment of an underlying layer remains at the bottom left; and, as in the pre
     {
       id: "8",
       title: {
-        zh: "Goeiedag mevroew bloem",
+        zh: "日安，布鲁塞尔之花女士",
         fr: "Goeiedag mevroew bloem",
         en: "Goeiedag mevroew bloem",
       },
@@ -669,7 +669,7 @@ A fragment of an underlying layer remains at the bottom left; and, as in the pre
     {
       id: "9",
       title: {
-        zh: "sans titre",
+        zh: "无题",
         fr: "sans titre",
         en: "Untitled",
       },
@@ -692,7 +692,7 @@ A fragment of an underlying layer remains at the bottom left; and, as in the pre
     {
       id: "11",
       title: {
-        zh: "« Le moine »",
+        zh: "《僧侣》",
         fr: "« Le moine »",
         en: "The Monk",
       },
@@ -715,7 +715,7 @@ A fragment of an underlying layer remains at the bottom left; and, as in the pre
     {
       id: "10",
       title: {
-        zh: "« La flaque aux oiseaux »",
+        zh: "《鸟之小水洼》",
         fr: "« La flaque aux oiseaux »",
         en: "The puddle with birds",
       },
@@ -737,7 +737,7 @@ A fragment of an underlying layer remains at the bottom left; and, as in the pre
     {
       id: "12",
       title: {
-        zh: "« Eh-pad flower. »",
+        zh: "《圣佩德罗之花》",
         fr: "« Eh-pad flower. »",
         en: "« Eh-pad flower. »",
       },
@@ -781,7 +781,7 @@ A fragment of an underlying layer remains at the bottom left; and, as in the pre
     curatorMediaRecognition: [
       {
         source: {
-          zh: "Prix Marin · 2021，Parrainé par Antonio Seguí",
+          zh: "马兰奖 · 2021，Antonio Seguí 赞助",
           fr: "Prix Marin · 2021, Parrainé par Antonio Seguí",
           en: "Prix Marin · 2021, Patroned by Antonio Seguí",
         },
@@ -789,7 +789,7 @@ A fragment of an underlying layer remains at the bottom left; and, as in the pre
       },
       {
         source: {
-          zh: "Prix international de peinture · Novembre à Vitry · 2025",
+          zh: "国际绘画奖 · 维特里之十一月 · 2025",
           fr: "Prix international de peinture · Novembre à Vitry · 2025",
           en: "International Painting Prize · Novembre à Vitry · 2025",
         },
@@ -2146,4 +2146,24 @@ export function getAllArtistSlugs(): string[] {
 
 export function t(text: LocalizedText, locale: Locale): string {
   return text[locale];
+}
+
+export function formatArtworkTitle(text: LocalizedText, locale: Locale): string {
+  const zh = text.zh.trim();
+  const fr = text.fr.trim();
+  const en = text.en.trim();
+
+  if (locale === "en") {
+    return en || fr;
+  }
+
+  if (locale === "zh") {
+    return zh || fr;
+  }
+
+  if (zh && zh !== fr) {
+    return `${fr} · ${zh}`;
+  }
+
+  return fr;
 }

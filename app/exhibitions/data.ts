@@ -15,13 +15,13 @@ const exhibitions: Record<string, Exhibition> = {
     slug: "peregrinations-girouettes-willy",
     title: {
       fr: "Pérégrinations girouettes",
-      zh: "Pérégrinations girouettes",
+      zh: "风向标巡礼 · Pérégrinations girouette",
       en: "Pérégrinations girouettes",
     },
     artistSlug: "willy-le-nalbaut",
     artistDisplay: {
       fr: "Willy Le Nalbaut",
-      zh: "Willy Le Nalbaut",
+      zh: "威利·勒纳尔博",
       en: "Willy Le Nalbaut",
     },
     workIds: ["14", "13", "15", "3", "7"],

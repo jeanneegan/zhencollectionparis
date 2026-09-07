@@ -25,7 +25,7 @@ export const GALLERY_RECEIVED_MESSAGES: GalleryMessage[] = [
     },
     preview: {
       fr: "Bonjour, je souhaiterais connaître la disponibilité et le prix de cette œuvre de Willy Le Nalbaut, vue dans l'exposition Pérégrinations girouettes.",
-      zh: "您好，我想了解 Willy Le Nalbaut 在《Pérégrinations girouettes》展览中这件作品的售价与是否可售。",
+      zh: "您好，我想了解 Willy Le Nalbaut 在《风向标巡礼》展览中这件作品的售价与是否可售。",
       en: "Hello, I would like to know the availability and price of this work by Willy Le Nalbaut, seen in the Pérégrinations girouettes exhibition.",
     },
     unread: true,

@@ -121,7 +121,7 @@ const passportEnrichment: Record<
     },
     provenance: [
       {
-        zh: "2025 · Pérégrinations girouettes 群展 · 巴黎",
+        zh: "2025 · 风向标巡礼群展 · 巴黎",
         fr: "2025 · Exposition Pérégrinations girouettes · Paris",
         en: "2025 · Pérégrinations girouettes exhibition · Paris",
       },
@@ -135,7 +135,7 @@ const passportEnrichment: Record<
       {
         year: 2025,
         title: {
-          zh: "Pérégrinations girouettes",
+          zh: "风向标巡礼 · Pérégrinations girouettes",
           fr: "Pérégrinations girouettes",
           en: "Pérégrinations girouettes",
         },

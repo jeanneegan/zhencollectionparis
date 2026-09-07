@@ -19,6 +19,7 @@ import {
   type Locale,
   getArtistPassportArtworks,
   getArtworkDisplayLayout,
+  formatArtworkTitle,
   t,
 } from "./data";
 
@@ -335,13 +336,13 @@ function ArtworkCard({
       <article className={`group ${articleClass || layout.articleClass}`}>
         <ArtworkExternalLink
           href={externalUrl}
-          title={t(artwork.title, locale)}
+          title={formatArtworkTitle(artwork.title, locale)}
           locale={locale}
           frameStyle={layout.frameStyle}
         />
         <div className="mt-5">
           <h3 className={passportType.artworkTitle}>
-            {t(artwork.title, locale)}
+            {formatArtworkTitle(artwork.title, locale)}
           </h3>
           {artwork.subtitle ? (
             <p className={`mt-1 ${passportType.artworkMeta} leading-relaxed`}>
@@ -439,8 +440,8 @@ function ArtworkCard({
                   src={view.src}
                   alt={
                     showViewLabels && view.label
-                      ? `${t(artwork.title, locale)} · ${t(view.label, locale)}`
-                      : t(artwork.title, locale)
+                      ? `${formatArtworkTitle(artwork.title, locale)} · ${t(view.label, locale)}`
+                      : formatArtworkTitle(artwork.title, locale)
                   }
                   fill
                   className="object-contain object-center transition-transform duration-700 group-hover:scale-[1.01]"
@@ -453,7 +454,7 @@ function ArtworkCard({
       </div>
       <div className="mt-5">
         <h3 className={passportType.artworkTitle}>
-          {t(artwork.title, locale)}
+          {formatArtworkTitle(artwork.title, locale)}
         </h3>
         {artwork.subtitle ? (
           <p className={`mt-1 ${passportType.artworkMeta} leading-relaxed`}>
