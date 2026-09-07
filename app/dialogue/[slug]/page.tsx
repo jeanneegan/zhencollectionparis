@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getArtistBySlug } from "@/app/artists/[slug]/data";
+import { getArtworkPassport } from "@/app/lib/artwork-passport";
 import { createPageMetadata } from "@/app/lib/site-metadata";
 import { getDialogueShareImage } from "@/app/lib/page-share-image";
 import { getEpisodeBySlug } from "../data";
@@ -56,6 +57,8 @@ export default async function DialoguePage({ params }: PageProps) {
           ? [Number(aspectMatch[1]), Number(aspectMatch[2])]
           : [4, 3];
 
+      const passport = getArtworkPassport(artistSlug, artworkId);
+
       return {
         artistSlug: artist.slug,
         artistName:
@@ -66,6 +69,7 @@ export default async function DialoguePage({ params }: PageProps) {
           medium: artwork.medium,
           year: artwork.year,
           image: image ?? artwork.image,
+          description: passport?.description ?? artwork.description,
         },
         aspect,
       };

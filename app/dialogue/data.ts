@@ -23,6 +23,12 @@ const suHongPortraitAvatar: DialogueAvatar = {
   label: "苏泓 Su Hong",
 };
 
+const melanieGerinAvatar: DialogueAvatar = {
+  type: "portrait",
+  alt: "Mélanie Gérin",
+  label: "Mélanie Gérin",
+};
+
 export type DialogueExchange = {
   question: LocalizedText;
   questionFrom?: DialogueAvatar;
@@ -111,12 +117,8 @@ export const episodes: DialogueEpisode[] = [
     },
     observerQuestions: [
       {
-        author: "Zhen Collection Paris · 巴黎臻藏",
-        questionFrom: {
-          type: "brand",
-          alt: "Zhen Collection Paris · 巴黎臻藏",
-          label: "观察者 · Observateur",
-        },
+        author: "Mélanie Gérin",
+        questionFrom: melanieGerinAvatar,
         question: {
           zh: "（观察者提问 · 待发布）",
           fr: "(Question de l'observateur · à venir)",

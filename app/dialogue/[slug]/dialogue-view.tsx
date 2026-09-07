@@ -110,6 +110,7 @@ export type FeaturedWork = {
     medium: LocalizedText;
     year: number;
     image: string;
+    description?: LocalizedText;
   };
   aspect: [number, number];
 };
@@ -422,6 +423,13 @@ export function DialogueView({
                     <p className="mt-1 text-xs text-stone-400">
                       {item.artwork.year} · {t(item.artwork.medium, locale)}
                     </p>
+                    {item.artwork.description ? (
+                      <p
+                        className={`${serif.className} mt-4 text-left text-xs leading-[1.85] text-stone-500`}
+                      >
+                        {t(item.artwork.description, locale)}
+                      </p>
+                    ) : null}
                   </figcaption>
                 </Link>
               </figure>
