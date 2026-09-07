@@ -22,32 +22,32 @@ const pageLabels: Record<
   }
 > = {
   zh: {
-    title: "FESTIVAL · 艺术节",
-    subtitle: "巴黎臻藏艺术节与公共项目。",
+    title: "EXHIBITIONS · 艺术展",
+    subtitle: "巴黎臻藏艺术展与公共项目。",
     route: "Paris ↔ Shenzhen",
-    tagline: "在日常空间发生的国际艺术节。",
+    tagline: "在日常空间发生的国际艺术展。",
     status: "项目筹备中，欢迎持续关注。",
-    view: "Voir le festival · 查看艺术节",
-    empty: "艺术节项目筹备中，敬请期待。",
+    view: "Voir l'exposition · 查看艺术展",
+    empty: "艺术展项目筹备中，敬请期待。",
   },
   fr: {
-    title: "FESTIVAL · 艺术节",
-    subtitle: "Festivals et projets publics de Zhen Collection Paris.",
+    title: "EXHIBITIONS · 艺术展",
+    subtitle: "Expositions et projets publics de Zhen Collection Paris.",
     route: "Paris ↔ Shenzhen",
     tagline:
-      "Festival international d'art dans les espaces du quotidien.",
+      "Exposition internationale d'art dans les espaces du quotidien.",
     status: "Projet en préparation — restez informés.",
-    view: "Voir le festival · 查看艺术节",
-    empty: "Les projets festival sont en préparation.",
+    view: "Voir l'exposition · 查看艺术展",
+    empty: "Les projets d'exposition sont en préparation.",
   },
   en: {
-    title: "FESTIVAL",
-    subtitle: "Zhen Collection Paris festivals and public programmes.",
+    title: "EXHIBITIONS",
+    subtitle: "Zhen Collection Paris art exhibitions and public programmes.",
     route: "Paris ↔ Shenzhen",
-    tagline: "Annual international art festival in everyday spaces.",
+    tagline: "International art exhibitions in everyday spaces.",
     status: "Project in preparation — follow for updates.",
-    view: "View festival",
-    empty: "Festival projects are in preparation.",
+    view: "View exhibition",
+    empty: "Exhibition projects are in preparation.",
   },
 };
 

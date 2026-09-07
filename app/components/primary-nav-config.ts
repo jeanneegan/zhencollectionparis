@@ -43,8 +43,8 @@ export const primaryNavItems: PrimaryNavItem[] = [
   {
     id: "festival",
     href: "/festival",
-    label: "FESTIVAL",
-    labelZh: "艺术节",
+    label: "EXHIBITIONS",
+    labelZh: "艺术展",
     isActive: (pathname) =>
       pathname === "/festival" || pathname.startsWith("/festival/"),
   },

@@ -40,9 +40,9 @@ const spotlightLabels: Record<
     editionKicker: "LATEST EDITION · 最新限量作品",
     editionMeta: (copies, price) => `限量 ${copies} 版 · ${price} €`,
     editionCta: "Collectionner l'œuvre · 收藏作品 →",
-    festivalKicker: "FESTIVAL · 艺术节",
+    festivalKicker: "EXHIBITIONS · 艺术展",
     festivalRoute: "Paris ↔ Shenzhen",
-    festivalTagline: "在日常空间发生的国际艺术节",
+    festivalTagline: "在日常空间发生的国际艺术展",
     festivalCta: "Découvrir le projet · 了解项目",
   },
   fr: {
@@ -51,10 +51,10 @@ const spotlightLabels: Record<
     editionKicker: "LATEST EDITION · 最新限量作品",
     editionMeta: (copies, price) => `Édition de ${copies} · ${price} €`,
     editionCta: "Collectionner l'œuvre · 收藏作品 →",
-    festivalKicker: "FESTIVAL · 艺术节",
+    festivalKicker: "EXHIBITIONS · 艺术展",
     festivalRoute: "Paris ↔ Shenzhen",
     festivalTagline:
-      "Festival international d'art dans les espaces du quotidien",
+      "Exposition internationale d'art dans les espaces du quotidien",
     festivalCta: "Découvrir le projet · 了解项目",
   },
   en: {
@@ -63,10 +63,10 @@ const spotlightLabels: Record<
     editionKicker: "LATEST EDITION",
     editionMeta: (copies, price) => `Edition of ${copies} · €${price}`,
     editionCta: "COLLECT THE ARTWORK →",
-    festivalKicker: "FESTIVAL",
+    festivalKicker: "EXHIBITIONS",
     festivalRoute: "Paris ↔ Shenzhen",
     festivalTagline:
-      "Annual international art festival in everyday spaces",
+      "International art exhibitions in everyday spaces",
     festivalCta: "Discover the project",
   },
 };
