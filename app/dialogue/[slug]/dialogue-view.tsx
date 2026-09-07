@@ -432,7 +432,7 @@ export function DialogueView({
                     </p>
                     {item.artwork.description ? (
                       <p
-                        className={`${serif.className} mt-4 text-left text-xs leading-[1.85] text-stone-500`}
+                        className={`${serif.className} mt-4 whitespace-pre-line text-left text-xs leading-[1.85] text-stone-500`}
                       >
                         {t(item.artwork.description, locale)}
                       </p>

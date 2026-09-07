@@ -44,7 +44,7 @@ export default async function DialoguePage({ params }: PageProps) {
   }
 
   const featured = episode.featuredWorks
-    .map(({ artistSlug, artworkId, image, displayAspect }) => {
+    .map(({ artistSlug, artworkId, image, displayAspect, description: featuredDescription }) => {
       const artist = getArtistBySlug(artistSlug);
       const artwork = artist?.artworks.find((a) => a.id === artworkId);
       if (!artist || !artwork) return null;
@@ -62,7 +62,8 @@ export default async function DialoguePage({ params }: PageProps) {
           : [4, 3];
 
       const passport = getArtworkPassport(artistSlug, artworkId);
-      const description = passport?.description ?? artwork.description;
+      const description =
+        featuredDescription ?? passport?.description ?? artwork.description;
 
       return {
         artistSlug: artist.slug,

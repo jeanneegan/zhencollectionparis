@@ -64,6 +64,7 @@ export type DialogueEpisode = {
     artworkId: string;
     image?: string;
     displayAspect?: [number, number];
+    description?: LocalizedText;
   }[];
   isCurrent: boolean;
   status?: "current" | "upcoming" | "archived";
@@ -98,7 +99,13 @@ Dans la pensée chinoise des Cinq Éléments, le « Cheval-Wu » (午马) est é
 Le cheval m'évoque aussi immédiatement la vitesse : sous un ciel bleu traversé de nuages blancs, dans l'immensité d'une prairie, j'imagine un groupe de chevaux noirs, puissants et vigoureux, galopant librement. C'est pour moi l'image d'une existence vécue dans la liberté, l'élan et sans entraves.
 
 L'énergie ne cesse de circuler, et la matière ne cesse de se renouveler et de donner naissance à la vie.`,
-            en: "When it comes to the horse, the first thing I think of is « wu » (午), the seventh of the twelve earthly branches in traditional Chinese culture—in the zodiac, « wu » refers precisely to the horse. As children we all learned the mnemonic for the signs: « … chen dragon, si snake, wu horse, wei goat… »! In the five elements, « wu horse » also stands for fire; according to the ancient sexagenary cycle, 2026 is the bingwu Year of the Horse—« bing », among the ten heavenly stems, is « yang fire », so this year could be called the « fire horse year »: fire is energy! The horse also brings to mind speed: under blue sky and white clouds, on the vast grassland, a herd of dark, sturdy steeds galloping—like a life lived freely and expansively. Energy flows without end; matter renews itself endlessly!",
+            en: `When I think of the horse, the first thing that comes to mind is "Wu" (午), one of the Twelve Earthly Branches in traditional Chinese culture. In the Chinese zodiac, "Wu" corresponds to the horse. In China, from childhood, we learn by heart a little rhyme that connects the Twelve Earthly Branches with the zodiac animals: "… Chen, the Dragon; Si, the Snake; Wu, the Horse; Wei, the Goat…"
+
+In the Chinese system of the Five Elements, the "Wu Horse" (午马) is also associated with the element of Fire. According to the traditional Chinese sexagenary cycle, based on the Heavenly Stems and Earthly Branches, 2026 is the year of Bing-Wu (丙午), the Year of the Horse. "Bing" (丙), one of the Ten Heavenly Stems, represents Yang Fire. So 2026 can also be described as a "Fire Horse" year. And fire is energy!
+
+The horse also immediately makes me think of speed. Under a blue sky and white clouds, across a vast grassland, I imagine a herd of strong, black horses galloping freely. To me, this is an image of living one's life freely and without restraint, full of vitality and momentum.
+
+Energy never ceases to flow, and matter continuously renews itself, giving rise to life.`,
           },
         },
       ],
@@ -152,6 +159,29 @@ L'énergie ne cesse de circuler, et la matière ne cesse de se renouveler et de 
         artworkId: "1",
         image: "/artists/su-hong/works/ma-gui-dialogue.jpg",
         displayAspect: [853, 1024],
+        description: {
+          zh: `此系列是复古与现代的融合，谐音与寓意的碰撞。灵感来源于中国传统文化在发音上的谐音。
+
+在中国文化中，马象征着自由、奔放、力量与成功；柜作为家具中常见的物品，通常与财富、储存和稳定联系在一起。将「马有贵」这一谐音，既体现了传统文化的智慧，又赋予了作品独特的寓意。线条简洁流畅，展现出一种现代感。在构思过程中，将马的动物形象与各种复古柜子的结构融合在一起。
+
+「柜马贵」或者「马富贵」——「马」与「柜子」在视觉上形成了强烈的对比和冲击，这种对「马」的寓意以及充满生机与希望的柜子的结合，也寓意着财富与自由、力量与稳定的完美结合。
+
+同时，作品也传达出一种积极向上的精神。马的奔放与活力象征着人们在追求目标时的勇气和决心，而柜子的稳定则提醒人们在追求财富和成功的过程中，要保持内心的平静和稳定。这种精神传达使作品不仅具有视觉上的美感，更具有情感上的共鸣。`,
+          fr: `Cette série fusionne le vintage et le contemporain — collision d'homophonies et de sens. L'inspiration vient des jeux de mots fondés sur la prononciation dans la culture chinoise traditionnelle.
+
+En Chine, le cheval (马) symbolise liberté, fougue, force et réussite ; l'armoire (柜), meuble familier, évoque richesse, réserve et stabilité. L'homophonie « 马有贵 » (mǎ yǒu guì) porte la sagesse traditionnelle tout en conférant à l'œuvre une signification propre. Les lignes, fluides et épurées, affirment une modernité : au fil de la conception, la figure animale du cheval se fond avec diverses structures d'armoires anciennes.
+
+« 柜马贵 » ou « 马富贵 » — le cheval et l'armoire produisent un contraste visuel fort ; cette alliance de sens — vitalité équestre et cabinet plein d'espoir — suggère l'union de richesse et liberté, de force et stabilité.
+
+L'œuvre transmet aussi un esprit positif : la fougue du cheval incarne le courage et la détermination dans la quête d'un objectif ; la stabilité de l'armoire rappelle de garder le calme intérieur en poursuivant richesse et succès. Au-delà de la beauté visuelle, la série cherche une résonance émotionnelle.`,
+          en: `This series merges the vintage and the contemporary—a collision of homophony and meaning. Its inspiration comes from wordplay rooted in pronunciation within traditional Chinese culture.
+
+In Chinese culture, the horse (马) symbolizes freedom, vigor, strength, and success; the cabinet (柜), a familiar piece of furniture, is linked to wealth, storage, and stability. The homophonic phrase « 马有贵 » (mǎ yǒu guì) carries traditional wisdom while giving the work its distinct meaning. Lines stay fluid and concise, asserting a modern sensibility: through the process of conception, the animal figure of the horse merges with various structures of vintage cabinets.
+
+« 柜马贵 » or « 马富贵 »—horse and cabinet create a sharp visual contrast; this pairing of meanings—equestrian vitality and a cabinet full of hope—suggests a union of wealth and freedom, strength and stability.
+
+The work also conveys an upward spirit: the horse's exuberance stands for courage and resolve in pursuing one's goals; the cabinet's steadiness reminds us to keep inner calm while seeking wealth and success. Beyond visual beauty, the series seeks emotional resonance.`,
+        },
       },
     ],
     isCurrent: true,
