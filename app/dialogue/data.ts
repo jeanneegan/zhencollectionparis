@@ -72,7 +72,7 @@ export type DialogueEpisode = {
 
 export const episodes: DialogueEpisode[] = [
   {
-    slug: "le-cheval",
+    slug: "202609",
     month: "2026-09",
     episode: 1,
     title: { zh: "马", fr: "Le Cheval", en: "The Horse" },

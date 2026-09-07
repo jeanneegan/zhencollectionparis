@@ -9,6 +9,15 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/dialogue/le-cheval",
+        destination: "/dialogue/202609",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
