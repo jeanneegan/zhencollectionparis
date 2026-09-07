@@ -34,7 +34,7 @@ export type DialogueExchange = {
   questionFrom?: DialogueAvatar;
   answer?: LocalizedText;
   answerFrom?: DialogueAvatar;
-  answers?: { answer: LocalizedText; answerFrom: DialogueAvatar }[];
+  answers?: { answer?: LocalizedText; answerFrom: DialogueAvatar }[];
 };
 
 export type ObserverQuestion = {
@@ -107,6 +107,9 @@ The horse also immediately makes me think of speed. Under a blue sky and white c
 
 Energy never ceases to flow, and matter continuously renews itself, giving rise to life.`,
           },
+        },
+        {
+          answerFrom: willyPortraitAvatar,
         },
       ],
     },

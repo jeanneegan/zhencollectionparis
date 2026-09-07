@@ -231,7 +231,13 @@ function ExchangeBlock({
           {exchange.answers.map((item) => (
             <div key={item.answerFrom.label ?? item.answerFrom.alt} className="space-y-4">
               <DialogueIdentity avatar={item.answerFrom} />
-              <QuestionContent text={item.answer} locale={locale} />
+              {item.answer ? (
+                <QuestionContent text={item.answer} locale={locale} />
+              ) : (
+                <p className="text-xs tracking-wide text-stone-400">
+                  {answerPending}
+                </p>
+              )}
             </div>
           ))}
         </div>
