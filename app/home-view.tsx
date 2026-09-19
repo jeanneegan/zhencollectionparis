@@ -32,6 +32,11 @@ const spotlightLabels: Record<
     festivalRoute: string;
     festivalTagline: string;
     festivalCta: string;
+    programmeKicker: string;
+    programmeTitle: string;
+    programmeMeta: string;
+    programmeTagline: string;
+    programmeCta: string;
   }
 > = {
   zh: {
@@ -44,6 +49,12 @@ const spotlightLabels: Record<
     festivalRoute: "Paris ↔ Shenzhen",
     festivalTagline: "在日常空间发生的国际艺术展",
     festivalCta: "Découvrir le projet · 了解项目",
+    programmeKicker: "OPEN CALL · ZCP 2027",
+    programmeTitle: "ZCP 2027青年艺术家计划",
+    programmeMeta: "24 位入选 · 12 组对话 · 巴黎年度展 · 2 个驻地",
+    programmeTagline:
+      "报名 2026.09.21 – 12.20 · 巴黎 · 深圳 · 审核费 25 欧元",
+    programmeCta: "Voir le programme · 了解计划 →",
   },
   fr: {
     conversationKicker: "CURRENT CONVERSATION · 当前对话",
@@ -56,6 +67,13 @@ const spotlightLabels: Record<
     festivalTagline:
       "Exposition internationale d'art dans les espaces du quotidien",
     festivalCta: "Découvrir le projet · 了解项目",
+    programmeKicker: "OPEN CALL · ZCP 2027",
+    programmeTitle: "ZCP Emerging Artists Programme 2027",
+    programmeMeta:
+      "24 artistes · 12 dialogues · exposition à Paris · 2 résidences",
+    programmeTagline:
+      "Candidatures 21 sept. – 20 déc. 2026 · Paris · Shenzhen · 25 EUR",
+    programmeCta: "Voir le programme · 了解计划 →",
   },
   en: {
     conversationKicker: "CURRENT CONVERSATION",
@@ -68,6 +86,13 @@ const spotlightLabels: Record<
     festivalTagline:
       "International art exhibitions in everyday spaces",
     festivalCta: "Discover the project",
+    programmeKicker: "OPEN CALL · ZCP 2027",
+    programmeTitle: "ZCP Emerging Artists Programme 2027",
+    programmeMeta:
+      "24 artists · 12 dialogues · Paris exhibition · 2 residencies",
+    programmeTagline:
+      "Applications 21 Sep – 20 Dec 2026 · Paris · Shenzhen · €25 fee",
+    programmeCta: "View the programme →",
   },
 };
 
@@ -396,6 +421,46 @@ export function HomeView() {
             </div>
           </section>
         ) : null}
+
+        <section className={`${cardClass} px-4 py-8 text-center md:px-10 md:py-12`}>
+          <p className={kickerClass}>{l.programmeKicker}</p>
+
+          <h2
+            className={`${
+              useSerif ? serif.className : ""
+            } mx-auto mt-8 max-w-xl text-2xl font-normal leading-tight text-[#5a2323] md:text-3xl`}
+          >
+            {locale === "en" ? (
+              l.programmeTitle
+            ) : (
+              <>
+                ZCP Emerging Artists Programme 2027
+                {" · "}
+                <span>ZCP 2027青年艺术家计划</span>
+              </>
+            )}
+          </h2>
+
+          <p className="mt-5 text-sm font-medium tracking-[0.08em] text-stone-700">
+            {l.programmeMeta}
+          </p>
+          <p
+            className={`${
+              useSerif ? serif.className : ""
+            } mx-auto mt-4 max-w-lg text-sm leading-[1.9] text-stone-600`}
+          >
+            {l.programmeTagline}
+          </p>
+
+          <div className="mt-10 flex justify-center">
+            <Link
+              href="/opportunites/emerging-artists-2027"
+              className={spotlightCtaClass}
+            >
+              {l.programmeCta}
+            </Link>
+          </div>
+        </section>
 
         <section className={`${cardClass} px-4 py-8 text-center md:px-10 md:py-12`}>
           <p className={kickerClass}>{l.festivalKicker}</p>
