@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Noto_Serif_SC } from "next/font/google";
 import { t, type Locale } from "@/app/artists/[slug]/data";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
 import { PageBottomNav } from "@/app/components/page-bottom-nav";
@@ -8,6 +9,11 @@ import { SiteFooter } from "@/app/components/site-footer";
 import { SiteHeader } from "@/app/components/site-header";
 import { getAllFestivalIds, getFestivalById } from "@/app/festival/data";
 import { useLocale } from "@/app/lib/use-locale";
+
+const serif = Noto_Serif_SC({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+});
 
 const pageLabels: Record<
   Locale,
@@ -54,6 +60,7 @@ const pageLabels: Record<
 export function FestivalIndexView() {
   const [locale, setLocale] = useLocale();
   const l = pageLabels[locale];
+  const useSerif = locale === "zh" || locale === "fr";
   const festivalIds = getAllFestivalIds();
 
   return (
@@ -86,7 +93,7 @@ export function FestivalIndexView() {
             </p>
           </section>
         ) : (
-          <ul className="mt-12 space-y-4">
+          <ul className="mt-12 space-y-6">
             {festivalIds.map((id) => {
               const festival = getFestivalById(id);
               if (!festival) {
@@ -96,18 +103,66 @@ export function FestivalIndexView() {
               return (
                 <li
                   key={id}
-                  className="border border-stone-200 bg-white p-5 transition-colors hover:border-stone-400"
+                  className="border border-stone-200 bg-stone-50/40 px-6 py-8 md:px-10 md:py-10"
                 >
                   <p className="text-[10px] uppercase tracking-[0.15em] text-stone-400">
-                    {festival.year}
+                    {festival.eyebrow
+                      ? t(festival.eyebrow, locale)
+                      : festival.year}
                   </p>
-                  <h2 className="mt-2 text-sm font-medium text-stone-900">
+                  <h2
+                    className={`${
+                      useSerif ? serif.className : ""
+                    } mt-3 text-lg font-normal text-[#5a2323] md:text-xl`}
+                  >
                     {t(festival.title, locale)}
                   </h2>
-                  <p className="mt-3 text-sm leading-relaxed text-stone-600">
+                  <p
+                    className={`${
+                      useSerif ? serif.className : ""
+                    } mt-4 text-sm leading-[1.9] text-stone-700`}
+                  >
                     {t(festival.intro, locale)}
                   </p>
-                  {festival.href ? (
+                  {festival.detail ? (
+                    <p
+                      className={`${
+                        useSerif ? serif.className : ""
+                      } mt-4 text-sm leading-[1.9] text-stone-700`}
+                    >
+                      {t(festival.detail, locale)}
+                    </p>
+                  ) : null}
+                  {festival.detailExtra ? (
+                    <p
+                      className={`${
+                        useSerif ? serif.className : ""
+                      } mt-4 text-sm leading-[1.9] text-stone-700`}
+                    >
+                      {t(festival.detailExtra, locale)}
+                    </p>
+                  ) : null}
+                  {festival.meta ? (
+                    <p className="mt-5 text-xs font-medium tracking-[0.08em] text-stone-500">
+                      {t(festival.meta, locale)}
+                    </p>
+                  ) : null}
+                  {festival.scheduleNote ? (
+                    <p className="mt-3 text-xs leading-relaxed text-stone-500">
+                      {t(festival.scheduleNote, locale)}
+                    </p>
+                  ) : null}
+                  {festival.cta ? (
+                    <div className="mt-8 flex justify-center">
+                      <Link
+                        href={festival.cta.href}
+                        className="inline-flex items-center gap-2 rounded-full border border-[#5a2323] px-6 py-2.5 text-xs font-medium tracking-[0.12em] text-[#5a2323] transition-colors hover:bg-[#5a2323] hover:text-white"
+                      >
+                        {t(festival.cta.label, locale)}
+                        <span aria-hidden>→</span>
+                      </Link>
+                    </div>
+                  ) : festival.href ? (
                     <Link
                       href={festival.href}
                       className="mt-4 inline-block text-[11px] tracking-[0.08em] text-stone-500 transition-colors hover:text-stone-900"
