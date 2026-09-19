@@ -54,8 +54,26 @@ export type ResidencyListing = {
   id: string;
   sectionId: ResidencySectionId;
   href?: string;
+  openInNewTab?: boolean;
   title: Record<Locale, string>;
   location?: Record<Locale, string>;
 };
 
-export const residencyListings: ResidencyListing[] = [];
+export const residencyListings: ResidencyListing[] = [
+  {
+    id: "zcp-emerging-artists-2027",
+    sectionId: "zcp",
+    href: "/opportunites/emerging-artists-2027",
+    openInNewTab: false,
+    title: {
+      fr: "ZCP Emerging Artists Programme 2027",
+      zh: "ZCP 2027青年艺术家计划",
+      en: "ZCP Emerging Artists Programme 2027",
+    },
+    location: {
+      fr: "Candidatures · 21 sept. – 20 déc. 2026 · Paris · Shenzhen",
+      zh: "报名 · 2026.09.21 – 2026.12.20 · 巴黎 · 深圳",
+      en: "Applications · Sep 21 – Dec 20, 2026 · Paris · Shenzhen",
+    },
+  },
+];

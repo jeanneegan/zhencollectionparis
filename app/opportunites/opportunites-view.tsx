@@ -78,6 +78,8 @@ function ResidencySectionBlock({
               {listing.href ? (
                 <Link
                   href={listing.href}
+                  target={listing.openInNewTab ? "_blank" : undefined}
+                  rel={listing.openInNewTab ? "noopener noreferrer" : undefined}
                   className="block border border-stone-200 bg-white px-4 py-4 transition-colors hover:border-stone-300"
                 >
                   <p className="text-sm font-medium tracking-[0.06em] text-stone-900">
