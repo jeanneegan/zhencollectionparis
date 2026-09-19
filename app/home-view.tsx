@@ -204,6 +204,46 @@ export function HomeView() {
       />
 
       <main className="mx-auto max-w-6xl space-y-8 px-3 py-10 md:space-y-12 md:px-8 md:py-16">
+        <section className={`${cardClass} px-4 py-8 text-center md:px-10 md:py-12`}>
+          <p className={kickerClass}>{l.programmeKicker}</p>
+
+          <h2
+            className={`${
+              useSerif ? serif.className : ""
+            } mx-auto mt-8 max-w-xl text-2xl font-normal leading-tight text-[#5a2323] md:text-3xl`}
+          >
+            {locale === "en" ? (
+              l.programmeTitle
+            ) : (
+              <>
+                ZCP Emerging Artists Programme 2027
+                {" · "}
+                <span>ZCP 2027青年艺术家计划</span>
+              </>
+            )}
+          </h2>
+
+          <p className="mt-5 text-sm font-medium tracking-[0.08em] text-stone-700">
+            {l.programmeMeta}
+          </p>
+          <p
+            className={`${
+              useSerif ? serif.className : ""
+            } mx-auto mt-4 max-w-lg text-sm leading-[1.9] text-stone-600`}
+          >
+            {l.programmeTagline}
+          </p>
+
+          <div className="mt-10 flex justify-center">
+            <Link
+              href="/opportunites/emerging-artists-2027"
+              className={spotlightCtaClass}
+            >
+              {l.programmeCta}
+            </Link>
+          </div>
+        </section>
+
         <section className={`${cardClass} px-4 py-8 md:px-8 md:py-14`}>
           <div className="md:hidden">
             <p className={`${kickerClass} text-center`}>{l.conversationKicker}</p>
@@ -421,46 +461,6 @@ export function HomeView() {
             </div>
           </section>
         ) : null}
-
-        <section className={`${cardClass} px-4 py-8 text-center md:px-10 md:py-12`}>
-          <p className={kickerClass}>{l.programmeKicker}</p>
-
-          <h2
-            className={`${
-              useSerif ? serif.className : ""
-            } mx-auto mt-8 max-w-xl text-2xl font-normal leading-tight text-[#5a2323] md:text-3xl`}
-          >
-            {locale === "en" ? (
-              l.programmeTitle
-            ) : (
-              <>
-                ZCP Emerging Artists Programme 2027
-                {" · "}
-                <span>ZCP 2027青年艺术家计划</span>
-              </>
-            )}
-          </h2>
-
-          <p className="mt-5 text-sm font-medium tracking-[0.08em] text-stone-700">
-            {l.programmeMeta}
-          </p>
-          <p
-            className={`${
-              useSerif ? serif.className : ""
-            } mx-auto mt-4 max-w-lg text-sm leading-[1.9] text-stone-600`}
-          >
-            {l.programmeTagline}
-          </p>
-
-          <div className="mt-10 flex justify-center">
-            <Link
-              href="/opportunites/emerging-artists-2027"
-              className={spotlightCtaClass}
-            >
-              {l.programmeCta}
-            </Link>
-          </div>
-        </section>
 
         <section className={`${cardClass} px-4 py-8 text-center md:px-10 md:py-12`}>
           <p className={kickerClass}>{l.festivalKicker}</p>
