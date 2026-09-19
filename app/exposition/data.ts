@@ -1,9 +1,10 @@
 import type { LocalizedText } from "@/app/artists/[slug]/data";
 
-export type Festival = {
+export type Exposition = {
   id: string;
   title: LocalizedText;
   year: number;
+  displayOrder?: number;
   intro: LocalizedText;
   detail?: LocalizedText;
   detailExtra?: LocalizedText;
@@ -14,10 +15,11 @@ export type Festival = {
   href?: string;
 };
 
-const festivals: Record<string, Festival> = {
+const expositions: Record<string, Exposition> = {
   "zcp-annual-paris-2027": {
     id: "zcp-annual-paris-2027",
     year: 2027,
+    displayOrder: 2,
     title: {
       zh: "ZCP 2027巴黎年度展",
       fr: "Exposition annuelle ZCP 2027 · Paris",
@@ -55,8 +57,9 @@ const festivals: Record<string, Festival> = {
   "cafe-art-print-tour": {
     id: "cafe-art-print-tour",
     year: 2026,
+    displayOrder: 1,
     eyebrow: {
-      zh: "艺术进入日常",
+      zh: "艺术走入生活",
       fr: "L'art dans le quotidien",
       en: "Art in everyday life",
     },
@@ -96,14 +99,17 @@ const festivals: Record<string, Festival> = {
   },
 };
 
-export function getFestivalById(id: string): Festival | null {
-  return festivals[id] ?? null;
+export function getExpositionById(id: string): Exposition | null {
+  return expositions[id] ?? null;
 }
 
-export function getAllFestivalIds(): string[] {
-  return Object.keys(festivals).sort((a, b) => {
-    const yearA = festivals[a]?.year ?? 0;
-    const yearB = festivals[b]?.year ?? 0;
-    return yearB - yearA;
+export function getAllExpositionIds(): string[] {
+  return Object.keys(expositions).sort((a, b) => {
+    const orderA = expositions[a]?.displayOrder ?? expositions[a]?.year ?? 0;
+    const orderB = expositions[b]?.displayOrder ?? expositions[b]?.year ?? 0;
+    if (orderA !== orderB) {
+      return orderA - orderB;
+    }
+    return (expositions[b]?.year ?? 0) - (expositions[a]?.year ?? 0);
   });
 }

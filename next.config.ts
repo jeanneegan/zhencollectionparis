@@ -16,6 +16,16 @@ const nextConfig: NextConfig = {
         destination: "/dialogue/202609",
         permanent: true,
       },
+      {
+        source: "/festival",
+        destination: "/exposition",
+        permanent: true,
+      },
+      {
+        source: "/festival/:path*",
+        destination: "/exposition/:path*",
+        permanent: true,
+      },
     ];
   },
 };

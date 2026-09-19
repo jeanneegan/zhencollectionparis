@@ -45,7 +45,7 @@ const spotlightLabels: Record<
     editionKicker: "LATEST EDITION · 最新限量作品",
     editionMeta: (copies, price) => `限量 ${copies} 版 · ${price} €`,
     editionCta: "Collectionner l'œuvre · 收藏作品 →",
-    festivalKicker: "EXHIBITIONS · 艺术展",
+    festivalKicker: "EXPOSITIONS · 艺术展",
     festivalRoute: "Paris ↔ Shenzhen",
     festivalTagline: "在日常空间发生的国际艺术展",
     festivalCta: "Découvrir le projet · 了解项目",
@@ -61,7 +61,7 @@ const spotlightLabels: Record<
     editionKicker: "LATEST EDITION · 最新限量作品",
     editionMeta: (copies, price) => `Édition de ${copies} · ${price} €`,
     editionCta: "Collectionner l'œuvre · 收藏作品 →",
-    festivalKicker: "EXHIBITIONS · 艺术展",
+    festivalKicker: "EXPOSITIONS · 艺术展",
     festivalRoute: "Paris ↔ Shenzhen",
     festivalTagline:
       "Exposition internationale d'art dans les espaces du quotidien",
@@ -80,7 +80,7 @@ const spotlightLabels: Record<
     editionKicker: "LATEST EDITION",
     editionMeta: (copies, price) => `Edition of ${copies} · €${price}`,
     editionCta: "COLLECT THE ARTWORK →",
-    festivalKicker: "EXHIBITIONS",
+    festivalKicker: "EXPOSITIONS",
     festivalRoute: "Paris ↔ Shenzhen",
     festivalTagline:
       "International art exhibitions in everyday spaces",
@@ -476,7 +476,7 @@ export function HomeView() {
           </p>
 
           <div className="mt-10 flex justify-center">
-            <Link href="/festival" className={ctaSecondaryClass}>
+            <Link href="/exposition" className={ctaSecondaryClass}>
               {l.festivalCta}
               <span aria-hidden>→</span>
             </Link>

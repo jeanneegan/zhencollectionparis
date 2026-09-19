@@ -31,12 +31,12 @@ export const primaryNavItems: PrimaryNavItem[] = [
       pathname === "/editions" || pathname.startsWith("/edition/"),
   },
   {
-    id: "festival",
-    href: "/festival",
-    label: "EXHIBITIONS",
+    id: "expositions",
+    href: "/exposition",
+    label: "EXPOSITIONS",
     labelZh: "艺术展",
     isActive: (pathname) =>
-      pathname === "/festival" || pathname.startsWith("/festival/"),
+      pathname === "/exposition" || pathname.startsWith("/exposition/"),
   },
   {
     id: "residencies",
