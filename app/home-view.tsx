@@ -52,8 +52,7 @@ const spotlightLabels: Record<
     programmeKicker: "OPEN CALL · ZCP 2027",
     programmeTitle: "ZCP 2027青年艺术家计划",
     programmeMeta: "24 位入选 · 12 组对话 · 巴黎年度展 · 2 个驻地",
-    programmeTagline:
-      "报名 2026.09.21 – 12.20 · 巴黎 · 深圳 · 审核费 25 欧元",
+    programmeTagline: "报名 2026.09.21 – 12.20 · 巴黎 · 深圳",
     programmeCta: "Voir le programme · 了解计划 →",
   },
   fr: {
@@ -72,7 +71,7 @@ const spotlightLabels: Record<
     programmeMeta:
       "24 artistes · 12 dialogues · exposition à Paris · 2 résidences",
     programmeTagline:
-      "Candidatures 21 sept. – 20 déc. 2026 · Paris · Shenzhen · 25 EUR",
+      "Candidatures 21 sept. – 20 déc. 2026 · Paris · Shenzhen",
     programmeCta: "Voir le programme · 了解计划 →",
   },
   en: {
@@ -91,7 +90,7 @@ const spotlightLabels: Record<
     programmeMeta:
       "24 artists · 12 dialogues · Paris exhibition · 2 residencies",
     programmeTagline:
-      "Applications 21 Sep – 20 Dec 2026 · Paris · Shenzhen · €25 fee",
+      "Applications 21 Sep – 20 Dec 2026 · Paris · Shenzhen",
     programmeCta: "View the programme →",
   },
 };
