@@ -9,7 +9,7 @@ import { SiteFooter } from "@/app/components/site-footer";
 import { SiteHeader } from "@/app/components/site-header";
 import { useLocale } from "@/app/lib/use-locale";
 import {
-  PROGRAMME_PDF_HREF,
+  getProgrammePdfHref,
   programmeSections,
   programmeStats,
   programmeSubtitle,
@@ -41,13 +41,13 @@ const labels: Record<
   },
   fr: {
     back: "← RÉSIDENCES · 驻地",
-    downloadPdf: "Télécharger le PDF complet (中文)",
+    downloadPdf: "Télécharger le PDF complet",
     applyCta: "Candidatures · bientôt en ligne",
     applyNote: "Le lien vers le formulaire sera publié ici dès confirmation.",
   },
   en: {
     back: "← Residencies",
-    downloadPdf: "Download full programme PDF (Chinese)",
+    downloadPdf: "Download full programme PDF",
     applyCta: "Applications opening soon",
     applyNote: "The online application link will be posted here once confirmed.",
   },
@@ -233,7 +233,7 @@ export function EmergingArtists2027View() {
           <p className="mt-3 text-xs leading-relaxed text-stone-500">{l.applyNote}</p>
           <div className="mt-6 flex flex-col items-center gap-3">
             <Link
-              href={PROGRAMME_PDF_HREF}
+              href={getProgrammePdfHref(locale)}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-stone-300 px-6 py-2.5 text-xs font-medium tracking-[0.12em] text-stone-700 transition-colors hover:border-stone-900 hover:text-stone-900"

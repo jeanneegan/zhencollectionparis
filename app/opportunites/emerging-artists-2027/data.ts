@@ -1,7 +1,20 @@
 import type { Locale, LocalizedText } from "@/app/artists/[slug]/data";
 
-export const PROGRAMME_PDF_HREF =
+export const PROGRAMME_PDF_CN =
   "/documents/ZCP_Emerging_Artists_Programme_2027_CN.pdf";
+
+export const PROGRAMME_PDF_FR =
+  "/documents/ZCP_Emerging_Artists_Programme_2027_FR.pdf";
+
+/** @deprecated Use getProgrammePdfHref(locale) */
+export const PROGRAMME_PDF_HREF = PROGRAMME_PDF_CN;
+
+export function getProgrammePdfHref(locale: Locale): string {
+  if (locale === "zh") {
+    return PROGRAMME_PDF_CN;
+  }
+  return PROGRAMME_PDF_FR;
+}
 
 export type ProgrammeStat = {
   value: string;
