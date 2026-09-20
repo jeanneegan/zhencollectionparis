@@ -21,9 +21,9 @@ const expositions: Record<string, Exposition> = {
     year: 2027,
     displayOrder: 2,
     title: {
-      zh: "ZCP 2027巴黎年度展",
-      fr: "Exposition annuelle ZCP 2027 · Paris",
-      en: "ZCP 2027 Annual Exhibition · Paris",
+      zh: "ZCP 2027巴黎艺术展",
+      fr: "Exposition ZCP Paris 2027",
+      en: "ZCP Paris 2027 Exhibition",
     },
     intro: {
       zh: "Zhen Collection Paris 将在巴黎举办年度集体展，集中呈现 ZCP Emerging Artists Programme 2027 入选艺术家的创作。",

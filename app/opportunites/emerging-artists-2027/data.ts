@@ -73,15 +73,23 @@ export const programmeStats: ProgrammeStat[] = [
   {
     value: "1",
     label: {
-      zh: "次巴黎年度展",
-      fr: "exposition annuelle à Paris",
-      en: "annual exhibition in Paris",
+      zh: "次 ZCP 2027 巴黎艺术展",
+      fr: "Exposition ZCP Paris 2027",
+      en: "ZCP Paris 2027 exhibition",
     },
   },
   {
     value: "2",
     label: {
-      zh: "个驻地名额",
+      zh: "位 Prix WE 获奖艺术家",
+      fr: "lauréat·es Prix WE",
+      en: "Prix WE laureates",
+    },
+  },
+  {
+    value: "2",
+    label: {
+      zh: "个巴黎—深圳驻地名额",
       fr: "résidences Paris–Shenzhen",
       en: "Paris–Shenzhen residencies",
     },
@@ -181,100 +189,83 @@ export const programmeSections: ProgrammeSection[] = [
   {
     id: "materials",
     title: { zh: "申请材料", fr: "Dossier de candidature", en: "Application materials" },
+    paragraphs: [
+      {
+        zh: "为便于资料整理与后续使用，申请材料分为两个独立部分，请分别提交。",
+        fr: "Afin de faciliter le classement et les usages ultérieurs, le dossier doit être transmis en deux parties distinctes.",
+        en: "To simplify processing and later use, please submit application materials in two separate parts.",
+      },
+    ],
     subsections: [
       {
-        title: { zh: "1. 基本信息", fr: "1. Informations de base", en: "1. Basic information" },
+        title: { zh: "A. 艺术家资料", fr: "A. Dossier de l'artiste", en: "A. Artist profile" },
         paragraphs: [
           {
-            zh: "姓名或艺术家姓名、出生年份、国籍、现居城市、电子邮箱、联系电话，以及艺术教育、专业训练或相关职业背景。",
-            fr: "Nom ou nom d'artiste, année de naissance, nationalité, ville de résidence, e-mail, téléphone, formation artistique, entraînement professionnel ou parcours connexe.",
-            en: "Name or artist name, year of birth, nationality, city of residence, email, phone, art education, professional training, or related background.",
+            zh: "1. 基本信息：姓名或艺术家姓名、出生年份、国籍、现居城市、电子邮箱、联系电话，以及艺术教育、专业训练或相关职业背景。",
+            fr: "1. Informations générales : nom, année de naissance, nationalité, ville, e-mail, téléphone, formation et parcours pertinent.",
+            en: "1. Basic information: name, year of birth, nationality, city, email, phone, art education, training, or related background.",
           },
-        ],
-      },
-      {
-        title: { zh: "2. 艺术家简历", fr: "2. CV artistique", en: "2. Artist CV" },
-        paragraphs: [
           {
-            zh: "一至两页 PDF，包括教育背景、展览、驻地、获奖、收藏及其他重要艺术经历。",
-            fr: "PDF d'une à deux pages : formation, expositions, résidences, prix, collections et autres faits marquants.",
-            en: "One- to two-page PDF: education, exhibitions, residencies, awards, collections, and other key art experience.",
+            zh: "2. 艺术家简历：一至两页 PDF，包括教育背景、展览、驻地、获奖、收藏及其他重要艺术经历。",
+            fr: "2. CV artistique : PDF d'une à deux pages (formation, expositions, résidences, prix, collections, etc.).",
+            en: "2. Artist CV: one- to two-page PDF covering education, exhibitions, residencies, awards, collections, and other key experience.",
           },
-        ],
-      },
-      {
-        title: { zh: "3. 创作陈述", fr: "3. Statement", en: "3. Artist statement" },
-        paragraphs: [
           {
-            zh: "建议 300 至 500 字，介绍个人创作方向、长期关注的主题及主要工作方式。",
-            fr: "300 à 500 mots recommandés : direction créative, thèmes de long terme et modes de travail.",
-            en: "300–500 words recommended: creative direction, long-term themes, and main working methods.",
+            zh: "3. 创作陈述：建议 300 至 500 字，介绍个人创作方向、长期关注的主题及主要工作方式。",
+            fr: "3. Note d'intention : 300 à 500 mots sur la démarche, les thèmes et les modes de création.",
+            en: "3. Artist statement: 300–500 words on creative direction, themes, and working methods.",
           },
-        ],
-      },
-      {
-        title: { zh: "4. 代表作品", fr: "4. Œuvres représentatives", en: "4. Representative works" },
-        paragraphs: [
           {
-            zh: "提交 5 至 10 件代表作品。每件作品须注明名称、创作年份、材料或媒介、原作尺寸及是否可供销售，并提供清晰图片。影像作品可提供观看链接及密码。",
-            fr: "5 à 10 œuvres. Pour chacune : titre, année, medium, dimensions, disponibilité à la vente, images nettes. Œuvres vidéo : lien et mot de passe.",
-            en: "5–10 works. For each: title, year, medium, dimensions, availability for sale, clear images. Time-based work: viewing link and password.",
+            zh: "4. 个人链接：个人网站、Instagram、线上作品集或其他专业平台；如无可不提供。",
+            fr: "4. Liens professionnels : site, portfolio, Instagram, etc. (facultatif).",
+            en: "4. Links: website, Instagram, online portfolio, or other professional platforms (optional).",
           },
-        ],
-      },
-      {
-        title: {
-          zh: "5. 巴黎年度展候选作品",
-          fr: "5. Œuvre candidate pour l'exposition annuelle à Paris",
-          en: "5. Work for the annual Paris exhibition",
-        },
-        paragraphs: [
           {
-            zh: "从代表作品中选择一件适合制作艺术版画的作品并提供高清图像。最终参展作品及印刷文件将在入选后确认。",
-            fr: "Choisir une œuvre adaptée à une estampe d'art et fournir une image HD. Œuvre et fichiers d'impression confirmés après sélection.",
-            en: "Select one work suitable for an art print from your submission and provide a high-resolution image. Final work and print files confirmed after selection.",
+            zh: "5. 简短申请说明：不超过 300 字——为什么希望参加本计划？希望在这一年中获得怎样的交流或发展？",
+            fr: "5. Motivation : 300 mots maximum — pourquoi ce programme ? Quels échanges ou développements espérez-vous ?",
+            en: "5. Short motivation: max. 300 words — why this programme? What exchange or development do you hope for?",
           },
-        ],
-      },
-      {
-        title: { zh: "6. 个人链接", fr: "6. Liens", en: "6. Links" },
-        paragraphs: [
           {
-            zh: "个人网站、Instagram、线上作品集或其他专业平台链接；如无可不提供。",
-            fr: "Site web, Instagram, portfolio en ligne ou autre plateforme professionnelle ; facultatif.",
-            en: "Website, Instagram, online portfolio, or other professional platform; optional.",
+            zh: "6. 驻地意向：是否申请巴黎或深圳驻地，及简要创作方向；无须完整驻地方案。",
+            fr: "6. Intérêt pour une résidence : Paris ou Shenzhen et piste de travail ; pas de projet complet exigé.",
+            en: "6. Residency interest: Paris or Shenzhen and brief creative direction; no full residency proposal required.",
+          },
+          {
+            zh: "艺术家资料请合并为一份 PDF，命名为「姓名_ZCP2027_ArtistProfile.pdf」。",
+            fr: "Réunir le dossier artiste en un PDF : « Nom_ZCP2027_ArtistProfile.pdf ».",
+            en: "Merge artist materials in one PDF named « Name_ZCP2027_ArtistProfile.pdf ».",
           },
         ],
       },
       {
         title: {
-          zh: "7. 简短申请说明",
-          fr: "7. Note de motivation",
-          en: "7. Short application note",
+          zh: "B. 用于推广与销售的作品资料",
+          fr: "B. Œuvres pour la promotion et la vente",
+          en: "B. Works for promotion and sales",
         },
         paragraphs: [
           {
-            zh: "不超过 300 字：为什么希望参加 ZCP Emerging Artists Programme 2027？希望在这一年中获得怎样的交流或发展？",
-            fr: "300 mots maximum : pourquoi ce programme en 2027 ? Quels échanges ou développements souhaitez-vous cette année ?",
-            en: "Maximum 300 words: why apply to the ZCP Emerging Artists Programme 2027? What exchange or development do you hope for this year?",
+            zh: "提交 5 至 10 件艺术家同意由 ZCP 用于展示、推广并可在适当情况下推荐销售的作品。每件须注明：作品名称、创作年份、材料或媒介、原作尺寸、原作或版数信息、是否可售、建议零售价及币种、作品所在地、是否装框，并提供清晰图片；影像作品可提供观看链接及密码。",
+            fr: "5 à 10 œuvres autorisées pour présentation, promotion et, le cas échéant, proposition de vente. Pour chacune : titre, année, médium, dimensions, statut d'original/édition, disponibilité, prix souhaité et devise, lieu, encadrement, images ; vidéo : lien et mot de passe.",
+            en: "5–10 works the artist authorizes ZCP to show, promote, and where appropriate offer for sale. For each: title, year, medium, dimensions, original/edition info, availability, suggested retail price and currency, location, framing, clear images; video: link and password.",
           },
-        ],
-      },
-      {
-        title: { zh: "8. 驻地意向", fr: "8. Intention de résidence", en: "8. Residency intention" },
-        paragraphs: [
           {
-            zh: "说明是否有意申请巴黎或深圳驻地，并简要介绍希望在该城市开展的创作方向。报名阶段无须提交完整驻地方案。",
-            fr: "Indiquer si vous souhaitez Paris ou Shenzhen et la direction créative envisagée ; pas de projet complet exigé à ce stade.",
-            en: "State interest in Paris or Shenzhen residency and brief creative direction; full residency proposal not required at application stage.",
+            zh: "请从上述作品中选择一件适合制作艺术版画的作品，作为 ZCP 2027 巴黎艺术展候选作品，并提供高清图像。最终参展作品及印刷文件将在入选后确认。",
+            fr: "Choisir une pièce adaptée à un tirage d'art pour l'Exposition ZCP Paris 2027 et fournir une image HD ; validation après sélection.",
+            en: "Select one work suitable for an art print for the ZCP Paris 2027 exhibition and provide a high-resolution image; final work and print files confirmed after selection.",
+          },
+          {
+            zh: "作品资料请单独合并为「姓名_ZCP2027_Artworks.pdf」；图片可另行上传「姓名_作品序号_作品名称_年份.jpg」，JPG 或 PNG，单张不超过 10MB。",
+            fr: "Œuvres dans « Nom_ZCP2027_Artworks.pdf » ; images séparées « Nom_Numéro_Titre_Année.jpg », max. 10 Mo.",
+            en: "Works in « Name_ZCP2027_Artworks.pdf »; images separately as « Name_number_title_year.jpg », max 10MB each.",
           },
         ],
       },
     ],
     note: {
-      zh: "提交格式：文字材料建议合并为一份 PDF，命名为「姓名_ZCP2027_Application.pdf」。作品图片可单独上传，命名为「姓名_作品序号_作品名称_年份.jpg」。图片建议使用 JPG 或 PNG，单张不超过 10MB。申请材料可使用中文、法文或英文提交。",
-      fr: "Format : textes en un seul PDF « Nom_ZCP2027_Application.pdf ». Images séparées « Nom_numéro_titre_année.jpg », JPG ou PNG, max. 10 Mo par fichier. Dossier accepté en chinois, français ou anglais.",
-      en: "Format: merge text in one PDF named « Name_ZCP2027_Application.pdf ». Upload images separately as « Name_number_title_year.jpg », JPG or PNG, max 10MB each. Materials accepted in Chinese, French, or English.",
+      zh: "提交作品资料即表示艺术家同意 ZCP 在遴选、建档及非独家推广范围内使用相关图像。任何实际销售、商业复制或版画制作仍须另行书面确认。作品状态或价格发生变化时，艺术家应及时通知 ZCP。申请材料可使用中文、法文或英文提交。",
+      fr: "La transmission autorise ZCP, à titre non exclusif, à utiliser les images pour sélection, dossier et promotion. Toute vente, reproduction commerciale ou tirage requiert un accord écrit. Signaler toute modification de disponibilité ou de prix. Dossier en chinois, français ou anglais.",
+      en: "Submitting work materials authorizes ZCP to use images non-exclusively for selection, archiving, and promotion. Any sale, commercial reproduction, or print production requires separate written agreement. Notify ZCP of availability or price changes. Materials accepted in Chinese, French, or English.",
     },
   },
   {
@@ -302,12 +293,35 @@ export const programmeSections: ProgrammeSection[] = [
         ],
       },
       {
-        title: { zh: "3. 巴黎年度线下展", fr: "3. Exposition annuelle à Paris", en: "3. Annual exhibition in Paris" },
+        title: {
+          zh: "3. Prix WE 2027｜年度艺术家奖",
+          fr: "3. Prix WE 2027 — prix artistique annuel",
+          en: "3. Prix WE 2027 — annual artist award",
+        },
+        paragraphs: [
+          {
+            zh: "Prix WE 以全年 12 组真实发生的艺术家对话为评选基础，授予共同促成年度最具启发性艺术相遇的两位艺术家。评审将关注作品之间的回应、思想深度、艺术张力、跨文化理解及未来合作潜力。",
+            fr: "Fondé sur les 12 dialogues réellement organisés, le Prix WE récompense les deux artistes ayant fait naître la rencontre la plus inspirante. Le jury apprécie les réponses entre œuvres, la profondeur, la tension artistique, la compréhension interculturelle et le potentiel de collaboration.",
+            en: "Based on the 12 dialogues held throughout the year, the Prix WE is awarded to the two artists whose exchange was most inspiring. The jury considers responses between works, depth of thought, artistic tension, cross-cultural understanding, and collaboration potential.",
+          },
+          {
+            zh: "两位获奖者保持各自独立的艺术家身份，并分别获得「Lauréat·e du Prix WE 2027」称号与证书，无须另行报名或缴费。获奖艺术家可获得专题呈现、专访文章、巴黎展重点展示及未来项目的优先邀请机会。",
+            fr: "Chaque lauréat·e conserve son identité artistique et reçoit le titre « Lauréat·e du Prix WE 2027 » et un certificat, sans candidature ni frais supplémentaires. Mise en avant éditoriale, article dédié, présentation à l'exposition parisienne et priorité pour futurs projets.",
+            en: "Each laureate keeps an independent artistic identity and receives the title « Lauréat·e du Prix WE 2027 » and a certificate, with no extra application or fee. Benefits may include featured presentation, a dedicated article, highlight at the Paris show, and priority for future projects.",
+          },
+        ],
+      },
+      {
+        title: {
+          zh: "4. ZCP 2027 巴黎艺术展",
+          fr: "4. Exposition ZCP Paris 2027",
+          en: "4. ZCP Paris 2027 exhibition",
+        },
         paragraphs: [
           {
             zh: "ZCP 计划于 2027 年在巴黎举办一次青年艺术家年度线下展。具体日期、场地和展期将在确认后公布。每位入选艺术家选择一件代表作品，由 ZCP 统一制作艺术版画参展。ZCP 负责基础版画制作、策展和布展，艺术家无须承担基础版画制作及展览费用。",
-            fr: "Exposition annuelle d'artistes émergents à Paris en 2027 ; dates, lieu et durée confirmés ultérieurement. Chaque artiste choisit une œuvre ; ZCP produit une estampe d'art pour l'exposition, assume production, commissariat et accrochage de base.",
-            en: "ZCP plans an annual emerging artists exhibition in Paris in 2027; dates, venue, and duration to be confirmed. Each artist selects one work; ZCP produces an art print for the show and covers basic print production, curating, and installation.",
+            fr: "Exposition collective à Paris en 2027 ; dates, lieu et durée confirmés ultérieurement. Chaque artiste choisit une œuvre ; ZCP réalise un tirage d'art et prend en charge production de base, commissariat et installation.",
+            en: "ZCP plans a group exhibition in Paris in 2027; dates, venue, and duration to be confirmed. Each artist selects one work; ZCP produces an art print and covers basic production, curating, and installation.",
           },
           {
             zh: "艺术家如希望展出原作，可另行申请。ZCP 将根据策展主题、场地、作品尺寸、安装及安全条件决定是否接收。经确认参展的原作，其往返运输、专业包装、运输保险、海关及清关费用原则上由艺术家承担。未经书面确认，艺术家不得自行寄送原作。如涉及作品或版画销售，ZCP 将与艺术家另行签订协议，明确售价、授权及收益分配。",
@@ -317,7 +331,7 @@ export const programmeSections: ProgrammeSection[] = [
         ],
       },
       {
-        title: { zh: "4. 专业画廊推荐", fr: "4. Recommandations de galeries", en: "4. Gallery recommendations" },
+        title: { zh: "5. 专业画廊推荐", fr: "5. Recommandations de galeries", en: "5. Gallery recommendations" },
         paragraphs: [
           {
             zh: "ZCP 将根据艺术家的创作方向、作品特点及画廊定位进行针对性推荐。每位入选艺术家在项目年度内，原则上至少获得一次与其创作方向相匹配的专业画廊推荐。画廊拥有独立的艺术判断及合作决定权。推荐不代表 ZCP 承诺画廊回复、作品销售、展览邀请、签约或代理。",
@@ -328,9 +342,9 @@ export const programmeSections: ProgrammeSection[] = [
       },
       {
         title: {
-          zh: "5. 年度更新、会员续期与持续推广",
-          fr: "5. Mise à jour, adhésion et visibilité continue",
-          en: "5. Annual updates, membership renewal, and ongoing promotion",
+          zh: "6. 年度更新、会员续期与持续推广",
+          fr: "6. Mise à jour, adhésion et visibilité continue",
+          en: "6. Annual updates, membership renewal, and ongoing promotion",
         },
         paragraphs: [
           {
@@ -410,9 +424,9 @@ export const programmeSections: ProgrammeSection[] = [
     title: { zh: "版权与授权", fr: "Droits et autorisations", en: "Copyright and licensing" },
     paragraphs: [
       {
-        zh: "作品著作权始终归艺术家所有。入选艺术家同意 ZCP 将相关作品图像及对话内容用于本计划的艺术家档案、巴黎年度展、官方网站、社交媒体、新闻传播及项目存档。ZCP 将在合理范围内标注艺术家姓名及作品信息。商业复制、出版或版画销售须另行取得艺术家书面授权，并另行约定销售价格及收益分配。",
-        fr: "Les droits d'auteur restent à l'artiste. Les sélectionné·e·s autorisent ZCP à utiliser images et contenus de dialogue pour dossiers, exposition parisienne, site, réseaux sociaux, communication et archive du programme, avec attribution. Reproduction commerciale, édition ou vente d'estampes : autorisation écrite et accord distinct sur prix et partage.",
-        en: "Copyright remains with the artist. Selected artists authorize ZCP to use work images and dialogue content for programme archives, the Paris exhibition, the website, social media, press, and project records, with proper attribution. Commercial reproduction, publication, or print sales require separate written authorization and agreement on price and revenue share.",
+        zh: "作品著作权始终归艺术家所有。入选艺术家同意 ZCP 将相关作品图像及对话内容用于本计划的艺术家档案、ZCP 2027 巴黎艺术展、官方网站、社交媒体、新闻传播及项目存档。ZCP 将在合理范围内标注艺术家姓名及作品信息。商业复制、出版或版画销售须另行取得艺术家书面授权，并另行约定销售价格及收益分配。",
+        fr: "Les droits d'auteur restent à l'artiste. Les sélectionné·e·s autorisent ZCP à utiliser images et contenus de dialogue pour dossiers, Exposition ZCP Paris 2027, site, réseaux sociaux, communication et archive du programme, avec attribution. Reproduction commerciale, édition ou vente de tirages : autorisation écrite et accord distinct sur prix et partage.",
+        en: "Copyright remains with the artist. Selected artists authorize ZCP to use work images and dialogue content for programme archives, the ZCP Paris 2027 exhibition, the website, social media, press, and project records, with proper attribution. Commercial reproduction, publication, or print sales require separate written authorization and agreement on price and revenue share.",
       },
     ],
   },

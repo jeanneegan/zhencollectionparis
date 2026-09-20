@@ -51,7 +51,7 @@ const spotlightLabels: Record<
     festivalCta: "Découvrir le projet · 了解项目",
     programmeKicker: "OPEN CALL · ZCP 2027",
     programmeTitle: "ZCP 2027青年艺术家计划",
-    programmeMeta: "24 位入选 · 12 组对话 · 巴黎年度展 · 2 个驻地",
+    programmeMeta: "24 位入选 · 12 组对话 · ZCP 2027 巴黎艺术展 · Prix WE · 2 个驻地",
     programmeTagline: "报名 2026.09.21 – 12.20 · 巴黎 · 深圳",
     programmeCta: "Voir le programme · 了解计划 →",
   },
@@ -69,7 +69,7 @@ const spotlightLabels: Record<
     programmeKicker: "OPEN CALL · ZCP 2027",
     programmeTitle: "ZCP Emerging Artists Programme 2027",
     programmeMeta:
-      "24 artistes · 12 dialogues · exposition à Paris · 2 résidences",
+      "24 artistes · 12 dialogues · Exposition ZCP Paris 2027 · Prix WE · 2 résidences",
     programmeTagline:
       "Candidatures 21 sept. – 20 déc. 2026 · Paris · Shenzhen",
     programmeCta: "Voir le programme · 了解计划 →",
@@ -88,7 +88,7 @@ const spotlightLabels: Record<
     programmeKicker: "OPEN CALL · ZCP 2027",
     programmeTitle: "ZCP Emerging Artists Programme 2027",
     programmeMeta:
-      "24 artists · 12 dialogues · Paris exhibition · 2 residencies",
+      "24 artists · 12 dialogues · ZCP Paris 2027 show · Prix WE · 2 residencies",
     programmeTagline:
       "Applications 21 Sep – 20 Dec 2026 · Paris · Shenzhen",
     programmeCta: "View the programme →",

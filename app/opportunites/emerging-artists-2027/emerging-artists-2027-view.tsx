@@ -127,7 +127,7 @@ export function EmergingArtists2027View() {
           <div className="mx-auto mt-4 h-px w-12 bg-stone-300" />
         </header>
 
-        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
           {programmeStats.map((stat) => (
             <div
               key={stat.value + stat.label.zh}
