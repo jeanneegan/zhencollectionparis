@@ -25,160 +25,78 @@ const spotlightLabels: Record<
   {
     conversationKicker: string;
     conversationCta: string;
-    collectionKicker: string;
-    collectionMeta: (copies: number, price: number) => string;
-    collectionCta: string;
-    expositionKicker: string;
-    expositionRoute: string;
-    expositionTagline: string;
-    expositionCta: string;
+    editionKicker: string;
+    editionMeta: (copies: number, price: number) => string;
+    editionCta: string;
+    festivalKicker: string;
+    festivalRoute: string;
+    festivalTagline: string;
+    festivalCta: string;
     programmeKicker: string;
     programmeTitle: string;
     programmeMeta: string;
     programmeTagline: string;
     programmeCta: string;
-    prixWeKicker: string;
-    prixWeTitle: string;
-    prixWeMeta: string;
-    prixWeCta: string;
-    residenciesKicker: string;
-    residenciesTitle: string;
-    residenciesMeta: string;
-    residenciesCta: string;
   }
 > = {
   zh: {
-    conversationKicker: "CONVERSATIONS · 对话",
+    conversationKicker: "CURRENT CONVERSATION · 当前对话",
     conversationCta: "Découvrir la conversation · 进入对话 →",
-    programmeKicker: "PROGRAMME · 青年艺术家计划",
-    programmeTitle: "ZCP 2027青年艺术家计划",
-    programmeMeta: "24 位入选 · 12 组对话 · ZCP 2027 巴黎艺术展",
+    editionKicker: "LATEST EDITION · 最新限量作品",
+    editionMeta: (copies, price) => `限量 ${copies} 版 · ${price} €`,
+    editionCta: "Collectionner l'œuvre · 收藏作品 →",
+    festivalKicker: "EXPOSITIONS · 艺术展",
+    festivalRoute: "巴黎 · 深圳 · 纽约 · 持续发展中",
+    festivalTagline:
+      "在巴黎、深圳、纽约等城市的咖啡馆、书店、旅店与日常空间发生的国际艺术展",
+    festivalCta: "Découvrir le projet · 了解项目",
+    programmeKicker: "OPEN CALL · ZCP 2027",
+    programmeTitle: "ZCP 2027青年艺术家计划 · Prix WE奖",
+    programmeMeta:
+      "24 位入选 · 12 组对话 · ZCP 2027 巴黎艺术展\nPrix WE奖 · 2 个驻地",
     programmeTagline: "报名 2026.09.21 – 12.20 · 巴黎 · 深圳",
     programmeCta: "Voir le programme · 了解计划 →",
-    prixWeKicker: "PRIX WE · WE艺术奖",
-    prixWeTitle: "Prix WE 2027",
-    prixWeMeta: "2 位年度获奖艺术家 · 以 12 组艺术家对话为评选基础",
-    prixWeCta: "En savoir plus · 了解奖项 →",
-    expositionKicker: "EXPOSITIONS · 国际艺术展",
-    expositionRoute: "巴黎 · 深圳 · 纽约 · 持续发展中",
-    expositionTagline:
-      "在巴黎、深圳、纽约等城市的咖啡馆、书店、旅店与日常空间发生的国际艺术展",
-    expositionCta: "Découvrir le projet · 了解项目",
-    residenciesKicker: "RÉSIDENCES · 艺术家驻地",
-    residenciesTitle: "巴黎 — 深圳",
-    residenciesMeta: "2 个跨城驻地名额 · ZCP Emerging Artists Programme 2027",
-    residenciesCta: "Voir les résidences · 了解驻地 →",
-    collectionKicker: "COLLECTION · 收藏",
-    collectionMeta: (copies, price) => `限量 ${copies} 版 · ${price} €`,
-    collectionCta: "Collectionner l'œuvre · 收藏作品 →",
   },
   fr: {
-    conversationKicker: "CONVERSATIONS · 对话",
+    conversationKicker: "CURRENT CONVERSATION · 当前对话",
     conversationCta: "Découvrir la conversation · 进入对话 →",
-    programmeKicker: "PROGRAMME · 青年艺术家计划",
-    programmeTitle: "Programme ZCP 2027 pour artistes émergents",
+    editionKicker: "LATEST EDITION · 最新限量作品",
+    editionMeta: (copies, price) => `Édition de ${copies} · ${price} €`,
+    editionCta: "Collectionner l'œuvre · 收藏作品 →",
+    festivalKicker: "EXPOSITIONS · 艺术展",
+    festivalRoute: "Paris · Shenzhen · New York · en développement",
+    festivalTagline:
+      "Expositions internationales dans cafés, librairies, hôtels et espaces du quotidien à Paris, Shenzhen, New York et au-delà",
+    festivalCta: "Découvrir le projet · 了解项目",
+    programmeKicker: "OPEN CALL · ZCP 2027",
+    programmeTitle:
+      "Programme ZCP 2027 pour artistes émergents · Prix WE",
     programmeMeta:
-      "24 artistes · 12 dialogues · Exposition ZCP Paris 2027",
+      "24 artistes · 12 dialogues · Exposition ZCP Paris 2027\nPrix WE · 2 résidences",
     programmeTagline:
       "Candidatures 21 sept. – 20 déc. 2026 · Paris · Shenzhen",
     programmeCta: "Voir le programme · 了解计划 →",
-    prixWeKicker: "PRIX WE · WE艺术奖",
-    prixWeTitle: "Prix WE 2027",
-    prixWeMeta:
-      "2 lauréat·es · fondé sur les 12 dialogues entre artistes",
-    prixWeCta: "En savoir plus · 了解奖项 →",
-    expositionKicker: "EXPOSITIONS · 国际艺术展",
-    expositionRoute: "Paris · Shenzhen · New York · en développement",
-    expositionTagline:
-      "Expositions internationales dans cafés, librairies, hôtels et espaces du quotidien à Paris, Shenzhen, New York et au-delà",
-    expositionCta: "Découvrir le projet · 了解项目",
-    residenciesKicker: "RÉSIDENCES · 艺术家驻地",
-    residenciesTitle: "Paris — Shenzhen",
-    residenciesMeta:
-      "2 résidences inter-villes · ZCP Emerging Artists Programme 2027",
-    residenciesCta: "Voir les résidences · 了解驻地 →",
-    collectionKicker: "COLLECTION · 收藏",
-    collectionMeta: (copies, price) => `Édition de ${copies} · ${price} €`,
-    collectionCta: "Collectionner l'œuvre · 收藏作品 →",
   },
   en: {
-    conversationKicker: "CONVERSATIONS",
+    conversationKicker: "CURRENT CONVERSATION",
     conversationCta: "DISCOVER THE CONVERSATION →",
-    programmeKicker: "PROGRAMME",
-    programmeTitle: "ZCP Emerging Artists Programme 2027",
-    programmeMeta: "24 artists · 12 dialogues · ZCP Paris 2027 show",
+    editionKicker: "LATEST EDITION",
+    editionMeta: (copies, price) => `Edition of ${copies} · €${price}`,
+    editionCta: "COLLECT THE ARTWORK →",
+    festivalKicker: "EXPOSITIONS",
+    festivalRoute: "Paris · Shenzhen · New York · ongoing",
+    festivalTagline:
+      "International art in cafés, bookshops, hotels, and everyday spaces across Paris, Shenzhen, New York, and beyond",
+    festivalCta: "Discover the project",
+    programmeKicker: "OPEN CALL · ZCP 2027",
+    programmeTitle: "ZCP Emerging Artists Programme 2027 · Prix WE",
+    programmeMeta:
+      "24 artists · 12 dialogues · ZCP Paris 2027 show\nPrix WE · 2 residencies",
     programmeTagline:
       "Applications 21 Sep – 20 Dec 2026 · Paris · Shenzhen",
     programmeCta: "View the programme →",
-    prixWeKicker: "PRIX WE",
-    prixWeTitle: "Prix WE 2027",
-    prixWeMeta: "2 annual laureates · based on 12 artist dialogues",
-    prixWeCta: "About the award →",
-    expositionKicker: "EXPOSITIONS",
-    expositionRoute: "Paris · Shenzhen · New York · ongoing",
-    expositionTagline:
-      "International art in cafés, bookshops, hotels, and everyday spaces across Paris, Shenzhen, New York, and beyond",
-    expositionCta: "Discover the project",
-    residenciesKicker: "RÉSIDENCES",
-    residenciesTitle: "Paris — Shenzhen",
-    residenciesMeta:
-      "2 cross-city residencies · ZCP Emerging Artists Programme 2027",
-    residenciesCta: "View residencies →",
-    collectionKicker: "COLLECTION",
-    collectionMeta: (copies, price) => `Edition of ${copies} · €${price}`,
-    collectionCta: "COLLECT THE ARTWORK →",
   },
 };
-
-function SpotlightTextSection({
-  kicker,
-  title,
-  meta,
-  tagline,
-  ctaHref,
-  ctaLabel,
-  ctaClassName,
-  useSerif,
-}: {
-  kicker: string;
-  title: string;
-  meta: string;
-  tagline?: string;
-  ctaHref: string;
-  ctaLabel: string;
-  ctaClassName: string;
-  useSerif: boolean;
-}) {
-  return (
-    <section className={`${cardClass} px-4 py-8 text-center md:px-10 md:py-12`}>
-      <p className={kickerClass}>{kicker}</p>
-      <h2
-        className={`${
-          useSerif ? serif.className : ""
-        } mx-auto mt-8 max-w-xl text-2xl font-normal leading-tight text-[#5a2323] md:text-3xl`}
-      >
-        {title}
-      </h2>
-      <p className="mt-5 whitespace-pre-line text-sm font-medium tracking-[0.08em] text-stone-700">
-        {meta}
-      </p>
-      {tagline ? (
-        <p
-          className={`${
-            useSerif ? serif.className : ""
-          } mx-auto mt-4 max-w-lg text-sm leading-[1.9] text-stone-600`}
-        >
-          {tagline}
-        </p>
-      ) : null}
-      <div className="mt-10 flex justify-center">
-        <Link href={ctaHref} className={ctaClassName}>
-          {ctaLabel}
-        </Link>
-      </div>
-    </section>
-  );
-}
 
 const cardClass = "border border-stone-200 bg-white";
 const kickerClass =
@@ -288,6 +206,38 @@ export function HomeView() {
       />
 
       <main className="mx-auto max-w-6xl space-y-8 px-3 py-10 md:space-y-12 md:px-8 md:py-16">
+        <section className={`${cardClass} px-4 py-8 text-center md:px-10 md:py-12`}>
+          <p className={kickerClass}>{l.programmeKicker}</p>
+
+          <h2
+            className={`${
+              useSerif ? serif.className : ""
+            } mx-auto mt-8 max-w-xl text-2xl font-normal leading-tight text-[#5a2323] md:text-3xl`}
+          >
+            {l.programmeTitle}
+          </h2>
+
+          <p className="mt-5 whitespace-pre-line text-sm font-medium tracking-[0.08em] text-stone-700">
+            {l.programmeMeta}
+          </p>
+          <p
+            className={`${
+              useSerif ? serif.className : ""
+            } mx-auto mt-4 max-w-lg text-sm leading-[1.9] text-stone-600`}
+          >
+            {l.programmeTagline}
+          </p>
+
+          <div className="mt-10 flex justify-center">
+            <Link
+              href="/opportunites/emerging-artists-2027"
+              className={spotlightCtaClass}
+            >
+              {l.programmeCta}
+            </Link>
+          </div>
+        </section>
+
         <section className={`${cardClass} px-4 py-8 md:px-8 md:py-14`}>
           <div className="md:hidden">
             <p className={`${kickerClass} text-center`}>{l.conversationKicker}</p>
@@ -378,64 +328,11 @@ export function HomeView() {
           </div>
         </section>
 
-        <SpotlightTextSection
-          kicker={l.programmeKicker}
-          title={l.programmeTitle}
-          meta={l.programmeMeta}
-          tagline={l.programmeTagline}
-          ctaHref="/opportunites/emerging-artists-2027"
-          ctaLabel={l.programmeCta}
-          ctaClassName={spotlightCtaClass}
-          useSerif={useSerif}
-        />
-
-        <SpotlightTextSection
-          kicker={l.prixWeKicker}
-          title={l.prixWeTitle}
-          meta={l.prixWeMeta}
-          ctaHref="/opportunites/emerging-artists-2027"
-          ctaLabel={l.prixWeCta}
-          ctaClassName={spotlightCtaClass}
-          useSerif={useSerif}
-        />
-
-        <section className={`${cardClass} px-4 py-8 text-center md:px-10 md:py-12`}>
-          <p className={kickerClass}>{l.expositionKicker}</p>
-
-          <p className="mt-8 text-sm font-medium tracking-[0.12em] text-stone-700">
-            {l.expositionRoute}
-          </p>
-          <p
-            className={`${
-              useSerif ? serif.className : ""
-            } mx-auto mt-4 max-w-md text-sm leading-[1.9] text-stone-600`}
-          >
-            {l.expositionTagline}
-          </p>
-
-          <div className="mt-10 flex justify-center">
-            <Link href="/exposition" className={ctaSecondaryClass}>
-              {l.expositionCta}
-              <span aria-hidden>→</span>
-            </Link>
-          </div>
-        </section>
-
-        <SpotlightTextSection
-          kicker={l.residenciesKicker}
-          title={l.residenciesTitle}
-          meta={l.residenciesMeta}
-          ctaHref="/opportunites"
-          ctaLabel={l.residenciesCta}
-          ctaClassName={ctaSecondaryClass}
-          useSerif={useSerif}
-        />
-
         {latestEdition && editionArtist && editionWork && editionShopUrl ? (
           <section className={`${cardClass} overflow-hidden`}>
             <div className="md:hidden">
               <p className={`${kickerClass} px-4 pt-8 text-center`}>
-                {l.collectionKicker}
+                {l.editionKicker}
               </p>
 
               {editionWork.image ? (
@@ -477,7 +374,7 @@ export function HomeView() {
                 </p>
 
                 <p className="mt-4 text-xs tracking-[0.08em] text-stone-500">
-                  {l.collectionMeta(
+                  {l.editionMeta(
                     latestEdition.shopCopies ?? latestEdition.copies,
                     latestEdition.shopPriceEur ?? 0,
                   )}
@@ -490,7 +387,7 @@ export function HomeView() {
                     rel="noopener noreferrer"
                     className={spotlightCtaClass}
                   >
-                    {l.collectionCta}
+                    {l.editionCta}
                   </a>
                 </div>
               </div>
@@ -511,7 +408,7 @@ export function HomeView() {
               ) : null}
 
               <div className="flex flex-col justify-center px-6 py-10 md:px-10 md:py-14">
-                <p className={kickerClass}>{l.collectionKicker}</p>
+                <p className={kickerClass}>{l.editionKicker}</p>
 
                 <p className="mt-8 text-sm font-medium tracking-[0.06em] text-stone-900">
                   {t(editionArtist.name, locale)}
@@ -538,7 +435,7 @@ export function HomeView() {
                 </p>
 
                 <p className="mt-4 text-xs tracking-[0.08em] text-stone-500">
-                  {l.collectionMeta(
+                  {l.editionMeta(
                     latestEdition.shopCopies ?? latestEdition.copies,
                     latestEdition.shopPriceEur ?? 0,
                   )}
@@ -551,13 +448,35 @@ export function HomeView() {
                     rel="noopener noreferrer"
                     className={spotlightCtaClass}
                   >
-                    {l.collectionCta}
+                    {l.editionCta}
                   </a>
                 </div>
               </div>
             </div>
           </section>
         ) : null}
+
+        <section className={`${cardClass} px-4 py-8 text-center md:px-10 md:py-12`}>
+          <p className={kickerClass}>{l.festivalKicker}</p>
+
+          <p className="mt-8 text-sm font-medium tracking-[0.12em] text-stone-700">
+            {l.festivalRoute}
+          </p>
+          <p
+            className={`${
+              useSerif ? serif.className : ""
+            } mx-auto mt-4 max-w-md text-sm leading-[1.9] text-stone-600`}
+          >
+            {l.festivalTagline}
+          </p>
+
+          <div className="mt-10 flex justify-center">
+            <Link href="/exposition" className={ctaSecondaryClass}>
+              {l.festivalCta}
+              <span aria-hidden>→</span>
+            </Link>
+          </div>
+        </section>
       </main>
 
       <SiteFooter wide locale={locale} />
