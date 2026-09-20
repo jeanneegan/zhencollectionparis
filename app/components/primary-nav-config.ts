@@ -31,18 +31,13 @@ export const primaryNavItems: PrimaryNavItem[] = [
       pathname === "/editions" || pathname.startsWith("/edition/"),
   },
   {
-    id: "expositions",
-    href: "/exposition",
-    label: "EXPOSITIONS",
-    labelZh: "艺术展",
+    id: "support",
+    href: "/apropos#partners",
+    label: "SUPPORT",
+    labelZh: "赞助",
     isActive: (pathname) =>
-      pathname === "/exposition" || pathname.startsWith("/exposition/"),
-  },
-  {
-    id: "residencies",
-    href: "/opportunites",
-    label: "RÉSIDENCES",
-    labelZh: "驻地",
-    isActive: (pathname) => pathname.startsWith("/opportunites"),
+      pathname === "/apropos" ||
+      pathname.startsWith("/apropos/") ||
+      pathname.startsWith("/gallery-partnership"),
   },
 ];
