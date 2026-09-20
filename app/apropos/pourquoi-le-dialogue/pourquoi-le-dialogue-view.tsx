@@ -409,7 +409,7 @@ export function PourquoiLeDialogueView() {
           ))}
         </div>
 
-        <PageBottomNav locale={locale} backHref="/apropos" />
+        <PageBottomNav locale={locale} backHref="/support" />
       </main>
 
       <SiteFooter locale={locale} />

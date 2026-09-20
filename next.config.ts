@@ -26,6 +26,11 @@ const nextConfig: NextConfig = {
         destination: "/exposition/:path*",
         permanent: true,
       },
+      {
+        source: "/apropos",
+        destination: "/support",
+        permanent: true,
+      },
     ];
   },
 };

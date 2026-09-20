@@ -16,7 +16,7 @@ export function ContactLink({
 }) {
   return (
     <Link
-      href="/apropos#contact"
+      href="/support#contact"
       className={`tracking-[0.12em] text-stone-500 transition-colors hover:text-stone-900 ${
         variant === "page-bottom" ? "text-xs" : "text-[11px]"
       }`}

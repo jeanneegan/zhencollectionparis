@@ -30,10 +30,10 @@ export const siteSocialNetworks: SiteSocialNetwork[] = [
 
 export function getSiteSocialHref(network: SiteSocialNetwork) {
   if (network.contactAnchor) {
-    return "/apropos#contact";
+    return "/support#contact";
   }
 
-  return network.href || "/apropos#contact";
+  return network.href || "/support#contact";
 }
 
 export function isExternalSocialLink(network: SiteSocialNetwork) {

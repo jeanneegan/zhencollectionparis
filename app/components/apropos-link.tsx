@@ -2,9 +2,9 @@ import Link from "next/link";
 import type { Locale } from "@/app/artists/[slug]/data";
 
 const labels: Record<Locale, string> = {
-  fr: "About · 关于",
-  zh: "About · 关于",
-  en: "About",
+  fr: "Support · 赞助",
+  zh: "Support · 赞助",
+  en: "Support",
 };
 
 export function AproposLink({
@@ -18,7 +18,7 @@ export function AproposLink({
 }) {
   return (
     <Link
-      href="/apropos"
+      href="/support"
       className={`tracking-[0.12em] text-stone-500 transition-colors hover:text-stone-900 ${
         variant === "page-bottom"
           ? "text-xs"

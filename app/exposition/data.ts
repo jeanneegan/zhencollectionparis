@@ -89,7 +89,7 @@ const expositions: Record<string, Exposition> = {
       en: "Paris · Shenzhen · New York · ongoing",
     },
     cta: {
-      href: "/apropos#contact",
+      href: "/support#contact",
       label: {
         zh: "了解项目 · 成为全球合作空间",
         fr: "Découvrir le projet · Devenir espace partenaire",
