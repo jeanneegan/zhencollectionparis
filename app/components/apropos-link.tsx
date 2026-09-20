@@ -2,9 +2,9 @@ import Link from "next/link";
 import type { Locale } from "@/app/artists/[slug]/data";
 
 const labels: Record<Locale, string> = {
-  fr: "Support · 赞助",
-  zh: "Support · 赞助",
-  en: "Support",
+  fr: "About · 关于",
+  zh: "About · 关于",
+  en: "About",
 };
 
 export function AproposLink({

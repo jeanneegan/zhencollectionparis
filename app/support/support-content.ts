@@ -143,8 +143,3 @@ export const supportContent: SupportContent = {
   },
 };
 
-export const supportContact: Record<Locale, string> = {
-  zh: "欢迎就赞助、合作或项目事宜与我们联系。",
-  fr: "Contactez-nous pour le mécénat, un partenariat ou un projet.",
-  en: "Contact us about support, partnership, or projects.",
-};
