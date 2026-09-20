@@ -130,6 +130,21 @@ export function AproposView() {
                 subtitle={section.subtitle[locale]}
               />
 
+              {section.lead ? (
+                <div
+                  className={`mt-6 space-y-2 ${useSerif ? serif.className : ""}`}
+                >
+                  {section.lead[locale].map((line) => (
+                    <p
+                      key={line.slice(0, 48)}
+                      className="text-sm font-medium leading-[1.85] text-stone-900 md:text-base"
+                    >
+                      {line}
+                    </p>
+                  ))}
+                </div>
+              ) : null}
+
               {section.paragraphs ? (
                 <div
                   className={`mt-6 space-y-4 ${useSerif ? serif.className : ""}`}
@@ -140,6 +155,52 @@ export function AproposView() {
                     </p>
                   ))}
                 </div>
+              ) : null}
+
+              {section.subsections?.map((subsection) => (
+                <div key={subsection.heading.en} className="mt-10">
+                  <h3 className="text-[10px] font-medium uppercase tracking-[0.2em] text-stone-500">
+                    {subsection.heading[locale]}
+                  </h3>
+                  {subsection.paragraphs?.[locale][0] ? (
+                    <p
+                      className={`mt-4 ${proseClass} ${
+                        useSerif ? serif.className : ""
+                      }`}
+                    >
+                      {subsection.paragraphs[locale][0]}
+                    </p>
+                  ) : null}
+                  {subsection.bullets?.[locale]?.length ? (
+                    <ul
+                      className={`mt-4 list-disc space-y-2 pl-5 text-sm leading-[1.85] text-stone-700 md:text-base ${
+                        useSerif ? serif.className : ""
+                      }`}
+                    >
+                      {subsection.bullets[locale].map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  ) : null}
+                  {subsection.paragraphs?.[locale].slice(1).map((paragraph) => (
+                    <p
+                      key={paragraph.slice(0, 48)}
+                      className={`mt-4 ${proseClass} ${
+                        useSerif ? serif.className : ""
+                      }`}
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              ))}
+
+              {section.closing ? (
+                <p className="mt-10 text-sm font-medium tracking-[0.06em] text-stone-800">
+                  <a href="#contact" className="underline-offset-4 hover:underline">
+                    {section.closing[locale]}
+                  </a>
+                </p>
               ) : null}
 
               {section.links?.length ? (

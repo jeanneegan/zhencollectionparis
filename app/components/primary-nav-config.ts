@@ -32,7 +32,7 @@ export const primaryNavItems: PrimaryNavItem[] = [
   },
   {
     id: "support",
-    href: "/apropos#partners",
+    href: "/apropos#support",
     label: "SUPPORT",
     labelZh: "赞助",
     isActive: (pathname) =>
