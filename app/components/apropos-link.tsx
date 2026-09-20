@@ -18,7 +18,7 @@ export function AproposLink({
 }) {
   return (
     <Link
-      href="/support"
+      href="/apropos"
       className={`tracking-[0.12em] text-stone-500 transition-colors hover:text-stone-900 ${
         variant === "page-bottom"
           ? "text-xs"

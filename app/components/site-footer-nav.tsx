@@ -9,16 +9,16 @@ const footerNavItems: Record<
   { href: string; label: string; external?: boolean }[]
 > = {
   zh: [
-    { href: "/support", label: "ABOUT · 关于" },
-    { href: "/support#contact", label: "CONTACT · 联系我们" },
+    { href: "/apropos", label: "ABOUT · 关于" },
+    { href: "/contact", label: "CONTACT · 联系我们" },
   ],
   fr: [
-    { href: "/support", label: "ABOUT · 关于" },
-    { href: "/support#contact", label: "CONTACT · 联系我们" },
+    { href: "/apropos", label: "ABOUT · 关于" },
+    { href: "/contact", label: "CONTACT · 联系我们" },
   ],
   en: [
-    { href: "/support", label: "ABOUT · About" },
-    { href: "/support#contact", label: "CONTACT · Contact us" },
+    { href: "/apropos", label: "ABOUT · About" },
+    { href: "/contact", label: "CONTACT · Contact us" },
   ],
 };
 

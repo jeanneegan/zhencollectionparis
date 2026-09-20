@@ -101,7 +101,7 @@ export function AssociationView() {
           </p>
         </section>
 
-        <PageBottomNav locale={locale} backHref="/support" />
+        <PageBottomNav locale={locale} backHref="/apropos" />
       </main>
 
       <SiteFooter locale={locale} />
