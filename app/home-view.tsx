@@ -42,7 +42,7 @@ const spotlightLabels: Record<
   zh: {
     conversationKicker: "CURRENT CONVERSATION · 当前对话",
     conversationCta: "Découvrir la conversation · 进入对话 →",
-    editionKicker: "LATEST EDITION · 最新限量作品",
+    editionKicker: "COLLECTION · 收藏",
     editionMeta: (copies, price) => `限量 ${copies} 版 · ${price} €`,
     editionCta: "Collectionner l'œuvre · 收藏作品 →",
     festivalKicker: "EXPOSITIONS · 艺术展",
@@ -60,7 +60,7 @@ const spotlightLabels: Record<
   fr: {
     conversationKicker: "CURRENT CONVERSATION · 当前对话",
     conversationCta: "Découvrir la conversation · 进入对话 →",
-    editionKicker: "LATEST EDITION · 最新限量作品",
+    editionKicker: "COLLECTION · 收藏",
     editionMeta: (copies, price) => `Édition de ${copies} · ${price} €`,
     editionCta: "Collectionner l'œuvre · 收藏作品 →",
     festivalKicker: "EXPOSITIONS · 艺术展",
@@ -80,7 +80,7 @@ const spotlightLabels: Record<
   en: {
     conversationKicker: "CURRENT CONVERSATION",
     conversationCta: "DISCOVER THE CONVERSATION →",
-    editionKicker: "LATEST EDITION",
+    editionKicker: "COLLECTION",
     editionMeta: (copies, price) => `Edition of ${copies} · €${price}`,
     editionCta: "COLLECT THE ARTWORK →",
     festivalKicker: "EXPOSITIONS",

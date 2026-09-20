@@ -23,10 +23,10 @@ export const primaryNavItems: PrimaryNavItem[] = [
       pathname === "/artists" || pathname.startsWith("/artists/"),
   },
   {
-    id: "editions",
+    id: "collection",
     href: "/editions",
-    label: "EDITIONS",
-    labelZh: "出版",
+    label: "COLLECTION",
+    labelZh: "收藏",
     isActive: (pathname) =>
       pathname === "/editions" || pathname.startsWith("/edition/"),
   },
