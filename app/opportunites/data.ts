@@ -41,7 +41,7 @@ export const residencyListings: ResidencyListing[] = [
     openInNewTab: false,
     title: {
       fr: "ZCP Emerging Artists Programme 2027",
-      zh: "ZCP 2027青年艺术家计划",
+      zh: "ZCP 2027青年艺术家暨Prix WE奖计划",
       en: "ZCP Emerging Artists Programme 2027",
     },
     location: {

@@ -50,8 +50,9 @@ const spotlightLabels: Record<
     festivalTagline: "在日常空间发生的国际艺术展",
     festivalCta: "Découvrir le projet · 了解项目",
     programmeKicker: "OPEN CALL · ZCP 2027",
-    programmeTitle: "ZCP 2027青年艺术家计划",
-    programmeMeta: "24 位入选 · 12 组对话 · ZCP 2027 巴黎艺术展 · Prix WE · 2 个驻地",
+    programmeTitle: "ZCP 2027青年艺术家暨Prix WE奖计划",
+    programmeMeta:
+      "24 位入选 · 12 组对话 · ZCP 2027 巴黎艺术展 · Prix WE奖 · 2 个驻地",
     programmeTagline: "报名 2026.09.21 – 12.20 · 巴黎 · 深圳",
     programmeCta: "Voir le programme · 了解计划 →",
   },
@@ -217,7 +218,7 @@ export function HomeView() {
               <>
                 ZCP Emerging Artists Programme 2027
                 {" · "}
-                <span>ZCP 2027青年艺术家计划</span>
+                <span>{spotlightLabels.zh.programmeTitle}</span>
               </>
             )}
           </h2>

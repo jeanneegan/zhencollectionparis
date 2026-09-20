@@ -42,7 +42,7 @@ export type ProgrammeSection = {
 };
 
 export const programmeTitle: LocalizedText = {
-  zh: "ZCP 2027青年艺术家计划",
+  zh: "ZCP 2027青年艺术家暨Prix WE奖计划",
   fr: "ZCP Emerging Artists Programme 2027",
   en: "ZCP Emerging Artists Programme 2027",
 };
