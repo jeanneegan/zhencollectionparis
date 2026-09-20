@@ -45,7 +45,7 @@ const spotlightLabels: Record<
     editionKicker: "COLLECTION · 收藏",
     editionMeta: (copies, price) => `限量 ${copies} 版 · ${price} €`,
     editionCta: "Collectionner l'œuvre · 收藏作品 →",
-    festivalKicker: "EXPOSITIONS · 艺术展",
+    festivalKicker: "ZCP国际艺术展",
     festivalRoute: "巴黎 · 深圳 · 纽约 · 持续发展中",
     festivalTagline:
       "在巴黎、深圳、纽约等城市的咖啡馆、书店、旅店与日常空间发生的国际艺术展",
@@ -63,7 +63,7 @@ const spotlightLabels: Record<
     editionKicker: "COLLECTION · 收藏",
     editionMeta: (copies, price) => `Édition de ${copies} · ${price} €`,
     editionCta: "Collectionner l'œuvre · 收藏作品 →",
-    festivalKicker: "EXPOSITIONS · 艺术展",
+    festivalKicker: "ZCP国际艺术展",
     festivalRoute: "Paris · Shenzhen · New York · en développement",
     festivalTagline:
       "Expositions internationales dans cafés, librairies, hôtels et espaces du quotidien à Paris, Shenzhen, New York et au-delà",
@@ -83,7 +83,7 @@ const spotlightLabels: Record<
     editionKicker: "COLLECTION",
     editionMeta: (copies, price) => `Edition of ${copies} · €${price}`,
     editionCta: "COLLECT THE ARTWORK →",
-    festivalKicker: "EXPOSITIONS",
+    festivalKicker: "ZCP INTERNATIONAL EXHIBITIONS",
     festivalRoute: "Paris · Shenzhen · New York · ongoing",
     festivalTagline:
       "International art in cafés, bookshops, hotels, and everyday spaces across Paris, Shenzhen, New York, and beyond",
