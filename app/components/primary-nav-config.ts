@@ -31,6 +31,21 @@ export const primaryNavItems: PrimaryNavItem[] = [
       pathname === "/editions" || pathname.startsWith("/edition/"),
   },
   {
+    id: "expositions",
+    href: "/exposition",
+    label: "EXPOSITIONS",
+    labelZh: "展览",
+    isActive: (pathname) =>
+      pathname === "/exposition" || pathname.startsWith("/exposition/"),
+  },
+  {
+    id: "residencies",
+    href: "/opportunites",
+    label: "RÉSIDENCES",
+    labelZh: "驻地",
+    isActive: (pathname) => pathname.startsWith("/opportunites"),
+  },
+  {
     id: "support",
     href: "/support",
     label: "SUPPORT",

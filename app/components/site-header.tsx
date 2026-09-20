@@ -24,7 +24,7 @@ export function SiteHeader({
         <SiteBrandLink className="shrink-0" />
         {trailing}
       </div>
-      {showPrimaryNav ? <PrimaryNav wide={wide} /> : null}
+      {showPrimaryNav ? <PrimaryNav wide /> : null}
     </header>
   );
 }
