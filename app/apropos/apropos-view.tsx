@@ -7,7 +7,10 @@ import { PageBottomNav } from "@/app/components/page-bottom-nav";
 import { SiteFooter } from "@/app/components/site-footer";
 import { SiteHeader } from "@/app/components/site-header";
 import type { Locale } from "@/app/artists/[slug]/data";
-import { aboutSections } from "@/app/apropos/about-content";
+import {
+  aboutPrimaryPages,
+  aboutSections,
+} from "@/app/apropos/about-content";
 import { useLocale } from "@/app/lib/use-locale";
 
 const serif = Noto_Serif_SC({
@@ -33,6 +36,9 @@ const pageLabels: Record<Locale, { title: string; titleSub: string }> = {
 const proseClass = "text-sm leading-[2] text-stone-700 md:text-base";
 const linkClass =
   "text-[11px] tracking-[0.08em] text-stone-500 transition-colors hover:text-stone-900";
+
+const navItemClass =
+  "flex flex-col gap-1 px-5 py-4 transition-colors hover:bg-white md:px-6 md:py-5";
 
 function SectionHeading({
   locale,
@@ -95,12 +101,25 @@ export function AproposView() {
           className="mt-12 border border-stone-200 bg-stone-50/50"
         >
           <ul className="divide-y divide-stone-200">
+            {aboutPrimaryPages.map((page) => (
+              <li key={page.href}>
+                <Link href={page.href} className={navItemClass}>
+                  <span
+                    className={`text-sm text-stone-800 ${
+                      useSerif ? serif.className : ""
+                    }`}
+                  >
+                    {page.navTitle[locale]}
+                  </span>
+                  <span className="text-[10px] tracking-[0.12em] text-stone-500">
+                    {page.navSubtitle[locale]}
+                  </span>
+                </Link>
+              </li>
+            ))}
             {aboutSections.map((section) => (
               <li key={section.id}>
-                <a
-                  href={`#${section.id}`}
-                  className="flex flex-col gap-1 px-5 py-4 transition-colors hover:bg-white md:px-6 md:py-5"
-                >
+                <a href={`#${section.id}`} className={navItemClass}>
                   <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-stone-500">
                     {section.title[locale]}
                   </span>
@@ -130,21 +149,6 @@ export function AproposView() {
                 subtitle={section.subtitle[locale]}
               />
 
-              {section.lead ? (
-                <div
-                  className={`mt-6 space-y-2 ${useSerif ? serif.className : ""}`}
-                >
-                  {section.lead[locale].map((line) => (
-                    <p
-                      key={line.slice(0, 48)}
-                      className="text-sm font-medium leading-[1.85] text-stone-900 md:text-base"
-                    >
-                      {line}
-                    </p>
-                  ))}
-                </div>
-              ) : null}
-
               {section.paragraphs ? (
                 <div
                   className={`mt-6 space-y-4 ${useSerif ? serif.className : ""}`}
@@ -157,70 +161,13 @@ export function AproposView() {
                 </div>
               ) : null}
 
-              {section.subsections?.map((subsection) => (
-                <div key={subsection.heading.en} className="mt-10">
-                  <h3 className="text-[10px] font-medium uppercase tracking-[0.2em] text-stone-500">
-                    {subsection.heading[locale]}
-                  </h3>
-                  {subsection.paragraphs?.[locale][0] ? (
-                    <p
-                      className={`mt-4 ${proseClass} ${
-                        useSerif ? serif.className : ""
-                      }`}
-                    >
-                      {subsection.paragraphs[locale][0]}
-                    </p>
-                  ) : null}
-                  {subsection.bullets?.[locale]?.length ? (
-                    <ul
-                      className={`mt-4 list-disc space-y-2 pl-5 text-sm leading-[1.85] text-stone-700 md:text-base ${
-                        useSerif ? serif.className : ""
-                      }`}
-                    >
-                      {subsection.bullets[locale].map((item) => (
-                        <li key={item}>{item}</li>
-                      ))}
-                    </ul>
-                  ) : null}
-                  {subsection.paragraphs?.[locale].slice(1).map((paragraph) => (
-                    <p
-                      key={paragraph.slice(0, 48)}
-                      className={`mt-4 ${proseClass} ${
-                        useSerif ? serif.className : ""
-                      }`}
-                    >
-                      {paragraph}
-                    </p>
-                  ))}
-                </div>
-              ))}
-
-              {section.closing ? (
-                <p className="mt-10 text-sm font-medium tracking-[0.06em] text-stone-800">
-                  <a href="#contact" className="underline-offset-4 hover:underline">
-                    {section.closing[locale]}
-                  </a>
-                </p>
-              ) : null}
-
               {section.links?.length ? (
                 <ul className="mt-6 space-y-3">
                   {section.links.map((link) => (
                     <li key={link.href}>
-                      {link.external ? (
-                        <a
-                          href={link.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={linkClass}
-                        >
-                          {link.label[locale]} →
-                        </a>
-                      ) : (
-                        <Link href={link.href} className={linkClass}>
-                          {link.label[locale]} →
-                        </Link>
-                      )}
+                      <Link href={link.href} className={linkClass}>
+                        {link.label[locale]} →
+                      </Link>
                     </li>
                   ))}
                 </ul>

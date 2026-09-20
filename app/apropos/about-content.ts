@@ -6,24 +6,49 @@ export type AboutSectionLink = {
   external?: boolean;
 };
 
-export type AboutSubsection = {
-  heading: Record<Locale, string>;
-  paragraphs?: Record<Locale, string[]>;
-  bullets?: Record<Locale, string[]>;
-};
-
 export type AboutSection = {
   id: string;
   title: Record<Locale, string>;
   subtitle: Record<Locale, string>;
-  lead?: Record<Locale, string[]>;
   paragraphs?: Record<Locale, string[]>;
-  subsections?: AboutSubsection[];
-  closing?: Record<Locale, string>;
   links?: AboutSectionLink[];
   pageHref?: string;
   pageLabel?: Record<Locale, string>;
 };
+
+/** Full-page “Pourquoi · 为什么” essays (linked from the About nav). */
+export const aboutPrimaryPages: {
+  href: string;
+  navTitle: Record<Locale, string>;
+  navSubtitle: Record<Locale, string>;
+}[] = [
+  {
+    href: "/association",
+    navTitle: {
+      zh: "为什么是巴黎臻藏？",
+      fr: "Pourquoi Zhen Collection Paris ?",
+      en: "Why Zhen Collection Paris?",
+    },
+    navSubtitle: {
+      zh: "Pourquoi Zhen Collection Paris ?",
+      fr: "为什么是巴黎臻藏？",
+      en: "Association · Paris & China",
+    },
+  },
+  {
+    href: "/apropos/pourquoi-le-dialogue",
+    navTitle: {
+      zh: "为什么是对话？",
+      fr: "Pourquoi le Dialogue ?",
+      en: "Why Dialogue?",
+    },
+    navSubtitle: {
+      zh: "Pourquoi le Dialogue ?",
+      fr: "为什么是对话？",
+      en: "Dialogue as art's living force",
+    },
+  },
+];
 
 export const aboutSections: AboutSection[] = [
   {
