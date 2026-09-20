@@ -11,7 +11,7 @@ import { useLocale } from "@/app/lib/use-locale";
 import {
   getProgrammePdfHref,
   programmeSections,
-  programmeStats,
+  programmeStatRows,
   programmeSubtitle,
   programmeTimeline,
   programmeTitle,
@@ -127,16 +127,44 @@ export function EmergingArtists2027View() {
           <div className="mx-auto mt-4 h-px w-12 bg-stone-300" />
         </header>
 
-        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
-          {programmeStats.map((stat) => (
+        <div className="mt-10 overflow-hidden border border-stone-200 bg-[#f9f7f3]">
+          {programmeStatRows.map((row, rowIndex) => (
             <div
-              key={stat.value + stat.label.zh}
-              className="border border-stone-200 bg-stone-50/50 px-3 py-4 text-center"
+              key={rowIndex}
+              className={`grid border-b border-stone-200 last:border-b-0 ${
+                row.length === 3 ? "grid-cols-3" : "grid-cols-2"
+              }`}
             >
-              <p className="text-2xl font-medium text-stone-900">{stat.value}</p>
-              <p className="mt-2 text-[10px] leading-relaxed tracking-[0.08em] text-stone-500">
-                {tProgramme(stat.label, locale)}
-              </p>
+              {row.map((stat) => (
+                <div
+                  key={stat.id}
+                  className="flex min-h-[5.5rem] flex-col items-center justify-center border-r border-stone-200 px-2 py-5 text-center last:border-r-0 md:min-h-[6.25rem] md:px-4"
+                >
+                  {stat.kicker ? (
+                    <p
+                      className={`${
+                        locale === "zh" || locale === "fr" ? serif.className : ""
+                      } text-[11px] font-medium tracking-[0.22em] text-[#5a2323] md:text-xs`}
+                    >
+                      {tProgramme(stat.kicker, locale)}
+                    </p>
+                  ) : null}
+                  <p
+                    className={`${
+                      stat.kicker ? "mt-2" : ""
+                    } text-3xl font-semibold leading-none text-stone-900 md:text-4xl`}
+                  >
+                    {stat.value}
+                  </p>
+                  <p
+                    className={`${
+                      locale === "zh" ? serif.className : ""
+                    } mt-2 text-[10px] leading-snug tracking-[0.04em] text-stone-600 md:text-[11px]`}
+                  >
+                    {tProgramme(stat.label, locale)}
+                  </p>
+                </div>
+              ))}
             </div>
           ))}
         </div>

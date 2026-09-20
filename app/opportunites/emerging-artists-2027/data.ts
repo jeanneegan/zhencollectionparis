@@ -17,8 +17,11 @@ export function getProgrammePdfHref(locale: Locale): string {
 }
 
 export type ProgrammeStat = {
+  id: string;
+  row: 1 | 2;
   value: string;
   label: LocalizedText;
+  kicker?: LocalizedText;
 };
 
 export type ProgrammeTimelineRow = {
@@ -55,6 +58,8 @@ export const programmeSubtitle: LocalizedText = {
 
 export const programmeStats: ProgrammeStat[] = [
   {
+    id: "artists",
+    row: 1,
     value: "24",
     label: {
       zh: "位入选艺术家",
@@ -63,6 +68,8 @@ export const programmeStats: ProgrammeStat[] = [
     },
   },
   {
+    id: "dialogues",
+    row: 1,
     value: "12",
     label: {
       zh: "组年度对话",
@@ -71,6 +78,8 @@ export const programmeStats: ProgrammeStat[] = [
     },
   },
   {
+    id: "exhibition",
+    row: 1,
     value: "1",
     label: {
       zh: "次 ZCP 2027 巴黎艺术展",
@@ -79,14 +88,23 @@ export const programmeStats: ProgrammeStat[] = [
     },
   },
   {
+    id: "prix-we",
+    row: 2,
     value: "2",
+    kicker: {
+      zh: "PRIX WE",
+      fr: "PRIX WE",
+      en: "PRIX WE",
+    },
     label: {
-      zh: "位 Prix WE 获奖艺术家",
-      fr: "lauréat·es Prix WE",
-      en: "Prix WE laureates",
+      zh: "2位年度获奖艺术家",
+      fr: "2 artistes lauréat·es",
+      en: "2 annual laureates",
     },
   },
   {
+    id: "residencies",
+    row: 2,
     value: "2",
     label: {
       zh: "个巴黎—深圳驻地名额",
@@ -94,6 +112,11 @@ export const programmeStats: ProgrammeStat[] = [
       en: "Paris–Shenzhen residencies",
     },
   },
+];
+
+export const programmeStatRows: ProgrammeStat[][] = [
+  programmeStats.filter((stat) => stat.row === 1),
+  programmeStats.filter((stat) => stat.row === 2),
 ];
 
 export const programmeTimeline: ProgrammeTimelineRow[] = [
