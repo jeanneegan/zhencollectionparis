@@ -22,6 +22,7 @@ const pageLabels: Record<Locale, { kicker: string; kickerSub: string }> = {
 };
 
 const proseClass = "text-sm leading-[2] text-stone-700 md:text-base";
+const supportHeadingColor = "text-[#5a2323]";
 
 export function SupportView() {
   const [locale, setLocale] = useLocale();
@@ -48,7 +49,7 @@ export function SupportView() {
           <h1
             className={`${
               useSerif ? serif.className : ""
-            } mt-8 text-2xl font-normal tracking-wide text-stone-900 md:text-3xl`}
+            } mt-8 text-2xl font-normal tracking-wide ${supportHeadingColor} md:text-3xl`}
           >
             {l.kicker}
             {locale !== "en" ? ` · ${l.kickerSub}` : ""}
@@ -77,7 +78,9 @@ export function SupportView() {
 
           {content.subsections.map((subsection) => (
             <div key={subsection.heading.en} className="mt-10">
-              <h2 className="text-[10px] font-medium uppercase tracking-[0.2em] text-stone-500">
+              <h2
+                className={`text-[10px] font-medium uppercase tracking-[0.2em] ${supportHeadingColor}`}
+              >
                 {subsection.heading[locale]}
               </h2>
               {subsection.paragraphs?.[locale][0] ? (
