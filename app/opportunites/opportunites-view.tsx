@@ -9,6 +9,7 @@ import { SiteFooter } from "@/app/components/site-footer";
 import { SiteHeader } from "@/app/components/site-header";
 import {
   residencyListings,
+  residencyPageIntro,
   residencySections,
   type ResidencySectionId,
 } from "@/app/opportunites/data";
@@ -27,15 +28,15 @@ const pageLabels: Record<
   }
 > = {
   zh: {
-    title: "RÉSIDENCES · 驻地",
+    title: "ZCP RESIDENCIES · 艺术家驻地",
     empty: "项目筹备中，欢迎持续关注。",
   },
   fr: {
-    title: "RÉSIDENCES · 驻地",
+    title: "ZCP RESIDENCIES · 艺术家驻地",
     empty: "Projets en préparation — restez informés.",
   },
   en: {
-    title: "RÉSIDENCES",
+    title: "ZCP RESIDENCIES · 艺术家驻地",
     empty: "Programmes in preparation — follow for updates.",
   },
 };
@@ -44,10 +45,12 @@ function ResidencySectionBlock({
   locale,
   sectionId,
   emptyLabel,
+  showSectionTitle,
 }: {
   locale: Locale;
   sectionId: ResidencySectionId;
   emptyLabel: string;
+  showSectionTitle: boolean;
 }) {
   const section = residencySections.find((item) => item.id === sectionId);
   const listings = residencyListings.filter((item) => item.sectionId === sectionId);
@@ -57,22 +60,27 @@ function ResidencySectionBlock({
   }
 
   const useSerif = locale === "zh" || locale === "fr";
+  const description = t(section.description, locale);
 
   return (
     <section className="border border-stone-200 bg-stone-50/40 px-6 py-8 md:px-10 md:py-10">
-      <h2 className="text-sm font-medium tracking-[0.14em] text-stone-900">
-        {t(section.title, locale)}
-      </h2>
-      <p
-        className={`${
-          useSerif ? serif.className : ""
-        } mt-3 text-sm leading-[1.9] text-stone-600`}
-      >
-        {t(section.description, locale)}
-      </p>
+      {showSectionTitle ? (
+        <h2 className="text-sm font-medium tracking-[0.14em] text-stone-900">
+          {t(section.title, locale)}
+        </h2>
+      ) : null}
+      {description ? (
+        <p
+          className={`${
+            useSerif ? serif.className : ""
+          } ${showSectionTitle ? "mt-3" : ""} text-sm leading-[1.9] text-stone-600`}
+        >
+          {description}
+        </p>
+      ) : null}
 
       {listings.length > 0 ? (
-        <ul className="mt-8 space-y-3">
+        <ul className={`space-y-3 ${showSectionTitle || description ? "mt-8" : ""}`}>
           {listings.map((listing) => (
             <li key={listing.id}>
               {listing.href ? (
@@ -116,6 +124,7 @@ function ResidencySectionBlock({
 export function OpportunitesView() {
   const [locale, setLocale] = useLocale();
   const l = pageLabels[locale];
+  const useSerif = locale === "zh" || locale === "fr";
 
   return (
     <div className="min-h-screen bg-white text-stone-900">
@@ -128,20 +137,28 @@ export function OpportunitesView() {
           <h1 className="text-2xl font-light tracking-wide text-stone-900 md:text-3xl">
             {l.title}
           </h1>
-          <p className="mx-auto mt-4 max-w-xl text-xs leading-[1.9] tracking-wide text-stone-500 md:text-sm">
-            De Paris et de Chine, vers d&apos;autres villes du monde.
+          <p
+            className={`${
+              useSerif ? serif.className : ""
+            } mx-auto mt-6 max-w-xl text-sm leading-[1.9] text-stone-600 md:text-base`}
+          >
+            {residencyPageIntro[locale]}
           </p>
         </header>
 
         <div className="mt-12 space-y-6">
-          {residencySections.map((section) => (
-            <ResidencySectionBlock
-              key={section.id}
-              locale={locale}
-              sectionId={section.id}
-              emptyLabel={l.empty}
-            />
-          ))}
+          <ResidencySectionBlock
+            locale={locale}
+            sectionId="zcp"
+            emptyLabel={l.empty}
+            showSectionTitle={false}
+          />
+          <ResidencySectionBlock
+            locale={locale}
+            sectionId="partner"
+            emptyLabel={l.empty}
+            showSectionTitle
+          />
         </div>
 
         <PageBottomNav locale={locale} />
