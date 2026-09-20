@@ -125,9 +125,9 @@ Energy never ceases to flow, and matter continuously renews itself, giving rise 
     suHongToWilly: {
       questionFrom: suHongPortraitAvatar,
       question: {
-        zh: "（苏泓向 Willy 提问 · 待发布）",
-        fr: "(Question de Su Hong à Willy · à venir)",
-        en: "(Question from Su Hong to Willy · coming soon)",
+        zh: "你对中国当代艺术有多少了解？法国艺术家平时会关注中国当代艺术的发展吗？\n\n中国的艺术教育在很大程度上受到欧洲绘画传统和西方现代艺术的影响。作为法国艺术家，你如何看待来自中国和东方文化背景的当代艺术作品？\n\n当你观看我的作品时，首先看到的是一件当代艺术作品，还是作品背后的中国文化身份？其中哪些部分能够被你直接理解，哪些又让你感到陌生？",
+        fr: "Dans quelle mesure connaissez-vous l'art contemporain chinois ? Les artistes français s'intéressent-ils généralement à son évolution ?\n\nL'enseignement artistique en Chine a été largement influencé par la tradition picturale européenne et par l'art moderne occidental. En tant qu'artiste français, comment regardez-vous les œuvres contemporaines issues de Chine et, plus largement, d'un contexte culturel oriental ?\n\nLorsque vous regardez mon travail, voyez-vous d'abord une œuvre d'art contemporain ou percevez-vous d'abord son identité culturelle chinoise ? Quels éléments vous paraissent immédiatement accessibles, et lesquels vous semblent plus étrangers ou nécessitent une connaissance du contexte chinois ?",
+        en: "How much do you know about contemporary Chinese art? Do French artists usually follow the development of contemporary art in China?\n\nArt education in China has been shaped to a large extent by European painting traditions and Western modern art. As a French artist, how do you view contemporary artworks from China and from East Asian cultural backgrounds?\n\nWhen you look at my work, do you first see a contemporary artwork, or the Chinese cultural identity behind it? Which parts can you understand directly, and which feel unfamiliar to you?",
       },
       answerFrom: willyPortraitAvatar,
     },
