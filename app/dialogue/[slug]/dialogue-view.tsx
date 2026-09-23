@@ -161,9 +161,6 @@ function CollectionCompleteOfferRow({
         </Link>
         <p className="text-[10px] tracking-[0.08em] text-stone-500">
           {t(offer.editionProductName, locale)}
-          {offer.editionPriceEur != null
-            ? ` · ${formatCollectionPrice(offer.editionPriceEur)}`
-            : null}
         </p>
       </div>
     </div>
@@ -737,6 +734,12 @@ export function DialogueView({
                 ))}
             </div>
             <div className="space-y-6">
+              {collectionCompleteOffer ? (
+                <CollectionCompleteOfferRow
+                  offer={collectionCompleteOffer}
+                  locale={locale}
+                />
+              ) : null}
               {collectionArtistRows.map((row) => (
                 <CollectionArtistOfferRow
                   key={row.artistName}
@@ -746,12 +749,6 @@ export function DialogueView({
                   editionLabel={episode.collectionSupport!.editionAction}
                 />
               ))}
-              {collectionCompleteOffer ? (
-                <CollectionCompleteOfferRow
-                  offer={collectionCompleteOffer}
-                  locale={locale}
-                />
-              ) : null}
             </div>
           </section>
         ) : null}
