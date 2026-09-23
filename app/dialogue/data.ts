@@ -141,6 +141,7 @@ export const episodes: DialogueEpisode[] = [
     founderLetter: {
       body: {
         zh: `这是 ZCP 的第一期对话，Willy 与苏泓。
+
 Willy Le Nalbaut 在法国生活与创作，苏泓在中国生活与创作。在这场对话开始以前，我与他们、他们彼此之间，都并不相识。
 
 我与 Willy 相遇在巴黎的 Galerie du Haut-Pavé。第一次见到他时，我被他的作品吸引，也因此开始了解他的创作。后来，因为 ZCP 的第一次公开招募，我在许多中国艺术家的作品中遇见了苏泓。
@@ -161,7 +162,9 @@ Willy Le Nalbaut 在法国生活与创作，苏泓在中国生活与创作。在
 于是，这场对话里有了两个彼此相遇的艺术家，也有了一个从外面观看这场相遇、见证 ZCP 如何开始的人。
 
 生活中，有人离开，也有人走进。但永远感恩每一次相遇，因为相遇过，就已经有所不同。`,
-        fr: `Ceci est la première conversation de ZCP, entre Willy et Su Hong. Willy Le Nalbaut vit et travaille en France ; Su Hong vit et travaille en Chine. Avant cette conversation, je ne les connaissais pas — pas plus qu'ils ne se connaissaient entre eux.
+        fr: `Ceci est la première conversation de ZCP, entre Willy et Su Hong.
+
+Willy Le Nalbaut vit et travaille en France ; Su Hong vit et travaille en Chine. Avant cette conversation, je ne les connaissais pas — pas plus qu'ils ne se connaissaient entre eux.
 
 J'ai rencontré Willy à la Galerie du Haut-Pavé, à Paris. Dès notre première rencontre, j'ai été touchée par son travail, et c'est ainsi que j'ai commencé à découvrir sa pratique. Plus tard, grâce au premier appel public de ZCP, j'ai découvert Su Hong parmi de nombreuses œuvres d'artistes chinois.
 
@@ -181,6 +184,7 @@ Ainsi, cette conversation réunit deux artistes qui se rencontrent, et quelqu'un
 
 Dans la vie, certains s'en vont, d'autres arrivent. Mais je reste toujours reconnaissante pour chaque rencontre, car dès lors qu'une rencontre a eu lieu, quelque chose est déjà différent.`,
         en: `This is ZCP's first conversation, between Willy and Su Hong.
+
 Willy Le Nalbaut lives and works in France; Su Hong lives and works in China. Before this conversation began, I did not know them — nor did they know each other.
 
 I met Willy at Galerie du Haut-Pavé in Paris. The first time I saw him, I was drawn to his work, and that is how I began to learn about his practice. Later, through ZCP's first open call, I discovered Su Hong among the work of many Chinese artists.
