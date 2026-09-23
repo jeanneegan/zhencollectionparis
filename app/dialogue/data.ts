@@ -161,27 +161,25 @@ Willy Le Nalbaut 在法国生活与创作，苏泓在中国生活与创作。在
 于是，这场对话里有了两个彼此相遇的艺术家，也有了一个从外面观看这场相遇、见证 ZCP 如何开始的人。
 
 生活中，有人离开，也有人走进。但永远感恩每一次相遇，因为相遇过，就已经有所不同。`,
-        fr: `Ceci est la première conversation de ZCP, entre Willy et Su Hong.
-Willy Le Nalbaut vit et travaille en France ; Su Hong vit et travaille en Chine. Avant cette conversation, je ne les connaissais pas — pas plus qu'ils ne se connaissaient entre eux.
+        fr: `Ceci est la première conversation de ZCP, entre Willy et Su Hong. Willy Le Nalbaut vit et travaille en France ; Su Hong vit et travaille en Chine. Avant cette conversation, je ne les connaissais pas — pas plus qu'ils ne se connaissaient entre eux.
 
 J'ai rencontré Willy à la Galerie du Haut-Pavé, à Paris. Dès notre première rencontre, j'ai été touchée par son travail, et c'est ainsi que j'ai commencé à découvrir sa pratique. Plus tard, grâce au premier appel public de ZCP, j'ai découvert Su Hong parmi de nombreuses œuvres d'artistes chinois.
 
 J'ai fondé Zhen Collection Paris (ZCP) avec un objectif très clair : que davantage d'artistes français soient vus en Chine, et que davantage d'artistes chinois le soient en France — et au-delà.
 
-Mais je ne souhaite pas seulement que des œuvres apparaissent dans un autre pays. Je souhaite surtout que des artistes de cultures différentes aient l'occasion de se connaître vraiment — de voir comment l'autre vit, crée, et comprend le même monde.
+Mais je ne souhaite pas seulement que des œuvres apparaissent dans un autre pays. Je souhaite surtout que des artistes de cultures différentes aient l'occasion de se connaître vraiment — de voir comment l'autre vit, crée et comprend le même monde.
 
 C'est pour cela que j'ai invité Willy et Su Hong à ouvrir la première conversation de ZCP.
 
-Par hasard, ils ont tous deux peint — le cheval.
-Su Hong peint le cheval ; Willy aussi. Mais en découvrant vraiment leurs œuvres, j'ai vu que le même animal prenait, chez chacun, des sens si différents.
+Par hasard, ils ont tous deux peint des chevaux. Su Hong peint le cheval ; Willy aussi. Mais en découvrant vraiment leurs œuvres, j'ai vu que le même animal prenait, chez chacun, des sens si différents.
 
 C'est peut-être ce qui rend la conversation intéressante : nous nous rencontrons par une certaine ressemblance, et c'est par nos différences que nous commençons vraiment à voir l'autre.
 
-Au-delà de cette conversation, la productrice française Mélanie Gérin a également accepté mon invitation. Nous nous connaissons depuis longtemps grâce à la vie, et elle a été témoin de la fondation de ZCP. Cette fois, en observatrice extérieure, elle regarde les œuvres et les échanges des deux artistes, observe ce ZCP qui commence à peine, et écrit ce qu'elle en ressent.
+Au-delà de cette conversation, la productrice française Mélanie Gérin a également accepté mon invitation. La vie nous avait fait nous rencontrer bien avant, et elle a été témoin de la fondation de ZCP. Cette fois, en observatrice extérieure, elle regarde les œuvres et les échanges des deux artistes, observe aussi ZCP à ses débuts, et écrit ce qu'elle en ressent.
 
-Ainsi, cette conversation réunit deux artistes qui se rencontrent, et quelqu'un qui, de l'extérieur, regarde cette rencontre et témoigne de la manière dont ZCP commence.
+Ainsi, cette conversation réunit deux artistes qui se rencontrent, et quelqu'un qui, de l'extérieur, regarde cette rencontre et témoigne aussi des débuts de ZCP.
 
-Dans la vie, certains s'en vont, d'autres entrent. Mais je suis toujours reconnaissante pour chaque rencontre — car une rencontre, même une seule, change déjà quelque chose.`,
+Dans la vie, certains s'en vont, d'autres arrivent. Mais je reste toujours reconnaissante pour chaque rencontre, car dès lors qu'une rencontre a eu lieu, quelque chose est déjà différent.`,
         en: `This is ZCP's first conversation, between Willy and Su Hong.
 Willy Le Nalbaut lives and works in France; Su Hong lives and works in China. Before this conversation began, I did not know them — nor did they know each other.
 
