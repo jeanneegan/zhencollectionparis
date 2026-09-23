@@ -113,6 +113,7 @@ export type CollectionArtistRow = {
   aspect: [number, number];
   originalHref: string;
   editionHref: string;
+  editionProductName: LocalizedText;
   editionPriceEur?: number;
 };
 
@@ -174,15 +175,20 @@ function CollectionArtistOfferRow({
           >
             {t(originalLabel, locale)}
           </Link>
-          <Link
-            href={row.editionHref}
-            className="text-[11px] font-medium tracking-[0.1em] text-stone-800 underline decoration-stone-300 underline-offset-4 transition-colors hover:text-[#5a2323] hover:decoration-[#5a2323]"
-          >
-            {t(editionLabel, locale)}
-            {row.editionPriceEur != null
-              ? ` · ${formatCollectionPrice(row.editionPriceEur)}`
-              : null}
-          </Link>
+          <div className="space-y-1">
+            <Link
+              href={row.editionHref}
+              className="text-[11px] font-medium tracking-[0.1em] text-stone-800 underline decoration-stone-300 underline-offset-4 transition-colors hover:text-[#5a2323] hover:decoration-[#5a2323]"
+            >
+              {t(editionLabel, locale)}
+            </Link>
+            <p className="text-[10px] tracking-[0.08em] text-stone-500">
+              {t(row.editionProductName, locale)}
+              {row.editionPriceEur != null
+                ? ` · ${formatCollectionPrice(row.editionPriceEur)}`
+                : null}
+            </p>
+          </div>
         </div>
       </div>
     </div>

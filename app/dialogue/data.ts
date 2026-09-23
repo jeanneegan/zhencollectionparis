@@ -71,6 +71,7 @@ export type DialogueCollectionArtistOffer = {
   artistSlug: string;
   workId: string;
   editionPriceEur?: number;
+  editionProductName: LocalizedText;
 };
 
 export type DialogueCollectionSupport = {
@@ -387,11 +388,21 @@ Each acquisition supports the artists' work and helps ZCP continue the next conv
           artistSlug: "willy-le-nalbaut",
           workId: "3",
           editionPriceEur: 169,
+          editionProductName: {
+            zh: "ZCP CONVERSATION 01 — Willy Le Nalbaut",
+            fr: "ZCP CONVERSATION 01 — Willy Le Nalbaut",
+            en: "ZCP CONVERSATION 01 — Willy Le Nalbaut",
+          },
         },
         {
           artistSlug: "su-hong",
           workId: "1",
           editionPriceEur: 169,
+          editionProductName: {
+            zh: "ZCP CONVERSATION 01 — Su Hong",
+            fr: "ZCP CONVERSATION 01 — Su Hong",
+            en: "ZCP CONVERSATION 01 — Su Hong",
+          },
         },
       ],
     },

@@ -146,6 +146,7 @@ export default async function DialoguePage({ params }: PageProps) {
           aspect,
           originalHref,
           editionHref,
+          editionProductName: entry.editionProductName,
           ...(entry.editionPriceEur != null
             ? { editionPriceEur: entry.editionPriceEur }
             : {}),
