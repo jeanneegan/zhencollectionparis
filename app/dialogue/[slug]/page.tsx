@@ -56,7 +56,7 @@ export default async function DialoguePage({ params }: PageProps) {
   );
 
   const selectedWorks: SelectedWork[] = episode.featuredWorks
-    .map(({ artistSlug, artworkId, image, displayAspect }) => {
+    .map(({ artistSlug, artworkId, image, displayAspect, description: featuredDescription }) => {
       const artist = getArtistBySlug(artistSlug);
       const artwork = artist?.artworks.find((item) => item.id === artworkId);
       if (!artist || !artwork) {
@@ -84,6 +84,9 @@ export default async function DialoguePage({ params }: PageProps) {
         ? `/oeuvres/${artistSlug}/${artworkId}`
         : `/artists/${artistSlug}`;
 
+      const description =
+        featuredDescription ?? passport?.description ?? artwork.description;
+
       return {
         artistSlug,
         artistName:
@@ -94,6 +97,7 @@ export default async function DialoguePage({ params }: PageProps) {
           medium: artwork.medium,
           year: artwork.year,
           image: artworkImage,
+          ...(description ? { description } : {}),
         },
         aspect,
       } satisfies SelectedWork;

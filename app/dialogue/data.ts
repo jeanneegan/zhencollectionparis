@@ -317,9 +317,9 @@ Beyond all this symbolism, the donkey is simply an animal I am fond of—more so
         article: true,
         questionFrom: melanieGerinAvatar,
         authorBio: {
-          zh: "法国制片人，任职于 Zadig Productions，主要参与纪录片与作者电影的制作。",
-          fr: "Productrice française chez Zadig Productions, elle accompagne notamment des films documentaires et des films d'auteur.",
-          en: "A French producer at Zadig Productions, she works especially on documentary films and auteur cinema.",
+          zh: "法国制片人，任职于 Zadig Productions，长期从事纪录片与电影制作。",
+          fr: "Productrice française chez Zadig Productions, engagée depuis longtemps dans la production de documentaires et de films.",
+          en: "A French producer at Zadig Productions, with a long-standing practice in documentary and film production.",
         },
         question: {
           zh: "代发布",
