@@ -411,10 +411,12 @@ function ObserverBlock({
 }) {
   const isArticle = Boolean(item.article) || Boolean(item.articleIntro);
   const bodyText = t(item.question, locale);
+  const bodyLower = bodyText.toLowerCase();
   const isPendingBody =
     bodyText.includes("待发布") ||
     bodyText.includes("代发布") ||
-    bodyText.includes("à venir") ||
+    bodyLower.includes("à venir") ||
+    bodyLower.includes("à paraître") ||
     bodyText.includes("Coming soon") ||
     bodyText.includes("coming soon");
 
@@ -640,21 +642,21 @@ export function DialogueView({
         </section>
 
         <section className="mt-16 space-y-8">
-          <SectionLabel>{l.willyToSuHong}</SectionLabel>
-          <ExchangeBlock
-            exchange={episode.willyToSuHong}
-            locale={locale}
-            fromLabel="Willy Le Nalbaut"
-            answerPending={l.answerPending}
-          />
-        </section>
-
-        <section className="mt-16 space-y-8">
           <SectionLabel>{l.suHongToWilly}</SectionLabel>
           <ExchangeBlock
             exchange={episode.suHongToWilly}
             locale={locale}
             fromLabel="苏泓 Su Hong"
+            answerPending={l.answerPending}
+          />
+        </section>
+
+        <section className="mt-16 space-y-8">
+          <SectionLabel>{l.willyToSuHong}</SectionLabel>
+          <ExchangeBlock
+            exchange={episode.willyToSuHong}
+            locale={locale}
+            fromLabel="Willy Le Nalbaut"
             answerPending={l.answerPending}
           />
         </section>

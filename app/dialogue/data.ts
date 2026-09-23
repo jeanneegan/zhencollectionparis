@@ -323,7 +323,7 @@ Beyond all this symbolism, the donkey is simply an animal I am fond of—more so
         },
         question: {
           zh: "代发布",
-          fr: "À paraître",
+          fr: "À venir",
           en: "Coming soon",
         },
       },
