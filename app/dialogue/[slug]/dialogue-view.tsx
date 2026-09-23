@@ -676,28 +676,6 @@ export function DialogueView({
           </div>
         </section>
 
-        <section className="mt-10 border border-dashed border-stone-300 bg-stone-50/30 px-6 py-8">
-          <SectionLabel>{l.publicMessages}</SectionLabel>
-          <p className={`mt-4 text-center ${dt.meta}`}>{l.publicMessagesScope}</p>
-          <p className={`mt-4 text-center ${dt.note}`}>
-            {t(episode.publicParticipation.note, locale)}
-          </p>
-          {episode.publicParticipation.open ? (
-            <>
-              <PublicMessageForm
-                locale={locale}
-                episodeSlug={episode.slug}
-                comfortableReading
-              />
-              <PublicMessagesList
-                messages={publicMessages}
-                locale={locale}
-                comfortableReading
-              />
-            </>
-          ) : null}
-        </section>
-
         {episode.collectionSupport && collectionArtistRows.length > 0 ? (
           <section className="mt-16 space-y-8">
             <SectionLabel>
@@ -732,6 +710,28 @@ export function DialogueView({
             </div>
           </section>
         ) : null}
+
+        <section className="mt-16 border border-dashed border-stone-300 bg-stone-50/30 px-6 py-8">
+          <SectionLabel>{l.publicMessages}</SectionLabel>
+          <p className={`mt-4 text-center ${dt.meta}`}>{l.publicMessagesScope}</p>
+          <p className={`mt-4 text-center ${dt.note}`}>
+            {t(episode.publicParticipation.note, locale)}
+          </p>
+          {episode.publicParticipation.open ? (
+            <>
+              <PublicMessageForm
+                locale={locale}
+                episodeSlug={episode.slug}
+                comfortableReading
+              />
+              <PublicMessagesList
+                messages={publicMessages}
+                locale={locale}
+                comfortableReading
+              />
+            </>
+          ) : null}
+        </section>
 
         <section className="mt-16 space-y-6">
           <SectionLabel>{l.participate}</SectionLabel>
