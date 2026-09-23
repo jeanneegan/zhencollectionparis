@@ -13,6 +13,7 @@ import { PageBottomNav } from "@/app/components/page-bottom-nav";
 import { SiteFooter } from "@/app/components/site-footer";
 import { SiteHeader } from "@/app/components/site-header";
 import { useLocale } from "@/app/lib/use-locale";
+import { zcpContactEmail } from "@/app/lib/site-contact";
 import {
   formatArtworkTitle,
   type Locale,
@@ -66,7 +67,7 @@ const labels: Record<
       "Pour cette épisode uniquement · 针对本期内容的留言",
     participate: "Participer à la conversation｜报名对话",
     participateNote:
-      "Artistes，observateurs — postulez pour rejoindre une conversation future · 艺术家，观察者 — 申请参与未来对话",
+      "艺术家、观察者，如希望参与未来的对话，请发送邮件至",
     participateLink: "Candidater · 前往报名",
     works: "Œuvres sélectionnées｜作品",
     answerPending: "Réponse · 回答 · À venir",
@@ -84,7 +85,7 @@ const labels: Record<
       "Pour cette épisode uniquement · 针对本期内容的留言",
     participate: "Participer à la conversation｜报名对话",
     participateNote:
-      "Artistes，observateurs — postulez pour rejoindre une conversation future · 艺术家，观察者 — 申请参与未来对话",
+      "Artistes, observateurs — pour participer à une prochaine conversation, écrivez-nous à",
     participateLink: "Candidater · 前往报名",
     works: "Œuvres sélectionnées｜作品",
     answerPending: "Réponse · 回答 · À venir",
@@ -101,7 +102,7 @@ const labels: Record<
     publicMessagesScope: "For this episode only",
     participate: "Join a Conversation",
     participateNote:
-      "Apply to participate in a future conversation as an artist or observer",
+      "Artists and observers — to join a future conversation, please email us at",
     participateLink: "Apply",
     works: "Selected Works",
     answerPending: "Answer · Coming soon",
@@ -738,7 +739,16 @@ export function DialogueView({
 
         <section className="mt-16 border border-stone-200 bg-white px-6 py-8">
           <SectionLabel>{l.participate}</SectionLabel>
-          <p className={`mt-6 text-center ${dt.note}`}>{l.participateNote}</p>
+          <p className={`mt-6 text-center ${dt.note}`}>
+            {l.participateNote}{" "}
+            <a
+              href={`mailto:${zcpContactEmail}`}
+              className="text-stone-800 underline decoration-stone-300 underline-offset-4 transition-colors hover:text-[#5a2323] hover:decoration-[#5a2323]"
+            >
+              {zcpContactEmail}
+            </a>
+            {locale === "zh" ? "。" : "."}
+          </p>
           <div className="mt-6 flex justify-center">
             <Link href="/participer" className={dt.cta}>
               {l.participateLink}

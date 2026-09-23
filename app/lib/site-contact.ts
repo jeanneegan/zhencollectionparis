@@ -2,7 +2,7 @@ import type { Locale } from "@/app/artists/[slug]/data";
 
 /** Override via NEXT_PUBLIC_ZCP_CONTACT_EMAIL / NEXT_PUBLIC_ZCP_WECHAT in production. */
 export const zcpContactEmail =
-  process.env.NEXT_PUBLIC_ZCP_CONTACT_EMAIL ?? "contact@zhencollectionparis.com";
+  process.env.NEXT_PUBLIC_ZCP_CONTACT_EMAIL ?? "contact@zhencollection.paris";
 
 export const zcpContactWechat =
   process.env.NEXT_PUBLIC_ZCP_WECHAT ?? "ZhenCollectionParis";
