@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getArtistBySlug } from "@/app/artists/[slug]/data";
+import { formatArtworkTitle, getArtistBySlug } from "@/app/artists/[slug]/data";
 import { getEditionShopUrlForArtwork } from "@/app/edition/data";
 import { getArtworkPassport } from "@/app/lib/artwork-passport";
 import { listDialogueMessagesForEpisode } from "@/app/lib/dialogue-messages-store";
@@ -10,6 +10,7 @@ import { getEpisodeBySlug } from "../data";
 import {
   DialogueView,
   type CollectionArtistRow,
+  type CollectionCompleteOffer,
   type SelectedWork,
 } from "./dialogue-view";
 
@@ -160,11 +161,30 @@ export default async function DialoguePage({ params }: PageProps) {
 
   const publicMessages = await listDialogueMessagesForEpisode(episode.slug);
 
+  const completeConfig = episode.collectionSupport?.completeEdition;
+  let collectionCompleteOffer: CollectionCompleteOffer | null = null;
+  if (completeConfig && collectionArtistRows.length >= 2) {
+    collectionCompleteOffer = {
+      panels: collectionArtistRows.map((row) => ({
+        image: row.image,
+        alt: formatArtworkTitle(row.artworkTitle, "fr"),
+        aspect: row.aspect,
+      })),
+      editionHref: completeConfig.editionHref ?? "/editions",
+      editionAction: completeConfig.editionAction,
+      editionProductName: completeConfig.editionProductName,
+      ...(completeConfig.editionPriceEur != null
+        ? { editionPriceEur: completeConfig.editionPriceEur }
+        : {}),
+    };
+  }
+
   return (
     <DialogueView
       episode={episode}
       selectedWorks={selectedWorks}
       collectionArtistRows={collectionArtistRows}
+      collectionCompleteOffer={collectionCompleteOffer}
       publicMessages={publicMessages}
     />
   );

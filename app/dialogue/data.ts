@@ -74,12 +74,21 @@ export type DialogueCollectionArtistOffer = {
   editionProductName: LocalizedText;
 };
 
+export type DialogueCollectionCompleteOffer = {
+  editionAction: LocalizedText;
+  editionProductName: LocalizedText;
+  editionPriceEur?: number;
+  /** Shop or editions index when no bundle product URL yet */
+  editionHref?: string;
+};
+
 export type DialogueCollectionSupport = {
   sectionTitle: LocalizedText;
   body: LocalizedText;
   originalAction: LocalizedText;
   editionAction: LocalizedText;
   artists: DialogueCollectionArtistOffer[];
+  completeEdition?: DialogueCollectionCompleteOffer;
 };
 
 export type DialogueEpisode = {
@@ -406,9 +415,9 @@ Each acquisition supports the artists' work and helps ZCP continue the next conv
           workId: "3",
           editionPriceEur: 169,
           editionProductName: {
-            zh: "ZCP CONVERSATION 01 — Willy Le Nalbaut",
-            fr: "ZCP CONVERSATION 01 — Willy Le Nalbaut",
-            en: "ZCP CONVERSATION 01 — Willy Le Nalbaut",
+            zh: "ZCP CONVERSATION 01-A",
+            fr: "ZCP CONVERSATION 01-A",
+            en: "ZCP CONVERSATION 01-A",
           },
         },
         {
@@ -416,12 +425,26 @@ Each acquisition supports the artists' work and helps ZCP continue the next conv
           workId: "1",
           editionPriceEur: 169,
           editionProductName: {
-            zh: "ZCP CONVERSATION 01 — Su Hong",
-            fr: "ZCP CONVERSATION 01 — Su Hong",
-            en: "ZCP CONVERSATION 01 — Su Hong",
+            zh: "ZCP CONVERSATION 01-B",
+            fr: "ZCP CONVERSATION 01-B",
+            en: "ZCP CONVERSATION 01-B",
           },
         },
       ],
+      completeEdition: {
+        editionAction: {
+          zh: "收藏完整对话",
+          fr: "Collectionner la conversation complète · 收藏完整对话",
+          en: "Collect complete conversation",
+        },
+        editionProductName: {
+          zh: "ZCP CONVERSATION 01 — A + B",
+          fr: "ZCP CONVERSATION 01 — A + B",
+          en: "ZCP CONVERSATION 01 — A + B",
+        },
+        editionPriceEur: 320,
+        editionHref: "/editions",
+      },
     },
     isCurrent: true,
     status: "current",
