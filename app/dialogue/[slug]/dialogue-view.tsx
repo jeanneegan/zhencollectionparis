@@ -232,6 +232,40 @@ function QuestionContent({
   );
 }
 
+function FounderLetterBlock({
+  letter,
+  locale,
+}: {
+  letter: NonNullable<DialogueEpisode["founderLetter"]>;
+  locale: Locale;
+}) {
+  const body = t(letter.body, locale);
+  const paragraphs = body.split(/\n\n+/).filter(Boolean);
+
+  return (
+    <section className="border-b border-stone-200 pb-16">
+      <div className="space-y-6">
+        {paragraphs.map((paragraph) => (
+          <p
+            key={paragraph.slice(0, 48)}
+            className={`${serif.className} text-sm leading-[1.95] text-stone-800`}
+          >
+            {paragraph}
+          </p>
+        ))}
+      </div>
+      <footer className="mt-10 space-y-1">
+        <p className={`${serif.className} text-sm text-stone-800`}>
+          —— {t(letter.name, locale)}
+        </p>
+        <p className="text-[10px] uppercase tracking-[0.14em] text-stone-500">
+          {t(letter.role, locale)}
+        </p>
+      </footer>
+    </section>
+  );
+}
+
 function ExchangeBlock({
   exchange,
   locale,
@@ -373,6 +407,9 @@ export function DialogueView({
   const [locale, setLocale] = useLocale();
   const l = labels[locale];
   const episodeNum = l.episodeNum.replace("{n}", String(episode.episode));
+  const episodeMonthLabel = formatEpisodeMonth(episode.month, locale, {
+    zhSpacedYear: Boolean(episode.header),
+  });
 
   return (
     <div className="min-h-screen bg-white text-stone-900">
@@ -383,12 +420,40 @@ export function DialogueView({
       />
 
       <main className="mx-auto max-w-3xl px-6 py-12 md:py-16">
-        <p className="text-center text-[10px] font-medium uppercase tracking-[0.25em] text-stone-400">
-          {l.episode} {episode.episode}
-        </p>
-        <p className="mt-1 text-center text-[10px] tracking-[0.2em] text-stone-400">
-          {episodeNum} · {formatEpisodeMonth(episode.month, locale)}
-        </p>
+        {episode.founderLetter ? (
+          <FounderLetterBlock letter={episode.founderLetter} locale={locale} />
+        ) : null}
+
+        {episode.header ? (
+          <div
+            className={`space-y-1 text-center ${
+              episode.founderLetter ? "mt-16" : ""
+            }`}
+          >
+            <p className="text-[10px] font-medium uppercase tracking-[0.28em] text-stone-400">
+              {t(episode.header.kicker, locale)}
+            </p>
+            <p className="text-[10px] tracking-[0.22em] text-stone-500">
+              {t(episode.header.subtitle, locale)}
+            </p>
+            <p className="text-[10px] tracking-[0.2em] text-stone-400">
+              {episodeMonthLabel}
+            </p>
+          </div>
+        ) : (
+          <>
+            <p
+              className={`text-center text-[10px] font-medium uppercase tracking-[0.25em] text-stone-400 ${
+                episode.founderLetter ? "mt-16" : ""
+              }`}
+            >
+              {l.episode} {episode.episode}
+            </p>
+            <p className="mt-1 text-center text-[10px] tracking-[0.2em] text-stone-400">
+              {episodeNum} · {episodeMonthLabel}
+            </p>
+          </>
+        )}
 
         <h1
           className={`${serif.className} mt-8 text-center text-3xl font-normal text-[#5a2323] md:text-4xl`}
