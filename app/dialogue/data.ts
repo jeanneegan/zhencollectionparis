@@ -135,10 +135,7 @@ Willy Le Nalbaut 在法国生活与创作，苏泓在中国生活与创作。在
 很巧，他们都画过——马。
 苏泓画马，Willy 也画马。但当我真正了解他们的作品时，我发现，同样的马，在两个人那里却有着完全不同的意义。
 
-也许这正是对话有趣的地方：我们因为某种相似而相遇，却因为彼此的不同，开始真正看见对方。
-
-那么，就从这匹马开始吧。
-马对于你们各自意味着什么？为什么？`,
+也许这正是对话有趣的地方：我们因为某种相似而相遇，却因为彼此的不同，开始真正看见对方。`,
         fr: `Ceci est la première conversation de ZCP, entre Willy et Su Hong.
 
 Willy Le Nalbaut vit et travaille en France ; Su Hong vit et travaille en Chine. Avant cette conversation, je ne les connaissais pas — pas plus qu'ils ne se connaissaient entre eux.
@@ -154,10 +151,7 @@ C'est pour cela que j'ai invité Willy et Su Hong à ouvrir la première convers
 Par hasard, ils ont tous deux peint — le cheval.
 Su Hong peint le cheval ; Willy aussi. Mais en découvrant vraiment leurs œuvres, j'ai vu que le même animal prenait des sens si différents chez chacun.
 
-C'est peut-être ce qui rend la conversation intéressante : nous nous rencontrons par une certaine ressemblance, et c'est par nos différences que nous commençons vraiment à voir l'autre.
-
-Alors, commençons par ce cheval.
-Que représente-t-il pour chacun de vous ? Et pourquoi ?`,
+C'est peut-être ce qui rend la conversation intéressante : nous nous rencontrons par une certaine ressemblance, et c'est par nos différences que nous commençons vraiment à voir l'autre.`,
         en: `This is ZCP's first conversation, between Willy and Su Hong.
 
 Willy Le Nalbaut lives and works in France; Su Hong lives and works in China. Before this conversation began, I did not know them — nor did they know each other.
@@ -173,10 +167,7 @@ That is why I invited Willy and Su Hong to begin ZCP's first conversation.
 By chance, they have both painted — the horse.
 Su Hong paints horses; Willy does too. But as I came to know their work, I found that the same horse carries completely different meanings for each of them.
 
-Perhaps that is what makes conversation interesting: we meet through something shared, and begin truly to see one another through our differences.
-
-So let us begin with this horse.
-What does it mean to each of you? And why?`,
+Perhaps that is what makes conversation interesting: we meet through something shared, and begin truly to see one another through our differences.`,
       },
       name: {
         zh: "Jeanneegan Cui",

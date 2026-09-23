@@ -37,6 +37,7 @@ const labels: Record<
   {
     episode: string;
     episodeNum: string;
+    sharedQuestion: string;
     collectionQuestions: string;
     willyToSuHong: string;
     suHongToWilly: string;
@@ -53,6 +54,7 @@ const labels: Record<
   zh: {
     episode: "Conversation · Épisode",
     episodeNum: "对话第{n}期",
+    sharedQuestion: "QUESTION COMMUNE · ZCP｜共同问题",
     collectionQuestions: "REGARDS CROISÉS · 彼此的方向",
     willyToSuHong: "Willy Le Nalbaut → Su Hong｜Willy 向苏泓提问",
     suHongToWilly: "Su Hong → Willy Le Nalbaut｜苏泓向 Willy 提问",
@@ -70,6 +72,7 @@ const labels: Record<
   fr: {
     episode: "Conversation · Épisode",
     episodeNum: "对话第{n}期",
+    sharedQuestion: "QUESTION COMMUNE · ZCP｜共同问题",
     collectionQuestions: "REGARDS CROISÉS · 彼此的方向",
     willyToSuHong: "Willy Le Nalbaut → Su Hong｜Willy 向苏泓提问",
     suHongToWilly: "Su Hong → Willy Le Nalbaut｜苏泓向 Willy 提问",
@@ -87,6 +90,7 @@ const labels: Record<
   en: {
     episode: "Conversation · Episode",
     episodeNum: "Episode {n}",
+    sharedQuestion: "QUESTION COMMUNE · ZCP｜共同问题",
     collectionQuestions: "REGARDS CROISÉS · 彼此的方向",
     willyToSuHong: "Willy Le Nalbaut → Su Hong",
     suHongToWilly: "Su Hong → Willy Le Nalbaut",
@@ -491,6 +495,7 @@ export function DialogueView({
         )}
 
         <section className="mt-16 space-y-8">
+          <SectionLabel>{l.sharedQuestion}</SectionLabel>
           <ExchangeBlock
             exchange={episode.sharedQuestion}
             locale={locale}
