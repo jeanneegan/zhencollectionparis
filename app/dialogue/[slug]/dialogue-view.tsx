@@ -37,7 +37,6 @@ const labels: Record<
   {
     episode: string;
     episodeNum: string;
-    sharedQuestion: string;
     collectionQuestions: string;
     willyToSuHong: string;
     suHongToWilly: string;
@@ -54,10 +53,7 @@ const labels: Record<
   zh: {
     episode: "Conversation · Épisode",
     episodeNum: "对话第{n}期",
-    sharedQuestion:
-      "Question commune · Zhen Collection Paris｜ZCP 共同问题",
-    collectionQuestions:
-      "Questions · Zhen Collection Paris｜ZCP 的提问",
+    collectionQuestions: "REGARDS CROISÉS · 彼此的方向",
     willyToSuHong: "Willy Le Nalbaut → Su Hong｜Willy 向苏泓提问",
     suHongToWilly: "Su Hong → Willy Le Nalbaut｜苏泓向 Willy 提问",
     observerQuestions: "Questions des observateurs｜观察者提问",
@@ -74,10 +70,7 @@ const labels: Record<
   fr: {
     episode: "Conversation · Épisode",
     episodeNum: "对话第{n}期",
-    sharedQuestion:
-      "Question commune · Zhen Collection Paris｜ZCP 共同问题",
-    collectionQuestions:
-      "Questions · Zhen Collection Paris｜ZCP 的提问",
+    collectionQuestions: "REGARDS CROISÉS · 彼此的方向",
     willyToSuHong: "Willy Le Nalbaut → Su Hong｜Willy 向苏泓提问",
     suHongToWilly: "Su Hong → Willy Le Nalbaut｜苏泓向 Willy 提问",
     observerQuestions: "Questions des observateurs｜观察者提问",
@@ -94,8 +87,7 @@ const labels: Record<
   en: {
     episode: "Conversation · Episode",
     episodeNum: "Episode {n}",
-    sharedQuestion: "Shared Question · Zhen Collection Paris",
-    collectionQuestions: "Questions · Zhen Collection Paris",
+    collectionQuestions: "REGARDS CROISÉS · 彼此的方向",
     willyToSuHong: "Willy Le Nalbaut → Su Hong",
     suHongToWilly: "Su Hong → Willy Le Nalbaut",
     observerQuestions: "Observer Questions",
@@ -408,8 +400,9 @@ export function DialogueView({
   const l = labels[locale];
   const episodeNum = l.episodeNum.replace("{n}", String(episode.episode));
   const episodeMonthLabel = formatEpisodeMonth(episode.month, locale, {
-    zhSpacedYear: Boolean(episode.header),
+    zhSpacedYear: true,
   });
+  const headerShowsTheme = Boolean(episode.header?.theme);
 
   return (
     <div className="min-h-screen bg-white text-stone-900">
@@ -421,15 +414,26 @@ export function DialogueView({
 
       <main className="mx-auto max-w-3xl px-6 py-12 md:py-16">
         {episode.header ? (
-          <div className="space-y-1 text-center">
-            <p className="text-[10px] font-medium tracking-[0.22em] text-stone-400">
+          <div className="space-y-3 text-center">
+            <p className="text-[10px] font-medium tracking-[0.18em] text-stone-400">
               {t(episode.header.kicker, locale)}
             </p>
-            <p className="text-[10px] tracking-[0.22em] text-stone-500">
-              {t(episode.header.subtitle, locale)}
-            </p>
+            {episode.header.theme ? (
+              <h1
+                className={`${serif.className} text-3xl font-normal text-[#5a2323] md:text-4xl`}
+              >
+                {t(episode.header.theme, locale)}
+              </h1>
+            ) : null}
+            {episode.header.artists ? (
+              <p className="text-[11px] tracking-[0.14em] text-stone-600">
+                {t(episode.header.artists, locale)}
+              </p>
+            ) : null}
             <p className="text-[10px] tracking-[0.2em] text-stone-400">
-              {episodeMonthLabel}
+              {episode.header.date
+                ? t(episode.header.date, locale)
+                : episodeMonthLabel}
             </p>
           </div>
         ) : (
@@ -452,29 +456,6 @@ export function DialogueView({
           </div>
         ) : null}
 
-        <h1
-          className={`${serif.className} mt-8 text-center text-3xl font-normal text-[#5a2323] md:text-4xl`}
-        >
-          {locale === "zh" ? (
-            <>
-              {episode.title.fr}{" "}
-              <span>{episode.title.zh}</span>
-            </>
-          ) : (
-            t(episode.title, locale)
-          )}
-        </h1>
-        <div className="mx-auto mt-4 h-px w-12 bg-stone-300" />
-
-        <section className="mt-16 space-y-8">
-          <SectionLabel>{l.sharedQuestion}</SectionLabel>
-          <ExchangeBlock
-            exchange={episode.sharedQuestion}
-            locale={locale}
-            answerPending={l.answerPending}
-          />
-        </section>
-
         <section className="mt-16 space-y-8">
           <SectionLabel>{l.collectionQuestions}</SectionLabel>
           <div className="space-y-6">
@@ -487,6 +468,34 @@ export function DialogueView({
               />
             ))}
           </div>
+        </section>
+
+        {headerShowsTheme ? (
+          <div className="mx-auto mt-12 h-px w-12 bg-stone-300" />
+        ) : (
+          <>
+            <h1
+              className={`${serif.className} mt-8 text-center text-3xl font-normal text-[#5a2323] md:text-4xl`}
+            >
+              {locale === "zh" ? (
+                <>
+                  {episode.title.fr}{" "}
+                  <span>{episode.title.zh}</span>
+                </>
+              ) : (
+                t(episode.title, locale)
+              )}
+            </h1>
+            <div className="mx-auto mt-4 h-px w-12 bg-stone-300" />
+          </>
+        )}
+
+        <section className="mt-16 space-y-8">
+          <ExchangeBlock
+            exchange={episode.sharedQuestion}
+            locale={locale}
+            answerPending={l.answerPending}
+          />
         </section>
 
         <section className="mt-16 space-y-8">

@@ -58,7 +58,9 @@ export type DialogueFounderLetter = {
 
 export type DialogueEpisodeHeader = {
   kicker: LocalizedText;
-  subtitle: LocalizedText;
+  theme: LocalizedText;
+  artists: LocalizedText;
+  date: LocalizedText;
 };
 
 export type DialogueEpisode = {
@@ -96,14 +98,24 @@ export const episodes: DialogueEpisode[] = [
     title: { zh: "马", fr: "Le Cheval", en: "The Horse" },
     header: {
       kicker: {
-        zh: "LA PREMIÈRE Conversation",
-        fr: "LA PREMIÈRE Conversation",
-        en: "THE FIRST Conversation",
+        zh: "CONVERSATION INAUGURALE · 开篇对话",
+        fr: "CONVERSATION INAUGURALE · 开篇对话",
+        en: "CONVERSATION INAUGURALE · 开篇对话",
       },
-      subtitle: {
-        zh: "第一场对话",
-        fr: "第一场对话",
-        en: "The first conversation",
+      theme: {
+        zh: "Le Cheval",
+        fr: "Le Cheval",
+        en: "Le Cheval",
+      },
+      artists: {
+        zh: "Willy Le Nalbaut × Su Hong",
+        fr: "Willy Le Nalbaut × Su Hong",
+        en: "Willy Le Nalbaut × Su Hong",
+      },
+      date: {
+        zh: "Septembre 2026",
+        fr: "Septembre 2026",
+        en: "Septembre 2026",
       },
     },
     founderLetter: {
