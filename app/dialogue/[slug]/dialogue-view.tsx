@@ -58,7 +58,7 @@ const labels: Record<
     collectionQuestions: "REGARDS CROISÉS · 彼此的方向",
     willyToSuHong: "Willy Le Nalbaut → Su Hong｜Willy 向苏泓提问",
     suHongToWilly: "Su Hong → Willy Le Nalbaut｜苏泓向 Willy 提问",
-    observerQuestions: "Questions des observateurs｜观察者提问",
+    observerQuestions: "Articles des observateurs｜观察文章",
     publicMessages: "Messages du public｜公众留言",
     publicMessagesScope:
       "Pour cette épisode uniquement · 针对本期内容的留言",
@@ -76,7 +76,7 @@ const labels: Record<
     collectionQuestions: "REGARDS CROISÉS · 彼此的方向",
     willyToSuHong: "Willy Le Nalbaut → Su Hong｜Willy 向苏泓提问",
     suHongToWilly: "Su Hong → Willy Le Nalbaut｜苏泓向 Willy 提问",
-    observerQuestions: "Questions des observateurs｜观察者提问",
+    observerQuestions: "Articles des observateurs｜观察文章",
     publicMessages: "Messages du public｜公众留言",
     publicMessagesScope:
       "Pour cette épisode uniquement · 针对本期内容的留言",
@@ -94,7 +94,7 @@ const labels: Record<
     collectionQuestions: "REGARDS CROISÉS · 彼此的方向",
     willyToSuHong: "Willy Le Nalbaut → Su Hong",
     suHongToWilly: "Su Hong → Willy Le Nalbaut",
-    observerQuestions: "Observer Questions",
+    observerQuestions: "Observer Articles",
     publicMessages: "Public Messages",
     publicMessagesScope: "For this episode only",
     participate: "Join a Conversation",
@@ -355,6 +355,13 @@ function ObserverBlock({
       <div className={`space-y-4 ${item.authorKicker ? "mt-4" : "mt-4"}`}>
         {item.questionFrom ? (
           <DialogueIdentity avatar={item.questionFrom} />
+        ) : null}
+        {item.authorBio ? (
+          <p
+            className={`${serif.className} max-w-2xl text-sm leading-[1.85] text-stone-600`}
+          >
+            {t(item.authorBio, locale)}
+          </p>
         ) : null}
         {item.articleIntro ? (
           <p
