@@ -67,6 +67,19 @@ export type DialogueEpisodeHeader = {
   date: LocalizedText;
 };
 
+export type DialogueCollectionOffer = {
+  artistSlug: string;
+  workId: string;
+  kind: "original" | "edition";
+  cardTitle: LocalizedText;
+};
+
+export type DialogueCollectionSupport = {
+  sectionTitle: LocalizedText;
+  body: LocalizedText;
+  offers: DialogueCollectionOffer[];
+};
+
 export type DialogueEpisode = {
   slug: string;
   month: string;
@@ -90,6 +103,7 @@ export type DialogueEpisode = {
     displayAspect?: [number, number];
     description?: LocalizedText;
   }[];
+  collectionSupport?: DialogueCollectionSupport;
   isCurrent: boolean;
   status?: "current" | "upcoming" | "archived";
 };
@@ -340,6 +354,63 @@ The work also conveys an upward spirit: the horse's exuberance stands for courag
         },
       },
     ],
+    collectionSupport: {
+      sectionTitle: {
+        zh: "收藏 · 支持 ZCP",
+        fr: "COLLECTIONNER · SOUTENIR ZCP",
+        en: "COLLECT · SUPPORT ZCP",
+      },
+      body: {
+        zh: `本期对话中的两件 Selected Works 原作，以及由作品创作的 ZCP Editions，可供收藏。
+每一次收藏，都支持艺术家的创作，也支持 ZCP 继续开展下一场对话与相遇。`,
+        fr: `Les deux œuvres sélectionnées de cette conversation, ainsi que leurs éditions ZCP, sont disponibles à la collection.
+Chaque acquisition soutient le travail des artistes et permet à ZCP de poursuivre de nouvelles conversations et de nouvelles rencontres.`,
+        en: `The two selected works from this conversation, and their ZCP Editions, are available to collect.
+Each acquisition supports the artists' work and helps ZCP continue new conversations and new encounters.`,
+      },
+      offers: [
+        {
+          artistSlug: "willy-le-nalbaut",
+          workId: "3",
+          kind: "original",
+          cardTitle: {
+            zh: "Willy — Original",
+            fr: "Willy — Original",
+            en: "Willy — Original",
+          },
+        },
+        {
+          artistSlug: "willy-le-nalbaut",
+          workId: "3",
+          kind: "edition",
+          cardTitle: {
+            zh: "Willy — ZCP Edition",
+            fr: "Willy — ZCP Edition",
+            en: "Willy — ZCP Edition",
+          },
+        },
+        {
+          artistSlug: "su-hong",
+          workId: "1",
+          kind: "original",
+          cardTitle: {
+            zh: "Su Hong — Original",
+            fr: "Su Hong — Original",
+            en: "Su Hong — Original",
+          },
+        },
+        {
+          artistSlug: "su-hong",
+          workId: "1",
+          kind: "edition",
+          cardTitle: {
+            zh: "Su Hong — ZCP Edition",
+            fr: "Su Hong — ZCP Edition",
+            en: "Su Hong — ZCP Edition",
+          },
+        },
+      ],
+    },
     isCurrent: true,
     status: "current",
   },

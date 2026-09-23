@@ -106,19 +106,49 @@ const labels: Record<
   },
 };
 
-export type FeaturedWork = {
-  artistSlug: string;
-  artistName: string;
-  artwork: {
-    id: string;
-    title: LocalizedText;
-    medium: LocalizedText;
-    year: number;
-    image: string;
-    description?: LocalizedText;
-  };
+export type CollectionProduct = {
+  cardTitle: LocalizedText;
+  href: string;
+  image: string;
   aspect: [number, number];
+  artworkTitle: LocalizedText;
 };
+
+function CollectionProductCard({
+  product,
+  locale,
+}: {
+  product: CollectionProduct;
+  locale: Locale;
+}) {
+  return (
+    <Link
+      href={product.href}
+      className="group flex flex-col overflow-hidden border border-stone-200 bg-white transition-colors hover:border-stone-400"
+    >
+      <div
+        className="relative w-full bg-stone-100"
+        style={{ aspectRatio: `${product.aspect[0]} / ${product.aspect[1]}` }}
+      >
+        <Image
+          src={product.image}
+          alt={t(product.artworkTitle, locale)}
+          fill
+          className="object-contain object-center transition-transform group-hover:scale-[1.01]"
+          sizes="(max-width: 768px) 100vw, 320px"
+        />
+      </div>
+      <div className="border-t border-stone-200 px-4 py-4 text-center">
+        <p className="text-[11px] font-medium tracking-[0.12em] text-stone-800">
+          {t(product.cardTitle, locale)}
+        </p>
+        <p className="mt-2 text-[10px] tracking-wide text-stone-400">
+          {t(product.artworkTitle, locale)}
+        </p>
+      </div>
+    </Link>
+  );
+}
 
 function SectionLabel({
   children,
@@ -403,11 +433,11 @@ function ObserverBlock({
 
 export function DialogueView({
   episode,
-  featured,
+  collectionProducts,
   publicMessages,
 }: {
   episode: DialogueEpisode;
-  featured: FeaturedWork[];
+  collectionProducts: CollectionProduct[];
   publicMessages: DialoguePublicMessage[];
 }) {
   const [locale, setLocale] = useLocale();
@@ -563,55 +593,32 @@ export function DialogueView({
           ) : null}
         </section>
 
-        <section className="mt-16">
-          <SectionLabel>{l.works}</SectionLabel>
-          <div className="mt-10 grid grid-cols-1 gap-16 md:grid-cols-2">
-            {featured.map((item) => (
-              <figure
-                key={`${item.artistSlug}-${item.artwork.id}`}
-                className="mx-auto flex w-full max-w-md flex-col items-center"
-              >
-                <Link
-                  href={`/artists/${item.artistSlug}`}
-                  className="group block w-full"
-                >
-                  <div
-                    className="relative mx-auto w-full overflow-hidden bg-stone-100"
-                    style={{
-                      aspectRatio: `${item.aspect[0]} / ${item.aspect[1]}`,
-                    }}
-                  >
-                    <Image
-                      src={item.artwork.image}
-                      alt={t(item.artwork.title, locale)}
-                      fill
-                      className="object-contain object-center transition-transform group-hover:scale-[1.01]"
-                      sizes="(max-width: 768px) 100vw, 448px"
-                    />
-                  </div>
-                  <figcaption className="mt-4 text-center">
-                    <p className="text-[10px] uppercase tracking-[0.15em] text-stone-400">
-                      {item.artistName}
-                    </p>
-                    <p className="mt-2 text-sm text-stone-800">
-                      {t(item.artwork.title, locale)}
-                    </p>
-                    <p className="mt-1 text-xs text-stone-400">
-                      {item.artwork.year} · {t(item.artwork.medium, locale)}
-                    </p>
-                    {item.artwork.description ? (
-                      <p
-                        className={`${serif.className} mt-4 whitespace-pre-line text-left text-xs leading-[1.85] text-stone-500`}
-                      >
-                        {t(item.artwork.description, locale)}
-                      </p>
-                    ) : null}
-                  </figcaption>
-                </Link>
-              </figure>
-            ))}
-          </div>
-        </section>
+        {episode.collectionSupport && collectionProducts.length > 0 ? (
+          <section className="mt-16 space-y-8">
+            <SectionLabel>
+              {t(episode.collectionSupport.sectionTitle, locale)}
+            </SectionLabel>
+            <div
+              className={`${serif.className} mx-auto max-w-2xl space-y-4 text-center text-sm leading-[1.9] text-stone-600`}
+            >
+              {t(episode.collectionSupport.body, locale)
+                .split(/\n\n+/)
+                .filter(Boolean)
+                .map((paragraph) => (
+                  <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+                ))}
+            </div>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              {collectionProducts.map((product) => (
+                <CollectionProductCard
+                  key={`${product.href}-${t(product.cardTitle, locale)}`}
+                  product={product}
+                  locale={locale}
+                />
+              ))}
+            </div>
+          </section>
+        ) : null}
 
         <section className="mt-16 border border-stone-200 bg-white px-6 py-8">
           <SectionLabel>{l.participate}</SectionLabel>
