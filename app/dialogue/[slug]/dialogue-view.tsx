@@ -228,7 +228,7 @@ function SectionLabel({
   children: React.ReactNode;
   inverted?: boolean;
 }) {
-  const labelClass = inverted ? "text-red-100/80" : "text-stone-400";
+  const labelClass = inverted ? "text-red-100/80" : "text-[#5a2323]";
 
   return (
     <p className={`text-center ${dt.sectionLabel} ${labelClass}`}>{children}</p>
