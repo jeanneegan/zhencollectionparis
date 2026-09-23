@@ -201,16 +201,16 @@ With cynicism and humour, an animal, a god, and a mundane object can appear on t
   },
   whyChinaFrance: {
     china: {
-      zh: "首先，我一直对中国美食很有兴趣。\n\n我听说过 Duolingo——那个每天学一点语言的 app。有一天早上醒来，不太清楚那天要做什么，我就想在 app 上学一门语言，选了中文，学了两个月，但并没记住多少。\n\n后来有一天，Jeanne 偶然来看了我的展览，她提议把我的作品带到中国展出，我想：为什么不呢。",
-      fr: "Tout d'abord j'ai toujours eu un attrait pour la gastronomie chinoise.\n\nJ'avais entendu parler de Duolingo, l'application pour apprendre une langue un peu tous les jours ; un matin je me suis réveillé sans trop savoir ce que j'allais faire ce jour-là, je me suis dit que j'allais commencer à apprendre une langue sur cette appli et j'ai choisi le chinois, j'en ai fait pendant deux mois, mais je n'ai pas retenu grand-chose.\n\nPuis un jour j'ai rencontré Jeanne, qui est passée à mon exposition par hasard ; elle m'a proposé de diffuser mes œuvres en Chine, alors je me suis dit : pourquoi pas.",
-      en: "First, I have always been drawn to Chinese cuisine.\n\nI had heard of Duolingo, the app for learning a bit of a language every day. One morning I woke up without really knowing what I would do that day; I told myself I would start learning a language on the app and chose Chinese. I did it for two months, but I did not retain much.\n\nThen one day I met Jeanne, who happened to come to my exhibition; she offered to show my work in China, so I thought: why not.",
+      zh: "首先，我一直对中国美食有特别的兴趣。长期以来，我会在巴黎的中国街区定期用餐，这也让我逐渐想要走近这一文化。\n\n有一天早上，我决定学一些中文基础。其实我已经想这件事有一阵子了。我借助一款应用学了大约两个月，但应用有点束缚人，我也没能坚持得很好。不过，今天能掌握一些中文基础，仍然是很实在的优势。\n\n后来有一天，我遇见了 Jeanne——她偶然路过我的展览。我们聊了起来，她提议把我的作品带到中国展出。能在那里呈现创作、同时更深入认识中国文化，这让我很有兴趣。从几乎偶然地想学一点语言开始，最终可能变成一次经历，也成为在创作与中国之间建立联系的机会。",
+      fr: "Tout d'abord, j'ai toujours eu un attrait particulier pour la gastronomie chinoise. Depuis longtemps, je mange régulièrement dans les quartiers chinois de Paris, ce qui m'a progressivement donné envie de m'intéresser à cette culture.\n\nUn matin, j'ai décidé d'apprendre quelques bases de chinois. Cela faisait déjà un moment que j'y pensais. J'ai donc commencé à apprendre la langue pendant environ deux mois, grâce à une application mais qui s'est avérée être un peu contraignante et j'ai manqué d'assiduité. Pourtant, avoir quelques notions de chinois est un véritable atout aujourd'hui.\n\nEt puis un jour, j'ai rencontré Jeanne, qui est passée par hasard à mon exposition. Nous avons discuté et elle m'a proposé de diffuser mes œuvres en Chine. L'idée de pouvoir y présenter mon travail, tout en découvrant davantage la culture chinoise m'a intéressé. Ce qui commençait presque par hasard, avec l'envie d'apprendre quelques bases de la langue, peut finalement devenir une expérience et une occasion de créer un lien entre mon travail et la Chine.",
+      en: "First, I have always had a particular attraction to Chinese cuisine. For a long time I have eaten regularly in the Chinese neighbourhoods of Paris, which gradually made me want to engage with that culture.\n\nOne morning I decided to learn some basics of Chinese. I had already been thinking about it for a while. I studied the language for about two months using an app, but it turned out to be a bit restrictive and I lacked diligence. Still, having a few notions of Chinese is a real asset today.\n\nThen one day I met Jeanne, who happened to stop by my exhibition. We talked, and she offered to show my work in China. The idea of presenting my work there while discovering Chinese culture further interested me. What began almost by chance, with the wish to learn a few basics of the language, may finally become an experience and a chance to create a link between my work and China.",
     },
     france: { zh: "", fr: "", en: "" },
   },
   hopeToLeave: {
-    zh: "希望大家能认出我作为画家的个性。🤷",
-    fr: "Qu'on reconnaisse ma personnalité en tant que peintre. 🤷",
-    en: "That people recognise my personality as a painter. 🤷",
+    zh: "我希望人们能认出我作品的原创性与独特性，并能通过风格与个性辨认出我的绘画。",
+    fr: "J'aimerais que l'on reconnaisse l'originalité et la singularité de mon travail, et que mes peintures soient identifiables par leur style et leur personnalité.",
+    en: "I would like people to recognise the originality and singularity of my work, and for my paintings to be identifiable through their style and personality.",
   },
   careerTimeline: [
     {
