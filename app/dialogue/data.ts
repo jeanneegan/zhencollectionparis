@@ -140,8 +140,9 @@ export const episodes: DialogueEpisode[] = [
     },
     founderLetter: {
       body: {
-        zh: `这是 ZCP 的第一期对话，Willy 与苏泓。
+        zh: `亲爱的读者：
 
+这是 ZCP 的第一期对话，Willy 与苏泓。
 Willy Le Nalbaut 在法国生活与创作，苏泓在中国生活与创作。在这场对话开始以前，我与他们、他们彼此之间，都并不相识。
 
 我与 Willy 相遇在巴黎的 Galerie du Haut-Pavé。第一次见到他时，我被他的作品吸引，也因此开始了解他的创作。后来，因为 ZCP 的第一次公开招募，我在许多中国艺术家的作品中遇见了苏泓。
@@ -153,11 +154,18 @@ Willy Le Nalbaut 在法国生活与创作，苏泓在中国生活与创作。在
 于是，我邀请 Willy 和苏泓开始了 ZCP 的第一次对话。
 
 很巧，他们都画过——马。
-苏泓画马，Willy 也画马。但当我真正了解他们的作品时，我发现，同样的马，在两个人那里却有着完全不同的意义。
+苏泓画马，Willy 也画马。但当我真正了解他们的作品时，我发现，同样的马，在两个人那里，却有着完全不同的意义。
 
-也许这正是对话有趣的地方：我们因为某种相似而相遇，却因为彼此的不同，开始真正看见对方。`,
-        fr: `Ceci est la première conversation de ZCP, entre Willy et Su Hong.
+也许这正是对话有趣的地方：我们因为某种相似而相遇，却因为彼此的不同，开始真正看见对方。
 
+在这场对话之外，法国电影制片人 Mélanie Gérin 也接受了我的邀请。我们因为生活中的缘分很早便已相识，她也见证了我创立 ZCP 的过程。这一次，她作为一个外部的观察者，观看两位艺术家的作品与交流，也观察这个刚刚开始的 ZCP，并写下她的感受。
+
+于是，这场对话里有了两个彼此相遇的艺术家，也有了一个从外面观看这场相遇、见证 ZCP 如何开始的人。
+
+生活中有人离开，也有人走进，但永远感恩每一次相遇。`,
+        fr: `Chers lecteurs,
+
+Ceci est la première conversation de ZCP, entre Willy et Su Hong.
 Willy Le Nalbaut vit et travaille en France ; Su Hong vit et travaille en Chine. Avant cette conversation, je ne les connaissais pas — pas plus qu'ils ne se connaissaient entre eux.
 
 J'ai rencontré Willy à la Galerie du Haut-Pavé, à Paris. Dès notre première rencontre, j'ai été touchée par son travail, et c'est ainsi que j'ai commencé à découvrir sa pratique. Plus tard, grâce au premier appel public de ZCP, j'ai découvert Su Hong parmi de nombreuses œuvres d'artistes chinois.
@@ -169,11 +177,18 @@ Mais je ne souhaite pas seulement que des œuvres apparaissent dans un autre pay
 C'est pour cela que j'ai invité Willy et Su Hong à ouvrir la première conversation de ZCP.
 
 Par hasard, ils ont tous deux peint — le cheval.
-Su Hong peint le cheval ; Willy aussi. Mais en découvrant vraiment leurs œuvres, j'ai vu que le même animal prenait des sens si différents chez chacun.
+Su Hong peint le cheval ; Willy aussi. Mais en découvrant vraiment leurs œuvres, j'ai vu que le même animal prenait, chez chacun, des sens si différents.
 
-C'est peut-être ce qui rend la conversation intéressante : nous nous rencontrons par une certaine ressemblance, et c'est par nos différences que nous commençons vraiment à voir l'autre.`,
-        en: `This is ZCP's first conversation, between Willy and Su Hong.
+C'est peut-être ce qui rend la conversation intéressante : nous nous rencontrons par une certaine ressemblance, et c'est par nos différences que nous commençons vraiment à voir l'autre.
 
+Au-delà de cette conversation, la productrice française Mélanie Gérin a également accepté mon invitation. Nous nous connaissons depuis longtemps grâce à la vie, et elle a été témoin de la fondation de ZCP. Cette fois, en observatrice extérieure, elle regarde les œuvres et les échanges des deux artistes, observe ce ZCP qui commence à peine, et écrit ce qu'elle en ressent.
+
+Ainsi, cette conversation réunit deux artistes qui se rencontrent, et quelqu'un qui, de l'extérieur, regarde cette rencontre et témoigne de la manière dont ZCP commence.
+
+Dans la vie, certains s'en vont, d'autres entrent — mais je suis toujours reconnaissante pour chaque rencontre.`,
+        en: `Dear readers,
+
+This is ZCP's first conversation, between Willy and Su Hong.
 Willy Le Nalbaut lives and works in France; Su Hong lives and works in China. Before this conversation began, I did not know them — nor did they know each other.
 
 I met Willy at Galerie du Haut-Pavé in Paris. The first time I saw him, I was drawn to his work, and that is how I began to learn about his practice. Later, through ZCP's first open call, I discovered Su Hong among the work of many Chinese artists.
@@ -187,7 +202,13 @@ That is why I invited Willy and Su Hong to begin ZCP's first conversation.
 By chance, they have both painted — the horse.
 Su Hong paints horses; Willy does too. But as I came to know their work, I found that the same horse carries completely different meanings for each of them.
 
-Perhaps that is what makes conversation interesting: we meet through something shared, and begin truly to see one another through our differences.`,
+Perhaps that is what makes conversation interesting: we meet through something shared, and begin truly to see one another through our differences.
+
+Beyond this conversation, French film producer Mélanie Gérin also accepted my invitation. We have known each other for a long time through life itself, and she witnessed the founding of ZCP. This time, as an outside observer, she watches the two artists' work and exchange, observes this ZCP that is only just beginning, and writes her response.
+
+So this conversation brings together two artists who meet, and someone who watches that meeting from outside and bears witness to how ZCP begins.
+
+In life, some people leave and others arrive — but I am always grateful for every encounter.`,
       },
       name: {
         zh: "Jeanneegan Cui",
@@ -195,9 +216,9 @@ Perhaps that is what makes conversation interesting: we meet through something s
         en: "Jeanneegan Cui",
       },
       role: {
-        zh: "Fondatrice, Zhen Collection Paris",
-        fr: "Fondatrice, Zhen Collection Paris",
-        en: "Founder, Zhen Collection Paris",
+        zh: "Fondatrice, ZCP",
+        fr: "Fondatrice, ZCP",
+        en: "Founder, ZCP",
       },
     },
     sharedQuestion: {
