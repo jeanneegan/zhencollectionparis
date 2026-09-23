@@ -144,7 +144,7 @@ export const episodes: DialogueEpisode[] = [
 
 Willy Le Nalbaut 在法国生活与创作，苏泓在中国生活与创作。在这场对话开始以前，我与他们、他们彼此之间，都并不相识。
 
-我与 Willy 相遇在巴黎的 Galerie du Haut-Pavé。第一次见到他时，我被他的作品吸引，也因此开始了解他的创作。后来，因为 ZCP 的第一次公开招募，我在许多中国艺术家的作品中遇见了苏泓。
+我与 Willy 相遇在巴黎的 Galerie du Haut-Pavé。第一次见到他时，我被他作品中城市与乡村彼此交融的景象所吸引，也因此开始了解他的创作。后来，因为 ZCP 的第一次公开招募，我在许多中国艺术家的作品中遇见了苏泓。
 
 我创立 Zhen Collection Paris（ZCP），有一个很明确的目标：希望更多法国艺术家被中国看见，也希望更多中国艺术家被法国，以及更远的地方看见。
 
@@ -166,7 +166,7 @@ Willy Le Nalbaut 在法国生活与创作，苏泓在中国生活与创作。在
 
 Willy Le Nalbaut vit et travaille en France ; Su Hong vit et travaille en Chine. Avant cette conversation, je ne les connaissais pas — pas plus qu'ils ne se connaissaient entre eux.
 
-J'ai rencontré Willy à la Galerie du Haut-Pavé, à Paris. Dès notre première rencontre, j'ai été touchée par son travail, et c'est ainsi que j'ai commencé à découvrir sa pratique. Plus tard, grâce au premier appel public de ZCP, j'ai découvert Su Hong parmi de nombreuses œuvres d'artistes chinois.
+J'ai rencontré Willy à la Galerie du Haut-Pavé, à Paris. Dès notre première rencontre, j'ai été attirée par la manière dont la ville et la campagne se mêlent dans ses œuvres, et c'est ainsi que j'ai commencé à découvrir son travail. Plus tard, grâce au premier appel public de ZCP, j'ai découvert Su Hong parmi de nombreuses œuvres d'artistes chinois.
 
 J'ai fondé Zhen Collection Paris (ZCP) avec un objectif très clair : que davantage d'artistes français soient vus en Chine, et que davantage d'artistes chinois le soient en France — et au-delà.
 

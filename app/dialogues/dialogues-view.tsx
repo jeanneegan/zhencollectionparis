@@ -1,6 +1,7 @@
 "use client";
 
 import { Noto_Serif_SC } from "next/font/google";
+import { DialogueCurrentSpotlight } from "@/app/components/dialogue-current-spotlight";
 import { DialogueEpisodeList } from "@/app/components/dialogue-episode-list";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
 import { PageBottomNav } from "@/app/components/page-bottom-nav";
@@ -58,7 +59,10 @@ export function DialoguesView({
         }
       />
 
-      <main className="mx-auto max-w-3xl px-6 py-12 md:py-16">
+      <main className="mx-auto max-w-6xl space-y-12 px-3 py-10 md:space-y-16 md:px-8 md:py-16">
+        <DialogueCurrentSpotlight locale={locale} />
+
+        <div className="mx-auto max-w-3xl px-3 md:px-6">
         <header className="text-center">
           <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-stone-400">
             {l.kicker}
@@ -89,6 +93,7 @@ export function DialoguesView({
         </div>
 
         <PageBottomNav locale={locale} />
+        </div>
       </main>
 
       <SiteFooter />
