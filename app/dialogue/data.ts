@@ -115,6 +115,39 @@ Energy never ceases to flow, and matter continuously renews itself, giving rise 
         },
         {
           answerFrom: willyPortraitAvatar,
+          answer: {
+            fr: `Je me suis représenté, dans la peinture visible sur ZCP, en âne.
+Symboliquement, l'âne renvoie à plusieurs notions : la lenteur, l'entêtement, voire une certaine forme de bêtise. Autrefois, à l'école, on faisait porter aux enfants considérés comme « mauvais élèves » un bonnet d'âne pour les punir. Mais l'âne est aussi associé à des qualités bien différentes, notamment la patience et la persévérance.
+
+Dans cette peinture, l'âne est dépassé par un groupe de chevaux resplendissants et colorés, tandis que lui apparaît gris et terne. Le contraste est volontaire. Le cheval, lui aussi membre de la famille des équidés, évoque la puissance, la vitesse et une certaine beauté.
+
+Cette peinture est une métaphore de ma propre position face au monde de l'art contemporain et aux autres artistes. D'un sentiment que j'ai ressenti à un moment donné. Les chevaux me dépassent à toute vitesse, éclatants et étincelants, comme s'ils filaient à la vitesse d'un train ou d'un avion, sans même me laisser le temps de réagir. Tandis que l'âne avance plus lentement, avec ses propres moyens.
+
+Il y a également une petite histoire personnelle derrière le choix de cet animal. Mon arrière-arrière-grand-père était maquignon (vendeur de chevaux), et le village dans lequel je vis s'appelle Asnières-sur-Nouère. Son nom fait référence aux ânes car cela signifie « marché aux ânes » et par extension aux chevaux.
+
+Au-delà de toute cette symbolique, l'âne est simplement un animal que j'affectionne. Plus encore que le cheval, qui appartient pourtant à la même famille.
+C'est pour cette raison que je le représente régulièrement dans mes tableaux.`,
+            zh: `在 ZCP 上可见的那幅画中，我把自画像画成一头驴。
+象征意义上，驴让人想到几种观念：缓慢、固执，甚至某种愚钝。从前在学校里，会给被视为「坏学生」的孩子戴上驴耳帽作为惩罚。但驴也关联着截然不同的品质，尤其是耐心与坚持。
+
+在这幅画里，驴被一群光彩夺目、色彩鲜艳的骏马甩在身后，而它自己显得灰扑扑、暗淡。这种对比是刻意的。马同样属于马科，却唤起力量、速度与某种美感。
+
+这幅画是我面对当代艺术界与其他艺术家时自身处境的隐喻——某一时刻我曾有过的感受。那些马以全速超过我，耀眼闪亮，仿佛以火车或飞机的速度飞驰，甚至不给我反应的时间；而驴以更慢的步伐，凭自己的方式前行。
+
+选择这种动物背后还有一段小小的个人故事。我的曾曾祖父是马商（maquignon），我居住的村庄名叫 Asnières-sur-Nouère，其名与驴有关，意为「驴市」，并由此延伸到马。
+
+抛开这一切象征，驴就是我喜爱的动物——甚至比马更甚，尽管它们同属一类。正因如此，我经常在画里画它。`,
+            en: `In the painting visible on ZCP, I represented myself as a donkey.
+Symbolically, the donkey suggests several ideas: slowness, stubbornness, even a kind of foolishness. At school, children seen as "bad pupils" used to wear a dunce cap shaped like donkey's ears as punishment. But the donkey is also linked to very different qualities, especially patience and perseverance.
+
+In this painting, the donkey is overtaken by a group of resplendent, colourful horses, while it appears grey and dull. The contrast is deliberate. The horse, also a member of the equine family, evokes power, speed, and a certain beauty.
+
+This painting is a metaphor for my own position vis-à-vis the contemporary art world and other artists—a feeling I once had. The horses pass me at full speed, dazzling and glittering, as if they were racing at the speed of a train or a plane, without even giving me time to react. The donkey moves more slowly, with its own means.
+
+There is also a small personal story behind the choice of this animal. My great-great-grandfather was a horse dealer (maquignon), and the village where I live is called Asnières-sur-Nouère. Its name refers to donkeys, meaning "donkey market," and by extension to horses.
+
+Beyond all this symbolism, the donkey is simply an animal I am fond of—more so than the horse, though they belong to the same family. That is why I represent it regularly in my paintings.`,
+          },
         },
       ],
     },
