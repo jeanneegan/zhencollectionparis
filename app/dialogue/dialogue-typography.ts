@@ -22,6 +22,8 @@ export const dialogueType = {
   actionLink:
     "text-sm font-medium tracking-[0.06em] text-stone-800 underline decoration-stone-300 underline-offset-4 transition-colors hover:text-[#5a2323] hover:decoration-[#5a2323]",
   actionMeta: "text-xs tracking-[0.06em] text-stone-500 sm:text-[13px]",
+  collectionBundleIncludes:
+    "text-[11px] leading-[1.75] tracking-[0.04em] text-stone-500 sm:text-xs",
   note: "text-sm leading-[1.9] text-stone-600 sm:text-[15px]",
   cta:
     "inline-flex items-center gap-2 rounded-full border border-stone-300 px-6 py-2.5 text-sm font-medium tracking-[0.08em] text-stone-700 transition-colors hover:border-stone-900 hover:text-stone-900",

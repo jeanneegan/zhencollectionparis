@@ -162,7 +162,7 @@ function CollectionCompleteOfferRow({
           {t(offer.editionProductName, locale)}
         </p>
         {offer.editionProductIncludes ? (
-          <p className={`whitespace-pre-line ${dt.note}`}>
+          <p className={`whitespace-pre-line ${dt.collectionBundleIncludes}`}>
             {t(offer.editionProductIncludes, locale)}
           </p>
         ) : null}
