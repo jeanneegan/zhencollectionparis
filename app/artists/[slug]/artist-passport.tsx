@@ -634,7 +634,38 @@ export function ArtistPassport({
               </>
             ) : null}
 
-            <dl className={`grid grid-cols-2 gap-x-8 gap-y-6 ${member ? "" : "mt-12"}`}>
+            {(isFrenchArtist || isChineseArtist) && hasCollectionQuestions ? (
+              <div className={member ? "mt-8" : "mt-10"}>
+                <SectionTitle>{l.collectionQuestions}</SectionTitle>
+                <div className="mt-8 max-w-3xl space-y-10 border-l border-stone-200 pl-6 md:pl-8">
+                  <div>
+                    <p className={passportType.meta}>{cultureQuestionLabel}</p>
+                    {cultureQuestionText ? (
+                      <div className="mt-4 space-y-4">
+                        <ProseParagraphs
+                          text={cultureQuestionText}
+                          className={passportType.bodyStrong}
+                        />
+                      </div>
+                    ) : null}
+                  </div>
+                  <div>
+                    <p className={passportType.meta}>{l.hopeToLeave}</p>
+                    {hopeToLeaveText ? (
+                      <div className="mt-4 space-y-4">
+                        <ProseParagraphs text={hopeToLeaveText} />
+                      </div>
+                    ) : null}
+                  </div>
+                </div>
+              </div>
+            ) : null}
+
+            <dl
+              className={`grid grid-cols-2 gap-x-8 gap-y-6 ${
+                member ? "mt-8" : "mt-12"
+              }`}
+            >
               {artist.birthYear ? (
                 <div>
                   <dt className={passportType.meta}>{l.birthYear}</dt>
@@ -689,40 +720,6 @@ export function ArtistPassport({
           ))}
         </ul>
       </section>
-
-      <div className={`${pageWrap} px-6 md:px-10`}>
-        <Divider />
-      </div>
-
-      {/* Zhen Collection Paris · questions */}
-      {(isFrenchArtist || isChineseArtist) && (
-        <section className={`${pageWrap} px-6 py-20 md:px-10`}>
-          <SectionTitle>{l.collectionQuestions}</SectionTitle>
-          {hasCollectionQuestions ? (
-            <div className="mt-10 max-w-3xl space-y-12 border-l border-stone-200 pl-6 md:pl-8">
-              <div>
-                <p className={passportType.meta}>{cultureQuestionLabel}</p>
-                {cultureQuestionText ? (
-                  <div className="mt-4 space-y-4">
-                    <ProseParagraphs
-                      text={cultureQuestionText}
-                      className={passportType.bodyStrong}
-                    />
-                  </div>
-                ) : null}
-              </div>
-              <div>
-                <p className={passportType.meta}>{l.hopeToLeave}</p>
-                {hopeToLeaveText ? (
-                  <div className="mt-4 space-y-4">
-                    <ProseParagraphs text={hopeToLeaveText} />
-                  </div>
-                ) : null}
-              </div>
-            </div>
-          ) : null}
-        </section>
-      )}
 
       {!isFrenchArtist && !isChineseArtist && (chinaText || franceText) ? (
         <section className={`${pageWrap} px-6 py-20 md:px-10`}>
