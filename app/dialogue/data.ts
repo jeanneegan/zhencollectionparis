@@ -127,7 +127,7 @@ Il y a également une petite histoire personnelle derrière le choix de cet anim
 
 Au-delà de toute cette symbolique, l'âne est simplement un animal que j'affectionne. Plus encore que le cheval, qui appartient pourtant à la même famille.
 C'est pour cette raison que je le représente régulièrement dans mes tableaux.`,
-            zh: `在 ZCP 上可见的那幅画中，我把自画像画成一头驴。
+            zh: `在ZCP本次对话的画作中，我把自画像画成一头驴。
 象征意义上，驴让人想到几种观念：缓慢、固执，甚至某种愚钝。从前在学校里，会给被视为「坏学生」的孩子戴上驴耳帽作为惩罚。但驴也关联着截然不同的品质，尤其是耐心与坚持。
 
 在这幅画里，驴被一群光彩夺目、色彩鲜艳的骏马甩在身后，而它自己显得灰扑扑、暗淡。这种对比是刻意的。马同样属于马科，却唤起力量、速度与某种美感。
