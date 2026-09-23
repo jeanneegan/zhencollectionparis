@@ -337,7 +337,9 @@ function ObserverBlock({
   const bodyText = t(item.question, locale);
   const isPendingBody =
     bodyText.includes("待发布") ||
+    bodyText.includes("代发布") ||
     bodyText.includes("à venir") ||
+    bodyText.includes("Coming soon") ||
     bodyText.includes("coming soon");
 
   return (
@@ -352,16 +354,17 @@ function ObserverBlock({
         </p>
       )}
 
-      <div className={`space-y-4 ${item.authorKicker ? "mt-4" : "mt-4"}`}>
+      {item.authorBio ? (
+        <p
+          className={`${serif.className} mt-3 max-w-2xl text-sm leading-[1.85] text-stone-600`}
+        >
+          {t(item.authorBio, locale)}
+        </p>
+      ) : null}
+
+      <div className={`space-y-4 ${item.authorBio ? "mt-6" : "mt-4"}`}>
         {item.questionFrom ? (
           <DialogueIdentity avatar={item.questionFrom} />
-        ) : null}
-        {item.authorBio ? (
-          <p
-            className={`${serif.className} max-w-2xl text-sm leading-[1.85] text-stone-600`}
-          >
-            {t(item.authorBio, locale)}
-          </p>
         ) : null}
         {item.articleIntro ? (
           <p

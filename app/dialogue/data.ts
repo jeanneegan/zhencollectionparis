@@ -285,15 +285,10 @@ Beyond all this symbolism, the donkey is simply an animal I am fond of—more so
           fr: "Productrice française chez Zadig Productions, elle accompagne notamment des films documentaires et des films d'auteur.",
           en: "A French producer at Zadig Productions, she works especially on documentary films and auteur cinema.",
         },
-        articleIntro: {
-          zh: "下面，是她书写的评论文章",
-          fr: "Ci-dessous, le texte critique qu'elle a rédigé.",
-          en: "Below is the critical essay she wrote.",
-        },
         question: {
-          zh: "（评论文章 · 待发布）",
-          fr: "(Texte critique · à venir)",
-          en: "(Critical essay · coming soon)",
+          zh: "代发布",
+          fr: "À paraître",
+          en: "Coming soon",
         },
       },
     ],
