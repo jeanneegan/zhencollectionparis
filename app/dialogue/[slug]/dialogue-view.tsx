@@ -26,6 +26,7 @@ import {
   type DialogueExchange,
   type ObserverQuestion,
 } from "../data";
+import { dialogueType as dt } from "../dialogue-typography";
 import type { DialoguePublicMessage } from "@/app/lib/dialogue-messages-store";
 
 const serif = Noto_Serif_SC({
@@ -154,17 +155,14 @@ function CollectionCompleteOfferRow({
   return (
     <div className="border border-stone-200 bg-white px-5 py-6 text-center md:px-6 md:py-7">
       <div className="space-y-3">
-        <Link
-          href={offer.editionHref}
-          className="text-[11px] font-medium tracking-[0.1em] text-stone-800 underline decoration-stone-300 underline-offset-4 transition-colors hover:text-[#5a2323] hover:decoration-[#5a2323]"
-        >
+        <Link href={offer.editionHref} className={dt.actionLink}>
           {t(offer.editionAction, locale)}
         </Link>
-        <p className="whitespace-pre-line text-[10px] leading-[1.85] tracking-[0.08em] text-stone-500">
+        <p className={`whitespace-pre-line ${dt.actionMeta}`}>
           {t(offer.editionProductName, locale)}
         </p>
         {offer.editionProductIncludes ? (
-          <p className="whitespace-pre-line text-[10px] leading-[1.85] tracking-[0.06em] text-stone-500">
+          <p className={`whitespace-pre-line ${dt.note}`}>
             {t(offer.editionProductIncludes, locale)}
           </p>
         ) : null}
@@ -200,28 +198,20 @@ function CollectionArtistOfferRow({
       </div>
       <div className="min-w-0 flex-1 space-y-4 text-center sm:text-left">
         <div>
-          <p className="text-[10px] uppercase tracking-[0.15em] text-stone-400">
-            {row.artistName}
-          </p>
-          <p className="mt-2 text-sm text-stone-800">
+          <p className={dt.workArtist}>{row.artistName}</p>
+          <p className={`mt-2 ${dt.workTitle}`}>
             {t(row.artworkTitle, locale)}
           </p>
         </div>
         <div className="flex flex-col gap-3">
-          <Link
-            href={row.originalHref}
-            className="text-[11px] font-medium tracking-[0.1em] text-stone-800 underline decoration-stone-300 underline-offset-4 transition-colors hover:text-[#5a2323] hover:decoration-[#5a2323]"
-          >
+          <Link href={row.originalHref} className={dt.actionLink}>
             {t(originalLabel, locale)}
           </Link>
           <div className="space-y-1">
-            <Link
-              href={row.editionHref}
-              className="text-[11px] font-medium tracking-[0.1em] text-stone-800 underline decoration-stone-300 underline-offset-4 transition-colors hover:text-[#5a2323] hover:decoration-[#5a2323]"
-            >
+            <Link href={row.editionHref} className={dt.actionLink}>
               {t(editionLabel, locale)}
             </Link>
-            <p className="text-[10px] tracking-[0.08em] text-stone-500">
+            <p className={dt.actionMeta}>
               {t(row.editionProductName, locale)}
               {row.editionPriceEur != null
                 ? ` · ${formatCollectionPrice(row.editionPriceEur)}`
@@ -244,11 +234,7 @@ function SectionLabel({
   const labelClass = inverted ? "text-red-100/80" : "text-stone-400";
 
   return (
-    <p
-      className={`text-center text-[11px] font-medium tracking-[0.15em] ${labelClass}`}
-    >
-      {children}
-    </p>
+    <p className={`text-center ${dt.sectionLabel} ${labelClass}`}>{children}</p>
   );
 }
 
@@ -273,7 +259,7 @@ function DialogueIdentity({ avatar }: { avatar: DialogueAvatar }) {
             sizes="56px"
           />
         </div>
-        <p className="text-[10px] leading-relaxed tracking-[0.1em] text-stone-400">
+        <p className={`${dt.identityName} leading-relaxed`}>
           {avatar.label ?? avatar.alt}
         </p>
       </div>
@@ -313,14 +299,12 @@ function DialogueIdentity({ avatar }: { avatar: DialogueAvatar }) {
       {artistHref ? (
         <Link
           href={artistHref}
-          className="text-[10px] tracking-[0.12em] text-stone-400 transition-colors hover:text-stone-700"
+          className={`${dt.identityName} transition-colors hover:text-stone-700`}
         >
           {avatar.label ?? avatar.alt}
         </Link>
       ) : (
-        <p className="text-[10px] tracking-[0.12em] text-stone-400">
-          {avatar.label ?? avatar.alt}
-        </p>
+        <p className={dt.identityName}>{avatar.label ?? avatar.alt}</p>
       )}
     </div>
   );
@@ -335,7 +319,7 @@ function QuestionContent({
 }) {
   return (
     <p
-      className={`${serif.className} whitespace-pre-line text-sm leading-[1.9] text-stone-800`}
+      className={`${serif.className} whitespace-pre-line ${dt.body}`}
     >
       {t(text, locale)}
     </p>
@@ -358,17 +342,17 @@ function FounderLetterBlock({
         {paragraphs.map((paragraph) => (
           <p
             key={paragraph.slice(0, 48)}
-            className={`${serif.className} text-sm leading-[1.95] text-stone-800`}
+            className={`${serif.className} ${dt.body} leading-[1.95]`}
           >
             {paragraph}
           </p>
         ))}
       </div>
       <footer className="mt-10 space-y-1">
-        <p className={`${serif.className} text-sm text-stone-800`}>
+        <p className={`${serif.className} ${dt.body}`}>
           —— {t(letter.name, locale)}
         </p>
-        <p className="text-[10px] uppercase tracking-[0.14em] text-stone-500">
+        <p className={dt.metaUpper}>
           {t(letter.role, locale)}
         </p>
       </footer>
@@ -390,9 +374,7 @@ function ExchangeBlock({
   return (
     <div className="space-y-6 border border-stone-200 bg-stone-50/40 p-6 md:p-8">
       {fromLabel ? (
-        <p className="text-[10px] uppercase tracking-[0.15em] text-stone-400">
-          {fromLabel}
-        </p>
+        <p className={dt.metaUpper}>{fromLabel}</p>
       ) : null}
 
       <div className="space-y-4">
@@ -417,9 +399,7 @@ function ExchangeBlock({
               {item.answer ? (
                 <QuestionContent text={item.answer} locale={locale} />
               ) : (
-                <p className="text-xs tracking-wide text-stone-400">
-                  {answerPending}
-                </p>
+                <p className={dt.pending}>{answerPending}</p>
               )}
             </div>
           ))}
@@ -429,9 +409,7 @@ function ExchangeBlock({
           {exchange.answerFrom ? (
             <DialogueIdentity avatar={exchange.answerFrom} />
           ) : null}
-          <p className="mt-4 text-xs tracking-wide text-stone-400">
-            {answerPending}
-          </p>
+          <p className={`mt-4 ${dt.pending}`}>{answerPending}</p>
         </div>
       )}
     </div>
@@ -461,18 +439,16 @@ function ObserverBlock({
   return (
     <div className="border-l-2 border-stone-200 pl-6">
       {item.authorKicker ? (
-        <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-stone-500">
+        <p className={`${dt.metaUpper} font-medium tracking-[0.14em]`}>
           {item.authorKicker}
         </p>
       ) : (
-        <p className="text-[10px] uppercase tracking-[0.15em] text-stone-400">
-          {item.author}
-        </p>
+        <p className={dt.metaUpper}>{item.author}</p>
       )}
 
       {item.authorBio ? (
         <p
-          className={`${serif.className} mt-3 max-w-2xl text-sm leading-[1.85] text-stone-600`}
+          className={`${serif.className} mt-3 max-w-2xl ${dt.bodySecondary}`}
         >
           {t(item.authorBio, locale)}
         </p>
@@ -484,13 +460,13 @@ function ObserverBlock({
         ) : null}
         {item.articleIntro ? (
           <p
-            className={`${serif.className} text-sm leading-[1.9] text-stone-600`}
+            className={`${serif.className} ${dt.bodySecondary}`}
           >
             {t(item.articleIntro, locale)}
           </p>
         ) : null}
         {isArticle && isPendingBody ? (
-          <p className="text-xs tracking-wide text-stone-400">{bodyText}</p>
+          <p className={dt.pending}>{bodyText}</p>
         ) : (
           <QuestionContent text={item.question} locale={locale} />
         )}
@@ -508,9 +484,7 @@ function ObserverBlock({
           {item.answerFrom ? (
             <DialogueIdentity avatar={item.answerFrom} />
           ) : null}
-          <p className="mt-4 text-xs tracking-wide text-stone-400">
-            {answerPending}
-          </p>
+          <p className={`mt-4 ${dt.pending}`}>{answerPending}</p>
         </div>
       ) : null}
     </div>
@@ -546,12 +520,10 @@ export function DialogueView({
         }
       />
 
-      <main className="mx-auto max-w-3xl px-6 py-12 md:py-16">
+      <main className="mx-auto max-w-3xl px-6 py-12 md:max-w-[44rem] md:px-8 md:py-16">
         {episode.header ? (
           <div className="space-y-3 text-center">
-            <p className="text-[10px] font-medium tracking-[0.18em] text-stone-400">
-              {t(episode.header.kicker, locale)}
-            </p>
+            <p className={dt.kicker}>{t(episode.header.kicker, locale)}</p>
             {episode.header.theme ? (
               <h1
                 className={`${serif.className} text-3xl font-normal text-[#5a2323] md:text-4xl`}
@@ -560,11 +532,11 @@ export function DialogueView({
               </h1>
             ) : null}
             {episode.header.artists ? (
-              <p className="text-[11px] tracking-[0.14em] text-stone-600">
+              <p className={dt.headerArtists}>
                 {t(episode.header.artists, locale)}
               </p>
             ) : null}
-            <p className="text-[10px] tracking-[0.2em] text-stone-400">
+            <p className={dt.headerDate}>
               {episode.header.date
                 ? t(episode.header.date, locale)
                 : episodeMonthLabel}
@@ -572,10 +544,10 @@ export function DialogueView({
           </div>
         ) : (
           <>
-            <p className="text-center text-[10px] font-medium uppercase tracking-[0.25em] text-stone-400">
+            <p className={`text-center ${dt.kicker} uppercase tracking-[0.2em]`}>
               {l.episode} {episode.episode}
             </p>
-            <p className="mt-1 text-center text-[10px] tracking-[0.2em] text-stone-400">
+            <p className={`mt-1 text-center ${dt.headerDate}`}>
               {episodeNum} · {episodeMonthLabel}
             </p>
           </>
@@ -599,6 +571,7 @@ export function DialogueView({
                 artistSlug={artistSlug}
                 locale={locale}
                 serifClassName={serif.className}
+                comfortableReading
               />
             ))}
           </div>
@@ -642,18 +615,16 @@ export function DialogueView({
                     />
                   </div>
                   <div className="mt-4 text-center">
-                    <p className="text-[10px] uppercase tracking-[0.15em] text-stone-400">
-                      {item.artistName}
-                    </p>
-                    <p className="mt-2 text-sm text-stone-800">
+                    <p className={dt.workArtist}>{item.artistName}</p>
+                    <p className={`mt-2 ${dt.workTitle}`}>
                       {formatArtworkTitle(item.artwork.title, locale)}
                     </p>
-                    <p className="mt-1 text-xs text-stone-400">
+                    <p className={`mt-1 ${dt.workMeta}`}>
                       {item.artwork.year} · {t(item.artwork.medium, locale)}
                     </p>
                     {item.artwork.description ? (
                       <p
-                        className={`${serif.className} mt-4 whitespace-pre-line text-left text-xs leading-[1.85] text-stone-500`}
+                        className={`${serif.className} mt-4 whitespace-pre-line text-left ${dt.workDescription}`}
                       >
                         {t(item.artwork.description, locale)}
                       </p>
@@ -710,16 +681,22 @@ export function DialogueView({
 
         <section className="mt-10 border border-dashed border-stone-300 bg-stone-50/30 px-6 py-8">
           <SectionLabel>{l.publicMessages}</SectionLabel>
-          <p className="mt-4 text-center text-xs tracking-wide text-stone-400">
-            {l.publicMessagesScope}
-          </p>
-          <p className="mt-4 text-center text-sm leading-[1.9] text-stone-600">
+          <p className={`mt-4 text-center ${dt.meta}`}>{l.publicMessagesScope}</p>
+          <p className={`mt-4 text-center ${dt.note}`}>
             {t(episode.publicParticipation.note, locale)}
           </p>
           {episode.publicParticipation.open ? (
             <>
-              <PublicMessageForm locale={locale} episodeSlug={episode.slug} />
-              <PublicMessagesList messages={publicMessages} locale={locale} />
+              <PublicMessageForm
+                locale={locale}
+                episodeSlug={episode.slug}
+                comfortableReading
+              />
+              <PublicMessagesList
+                messages={publicMessages}
+                locale={locale}
+                comfortableReading
+              />
             </>
           ) : null}
         </section>
@@ -730,7 +707,7 @@ export function DialogueView({
               {t(episode.collectionSupport.sectionTitle, locale)}
             </SectionLabel>
             <div
-              className={`${serif.className} mx-auto max-w-2xl space-y-4 text-center text-sm leading-[1.9] text-stone-600`}
+              className={`${serif.className} mx-auto max-w-2xl space-y-4 text-center ${dt.collectionIntro}`}
             >
               {t(episode.collectionSupport.body, locale)
                 .split(/\n\n+/)
@@ -761,14 +738,9 @@ export function DialogueView({
 
         <section className="mt-16 border border-stone-200 bg-white px-6 py-8">
           <SectionLabel>{l.participate}</SectionLabel>
-          <p className="mt-6 text-center text-sm leading-[1.9] text-stone-600">
-            {l.participateNote}
-          </p>
+          <p className={`mt-6 text-center ${dt.note}`}>{l.participateNote}</p>
           <div className="mt-6 flex justify-center">
-            <Link
-              href="/participer"
-              className="inline-flex items-center gap-2 rounded-full border border-stone-300 px-6 py-2.5 text-xs font-medium tracking-[0.12em] text-stone-700 transition-colors hover:border-stone-900 hover:text-stone-900"
-            >
+            <Link href="/participer" className={dt.cta}>
               {l.participateLink}
               <span aria-hidden>→</span>
             </Link>

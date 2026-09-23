@@ -54,10 +54,12 @@ export function PublicMessageForm({
   episodeSlug,
   inverted = false,
   locale = "fr",
+  comfortableReading = false,
 }: {
   episodeSlug: string;
   inverted?: boolean;
   locale?: Locale;
+  comfortableReading?: boolean;
 }) {
   const router = useRouter();
   const [message, setMessage] = useState("");
@@ -98,7 +100,23 @@ export function PublicMessageForm({
     }
   }
 
-  const labelClass = inverted ? "text-red-100/70" : "text-stone-400";
+  const labelClass = inverted
+    ? "text-red-100/70"
+    : comfortableReading
+      ? "text-stone-500"
+      : "text-stone-400";
+  const labelSizeClass = comfortableReading
+    ? "text-xs uppercase tracking-[0.1em] sm:text-[13px]"
+    : "text-[10px] uppercase tracking-[0.15em]";
+  const fieldClass = comfortableReading
+    ? "mt-2 w-full rounded-sm border border-stone-300 bg-white px-4 py-3 text-base leading-relaxed text-stone-800 placeholder:text-stone-400 focus:border-stone-900 focus:outline-none"
+    : "mt-2 w-full rounded-sm border border-stone-300 bg-white px-4 py-3 text-sm leading-relaxed text-stone-800 placeholder:text-stone-400 focus:border-stone-900 focus:outline-none";
+  const inputFieldClass = comfortableReading
+    ? "mt-2 w-full rounded-sm border border-stone-300 bg-white px-4 py-2.5 text-base text-stone-800 placeholder:text-stone-400 focus:border-stone-900 focus:outline-none"
+    : "mt-2 w-full rounded-sm border border-stone-300 bg-white px-4 py-2.5 text-sm text-stone-800 placeholder:text-stone-400 focus:border-stone-900 focus:outline-none";
+  const buttonSizeClass = comfortableReading
+    ? "text-sm font-medium tracking-[0.08em]"
+    : "text-xs font-medium tracking-[0.12em]";
   const successBoxClass = inverted
     ? "border-red-200/20 bg-white/95"
     : "border-stone-200 bg-white";
@@ -111,8 +129,20 @@ export function PublicMessageForm({
       <div
         className={`mx-auto mt-8 max-w-lg rounded-sm border px-6 py-8 text-center ${successBoxClass}`}
       >
-        <p className="text-sm text-stone-700">{l.thanks}</p>
-        <p className="mt-2 text-xs text-stone-400">{l.thanksSub}</p>
+        <p
+          className={
+            comfortableReading
+              ? "text-base text-stone-700"
+              : "text-sm text-stone-700"
+          }
+        >
+          {l.thanks}
+        </p>
+        <p
+          className={`mt-2 ${comfortableReading ? "text-sm" : "text-xs"} text-stone-400`}
+        >
+          {l.thanksSub}
+        </p>
       </div>
     );
   }
@@ -123,33 +153,25 @@ export function PublicMessageForm({
       className="mx-auto mt-8 max-w-lg space-y-4 text-left"
     >
       <label className="block">
-        <span
-          className={`text-[10px] uppercase tracking-[0.15em] ${labelClass}`}
-        >
-          {l.message}
-        </span>
+        <span className={`${labelSizeClass} ${labelClass}`}>{l.message}</span>
         <textarea
           value={message}
           onChange={(event) => setMessage(event.target.value)}
           rows={5}
           required
           placeholder={l.messagePlaceholder}
-          className="mt-2 w-full resize-y rounded-sm border border-stone-300 bg-white px-4 py-3 text-sm leading-relaxed text-stone-800 placeholder:text-stone-400 focus:border-stone-900 focus:outline-none"
+          className={`${fieldClass} resize-y`}
         />
       </label>
 
       <label className="block">
-        <span
-          className={`text-[10px] uppercase tracking-[0.15em] ${labelClass}`}
-        >
-          {l.name}
-        </span>
+        <span className={`${labelSizeClass} ${labelClass}`}>{l.name}</span>
         <input
           type="text"
           value={name}
           onChange={(event) => setName(event.target.value)}
           placeholder={l.namePlaceholder}
-          className="mt-2 w-full rounded-sm border border-stone-300 bg-white px-4 py-2.5 text-sm text-stone-800 placeholder:text-stone-400 focus:border-stone-900 focus:outline-none"
+          className={inputFieldClass}
         />
       </label>
 
@@ -161,7 +183,7 @@ export function PublicMessageForm({
         <button
           type="submit"
           disabled={submitting}
-          className={`rounded-full border px-6 py-2.5 text-xs font-medium tracking-[0.12em] transition-colors disabled:cursor-not-allowed disabled:opacity-60 ${buttonClass}`}
+          className={`rounded-full border px-6 py-2.5 transition-colors disabled:cursor-not-allowed disabled:opacity-60 ${buttonSizeClass} ${buttonClass}`}
         >
           {l.submit}
         </button>

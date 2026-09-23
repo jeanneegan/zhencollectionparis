@@ -87,10 +87,13 @@ export function ArtistCollectionQuestionsBlock({
   artistSlug,
   locale,
   serifClassName = "",
+  comfortableReading = false,
 }: {
   artistSlug: string;
   locale: Locale;
   serifClassName?: string;
+  /** Larger type for dialogue episode pages */
+  comfortableReading?: boolean;
 }) {
   const artist = getArtistBySlug(artistSlug);
   if (!artist) {
@@ -102,8 +105,15 @@ export function ArtistCollectionQuestionsBlock({
     return null;
   }
 
-  const bodyClass = `text-sm leading-[1.9] text-stone-800 ${serifClassName}`;
-  const metaClass = "text-[10px] uppercase tracking-[0.12em] text-stone-500";
+  const bodyClass = comfortableReading
+    ? `text-base leading-[1.9] text-stone-800 ${serifClassName}`
+    : `text-sm leading-[1.9] text-stone-800 ${serifClassName}`;
+  const metaClass = comfortableReading
+    ? "text-xs uppercase tracking-[0.1em] text-stone-500 sm:text-[13px]"
+    : "text-[10px] uppercase tracking-[0.12em] text-stone-500";
+  const nameClass = comfortableReading
+    ? "text-xs font-medium uppercase tracking-[0.12em] text-stone-900 transition-colors hover:text-stone-600 sm:text-[13px]"
+    : "text-[10px] font-medium uppercase tracking-[0.14em] text-stone-900 transition-colors hover:text-stone-600";
   const artistName = t(artist.name, locale);
   const portraitGrayscale =
     artist.slug !== "willy-le-nalbaut" && artist.slug !== "melanie-gerin";
@@ -127,10 +137,7 @@ export function ArtistCollectionQuestionsBlock({
             />
           </Link>
         ) : null}
-        <Link
-          href={`/artists/${artist.slug}`}
-          className="text-[10px] font-medium uppercase tracking-[0.14em] text-stone-900 transition-colors hover:text-stone-600"
-        >
+        <Link href={`/artists/${artist.slug}`} className={nameClass}>
           {artistName}
         </Link>
       </div>

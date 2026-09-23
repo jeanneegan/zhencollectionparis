@@ -59,9 +59,11 @@ function formatMessageDate(isoDate: string, locale: Locale): string {
 export function PublicMessagesList({
   messages,
   locale,
+  comfortableReading = false,
 }: {
   messages: DialoguePublicMessage[];
   locale: Locale;
+  comfortableReading?: boolean;
 }) {
   const l = labels[locale];
 
@@ -71,7 +73,13 @@ export function PublicMessagesList({
 
   return (
     <div className="mx-auto mt-10 max-w-lg space-y-6">
-      <p className="text-center text-[10px] uppercase tracking-[0.15em] text-stone-400">
+      <p
+        className={
+          comfortableReading
+            ? "text-center text-xs uppercase tracking-[0.12em] text-stone-500 sm:text-[13px]"
+            : "text-center text-[10px] uppercase tracking-[0.15em] text-stone-400"
+        }
+      >
         {l.heading}
       </p>
       <ul className="space-y-4">
@@ -81,15 +89,29 @@ export function PublicMessagesList({
             className="border border-stone-200 bg-white px-5 py-4"
           >
             <div className="flex flex-wrap items-baseline justify-between gap-2">
-              <p className="text-[10px] uppercase tracking-[0.12em] text-stone-400">
+              <p
+                className={
+                  comfortableReading
+                    ? "text-xs uppercase tracking-[0.1em] text-stone-500 sm:text-[13px]"
+                    : "text-[10px] uppercase tracking-[0.12em] text-stone-400"
+                }
+              >
                 {message.name?.trim() || l.anonymous}
               </p>
-              <p className="text-[10px] tracking-wide text-stone-400">
+              <p
+                className={
+                  comfortableReading
+                    ? "text-xs tracking-wide text-stone-500 sm:text-[13px]"
+                    : "text-[10px] tracking-wide text-stone-400"
+                }
+              >
                 {formatMessageDate(message.createdAt, locale)}
               </p>
             </div>
             <p
-              className={`${serif.className} mt-3 text-sm leading-[1.85] text-stone-700`}
+              className={`${serif.className} mt-3 leading-[1.85] text-stone-700 ${
+                comfortableReading ? "text-base" : "text-sm"
+              }`}
             >
               {message.body}
             </p>
