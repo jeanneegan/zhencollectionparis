@@ -420,17 +420,9 @@ export function DialogueView({
       />
 
       <main className="mx-auto max-w-3xl px-6 py-12 md:py-16">
-        {episode.founderLetter ? (
-          <FounderLetterBlock letter={episode.founderLetter} locale={locale} />
-        ) : null}
-
         {episode.header ? (
-          <div
-            className={`space-y-1 text-center ${
-              episode.founderLetter ? "mt-16" : ""
-            }`}
-          >
-            <p className="text-[10px] font-medium uppercase tracking-[0.28em] text-stone-400">
+          <div className="space-y-1 text-center">
+            <p className="text-[10px] font-medium tracking-[0.22em] text-stone-400">
               {t(episode.header.kicker, locale)}
             </p>
             <p className="text-[10px] tracking-[0.22em] text-stone-500">
@@ -442,11 +434,7 @@ export function DialogueView({
           </div>
         ) : (
           <>
-            <p
-              className={`text-center text-[10px] font-medium uppercase tracking-[0.25em] text-stone-400 ${
-                episode.founderLetter ? "mt-16" : ""
-              }`}
-            >
+            <p className="text-center text-[10px] font-medium uppercase tracking-[0.25em] text-stone-400">
               {l.episode} {episode.episode}
             </p>
             <p className="mt-1 text-center text-[10px] tracking-[0.2em] text-stone-400">
@@ -454,6 +442,15 @@ export function DialogueView({
             </p>
           </>
         )}
+
+        {episode.founderLetter ? (
+          <div className={episode.header ? "mt-16" : ""}>
+            <FounderLetterBlock
+              letter={episode.founderLetter}
+              locale={locale}
+            />
+          </div>
+        ) : null}
 
         <h1
           className={`${serif.className} mt-8 text-center text-3xl font-normal text-[#5a2323] md:text-4xl`}
