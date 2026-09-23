@@ -7,7 +7,11 @@ import { listDialogueMessagesForEpisode } from "@/app/lib/dialogue-messages-stor
 import { createPageMetadata } from "@/app/lib/site-metadata";
 import { getDialogueShareImage } from "@/app/lib/page-share-image";
 import { getEpisodeBySlug } from "../data";
-import { DialogueView, type CollectionProduct } from "./dialogue-view";
+import {
+  DialogueView,
+  type CollectionProduct,
+  type SelectedWork,
+} from "./dialogue-view";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -50,6 +54,51 @@ export default async function DialoguePage({ params }: PageProps) {
       entry,
     ]),
   );
+
+  const selectedWorks: SelectedWork[] = episode.featuredWorks
+    .map(({ artistSlug, artworkId, image, displayAspect }) => {
+      const artist = getArtistBySlug(artistSlug);
+      const artwork = artist?.artworks.find((item) => item.id === artworkId);
+      if (!artist || !artwork) {
+        return null;
+      }
+
+      const artworkImage = image ?? artwork.image;
+      if (!artworkImage) {
+        return null;
+      }
+
+      const aspectMatch = artwork.dimensions.match(
+        /(\d+(?:\.\d+)?)\s*×\s*(\d+(?:\.\d+)?)/,
+      );
+      const aspect: [number, number] = displayAspect
+        ? displayAspect
+        : artwork.imageAspect
+          ? artwork.imageAspect
+          : aspectMatch
+            ? [Number(aspectMatch[1]), Number(aspectMatch[2])]
+            : [4, 3];
+
+      const passport = getArtworkPassport(artistSlug, artworkId);
+      const href = passport
+        ? `/oeuvres/${artistSlug}/${artworkId}`
+        : `/artists/${artistSlug}`;
+
+      return {
+        artistSlug,
+        artistName:
+          artistSlug === willySlug ? "Willy Le Nalbaut" : "苏泓 Su Hong",
+        href,
+        artwork: {
+          title: artwork.title,
+          medium: artwork.medium,
+          year: artwork.year,
+          image: artworkImage,
+        },
+        aspect,
+      } satisfies SelectedWork;
+    })
+    .filter((item): item is SelectedWork => item !== null);
 
   const collectionProducts: CollectionProduct[] =
     episode.collectionSupport?.offers
@@ -106,6 +155,7 @@ export default async function DialoguePage({ params }: PageProps) {
   return (
     <DialogueView
       episode={episode}
+      selectedWorks={selectedWorks}
       collectionProducts={collectionProducts}
       publicMessages={publicMessages}
     />

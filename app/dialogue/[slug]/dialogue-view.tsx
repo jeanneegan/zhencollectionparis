@@ -114,6 +114,19 @@ export type CollectionProduct = {
   artworkTitle: LocalizedText;
 };
 
+export type SelectedWork = {
+  artistSlug: string;
+  artistName: string;
+  href: string;
+  artwork: {
+    title: LocalizedText;
+    medium: LocalizedText;
+    year: number;
+    image: string;
+  };
+  aspect: [number, number];
+};
+
 function CollectionProductCard({
   product,
   locale,
@@ -433,10 +446,12 @@ function ObserverBlock({
 
 export function DialogueView({
   episode,
+  selectedWorks,
   collectionProducts,
   publicMessages,
 }: {
   episode: DialogueEpisode;
+  selectedWorks: SelectedWork[];
   collectionProducts: CollectionProduct[];
   publicMessages: DialoguePublicMessage[];
 }) {
@@ -533,6 +548,47 @@ export function DialogueView({
             <div className="mx-auto mt-4 h-px w-12 bg-stone-300" />
           </>
         )}
+
+        {selectedWorks.length > 0 ? (
+          <section className="mt-16 space-y-8">
+            <SectionLabel>{l.works}</SectionLabel>
+            <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-8">
+              {selectedWorks.map((item) => (
+                <Link
+                  key={`${item.artistSlug}-${item.artwork.image}`}
+                  href={item.href}
+                  className="group mx-auto flex w-full max-w-md flex-col"
+                >
+                  <div
+                    className="relative w-full overflow-hidden bg-stone-100"
+                    style={{
+                      aspectRatio: `${item.aspect[0]} / ${item.aspect[1]}`,
+                    }}
+                  >
+                    <Image
+                      src={item.artwork.image}
+                      alt={t(item.artwork.title, locale)}
+                      fill
+                      className="object-contain object-center transition-transform group-hover:scale-[1.01]"
+                      sizes="(max-width: 768px) 100vw, 448px"
+                    />
+                  </div>
+                  <div className="mt-4 text-center">
+                    <p className="text-[10px] uppercase tracking-[0.15em] text-stone-400">
+                      {item.artistName}
+                    </p>
+                    <p className="mt-2 text-sm text-stone-800">
+                      {t(item.artwork.title, locale)}
+                    </p>
+                    <p className="mt-1 text-xs text-stone-400">
+                      {item.artwork.year} · {t(item.artwork.medium, locale)}
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        ) : null}
 
         <section className="mt-16 space-y-8">
           <SectionLabel>{l.sharedQuestion}</SectionLabel>
