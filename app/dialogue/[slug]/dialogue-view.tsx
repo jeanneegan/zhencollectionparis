@@ -64,7 +64,7 @@ const labels: Record<
       "Pour cette épisode uniquement · 针对本期内容的留言",
     participate: "Participer à la conversation｜报名对话",
     participateNote:
-      "Artistes, observateurs ou public — postulez pour rejoindre une conversation future · 艺术家、观察者或公众 — 申请参与未来对话",
+      "Artistes，observateurs — postulez pour rejoindre une conversation future · 艺术家，观察者 — 申请参与未来对话",
     participateLink: "Candidater · 前往报名",
     works: "Œuvres sélectionnées｜作品",
     answerPending: "Réponse · 回答 · À venir",
@@ -82,7 +82,7 @@ const labels: Record<
       "Pour cette épisode uniquement · 针对本期内容的留言",
     participate: "Participer à la conversation｜报名对话",
     participateNote:
-      "Artistes, observateurs ou public — postulez pour rejoindre une conversation future · 艺术家、观察者或公众 — 申请参与未来对话",
+      "Artistes，observateurs — postulez pour rejoindre une conversation future · 艺术家，观察者 — 申请参与未来对话",
     participateLink: "Candidater · 前往报名",
     works: "Œuvres sélectionnées｜作品",
     answerPending: "Réponse · 回答 · À venir",
@@ -99,7 +99,7 @@ const labels: Record<
     publicMessagesScope: "For this episode only",
     participate: "Join a Conversation",
     participateNote:
-      "Apply to participate in a future conversation as an artist, observer, or member of the public",
+      "Apply to participate in a future conversation as an artist or observer",
     participateLink: "Apply",
     works: "Selected Works",
     answerPending: "Answer · Coming soon",
