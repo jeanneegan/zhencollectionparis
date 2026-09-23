@@ -164,7 +164,10 @@ function DialogueIdentity({ avatar }: { avatar: DialogueAvatar }) {
             alt={avatar.alt}
             fill
             className={`object-cover object-center${
-              avatar.src.includes("willy-le-nalbaut") ? "" : " grayscale"
+              avatar.src.includes("willy-le-nalbaut") ||
+              avatar.src.includes("melanie-gerin")
+                ? ""
+                : " grayscale"
             }`}
             sizes="56px"
           />
@@ -264,27 +267,51 @@ function ObserverBlock({
   locale: Locale;
   answerPending: string;
 }) {
+  const isArticle = Boolean(item.articleIntro);
+  const bodyText = t(item.question, locale);
+  const isPendingBody =
+    bodyText.includes("待发布") ||
+    bodyText.includes("à venir") ||
+    bodyText.includes("coming soon");
+
   return (
     <div className="border-l-2 border-stone-200 pl-6">
-      <p className="text-[10px] uppercase tracking-[0.15em] text-stone-400">
-        {item.author}
-      </p>
+      {item.authorKicker ? (
+        <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-stone-500">
+          {item.authorKicker}
+        </p>
+      ) : (
+        <p className="text-[10px] uppercase tracking-[0.15em] text-stone-400">
+          {item.author}
+        </p>
+      )}
 
-      <div className="mt-4 space-y-4">
+      <div className={`space-y-4 ${item.authorKicker ? "mt-4" : "mt-4"}`}>
         {item.questionFrom ? (
           <DialogueIdentity avatar={item.questionFrom} />
         ) : null}
-        <QuestionContent text={item.question} locale={locale} />
+        {item.articleIntro ? (
+          <p
+            className={`${serif.className} text-sm leading-[1.9] text-stone-600`}
+          >
+            {t(item.articleIntro, locale)}
+          </p>
+        ) : null}
+        {isArticle && isPendingBody ? (
+          <p className="text-xs tracking-wide text-stone-400">{bodyText}</p>
+        ) : (
+          <QuestionContent text={item.question} locale={locale} />
+        )}
       </div>
 
-      {item.answer ? (
+      {!isArticle && item.answer ? (
         <div className="mt-6 space-y-4">
           {item.answerFrom ? (
             <DialogueIdentity avatar={item.answerFrom} />
           ) : null}
           <QuestionContent text={item.answer} locale={locale} />
         </div>
-      ) : (
+      ) : !isArticle ? (
         <div className="mt-6">
           {item.answerFrom ? (
             <DialogueIdentity avatar={item.answerFrom} />
@@ -293,7 +320,7 @@ function ObserverBlock({
             {answerPending}
           </p>
         </div>
-      )}
+      ) : null}
     </div>
   );
 }

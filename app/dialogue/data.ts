@@ -25,6 +25,7 @@ const suHongPortraitAvatar: DialogueAvatar = {
 
 const melanieGerinAvatar: DialogueAvatar = {
   type: "portrait",
+  src: "/observers/melanie-gerin/portrait.png",
   alt: "Mélanie Gérin",
   label: "Mélanie Gérin",
 };
@@ -39,6 +40,10 @@ export type DialogueExchange = {
 
 export type ObserverQuestion = {
   author: string;
+  /** Uppercase kicker above the observer name, e.g. MÉLANIE GÉRIN */
+  authorKicker?: string;
+  /** Lead-in before an essay (not a Q&A question) */
+  articleIntro?: LocalizedText;
   question: LocalizedText;
   questionFrom?: DialogueAvatar;
   answer?: LocalizedText;
@@ -139,11 +144,17 @@ Energy never ceases to flow, and matter continuously renews itself, giving rise 
     observerQuestions: [
       {
         author: "Mélanie Gérin",
+        authorKicker: "MÉLANIE GÉRIN",
         questionFrom: melanieGerinAvatar,
+        articleIntro: {
+          zh: "下面，是她书写的评论文章",
+          fr: "Ci-dessous, le texte critique qu'elle a rédigé.",
+          en: "Below is the critical essay she wrote.",
+        },
         question: {
-          zh: "（观察者提问 · 待发布）",
-          fr: "(Question de l'observateur · à venir)",
-          en: "(Observer question · coming soon)",
+          zh: "（评论文章 · 待发布）",
+          fr: "(Texte critique · à venir)",
+          en: "(Critical essay · coming soon)",
         },
       },
     ],
