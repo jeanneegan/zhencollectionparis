@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { AdminWorkspaceLayout } from "@/app/components/admin-workspace-layout";
 import { getAdminCounts } from "@/app/lib/admin-data";
+import { countDialogueParticipationApplications } from "@/app/lib/dialogue-applications-store";
 import { countActiveDialogueMessages } from "@/app/lib/dialogue-messages-store";
 import { createPageMetadata } from "@/app/lib/site-metadata";
 import { requireSuper } from "@/app/lib/require-super";
@@ -20,6 +21,7 @@ export default async function AdminLayout({
   const counts = {
     ...getAdminCounts(),
     dialogueMessages: await countActiveDialogueMessages(),
+    participationApplications: await countDialogueParticipationApplications(),
   };
 
   return (

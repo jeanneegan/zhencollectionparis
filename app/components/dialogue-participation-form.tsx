@@ -99,12 +99,44 @@ export function DialogueParticipationForm({ locale = "fr" }: { locale?: Locale }
   const [message, setMessage] = useState("");
   const [link, setLink] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const l = formLabels[locale];
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!name.trim() || !email.trim() || !message.trim()) return;
-    setSubmitted(true);
+    if (!name.trim() || !email.trim() || !message.trim() || submitting) return;
+
+    setSubmitting(true);
+    setError(null);
+
+    try {
+      const response = await fetch("/api/participer", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          email,
+          role,
+          message,
+          link: link.trim() || undefined,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("submit-failed");
+      }
+
+      setSubmitted(true);
+    } catch {
+      setError(
+        locale === "en"
+          ? "Unable to send your application. Please try again or email contact@zhencollection.paris."
+          : "提交失败，请稍后再试，或直接写信至 contact@zhencollection.paris。",
+      );
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   if (submitted) {
@@ -193,10 +225,15 @@ export function DialogueParticipationForm({ locale = "fr" }: { locale?: Locale }
         />
       </label>
 
+      {error ? (
+        <p className="text-center text-xs text-red-700">{error}</p>
+      ) : null}
+
       <div className="flex justify-center pt-2">
         <button
           type="submit"
-          className="rounded-full border border-stone-900 px-6 py-2.5 text-xs font-medium tracking-[0.12em] text-stone-900 transition-colors hover:bg-stone-900 hover:text-white"
+          disabled={submitting}
+          className="rounded-full border border-stone-900 px-6 py-2.5 text-xs font-medium tracking-[0.12em] text-stone-900 transition-colors hover:bg-stone-900 hover:text-white disabled:opacity-50"
         >
           {l.submit}
         </button>

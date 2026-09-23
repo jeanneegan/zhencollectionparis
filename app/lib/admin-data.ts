@@ -26,6 +26,7 @@ export type AdminCounts = {
   holdings: number;
   unreadMessages: number;
   dialogueMessages: number;
+  participationApplications: number;
 };
 
 export function getAdminCounts(): AdminCounts {
@@ -43,6 +44,7 @@ export function getAdminCounts(): AdminCounts {
     holdings: getHoldingsForDefaultCollector().length,
     unreadMessages: GALLERY_RECEIVED_MESSAGES.filter((message) => message.unread).length,
     dialogueMessages: 0,
+    participationApplications: 0,
   };
 }
 

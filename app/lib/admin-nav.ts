@@ -35,6 +35,7 @@ const adminNavLabels: Record<
     contentSection: string;
     passportsLink: string;
     dialogueMessagesLink: string;
+    participationApplicationsLink: string;
     memberSpaceLink: string;
   }
 > = {
@@ -58,6 +59,7 @@ const adminNavLabels: Record<
     contentSection: "Contenu · 内容",
     passportsLink: "Passeports œuvre · 作品护照",
     dialogueMessagesLink: "Messages du public · 公众留言",
+    participationApplicationsLink: "Candidatures dialogue · 对话报名",
     memberSpaceLink: "Espace membre · 成员空间",
   },
   fr: {
@@ -80,6 +82,7 @@ const adminNavLabels: Record<
     contentSection: "Contenu · 内容",
     passportsLink: "Passeports œuvre · 作品护照",
     dialogueMessagesLink: "Messages du public · 公众留言",
+    participationApplicationsLink: "Candidatures dialogue · 对话报名",
     memberSpaceLink: "Espace membre · 成员空间",
   },
   en: {
@@ -102,6 +105,7 @@ const adminNavLabels: Record<
     contentSection: "Content",
     passportsLink: "Artwork passports",
     dialogueMessagesLink: "Public messages",
+    participationApplicationsLink: "Dialogue applications",
     memberSpaceLink: "Member space",
   },
 };
@@ -122,6 +126,7 @@ export function getAdminNavGroups(
     exhibitions: number;
     passports: number;
     dialogueMessages: number;
+    participationApplications: number;
   },
 ): AdminNavGroup[] {
   const l = adminNavLabels[locale];
@@ -199,6 +204,12 @@ export function getAdminNavGroups(
           label: l.dialogueMessagesLink,
           badge: counts.dialogueMessages,
         },
+        {
+          id: "admin-participation-applications",
+          href: "/admin/participation-applications",
+          label: l.participationApplicationsLink,
+          badge: counts.participationApplications,
+        },
       ],
     },
     {
@@ -220,6 +231,10 @@ export function isAdminNavLinkActive(pathname: string, link: AdminNavLink): bool
 
   if (link.id === "admin-dialogue-messages") {
     return pathname === "/admin/dialogue-messages";
+  }
+
+  if (link.id === "admin-participation-applications") {
+    return pathname === "/admin/participation-applications";
   }
 
   return pathname === link.href || pathname.startsWith(`${link.href}/`);
