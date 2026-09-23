@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { Locale } from "@/app/artists/[slug]/data";
+import { formatArtworkTitle, type Locale } from "@/app/artists/[slug]/data";
 import {
   type DialogueEpisode,
   formatEpisodeMonth,
@@ -28,24 +28,6 @@ function episodeMeta(item: DialogueEpisode, locale: Locale): string {
     return `Épisode ${item.episode} · 第${item.episode}期 · ${month}`;
   }
   return `Épisode ${item.episode} · 第${item.episode}期 · ${month}`;
-}
-
-function episodeTitle(item: DialogueEpisode, locale: Locale): React.ReactNode {
-  if (locale === "en") return item.title.en;
-  if (locale === "zh") {
-    return (
-      <>
-        {item.title.zh}{" "}
-        <span className="text-stone-600">{item.title.fr}</span>
-      </>
-    );
-  }
-  return (
-    <>
-      {item.title.fr}{" "}
-      <span className="text-stone-600">{item.title.zh}</span>
-    </>
-  );
 }
 
 export function DialogueEpisodeList({
@@ -79,7 +61,7 @@ export function DialogueEpisodeList({
                 <p
                   className={`${serifClassName} mt-1 text-base text-stone-900`}
                 >
-                  {episodeTitle(item, locale)}
+                  {formatArtworkTitle(item.title, locale)}
                 </p>
               </div>
               <span

@@ -123,9 +123,9 @@ export const episodes: DialogueEpisode[] = [
         en: "CONVERSATION INAUGURALE · 开篇对话",
       },
       theme: {
-        zh: "Le Cheval",
+        zh: "马",
         fr: "Le Cheval",
-        en: "Le Cheval",
+        en: "The Horse",
       },
       artists: {
         zh: "Willy Le Nalbaut × Su Hong",
@@ -133,9 +133,9 @@ export const episodes: DialogueEpisode[] = [
         en: "Willy Le Nalbaut × Su Hong",
       },
       date: {
-        zh: "Septembre 2026",
+        zh: "2026年9月",
         fr: "Septembre 2026",
-        en: "Septembre 2026",
+        en: "September 2026",
       },
     },
     founderLetter: {

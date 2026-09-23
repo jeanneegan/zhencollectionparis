@@ -14,6 +14,7 @@ import { SiteFooter } from "@/app/components/site-footer";
 import { SiteHeader } from "@/app/components/site-header";
 import { useLocale } from "@/app/lib/use-locale";
 import {
+  formatArtworkTitle,
   type Locale,
   type LocalizedText,
   t,
@@ -516,7 +517,7 @@ export function DialogueView({
               <h1
                 className={`${serif.className} text-3xl font-normal text-[#5a2323] md:text-4xl`}
               >
-                {t(episode.header.theme, locale)}
+                {formatArtworkTitle(episode.header.theme, locale)}
               </h1>
             ) : null}
             {episode.header.artists ? (
@@ -571,14 +572,7 @@ export function DialogueView({
             <h1
               className={`${serif.className} mt-8 text-center text-3xl font-normal text-[#5a2323] md:text-4xl`}
             >
-              {locale === "zh" ? (
-                <>
-                  {episode.title.fr}{" "}
-                  <span>{episode.title.zh}</span>
-                </>
-              ) : (
-                t(episode.title, locale)
-              )}
+              {formatArtworkTitle(episode.title, locale)}
             </h1>
             <div className="mx-auto mt-4 h-px w-12 bg-stone-300" />
           </>
@@ -602,7 +596,7 @@ export function DialogueView({
                   >
                     <Image
                       src={item.artwork.image}
-                      alt={t(item.artwork.title, locale)}
+                      alt={formatArtworkTitle(item.artwork.title, locale)}
                       fill
                       className="object-contain object-center transition-transform group-hover:scale-[1.01]"
                       sizes="(max-width: 768px) 100vw, 448px"
@@ -613,7 +607,7 @@ export function DialogueView({
                       {item.artistName}
                     </p>
                     <p className="mt-2 text-sm text-stone-800">
-                      {t(item.artwork.title, locale)}
+                      {formatArtworkTitle(item.artwork.title, locale)}
                     </p>
                     <p className="mt-1 text-xs text-stone-400">
                       {item.artwork.year} · {t(item.artwork.medium, locale)}

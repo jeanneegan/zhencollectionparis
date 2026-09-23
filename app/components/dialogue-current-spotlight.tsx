@@ -3,7 +3,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Noto_Serif_SC } from "next/font/google";
-import { getArtistBySlug, t, type Locale } from "@/app/artists/[slug]/data";
+import {
+  formatArtworkTitle,
+  getArtistBySlug,
+  t,
+  type Locale,
+} from "@/app/artists/[slug]/data";
 import {
   getCurrentDialoguePath,
   getCurrentEpisode,
@@ -159,15 +164,7 @@ export function DialogueCurrentSpotlight({ locale }: { locale: Locale }) {
               useSerif ? serif.className : ""
             } text-3xl font-normal leading-tight text-[#5a2323]`}
           >
-            {locale === "en" ? (
-              t(episode.title, locale)
-            ) : (
-              <>
-                {episode.title.fr}
-                {" · "}
-                <span>{episode.title.zh}</span>
-              </>
-            )}
+            {formatArtworkTitle(episode.title, locale)}
           </h2>
 
           <p className="mt-4 text-sm tracking-[0.06em] text-stone-700">
@@ -197,15 +194,7 @@ export function DialogueCurrentSpotlight({ locale }: { locale: Locale }) {
               useSerif ? serif.className : ""
             } mt-8 text-3xl font-normal leading-tight text-[#5a2323] md:text-4xl`}
           >
-            {locale === "en" ? (
-              t(episode.title, locale)
-            ) : (
-              <>
-                {episode.title.fr}
-                {" · "}
-                <span>{episode.title.zh}</span>
-              </>
-            )}
+            {formatArtworkTitle(episode.title, locale)}
           </h2>
 
           <p className="mt-5 text-sm tracking-[0.06em] text-stone-700">
