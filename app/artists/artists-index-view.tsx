@@ -118,7 +118,10 @@ function ArtistCard({
     <li className="border border-stone-200 bg-white p-5 transition-colors hover:border-stone-400">
       <div className="flex items-start gap-4">
         {artist.portrait ? (
-          <div className="relative h-20 w-16 shrink-0 overflow-hidden bg-stone-100">
+          <Link
+            href={`/artists/${artist.slug}`}
+            className="relative block h-20 w-16 shrink-0 overflow-hidden bg-stone-100 transition-opacity hover:opacity-90"
+          >
             <Image
               src={artist.portrait}
               alt={t(artist.name, locale)}
@@ -126,7 +129,7 @@ function ArtistCard({
               className="object-cover"
               sizes="64px"
             />
-          </div>
+          </Link>
         ) : null}
         <div className="min-w-0 flex-1">
           <h2 className="text-sm font-medium text-stone-900">

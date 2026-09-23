@@ -245,7 +245,10 @@ function GallerySectionView({
                 >
                   <div className="flex gap-4">
                     {artist.portrait ? (
-                      <div className="relative h-20 w-16 shrink-0 overflow-hidden bg-stone-100">
+                      <Link
+                        href={`/artists/${artist.slug}?from=${RETURN_FROM_ESPACE}`}
+                        className="relative block h-20 w-16 shrink-0 overflow-hidden bg-stone-100 transition-opacity hover:opacity-90"
+                      >
                         <Image
                           src={artist.portrait}
                           alt={t(artist.name, locale)}
@@ -253,7 +256,7 @@ function GallerySectionView({
                           className="object-cover"
                           sizes="64px"
                         />
-                      </div>
+                      </Link>
                     ) : null}
                     <div className="min-w-0 flex-1">
                       <p className="text-sm font-medium text-stone-900">

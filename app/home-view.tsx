@@ -124,6 +124,7 @@ function getEpisodeArtistPortraits(episode: DialogueEpisode, locale: Locale) {
       }
 
       return {
+        href: `/artists/${artistSlug}`,
         src: artist.portrait,
         alt: t(artist.name, locale),
         aspect: [1, 1] as [number, number],
@@ -134,6 +135,7 @@ function getEpisodeArtistPortraits(episode: DialogueEpisode, locale: Locale) {
       (
         item,
       ): item is {
+        href: string;
         src: string;
         alt: string;
         aspect: [number, number];
@@ -143,33 +145,48 @@ function getEpisodeArtistPortraits(episode: DialogueEpisode, locale: Locale) {
 }
 
 function SpotlightPortrait({
+  href,
   src,
   alt,
   aspect,
   credit,
   priority = false,
 }: {
+  href?: string;
   src: string;
   alt: string;
   aspect: [number, number];
   credit?: string;
   priority?: boolean;
 }) {
+  const imageBlock = (
+    <div
+      className="relative w-full overflow-hidden bg-stone-100"
+      style={{ aspectRatio: `${aspect[0]} / ${aspect[1]}` }}
+    >
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        className="object-cover object-center"
+        sizes="(max-width: 768px) 45vw, 280px"
+        priority={priority}
+      />
+    </div>
+  );
+
   return (
     <div>
-      <div
-        className="relative w-full overflow-hidden bg-stone-100"
-        style={{ aspectRatio: `${aspect[0]} / ${aspect[1]}` }}
-      >
-        <Image
-          src={src}
-          alt={alt}
-          fill
-          className="object-cover object-center"
-          sizes="(max-width: 768px) 45vw, 280px"
-          priority={priority}
-        />
-      </div>
+      {href ? (
+        <Link
+          href={href}
+          className="block transition-opacity hover:opacity-90"
+        >
+          {imageBlock}
+        </Link>
+      ) : (
+        imageBlock
+      )}
       {credit ? (
         <p className="mt-1 text-right text-[9px] tracking-[0.04em] text-stone-400">
           {credit}
@@ -246,7 +263,7 @@ export function HomeView() {
               <div className="mt-6 grid grid-cols-2 gap-3">
                 {artistPortraits.map((portrait, index) => (
                   <SpotlightPortrait
-                    key={portrait.src}
+                    key={portrait.href}
                     {...portrait}
                     priority={index === 0}
                   />

@@ -135,6 +135,14 @@ function SectionLabel({
   );
 }
 
+function artistHrefFromPortraitSrc(src: string | undefined): string | null {
+  if (!src) {
+    return null;
+  }
+  const match = src.match(/^\/artists\/([^/]+)\//);
+  return match ? `/artists/${match[1]}` : null;
+}
+
 function DialogueIdentity({ avatar }: { avatar: DialogueAvatar }) {
   if (avatar.type === "brand") {
     return (
@@ -155,27 +163,48 @@ function DialogueIdentity({ avatar }: { avatar: DialogueAvatar }) {
     );
   }
 
+  const artistHref = artistHrefFromPortraitSrc(avatar.src);
+  const portraitImage = avatar.src ? (
+    <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full bg-stone-100">
+      <Image
+        src={avatar.src}
+        alt={avatar.alt}
+        fill
+        className={`object-cover object-center${
+          avatar.src.includes("willy-le-nalbaut") ||
+          avatar.src.includes("melanie-gerin")
+            ? ""
+            : " grayscale"
+        }`}
+        sizes="56px"
+      />
+    </div>
+  ) : null;
+
   return (
     <div className="flex items-center gap-4">
-      {avatar.src ? (
-        <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full bg-stone-100">
-          <Image
-            src={avatar.src}
-            alt={avatar.alt}
-            fill
-            className={`object-cover object-center${
-              avatar.src.includes("willy-le-nalbaut") ||
-              avatar.src.includes("melanie-gerin")
-                ? ""
-                : " grayscale"
-            }`}
-            sizes="56px"
-          />
-        </div>
-      ) : null}
-      <p className="text-[10px] tracking-[0.12em] text-stone-400">
-        {avatar.label ?? avatar.alt}
-      </p>
+      {portraitImage && artistHref ? (
+        <Link
+          href={artistHref}
+          className="shrink-0 transition-opacity hover:opacity-90"
+        >
+          {portraitImage}
+        </Link>
+      ) : (
+        portraitImage
+      )}
+      {artistHref ? (
+        <Link
+          href={artistHref}
+          className="text-[10px] tracking-[0.12em] text-stone-400 transition-colors hover:text-stone-700"
+        >
+          {avatar.label ?? avatar.alt}
+        </Link>
+      ) : (
+        <p className="text-[10px] tracking-[0.12em] text-stone-400">
+          {avatar.label ?? avatar.alt}
+        </p>
+      )}
     </div>
   );
 }
