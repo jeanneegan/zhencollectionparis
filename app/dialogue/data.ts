@@ -109,11 +109,12 @@ export const episodes: DialogueEpisode[] = [
     founderLetter: {
       body: {
         zh: `这是 ZCP 的第一期对话，Willy 与苏泓。
+
 Willy Le Nalbaut 在法国生活与创作，苏泓在中国生活与创作。在这场对话开始以前，我与他们、他们彼此之间，都并不相识。
 
 我与 Willy 相遇在巴黎的 Galerie du Haut-Pavé。第一次见到他时，我被他的作品吸引，也因此开始了解他的创作。后来，因为 ZCP 的第一次公开招募，我在许多中国艺术家的作品中遇见了苏泓。
 
-我创立 ZCP，有一个很简单的愿望：希望更多法国艺术家被中国看见，也希望更多中国艺术家被法国，以及更远的地方看见。
+我创立 Zhen Collection Paris（ZCP），有一个很明确的目标：希望更多法国艺术家被中国看见，也希望更多中国艺术家被法国，以及更远的地方看见。
 
 但我想要的并不仅仅是让作品出现在另一个国家。我更希望不同文化中的艺术家有机会真正认识彼此，看看对方如何生活、如何创作，又如何理解同一个世界。
 
@@ -127,11 +128,12 @@ Willy Le Nalbaut 在法国生活与创作，苏泓在中国生活与创作。在
 那么，就从这匹马开始吧。
 马对于你们各自意味着什么？为什么？`,
         fr: `Ceci est la première conversation de ZCP, entre Willy et Su Hong.
+
 Willy Le Nalbaut vit et travaille en France ; Su Hong vit et travaille en Chine. Avant cette conversation, je ne les connaissais pas — pas plus qu'ils ne se connaissaient entre eux.
 
 J'ai rencontré Willy à la Galerie du Haut-Pavé, à Paris. Dès notre première rencontre, j'ai été touchée par son travail, et c'est ainsi que j'ai commencé à découvrir sa pratique. Plus tard, grâce au premier appel public de ZCP, j'ai découvert Su Hong parmi de nombreuses œuvres d'artistes chinois.
 
-J'ai fondé ZCP avec un souhait très simple : que davantage d'artistes français soient vus en Chine, et que davantage d'artistes chinois le soient en France — et au-delà.
+J'ai fondé Zhen Collection Paris (ZCP) avec un objectif très clair : que davantage d'artistes français soient vus en Chine, et que davantage d'artistes chinois le soient en France — et au-delà.
 
 Mais je ne souhaite pas seulement que des œuvres apparaissent dans un autre pays. Je souhaite surtout que des artistes de cultures différentes aient l'occasion de se connaître vraiment — de voir comment l'autre vit, crée, et comprend le même monde.
 
@@ -145,11 +147,12 @@ C'est peut-être ce qui rend la conversation intéressante : nous nous rencontro
 Alors, commençons par ce cheval.
 Que représente-t-il pour chacun de vous ? Et pourquoi ?`,
         en: `This is ZCP's first conversation, between Willy and Su Hong.
+
 Willy Le Nalbaut lives and works in France; Su Hong lives and works in China. Before this conversation began, I did not know them — nor did they know each other.
 
 I met Willy at Galerie du Haut-Pavé in Paris. The first time I saw him, I was drawn to his work, and that is how I began to learn about his practice. Later, through ZCP's first open call, I discovered Su Hong among the work of many Chinese artists.
 
-I founded ZCP with a simple wish: that more French artists be seen in China, and that more Chinese artists be seen in France — and farther afield.
+I founded Zhen Collection Paris (ZCP) with a very clear objective: that more French artists be seen in China, and that more Chinese artists be seen in France — and farther afield.
 
 But I want more than works appearing in another country. I hope artists from different cultures can truly come to know one another — to see how the other lives, makes work, and understands the same world.
 
