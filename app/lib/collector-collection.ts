@@ -104,7 +104,7 @@ export const MOCK_COLLECTOR_HOLDINGS: CollectorHolding[] = [
       en: "Good condition · original frame",
     },
     notes: {
-      zh: "2025 年巴黎臻藏关注艺术家首件入藏。",
+      zh: "2025 年 ZCP 关注艺术家首件入藏。",
       fr: "Première acquisition d'un artiste suivi par Zhen Collection Paris en 2025.",
       en: "First acquisition of an artist followed by Zhen Collection Paris in 2025.",
     },
@@ -132,7 +132,11 @@ export const MOCK_COLLECTOR_HOLDINGS: CollectorHolding[] = [
       },
       {
         date: "2026-06",
-        author: { zh: "巴黎臻藏", fr: "Zhen Collection Paris", en: "Zhen Collection Paris" },
+        author: {
+          zh: "Zhen Collection Paris · ZCP",
+          fr: "Zhen Collection Paris · ZCP",
+          en: "Zhen Collection Paris · ZCP",
+        },
         role: { zh: "平台跟进", fr: "Suivi plateforme", en: "Platform follow-up" },
         quote: {
           zh: "持续评价：作品在藏家处的光线条件稳定，色彩层未出现可见变化；建议纳入下一轮线上展览档案。",
@@ -283,7 +287,11 @@ export const MOCK_COLLECTOR_HOLDINGS: CollectorHolding[] = [
       },
       {
         date: "2026-07",
-        author: { zh: "巴黎臻藏", fr: "Zhen Collection Paris", en: "Zhen Collection Paris" },
+        author: {
+          zh: "Zhen Collection Paris · ZCP",
+          fr: "Zhen Collection Paris · ZCP",
+          en: "Zhen Collection Paris · ZCP",
+        },
         role: { zh: "平台跟进", fr: "Suivi plateforme", en: "Platform follow-up" },
         quote: {
           zh: "持续评价：建议与上海工作室中的 Willy 木板作品并置讨论，形成中法绘画材质对照的收藏单元。",
@@ -336,7 +344,7 @@ export const MOCK_COLLECTOR_HOLDINGS: CollectorHolding[] = [
       en: "Good condition · framed",
     },
     notes: {
-      zh: "通过巴黎臻藏收藏咨询渠道购入。",
+      zh: "通过 ZCP 收藏咨询渠道购入。",
       fr: "Acquis via le canal de consultation collection de Zhen Collection Paris.",
       en: "Acquired through the Zhen Collection Paris collection inquiry channel.",
     },
@@ -364,7 +372,11 @@ export const MOCK_COLLECTOR_HOLDINGS: CollectorHolding[] = [
       },
       {
         date: "2026-05",
-        author: { zh: "巴黎臻藏", fr: "Zhen Collection Paris", en: "Zhen Collection Paris" },
+        author: {
+          zh: "Zhen Collection Paris · ZCP",
+          fr: "Zhen Collection Paris · ZCP",
+          en: "Zhen Collection Paris · ZCP",
+        },
         role: { zh: "平台跟进", fr: "Suivi plateforme", en: "Platform follow-up" },
         quote: {
           zh: "持续评价：与 2025 年入藏的两件 Willy 木板作品形成时间轴上的早期节点，完整度提升。",
@@ -417,7 +429,7 @@ export const MOCK_COLLECTOR_HOLDINGS: CollectorHolding[] = [
       en: "Good condition · in working order",
     },
     notes: {
-      zh: "藏家 Jeanneegan CUI 入藏；巴黎臻藏为威利这件可运转的彩绘钟表建立作品护照档案。",
+      zh: "藏家 Jeanneegan CUI 入藏；ZCP 为威利这件可运转的彩绘钟表建立作品护照档案。",
       fr: "Entrée en collection de Jeanneegan CUI ; Zhen Collection Paris a initié le passeport de cette horloge peinte fonctionnelle de Willy.",
       en: "Acquired by collector Jeanneegan CUI; Zhen Collection Paris initiated the artwork passport for Willy's functional painted clock.",
     },
@@ -457,12 +469,12 @@ export const MOCK_COLLECTOR_HOLDINGS: CollectorHolding[] = [
     },
     acquiredYear: 2026,
     acquiredFrom: {
-      zh: "巴黎臻藏出版计划 · Édition 1",
+      zh: "ZCP 出版计划 · Édition 1",
       fr: "Collection éditoriale Zhen Collection Paris · Édition 1",
       en: "Zhen Collection Paris editions programme · Edition 1",
     },
     location: {
-      zh: "巴黎 · 巴黎臻藏出版档案",
+      zh: "巴黎 · ZCP 出版档案",
       fr: "Paris · archive éditoriale Zhen Collection Paris",
       en: "Paris · Zhen Collection Paris editorial archive",
     },
@@ -472,7 +484,7 @@ export const MOCK_COLLECTOR_HOLDINGS: CollectorHolding[] = [
       en: "Digital master · edition of 6",
     },
     notes: {
-      zh: "巴黎臻藏出版计划第一件作品；本护照归档王爾蘭这件数字绘画及其专业阅读记录。",
+      zh: "ZCP 出版计划第一件作品；本护照归档王爾蘭这件数字绘画及其专业阅读记录。",
       fr: "Première œuvre de la collection éditoriale ZCP ; ce passeport archive cette peinture numérique de Wang et sa lecture professionnelle.",
       en: "First work in the ZCP editions programme; this passport archives Wang's digital painting and its professional reading.",
     },
@@ -481,7 +493,7 @@ export const MOCK_COLLECTOR_HOLDINGS: CollectorHolding[] = [
       {
         date: "2026-08",
         author: {
-          zh: "巴黎臻藏",
+          zh: "ZCP",
           fr: "Zhen Collection Paris",
           en: "Zhen Collection Paris",
         },

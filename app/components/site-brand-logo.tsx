@@ -39,7 +39,7 @@ export function SiteBrandLogo({
     return (
       <Image
         src={BRAND_LOGO_SRC}
-        alt="Zhen Collection Paris · 巴黎臻藏"
+        alt="Zhen Collection Paris · ZCP"
         width={420}
         height={420}
         priority

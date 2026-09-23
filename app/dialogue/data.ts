@@ -183,8 +183,8 @@ What does it mean to each of you? And why?`,
     sharedQuestion: {
       questionFrom: {
         type: "brand",
-        alt: "Zhen Collection Paris · 巴黎臻藏",
-        label: "巴黎臻藏",
+        alt: "Zhen Collection Paris · ZCP",
+        label: "Zhen Collection Paris · ZCP",
       },
       question: {
         zh: "今年是马年。你们都画过马。马对你们来说意味着什么？为什么？",

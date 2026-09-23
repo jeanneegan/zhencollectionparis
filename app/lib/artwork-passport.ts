@@ -11,9 +11,9 @@ import {
 import { getEditionShopUrlForArtwork } from "@/app/edition/data";
 
 const ZCP_INITIATOR: LocalizedText = {
-  zh: "巴黎臻藏",
-  fr: "Zhen Collection Paris",
-  en: "Zhen Collection Paris",
+  zh: "Zhen Collection Paris · ZCP",
+  fr: "Zhen Collection Paris · ZCP",
+  en: "Zhen Collection Paris · ZCP",
 };
 
 export type ArtworkEvaluation = {
@@ -71,13 +71,13 @@ export type ArtworkPassport = {
 };
 
 const defaultPassportNote: LocalizedText = {
-  zh: "本作品护照由巴黎臻藏发起建立，为平台上受邀关注或入藏的代表作品提供可持续的线上档案，汇集元数据、专业评价与展览记录。",
+  zh: "本作品护照由ZCP发起建立，为平台上受邀关注或入藏的代表作品提供可持续的线上档案，汇集元数据、专业评价与展览记录。",
   fr: "Ce passeport d'œuvre est initié par Zhen Collection Paris — une archive en ligne durable pour les œuvres représentatives suivies ou entrées en collection sur la plateforme, réunissant métadonnées, évaluations professionnelles et parcours d'exposition.",
   en: "This artwork passport is initiated by Zhen Collection Paris—a sustained online archive for representative works followed or held in collection on the platform, bringing together metadata, professional evaluations, and exhibition history.",
 };
 
 const defaultStatus: LocalizedText = {
-  zh: "巴黎臻藏档案 · 开放专业阅读",
+  zh: "ZCP档案 · 开放专业阅读",
   fr: "Archive Zhen Collection Paris · lecture professionnelle ouverte",
   en: "Zhen Collection Paris archive · open for professional reading",
 };
@@ -152,7 +152,7 @@ const passportEnrichment: Record<
       en: "A gilt metal sunburst frame holds a hand-painted dial: gridded fields seen from above below, fine-stemmed flowers and a misty sky above. A working clock and another instance of Willy embedding painting in everyday objects.",
     },
     passportNote: {
-      zh: "本作品护照由巴黎臻藏为威利《表》建立，归档这件可运转的彩绘钟表及其专业阅读记录。",
+      zh: "本作品护照由ZCP为威利《表》建立，归档这件可运转的彩绘钟表及其专业阅读记录。",
       fr: "Ce passeport d'œuvre est initié par Zhen Collection Paris pour « Horloge » de Willy — archive de cette horloge peinte fonctionnelle et de sa lecture professionnelle.",
       en: "This artwork passport is initiated by Zhen Collection Paris for Willy's « Clock »—archiving this functional painted timepiece and its professional reading.",
     },
@@ -183,7 +183,7 @@ const passportEnrichment: Record<
       en: "First piece in the « Ma Gui » series: horse and cabinet form a double structure of homophony and meaning. Clean lines and generous open space bring traditional symbols back through contemporary pictorial grammar.",
     },
     passportNote: {
-      zh: "巴黎臻藏为苏泓「马贵」系列代表件建立本作品护照，持续归档专业阅读、评价与展览记录。",
+      zh: "ZCP为苏泓「马贵」系列代表件建立本作品护照，持续归档专业阅读、评价与展览记录。",
       fr: "Zhen Collection Paris a initié ce passeport pour une pièce représentative de la série « Ma Gui » de Su Hong, afin d'en conserver une archive continue de lecture, d'évaluation et d'exposition.",
       en: "Zhen Collection Paris initiated this passport for a representative piece in Su Hong's « Ma Gui » series, to maintain a continuing archive of reading, evaluation, and exhibition history.",
     },
@@ -208,18 +208,18 @@ const passportEnrichment: Record<
       en: "Above, saturated red strokes interwoven with fine lines; at center, a small dark mark; below, blue-green and turquoise layers cut through by white, yellow, and red lines. The whole retains the fluid energy of Wang's digital language.",
     },
     passportNote: {
-      zh: "本作品护照由巴黎臻藏为出版计划第一件作品——王爾蘭《无题》建立，归档这件数字绘画及其专业阅读记录。",
+      zh: "本作品护照由ZCP为出版计划第一件作品——王爾蘭《无题》建立，归档这件数字绘画及其专业阅读记录。",
       fr: "Ce passeport d'œuvre est initié par Zhen Collection Paris pour « Sans titre » de Elaine Erlan Wang — première œuvre de la collection éditoriale, archive de cette peinture numérique et de sa lecture professionnelle.",
       en: "This artwork passport is initiated by Zhen Collection Paris for Elaine Erlan Wang's « Untitled »—the first work in the editions programme, archiving this digital painting and its professional reading.",
     },
     status: {
-      zh: "巴黎臻藏出版 · 作品护照档案",
+      zh: "ZCP出版 · 作品护照档案",
       fr: "Édition ZCP · archive passeport d'œuvre",
       en: "ZCP edition · artwork passport archive",
     },
     provenance: [
       {
-        zh: "2026 · 巴黎臻藏出版计划 · Édition 1 · 6 版",
+        zh: "2026 · ZCP出版计划 · Édition 1 · 6 版",
         fr: "2026 · Collection éditoriale Zhen Collection Paris · Édition 1 · tirage 6 exemplaires",
         en: "2026 · Zhen Collection Paris editions programme · Edition 1 · edition of 6",
       },

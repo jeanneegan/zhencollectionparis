@@ -55,7 +55,7 @@ export const GALLERY_RECEIVED_MESSAGES: GalleryMessage[] = [
     date: "2026-06-15",
     from: {
       fr: "Zhen Collection Paris",
-      zh: "Zhen Collection Paris · 巴黎臻藏",
+      zh: "Zhen Collection Paris · ZCP",
       en: "Zhen Collection Paris",
     },
     subject: {

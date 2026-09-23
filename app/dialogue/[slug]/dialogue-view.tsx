@@ -55,9 +55,9 @@ const labels: Record<
     episode: "Conversation · Épisode",
     episodeNum: "对话第{n}期",
     sharedQuestion:
-      "Question commune · Zhen Collection Paris｜巴黎臻藏共同问题",
+      "Question commune · Zhen Collection Paris｜ZCP 共同问题",
     collectionQuestions:
-      "Questions · Zhen Collection Paris｜巴黎臻藏的提问",
+      "Questions · Zhen Collection Paris｜ZCP 的提问",
     willyToSuHong: "Willy Le Nalbaut → Su Hong｜Willy 向苏泓提问",
     suHongToWilly: "Su Hong → Willy Le Nalbaut｜苏泓向 Willy 提问",
     observerQuestions: "Questions des observateurs｜观察者提问",
@@ -75,9 +75,9 @@ const labels: Record<
     episode: "Conversation · Épisode",
     episodeNum: "对话第{n}期",
     sharedQuestion:
-      "Question commune · Zhen Collection Paris｜巴黎臻藏共同问题",
+      "Question commune · Zhen Collection Paris｜ZCP 共同问题",
     collectionQuestions:
-      "Questions · Zhen Collection Paris｜巴黎臻藏的提问",
+      "Questions · Zhen Collection Paris｜ZCP 的提问",
     willyToSuHong: "Willy Le Nalbaut → Su Hong｜Willy 向苏泓提问",
     suHongToWilly: "Su Hong → Willy Le Nalbaut｜苏泓向 Willy 提问",
     observerQuestions: "Questions des observateurs｜观察者提问",
@@ -157,7 +157,7 @@ function DialogueIdentity({ avatar }: { avatar: DialogueAvatar }) {
         <div className="relative h-14 w-14 shrink-0 bg-white">
           <Image
             src={BRAND_LOGO_SRC}
-            alt="Zhen Collection Paris · 巴黎臻藏"
+            alt="Zhen Collection Paris · ZCP"
             fill
             className="object-contain object-center"
             sizes="56px"

@@ -42,7 +42,7 @@ export function getBrandShareImage() {
     url: resolveShareImageUrl(BRAND_LOGO_SRC),
     width: 420,
     height: 420,
-    alt: "Zhen Collection Paris · 巴黎臻藏",
+    alt: "Zhen Collection Paris · ZCP",
   } as const;
 }
 
