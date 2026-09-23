@@ -436,7 +436,7 @@ Each acquisition supports the artists' work and helps ZCP continue the next conv
         editionAction: {
           zh: "收藏完整对话",
           fr: "Collectionner la conversation complète · 收藏完整对话",
-          en: "Collect complete conversation",
+          en: "Collect the complete conversation · 收藏完整对话",
         },
         editionProductName: {
           zh: "Willy Le Nalbaut × 苏泓 · Regard de Mélanie Gérin\nZCP CONVERSATION 01 · A + B",
@@ -449,11 +449,11 @@ Each acquisition supports the artists' work and helps ZCP continue the next conv
 1 张 Conversation Card · 对话卡
 Digital access to the complete conversation · 完整对话数字访问`,
           fr: `2 estampes en édition limitée
-2 certificats de collection d'œuvre · 作品收藏证书
+2 certificats de collection d'œuvre
 1 Conversation Card · 对话卡
-Digital access to the complete conversation · 完整对话数字访问`,
-          en: `2 limited edition prints
-2 Artwork Collection Certificates · 作品收藏证书
+Accès numérique à la conversation intégrale · 完整对话数字访问`,
+          en: `2 limited-edition prints
+2 artwork collection certificates
 1 Conversation Card · 对话卡
 Digital access to the complete conversation · 完整对话数字访问`,
         },
