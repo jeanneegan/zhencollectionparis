@@ -44,6 +44,8 @@ export type ObserverQuestion = {
   authorKicker?: string;
   /** Short bio shown under the observer name */
   authorBio?: LocalizedText;
+  /** Essay-style contribution (not observer Q&A) */
+  article?: boolean;
   /** Lead-in before an essay (not a Q&A question) */
   articleIntro?: LocalizedText;
   question: LocalizedText;
@@ -279,6 +281,7 @@ Beyond all this symbolism, the donkey is simply an animal I am fond of—more so
       {
         author: "Mélanie Gérin",
         authorKicker: "MÉLANIE GÉRIN",
+        article: true,
         questionFrom: melanieGerinAvatar,
         authorBio: {
           zh: "法国制片人，任职于 Zadig Productions，主要参与纪录片与作者电影的制作。",

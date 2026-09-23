@@ -1,3 +1,5 @@
+import Image from "next/image";
+import Link from "next/link";
 import {
   getArtistBySlug,
   t,
@@ -102,12 +104,36 @@ export function ArtistCollectionQuestionsBlock({
 
   const bodyClass = `text-sm leading-[1.9] text-stone-800 ${serifClassName}`;
   const metaClass = "text-[10px] uppercase tracking-[0.12em] text-stone-500";
+  const artistName = t(artist.name, locale);
+  const portraitGrayscale =
+    artist.slug !== "willy-le-nalbaut" && artist.slug !== "melanie-gerin";
 
   return (
     <div className="space-y-8 border border-stone-200 bg-stone-50/40 p-6 md:p-8">
-      <p className="text-[10px] font-medium uppercase tracking-[0.14em] text-stone-900">
-        {t(artist.name, locale)}
-      </p>
+      <div className="flex items-center gap-4">
+        {artist.portrait ? (
+          <Link
+            href={`/artists/${artist.slug}`}
+            className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full bg-stone-100 transition-opacity hover:opacity-90"
+          >
+            <Image
+              src={artist.portrait}
+              alt={artistName}
+              fill
+              className={`object-cover object-center${
+                portraitGrayscale ? " grayscale" : ""
+              }`}
+              sizes="56px"
+            />
+          </Link>
+        ) : null}
+        <Link
+          href={`/artists/${artist.slug}`}
+          className="text-[10px] font-medium uppercase tracking-[0.14em] text-stone-900 transition-colors hover:text-stone-600"
+        >
+          {artistName}
+        </Link>
+      </div>
 
       {content.cultureQuestionText ? (
         <div>

@@ -333,7 +333,7 @@ function ObserverBlock({
   locale: Locale;
   answerPending: string;
 }) {
-  const isArticle = Boolean(item.articleIntro);
+  const isArticle = Boolean(item.article) || Boolean(item.articleIntro);
   const bodyText = t(item.question, locale);
   const isPendingBody =
     bodyText.includes("待发布") ||
