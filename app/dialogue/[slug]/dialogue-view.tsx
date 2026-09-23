@@ -106,13 +106,19 @@ const labels: Record<
   },
 };
 
-export type CollectionProduct = {
-  cardTitle: LocalizedText;
-  href: string;
+export type CollectionArtistRow = {
+  artistName: string;
+  artworkTitle: LocalizedText;
   image: string;
   aspect: [number, number];
-  artworkTitle: LocalizedText;
+  originalHref: string;
+  editionHref: string;
+  editionPriceEur?: number;
 };
+
+function formatCollectionPrice(eur: number): string {
+  return `${eur} euros`;
+}
 
 export type SelectedWork = {
   artistSlug: string;
@@ -127,39 +133,59 @@ export type SelectedWork = {
   aspect: [number, number];
 };
 
-function CollectionProductCard({
-  product,
+function CollectionArtistOfferRow({
+  row,
   locale,
+  originalLabel,
+  editionLabel,
 }: {
-  product: CollectionProduct;
+  row: CollectionArtistRow;
   locale: Locale;
+  originalLabel: LocalizedText;
+  editionLabel: LocalizedText;
 }) {
   return (
-    <Link
-      href={product.href}
-      className="group flex flex-col overflow-hidden border border-stone-200 bg-white transition-colors hover:border-stone-400"
-    >
+    <div className="flex flex-col gap-6 border border-stone-200 bg-white p-5 sm:flex-row sm:items-center sm:gap-8 md:p-6">
       <div
-        className="relative w-full bg-stone-100"
-        style={{ aspectRatio: `${product.aspect[0]} / ${product.aspect[1]}` }}
+        className="relative mx-auto w-full max-w-[220px] shrink-0 bg-stone-100 sm:mx-0 sm:w-44"
+        style={{ aspectRatio: `${row.aspect[0]} / ${row.aspect[1]}` }}
       >
         <Image
-          src={product.image}
-          alt={t(product.artworkTitle, locale)}
+          src={row.image}
+          alt={t(row.artworkTitle, locale)}
           fill
-          className="object-contain object-center transition-transform group-hover:scale-[1.01]"
-          sizes="(max-width: 768px) 100vw, 320px"
+          className="object-contain object-center"
+          sizes="176px"
         />
       </div>
-      <div className="border-t border-stone-200 px-4 py-4 text-center">
-        <p className="text-[11px] font-medium tracking-[0.12em] text-stone-800">
-          {t(product.cardTitle, locale)}
-        </p>
-        <p className="mt-2 text-[10px] tracking-wide text-stone-400">
-          {t(product.artworkTitle, locale)}
-        </p>
+      <div className="min-w-0 flex-1 space-y-4 text-center sm:text-left">
+        <div>
+          <p className="text-[10px] uppercase tracking-[0.15em] text-stone-400">
+            {row.artistName}
+          </p>
+          <p className="mt-2 text-sm text-stone-800">
+            {t(row.artworkTitle, locale)}
+          </p>
+        </div>
+        <div className="flex flex-col gap-3">
+          <Link
+            href={row.originalHref}
+            className="text-[11px] font-medium tracking-[0.1em] text-stone-800 underline decoration-stone-300 underline-offset-4 transition-colors hover:text-[#5a2323] hover:decoration-[#5a2323]"
+          >
+            {t(originalLabel, locale)}
+          </Link>
+          <Link
+            href={row.editionHref}
+            className="text-[11px] font-medium tracking-[0.1em] text-stone-800 underline decoration-stone-300 underline-offset-4 transition-colors hover:text-[#5a2323] hover:decoration-[#5a2323]"
+          >
+            {t(editionLabel, locale)}
+            {row.editionPriceEur != null
+              ? ` · ${formatCollectionPrice(row.editionPriceEur)}`
+              : null}
+          </Link>
+        </div>
       </div>
-    </Link>
+    </div>
   );
 }
 
@@ -447,12 +473,12 @@ function ObserverBlock({
 export function DialogueView({
   episode,
   selectedWorks,
-  collectionProducts,
+  collectionArtistRows,
   publicMessages,
 }: {
   episode: DialogueEpisode;
   selectedWorks: SelectedWork[];
-  collectionProducts: CollectionProduct[];
+  collectionArtistRows: CollectionArtistRow[];
   publicMessages: DialoguePublicMessage[];
 }) {
   const [locale, setLocale] = useLocale();
@@ -649,7 +675,7 @@ export function DialogueView({
           ) : null}
         </section>
 
-        {episode.collectionSupport && collectionProducts.length > 0 ? (
+        {episode.collectionSupport && collectionArtistRows.length > 0 ? (
           <section className="mt-16 space-y-8">
             <SectionLabel>
               {t(episode.collectionSupport.sectionTitle, locale)}
@@ -664,12 +690,14 @@ export function DialogueView({
                   <p key={paragraph.slice(0, 48)}>{paragraph}</p>
                 ))}
             </div>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-              {collectionProducts.map((product) => (
-                <CollectionProductCard
-                  key={`${product.href}-${t(product.cardTitle, locale)}`}
-                  product={product}
+            <div className="space-y-6">
+              {collectionArtistRows.map((row) => (
+                <CollectionArtistOfferRow
+                  key={row.artistName}
+                  row={row}
                   locale={locale}
+                  originalLabel={episode.collectionSupport!.originalAction}
+                  editionLabel={episode.collectionSupport!.editionAction}
                 />
               ))}
             </div>

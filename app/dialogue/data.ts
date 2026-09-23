@@ -67,17 +67,18 @@ export type DialogueEpisodeHeader = {
   date: LocalizedText;
 };
 
-export type DialogueCollectionOffer = {
+export type DialogueCollectionArtistOffer = {
   artistSlug: string;
   workId: string;
-  kind: "original" | "edition";
-  cardTitle: LocalizedText;
+  editionPriceEur?: number;
 };
 
 export type DialogueCollectionSupport = {
   sectionTitle: LocalizedText;
   body: LocalizedText;
-  offers: DialogueCollectionOffer[];
+  originalAction: LocalizedText;
+  editionAction: LocalizedText;
+  artists: DialogueCollectionArtistOffer[];
 };
 
 export type DialogueEpisode = {
@@ -368,46 +369,26 @@ Chaque acquisition soutient le travail des artistes et permet à ZCP de poursuiv
         en: `The two selected works from this conversation, and their ZCP Editions, are available to collect.
 Each acquisition supports the artists' work and helps ZCP continue new conversations and new encounters.`,
       },
-      offers: [
+      originalAction: {
+        zh: "收藏原作",
+        fr: "Collectionner l'original",
+        en: "Collect original",
+      },
+      editionAction: {
+        zh: "收藏限量版画",
+        fr: "Collectionner l'estampe en édition limitée",
+        en: "Collect limited edition print",
+      },
+      artists: [
         {
           artistSlug: "willy-le-nalbaut",
           workId: "3",
-          kind: "original",
-          cardTitle: {
-            zh: "Willy — Original",
-            fr: "Willy — Original",
-            en: "Willy — Original",
-          },
-        },
-        {
-          artistSlug: "willy-le-nalbaut",
-          workId: "3",
-          kind: "edition",
-          cardTitle: {
-            zh: "Willy — ZCP Edition",
-            fr: "Willy — ZCP Edition",
-            en: "Willy — ZCP Edition",
-          },
+          editionPriceEur: 169,
         },
         {
           artistSlug: "su-hong",
           workId: "1",
-          kind: "original",
-          cardTitle: {
-            zh: "Su Hong — Original",
-            fr: "Su Hong — Original",
-            en: "Su Hong — Original",
-          },
-        },
-        {
-          artistSlug: "su-hong",
-          workId: "1",
-          kind: "edition",
-          cardTitle: {
-            zh: "Su Hong — ZCP Edition",
-            fr: "Su Hong — ZCP Edition",
-            en: "Su Hong — ZCP Edition",
-          },
+          editionPriceEur: 169,
         },
       ],
     },
