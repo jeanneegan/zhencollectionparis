@@ -77,6 +77,7 @@ export type DialogueCollectionArtistOffer = {
 export type DialogueCollectionCompleteOffer = {
   editionAction: LocalizedText;
   editionProductName: LocalizedText;
+  editionProductIncludes?: LocalizedText;
   editionPriceEur?: number;
   /** Shop or editions index when no bundle product URL yet */
   editionHref?: string;
@@ -441,6 +442,20 @@ Each acquisition supports the artists' work and helps ZCP continue the next conv
           zh: "Willy Le Nalbaut · 苏泓 · Mélanie Gérin — ZCP CONVERSATION 01 — A + B",
           fr: "Willy Le Nalbaut · Su Hong · Mélanie Gérin — ZCP CONVERSATION 01 — A + B",
           en: "Willy Le Nalbaut · Su Hong · Mélanie Gérin — ZCP CONVERSATION 01 — A + B",
+        },
+        editionProductIncludes: {
+          zh: `2 幅限量版画
+1 张 Conversation Card · 对话卡
+1 份 Certificate of Authenticity · 真伪证书
+Digital access to the complete conversation · 完整对话数字访问`,
+          fr: `2 estampes en édition limitée
+1 Conversation Card
+1 Certificate of Authenticity
+Digital access to the complete conversation`,
+          en: `2 limited editions
+1 Conversation Card
+1 Certificate of Authenticity
+Digital access to the complete conversation`,
         },
         editionHref: "/editions",
       },

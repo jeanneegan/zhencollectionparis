@@ -122,6 +122,7 @@ export type CollectionCompleteOffer = {
   editionHref: string;
   editionAction: LocalizedText;
   editionProductName: LocalizedText;
+  editionProductIncludes?: LocalizedText;
   editionPriceEur?: number;
 };
 
@@ -152,7 +153,7 @@ function CollectionCompleteOfferRow({
 }) {
   return (
     <div className="border border-stone-200 bg-white px-5 py-6 text-center md:px-6 md:py-7">
-      <div className="space-y-1">
+      <div className="space-y-3">
         <Link
           href={offer.editionHref}
           className="text-[11px] font-medium tracking-[0.1em] text-stone-800 underline decoration-stone-300 underline-offset-4 transition-colors hover:text-[#5a2323] hover:decoration-[#5a2323]"
@@ -162,6 +163,11 @@ function CollectionCompleteOfferRow({
         <p className="text-[10px] tracking-[0.08em] text-stone-500">
           {t(offer.editionProductName, locale)}
         </p>
+        {offer.editionProductIncludes ? (
+          <p className="whitespace-pre-line text-[10px] leading-[1.85] tracking-[0.06em] text-stone-500">
+            {t(offer.editionProductIncludes, locale)}
+          </p>
+        ) : null}
       </div>
     </div>
   );

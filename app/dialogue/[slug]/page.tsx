@@ -168,6 +168,9 @@ export default async function DialoguePage({ params }: PageProps) {
       editionHref: completeConfig.editionHref ?? "/editions",
       editionAction: completeConfig.editionAction,
       editionProductName: completeConfig.editionProductName,
+      ...(completeConfig.editionProductIncludes
+        ? { editionProductIncludes: completeConfig.editionProductIncludes }
+        : {}),
       ...(completeConfig.editionPriceEur != null
         ? { editionPriceEur: completeConfig.editionPriceEur }
         : {}),
