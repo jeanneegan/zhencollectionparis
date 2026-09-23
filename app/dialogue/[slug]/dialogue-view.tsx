@@ -119,7 +119,6 @@ export type CollectionArtistRow = {
 };
 
 export type CollectionCompleteOffer = {
-  panels: { image: string; alt: string; aspect: [number, number] }[];
   editionHref: string;
   editionAction: LocalizedText;
   editionProductName: LocalizedText;
@@ -152,41 +151,20 @@ function CollectionCompleteOfferRow({
   locale: Locale;
 }) {
   return (
-    <div className="flex flex-col gap-6 border border-stone-200 bg-white p-5 sm:flex-row sm:items-center sm:gap-8 md:p-6">
-      <div className="mx-auto w-full max-w-md shrink-0 overflow-hidden border border-stone-200 bg-stone-100 sm:mx-0 sm:max-w-[440px]">
-        <div className="grid grid-cols-2 divide-x divide-stone-200">
-          {offer.panels.map((panel) => (
-            <div
-              key={panel.image}
-              className="relative min-h-[160px] w-full bg-stone-100"
-              style={{ aspectRatio: `${panel.aspect[0]} / ${panel.aspect[1]}` }}
-            >
-              <Image
-                src={panel.image}
-                alt={panel.alt}
-                fill
-                className="object-contain object-center"
-                sizes="(max-width: 768px) 45vw, 220px"
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="min-w-0 flex-1 space-y-4 text-center sm:text-left">
-        <div className="space-y-1">
-          <Link
-            href={offer.editionHref}
-            className="text-[11px] font-medium tracking-[0.1em] text-stone-800 underline decoration-stone-300 underline-offset-4 transition-colors hover:text-[#5a2323] hover:decoration-[#5a2323]"
-          >
-            {t(offer.editionAction, locale)}
-          </Link>
-          <p className="text-[10px] tracking-[0.08em] text-stone-500">
-            {t(offer.editionProductName, locale)}
-            {offer.editionPriceEur != null
-              ? ` · ${formatCollectionPrice(offer.editionPriceEur)}`
-              : null}
-          </p>
-        </div>
+    <div className="border border-stone-200 bg-white px-5 py-6 text-center md:px-6 md:py-7">
+      <div className="space-y-1">
+        <Link
+          href={offer.editionHref}
+          className="text-[11px] font-medium tracking-[0.1em] text-stone-800 underline decoration-stone-300 underline-offset-4 transition-colors hover:text-[#5a2323] hover:decoration-[#5a2323]"
+        >
+          {t(offer.editionAction, locale)}
+        </Link>
+        <p className="text-[10px] tracking-[0.08em] text-stone-500">
+          {t(offer.editionProductName, locale)}
+          {offer.editionPriceEur != null
+            ? ` · ${formatCollectionPrice(offer.editionPriceEur)}`
+            : null}
+        </p>
       </div>
     </div>
   );
