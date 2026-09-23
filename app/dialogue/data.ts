@@ -446,15 +446,15 @@ Each acquisition supports the artists' work and helps ZCP continue the next conv
         editionProductIncludes: {
           zh: `2 幅限量版画
 1 张 Conversation Card · 对话卡
-1 份 Certificate of Authenticity · 真伪证书
+1 份作品收藏证书
 Digital access to the complete conversation · 完整对话数字访问`,
           fr: `2 estampes en édition limitée
 1 Conversation Card
-1 Certificate of Authenticity
+1 certificat de collection d'œuvre · 作品收藏证书
 Digital access to the complete conversation`,
           en: `2 limited editions
 1 Conversation Card
-1 Certificate of Authenticity
+1 Artwork Collection Certificate · 作品收藏证书
 Digital access to the complete conversation`,
         },
         editionHref: "/editions",
