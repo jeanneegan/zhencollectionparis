@@ -566,11 +566,6 @@ export function ArtistPassport({
   const isChineseArtist = artist.nationality.en === "Chinese";
   const chinaText = t(artist.whyChinaFrance.china, locale);
   const franceText = t(artist.whyChinaFrance.france, locale);
-  const hopeToLeaveText = t(artist.hopeToLeave, locale);
-  const cultureQuestionLabel = isFrenchArtist ? l.whyChina : l.whyFrance;
-  const cultureQuestionText = isFrenchArtist ? chinaText : franceText;
-  const hasCollectionQuestions =
-    Boolean(cultureQuestionText) || Boolean(hopeToLeaveText);
   const pageWrap = member ? "w-full" : "mx-auto max-w-7xl";
   const passportArtworks = getArtistPassportArtworks(artist);
   const hasPortrait = Boolean(artist.portrait);
@@ -634,36 +629,9 @@ export function ArtistPassport({
               </>
             ) : null}
 
-            {(isFrenchArtist || isChineseArtist) && hasCollectionQuestions ? (
-              <div className={member ? "mt-8" : "mt-10"}>
-                <SectionTitle>{l.collectionQuestions}</SectionTitle>
-                <div className="mt-8 max-w-3xl space-y-10 border-l border-stone-200 pl-6 md:pl-8">
-                  <div>
-                    <p className={passportType.meta}>{cultureQuestionLabel}</p>
-                    {cultureQuestionText ? (
-                      <div className="mt-4 space-y-4">
-                        <ProseParagraphs
-                          text={cultureQuestionText}
-                          className={passportType.bodyStrong}
-                        />
-                      </div>
-                    ) : null}
-                  </div>
-                  <div>
-                    <p className={passportType.meta}>{l.hopeToLeave}</p>
-                    {hopeToLeaveText ? (
-                      <div className="mt-4 space-y-4">
-                        <ProseParagraphs text={hopeToLeaveText} />
-                      </div>
-                    ) : null}
-                  </div>
-                </div>
-              </div>
-            ) : null}
-
             <dl
               className={`grid grid-cols-2 gap-x-8 gap-y-6 ${
-                member ? "mt-8" : "mt-12"
+                member ? "" : "mt-12"
               }`}
             >
               {artist.birthYear ? (

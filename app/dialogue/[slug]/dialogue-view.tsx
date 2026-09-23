@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Noto_Serif_SC } from "next/font/google";
+import { ArtistCollectionQuestionsBlock } from "@/app/components/artist-collection-questions-block";
 import { DialogueEpisodeNav } from "@/app/components/dialogue-episode-nav";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
 import { BRAND_LOGO_SRC } from "@/app/components/site-brand-logo";
@@ -37,6 +38,7 @@ const labels: Record<
     episode: string;
     episodeNum: string;
     sharedQuestion: string;
+    collectionQuestions: string;
     willyToSuHong: string;
     suHongToWilly: string;
     observerQuestions: string;
@@ -54,6 +56,8 @@ const labels: Record<
     episodeNum: "对话第{n}期",
     sharedQuestion:
       "Question commune · Zhen Collection Paris｜巴黎臻藏共同问题",
+    collectionQuestions:
+      "Questions · Zhen Collection Paris｜巴黎臻藏的提问",
     willyToSuHong: "Willy Le Nalbaut → Su Hong｜Willy 向苏泓提问",
     suHongToWilly: "Su Hong → Willy Le Nalbaut｜苏泓向 Willy 提问",
     observerQuestions: "Questions des observateurs｜观察者提问",
@@ -72,6 +76,8 @@ const labels: Record<
     episodeNum: "对话第{n}期",
     sharedQuestion:
       "Question commune · Zhen Collection Paris｜巴黎臻藏共同问题",
+    collectionQuestions:
+      "Questions · Zhen Collection Paris｜巴黎臻藏的提问",
     willyToSuHong: "Willy Le Nalbaut → Su Hong｜Willy 向苏泓提问",
     suHongToWilly: "Su Hong → Willy Le Nalbaut｜苏泓向 Willy 提问",
     observerQuestions: "Questions des observateurs｜观察者提问",
@@ -89,6 +95,7 @@ const labels: Record<
     episode: "Conversation · Episode",
     episodeNum: "Episode {n}",
     sharedQuestion: "Shared Question · Zhen Collection Paris",
+    collectionQuestions: "Questions · Zhen Collection Paris",
     willyToSuHong: "Willy Le Nalbaut → Su Hong",
     suHongToWilly: "Su Hong → Willy Le Nalbaut",
     observerQuestions: "Observer Questions",
@@ -404,6 +411,20 @@ export function DialogueView({
             locale={locale}
             answerPending={l.answerPending}
           />
+        </section>
+
+        <section className="mt-16 space-y-8">
+          <SectionLabel>{l.collectionQuestions}</SectionLabel>
+          <div className="space-y-6">
+            {episode.artists.map((artistSlug) => (
+              <ArtistCollectionQuestionsBlock
+                key={artistSlug}
+                artistSlug={artistSlug}
+                locale={locale}
+                serifClassName={serif.className}
+              />
+            ))}
+          </div>
         </section>
 
         <section className="mt-16 space-y-8">
