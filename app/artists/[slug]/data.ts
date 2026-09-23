@@ -2157,6 +2157,9 @@ export function formatArtworkTitle(text: LocalizedText, locale: Locale): string 
   }
 
   if (locale === "zh") {
+    if (zh && fr && zh !== fr) {
+      return `${fr} · ${zh}`;
+    }
     return zh || fr;
   }
 
