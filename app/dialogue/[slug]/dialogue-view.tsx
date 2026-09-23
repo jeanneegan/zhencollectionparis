@@ -160,7 +160,7 @@ function CollectionCompleteOfferRow({
         >
           {t(offer.editionAction, locale)}
         </Link>
-        <p className="text-[10px] tracking-[0.08em] text-stone-500">
+        <p className="whitespace-pre-line text-[10px] leading-[1.85] tracking-[0.08em] text-stone-500">
           {t(offer.editionProductName, locale)}
         </p>
         {offer.editionProductIncludes ? (

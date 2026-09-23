@@ -439,9 +439,9 @@ Each acquisition supports the artists' work and helps ZCP continue the next conv
           en: "Collect complete conversation",
         },
         editionProductName: {
-          zh: "Willy Le Nalbaut · 苏泓 · Mélanie Gérin — ZCP CONVERSATION 01 — A + B",
-          fr: "Willy Le Nalbaut · Su Hong · Mélanie Gérin — ZCP CONVERSATION 01 — A + B",
-          en: "Willy Le Nalbaut · Su Hong · Mélanie Gérin — ZCP CONVERSATION 01 — A + B",
+          zh: "Willy Le Nalbaut × 苏泓 · Regard de Mélanie Gérin\nZCP CONVERSATION 01 · A + B",
+          fr: "Willy Le Nalbaut × Su Hong · Regard de Mélanie Gérin\nZCP CONVERSATION 01 · A + B",
+          en: "Willy Le Nalbaut × Su Hong · Regard de Mélanie Gérin\nZCP CONVERSATION 01 · A + B",
         },
         editionProductIncludes: {
           zh: `2 幅限量版画
