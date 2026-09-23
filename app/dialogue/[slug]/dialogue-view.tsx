@@ -49,7 +49,6 @@ const labels: Record<
     publicMessagesScope: string;
     participate: string;
     participateNote: string;
-    participateLink: string;
     works: string;
     answerPending: string;
   }
@@ -68,7 +67,6 @@ const labels: Record<
     participate: "Participer à la conversation｜报名对话",
     participateNote:
       "艺术家、观察者，如希望参与未来的对话，请发送邮件至",
-    participateLink: "Candidater · 前往报名",
     works: "Œuvres sélectionnées｜作品",
     answerPending: "Réponse · 回答 · À venir",
   },
@@ -86,7 +84,6 @@ const labels: Record<
     participate: "Participer à la conversation｜报名对话",
     participateNote:
       "Artistes, observateurs — pour participer à une prochaine conversation, écrivez-nous à",
-    participateLink: "Candidater · 前往报名",
     works: "Œuvres sélectionnées｜作品",
     answerPending: "Réponse · 回答 · À venir",
   },
@@ -103,7 +100,6 @@ const labels: Record<
     participate: "Join a Conversation",
     participateNote:
       "Artists and observers — to join a future conversation, please email us at",
-    participateLink: "Apply",
     works: "Selected Works",
     answerPending: "Answer · Coming soon",
   },
@@ -737,9 +733,9 @@ export function DialogueView({
           </section>
         ) : null}
 
-        <section className="mt-16 border border-stone-200 bg-white px-6 py-8">
+        <section className="mt-16 space-y-6">
           <SectionLabel>{l.participate}</SectionLabel>
-          <p className={`mt-6 text-center ${dt.note}`}>
+          <p className={`text-center ${dt.note}`}>
             {l.participateNote}{" "}
             <a
               href={`mailto:${zcpContactEmail}`}
@@ -749,12 +745,6 @@ export function DialogueView({
             </a>
             {locale === "zh" ? "。" : "."}
           </p>
-          <div className="mt-6 flex justify-center">
-            <Link href="/participer" className={dt.cta}>
-              {l.participateLink}
-              <span aria-hidden>→</span>
-            </Link>
-          </div>
         </section>
 
         <PageBottomNav locale={locale} />
