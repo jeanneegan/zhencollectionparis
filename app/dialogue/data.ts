@@ -357,17 +357,20 @@ The work also conveys an upward spirit: the horse's exuberance stands for courag
     ],
     collectionSupport: {
       sectionTitle: {
-        zh: "收藏 · 支持 ZCP",
-        fr: "COLLECTIONNER · SOUTENIR ZCP",
-        en: "COLLECT · SUPPORT ZCP",
+        zh: "COLLECTIONNER LA CONVERSATION · 收藏这场对话",
+        fr: "COLLECTIONNER LA CONVERSATION · 收藏这场对话",
+        en: "COLLECT THE CONVERSATION · 收藏这场对话",
       },
       body: {
-        zh: `本期对话中的两件 Selected Works 原作，以及由作品创作的 ZCP Editions，可供收藏。
-每一次收藏，都支持艺术家的创作，也支持 ZCP 继续开展下一场对话与相遇。`,
-        fr: `Les deux œuvres sélectionnées de cette conversation, ainsi que leurs éditions ZCP, sont disponibles à la collection.
-Chaque acquisition soutient le travail des artistes et permet à ZCP de poursuivre de nouvelles conversations et de nouvelles rencontres.`,
-        en: `The two selected works from this conversation, and their ZCP Editions, are available to collect.
-Each acquisition supports the artists' work and helps ZCP continue new conversations and new encounters.`,
+        zh: `收藏本期两位艺术家的原作，或收藏为本次对话特别制作的 ZCP 限量对话版画。
+
+每一次收藏，都支持艺术家的创作，也支持 ZCP 继续下一场对话。`,
+        fr: `Collectionnez les originaux des deux artistes de cette conversation, ou les estampes en édition limitée ZCP, spécialement réalisées pour ce dialogue.
+
+Chaque acquisition soutient le travail des artistes et permet à ZCP de poursuivre la prochaine conversation.`,
+        en: `Collect the originals by the two artists in this conversation, or the ZCP limited dialogue prints made especially for this episode.
+
+Each acquisition supports the artists' work and helps ZCP continue the next conversation.`,
       },
       originalAction: {
         zh: "收藏原作",
@@ -375,9 +378,9 @@ Each acquisition supports the artists' work and helps ZCP continue new conversat
         en: "Collect original",
       },
       editionAction: {
-        zh: "收藏限量版画",
-        fr: "Collectionner l'estampe en édition limitée",
-        en: "Collect limited edition print",
+        zh: "收藏限量对话版画",
+        fr: "Collectionner l'estampe dialogue ZCP",
+        en: "Collect ZCP dialogue print",
       },
       artists: [
         {
