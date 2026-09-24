@@ -1,6 +1,6 @@
 "use client";
 
-import { Noto_Serif_SC } from "next/font/google";
+import { notoSerifSc as serif } from "@/app/lib/noto-serif-sc";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
 import { PageBottomNav } from "@/app/components/page-bottom-nav";
 import { SiteFooter } from "@/app/components/site-footer";
@@ -8,10 +8,6 @@ import { SiteHeader } from "@/app/components/site-header";
 import type { Locale } from "@/app/artists/[slug]/data";
 import { useLocale } from "@/app/lib/use-locale";
 
-const serif = Noto_Serif_SC({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-});
 
 const proseClass = "text-sm leading-[2] text-stone-700 md:text-base";
 const calloutClass = "text-sm font-medium leading-[2] text-stone-800 md:text-base";

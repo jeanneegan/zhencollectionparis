@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Noto_Serif_SC } from "next/font/google";
+import { notoSerifSc as serif } from "@/app/lib/noto-serif-sc";
 import {
   formatArtworkTitle,
   getArtistBySlug,
@@ -15,10 +15,6 @@ import {
   type DialogueEpisode,
 } from "@/app/dialogue/data";
 
-const serif = Noto_Serif_SC({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-});
 
 const conversationLabels: Record<
   Locale,

@@ -1,13 +1,9 @@
 "use client";
 
-import { Noto_Serif_SC } from "next/font/google";
+import { notoSerifSc as serif } from "@/app/lib/noto-serif-sc";
 import { MemberWorkspaceLayout } from "@/app/components/member-workspace-layout";
 import type { MockMember } from "@/app/lib/auth";
 
-const serif = Noto_Serif_SC({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-});
 
 const prevailingNotice = {
   fr: [

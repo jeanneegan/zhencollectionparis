@@ -1,6 +1,6 @@
 "use client";
 
-import { Noto_Serif_SC } from "next/font/google";
+import { notoSerifSc as serif } from "@/app/lib/noto-serif-sc";
 import { DialogueCurrentSpotlight } from "@/app/components/dialogue-current-spotlight";
 import { DialogueEpisodeList } from "@/app/components/dialogue-episode-list";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
@@ -11,10 +11,6 @@ import type { Locale } from "@/app/artists/[slug]/data";
 import type { DialogueEpisode } from "@/app/dialogue/data";
 import { useLocale } from "@/app/lib/use-locale";
 
-const serif = Noto_Serif_SC({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-});
 
 const pageLabels: Record<
   Locale,

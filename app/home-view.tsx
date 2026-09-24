@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Noto_Serif_SC } from "next/font/google";
+import { notoSerifSc as serif } from "@/app/lib/noto-serif-sc";
 import { getArtistBySlug, t, type Locale } from "@/app/artists/[slug]/data";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
 import { SiteFooter } from "@/app/components/site-footer";
@@ -11,10 +11,6 @@ import { DialogueCurrentSpotlight } from "@/app/components/dialogue-current-spot
 import { getEditionShopUrl, getLatestEdition } from "@/app/edition/data";
 import { useLocale } from "@/app/lib/use-locale";
 
-const serif = Noto_Serif_SC({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-});
 
 const spotlightLabels: Record<
   Locale,

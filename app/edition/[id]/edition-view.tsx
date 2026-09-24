@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Noto_Serif_SC } from "next/font/google";
+import { notoSerifSc as serif } from "@/app/lib/noto-serif-sc";
 import {
   getArtistBySlug,
   getArtworkDisplayLayout,
@@ -26,10 +26,6 @@ import {
 } from "@/app/lib/edition-copy-passport";
 import { useLocale } from "@/app/lib/use-locale";
 
-const serif = Noto_Serif_SC({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-});
 
 const pageLabels: Record<
   Locale,

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Noto_Serif_SC } from "next/font/google";
+import { notoSerifSc as serif } from "@/app/lib/noto-serif-sc";
 import { ArtistCollectionQuestionsBlock } from "@/app/components/artist-collection-questions-block";
 import { DialogueEpisodeNav } from "@/app/components/dialogue-episode-nav";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
@@ -30,10 +30,6 @@ import {
 import { dialogueType as dt } from "../dialogue-typography";
 import type { DialoguePublicMessage } from "@/app/lib/dialogue-messages-store";
 
-const serif = Noto_Serif_SC({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-});
 
 const labels: Record<
   Locale,

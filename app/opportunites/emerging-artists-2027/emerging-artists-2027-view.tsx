@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Noto_Serif_SC } from "next/font/google";
+import { notoSerifSc as serif } from "@/app/lib/noto-serif-sc";
 import { type Locale } from "@/app/artists/[slug]/data";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
 import { PageBottomNav } from "@/app/components/page-bottom-nav";
@@ -19,10 +19,6 @@ import {
   tProgramme,
 } from "./data";
 
-const serif = Noto_Serif_SC({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-});
 
 const labels: Record<
   Locale,
