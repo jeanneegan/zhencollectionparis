@@ -386,6 +386,7 @@ function ArtworkCard({
         imageAspect: artwork.imageAspect,
       },
     ] as const);
+  const viewsWithImages = views.filter((view) => view.src.trim().length > 0);
   const showViewLabels = Boolean(
     artwork.views?.some(
       (view) => view.label && (view.label.zh || view.label.fr || view.label.en),
@@ -394,56 +395,58 @@ function ArtworkCard({
 
   return (
     <article className={`group ${articleClass || layout.articleClass}`}>
-      <div
-        className={`grid gap-4 ${
-          views.length > 1
-            ? artwork.viewsLayout === "stack"
-              ? ""
-              : artwork.viewsLayout === "row"
-                ? "grid-cols-2"
-                : "sm:grid-cols-2"
-            : ""
-        }`}
-      >
-        {views.map((view) => {
-          const viewLayout = getArtworkDisplayLayout({
-            dimensions: artwork.dimensions,
-            imageAspect: view.imageAspect ?? artwork.imageAspect,
-            layoutPair: artwork.layoutPair,
-            displayLayout: artwork.displayLayout,
-            viewsLayout: artwork.viewsLayout,
-            views: artwork.views,
-          });
+      {viewsWithImages.length > 0 ? (
+        <div
+          className={`grid gap-4 ${
+            viewsWithImages.length > 1
+              ? artwork.viewsLayout === "stack"
+                ? ""
+                : artwork.viewsLayout === "row"
+                  ? "grid-cols-2"
+                  : "sm:grid-cols-2"
+              : ""
+          }`}
+        >
+          {viewsWithImages.map((view, index) => {
+            const viewLayout = getArtworkDisplayLayout({
+              dimensions: artwork.dimensions,
+              imageAspect: view.imageAspect ?? artwork.imageAspect,
+              layoutPair: artwork.layoutPair,
+              displayLayout: artwork.displayLayout,
+              viewsLayout: artwork.viewsLayout,
+              views: artwork.views,
+            });
 
-          return (
-            <div key={view.src}>
-              {showViewLabels && view.label ? (
-                <p
-                  className={`mb-2 text-center ${passportType.caption} uppercase tracking-[0.15em]`}
+            return (
+              <div key={view.src || `view-${index}`}>
+                {showViewLabels && view.label ? (
+                  <p
+                    className={`mb-2 text-center ${passportType.caption} uppercase tracking-[0.15em]`}
+                  >
+                    {t(view.label, locale)}
+                  </p>
+                ) : null}
+                <div
+                  className="relative w-full overflow-hidden bg-stone-100"
+                  style={viewLayout.frameStyle}
                 >
-                  {t(view.label, locale)}
-                </p>
-              ) : null}
-              <div
-                className="relative w-full overflow-hidden bg-stone-100"
-                style={viewLayout.frameStyle}
-              >
-                <Image
-                  src={view.src}
-                  alt={
-                    showViewLabels && view.label
-                      ? `${formatArtworkTitle(artwork.title, locale)} · ${t(view.label, locale)}`
-                      : formatArtworkTitle(artwork.title, locale)
-                  }
-                  fill
-                  className="object-contain object-center transition-transform duration-700 group-hover:scale-[1.01]"
-                  sizes={viewLayout.imageSizes}
-                />
+                  <Image
+                    src={view.src}
+                    alt={
+                      showViewLabels && view.label
+                        ? `${formatArtworkTitle(artwork.title, locale)} · ${t(view.label, locale)}`
+                        : formatArtworkTitle(artwork.title, locale)
+                    }
+                    fill
+                    className="object-contain object-center transition-transform duration-700 group-hover:scale-[1.01]"
+                    sizes={viewLayout.imageSizes}
+                  />
+                </div>
               </div>
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+        </div>
+      ) : null}
       <div className="mt-5">
         <h3 className={passportType.artworkTitle}>
           {formatArtworkTitle(artwork.title, locale)}

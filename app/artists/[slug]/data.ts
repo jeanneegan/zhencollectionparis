@@ -2400,7 +2400,7 @@ const liShi: ArtistProfile = {
     en: "Oil painting · wood panel · paper · contemporary art",
   },
   representedBy: { zh: "", fr: "", en: "" },
-  portrait: "/artists/li-shi/portrait.jpg",
+  portrait: "",
   tagline: {
     zh: "从「人与人的关系」出发，以强烈的表现主义笔触构建粘稠又犀利的精神世界。",
     fr: "Partant des relations humaines, elle construit un monde intérieur visqueux et incisif dans un expressionnisme affirmé.",
@@ -2744,8 +2744,6 @@ This series has been created since mid-2023. The changes in environment and mood
         en: "Oil on canvas",
       },
       dimensions: "320 × 280 cm",
-      image: "/artists/li-shi/works/colorful-abyss-2025.jpg",
-      imageAspect: [320, 280],
       seriesId: "unseen-substance",
     },
     {
@@ -2762,8 +2760,6 @@ This series has been created since mid-2023. The changes in environment and mood
         en: "Oil on canvas",
       },
       dimensions: "180 × 160 cm",
-      image: "/artists/li-shi/works/unseen-wall-2026.jpg",
-      imageAspect: [180, 160],
       seriesId: "unseen-substance",
     },
     {
@@ -2780,8 +2776,6 @@ This series has been created since mid-2023. The changes in environment and mood
         en: "Oil on canvas",
       },
       dimensions: "150 × 120 cm",
-      image: "/artists/li-shi/works/red-rain-june-2026.jpg",
-      imageAspect: [150, 120],
       seriesId: "unseen-substance",
     },
     {
@@ -2798,8 +2792,6 @@ This series has been created since mid-2023. The changes in environment and mood
         en: "Oil on canvas",
       },
       dimensions: "200 × 160 cm",
-      image: "/artists/li-shi/works/entangled-2025.jpg",
-      imageAspect: [200, 160],
       seriesId: "dance-stalemate",
     },
     {
@@ -2816,10 +2808,7 @@ This series has been created since mid-2023. The changes in environment and mood
         en: "Oil on canvas",
       },
       dimensions: "300 × 200 cm",
-      image: "/artists/li-shi/works/heaven-deep-green-2024.jpg",
-      imageAspect: [300, 200],
       seriesId: "deep-green",
-      displayLayout: "wide",
     },
     {
       id: "6",
@@ -2835,10 +2824,7 @@ This series has been created since mid-2023. The changes in environment and mood
         en: "Oil on canvas",
       },
       dimensions: "160 × 90 cm",
-      image: "/artists/li-shi/works/dance-stalemate-5-2023.jpg",
-      imageAspect: [160, 90],
       seriesId: "dance-stalemate",
-      displayLayout: "wide",
     },
     {
       id: "7",
@@ -2854,10 +2840,7 @@ This series has been created since mid-2023. The changes in environment and mood
         en: "Oil on canvas",
       },
       dimensions: "1500 × 200 cm",
-      image: "/artists/li-shi/works/outside-vat-2024.jpg",
-      imageAspect: [1500, 200],
       seriesId: "dance-stalemate",
-      displayLayout: "wide",
     },
   ],
   professionalReputation: {
