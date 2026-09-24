@@ -2048,7 +2048,7 @@ const liShi: ArtistProfile = {
   },
   studioPhoto: "/artists/li-shi/studio.jpg",
   representedBy: { zh: "", fr: "", en: "" },
-  portrait: "",
+  portrait: "/artists/li-shi/portrait.jpg",
   tagline: {
     zh: "从「人与人的关系」出发，以强烈的表现主义笔触构建粘稠又犀利的精神世界。",
     fr: "Partant des relations humaines, elle construit un monde intérieur visqueux et incisif dans un expressionnisme affirmé.",
