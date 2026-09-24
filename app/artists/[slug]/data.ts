@@ -2437,6 +2437,7 @@ This series has been created since mid-2023. The changes in environment and mood
       dimensions: "100 × 100 cm",
       image: "/artists/li-shi/works/the-secluded-place-2025.jpg",
       imageAspect: [100, 100],
+      displayLayout: "half",
       seriesId: "deep-green",
     },
     {
@@ -2538,6 +2539,7 @@ This series has been created since mid-2023. The changes in environment and mood
       dimensions: "70 × 50 cm",
       image: "/artists/li-shi/works/the-dance-of-stalemate-no-8-2023.jpg",
       imageAspect: [70, 50],
+      displayLayout: "half",
       seriesId: "dance-stalemate",
     },
     {
@@ -2557,6 +2559,7 @@ This series has been created since mid-2023. The changes in environment and mood
       dimensions: "70 × 50 cm",
       image: "/artists/li-shi/works/the-dance-of-stalemate-no-13-2023.jpg",
       imageAspect: [70, 50],
+      displayLayout: "half",
       seriesId: "dance-stalemate",
     },
     {
@@ -2642,9 +2645,16 @@ export function getArtworkDisplayLayout(artwork: {
   }
 
   if (artwork.displayLayout === "wide") {
-    const monumental =
-      width >= 280 && height >= 240 && width / height <= 1.2;
-    const maxHeight = monumental ? "min(72vh, 680px)" : undefined;
+    let maxHeight: string | undefined;
+    if (ratio >= 5) {
+      maxHeight = "min(36vh, 260px)";
+    } else if (ratio >= 1.85) {
+      maxHeight = "min(46vh, 340px)";
+    } else if (width >= 280 && height >= 240 && ratio <= 1.2) {
+      maxHeight = "min(72vh, 680px)";
+    } else if (ratio > 1.2) {
+      maxHeight = "min(56vh, 480px)";
+    }
 
     return {
       aspect,

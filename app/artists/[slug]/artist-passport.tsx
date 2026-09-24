@@ -495,10 +495,30 @@ function ArtworkCard({
   );
 }
 
-function liShiUnseenSubstanceGridClass(artwork: ArtistArtwork): string | undefined {
-  if (artwork.id === "1") return "md:col-span-12";
-  if (artwork.id === "2" || artwork.id === "3" || artwork.id === "8") {
-    return "md:col-span-4";
+const LI_SHI_PASSPORT_12_COL_SERIES = new Set([
+  "unseen-substance",
+  "deep-green",
+  "dance-stalemate",
+]);
+
+function liShiPassportArtworkGridClass(
+  seriesId: string,
+  artwork: ArtistArtwork,
+): string | undefined {
+  if (seriesId === "unseen-substance") {
+    if (artwork.id === "1") return "md:col-span-12";
+    if (artwork.id === "2" || artwork.id === "3" || artwork.id === "8") {
+      return "md:col-span-4";
+    }
+  }
+  if (seriesId === "deep-green") {
+    if (artwork.id === "5") return "md:col-span-12";
+    if (artwork.id === "10") return "md:col-span-8 md:col-start-1";
+    if (artwork.id === "9") return "md:col-span-4 md:max-w-md md:justify-self-end";
+  }
+  if (seriesId === "dance-stalemate") {
+    if (artwork.id === "7") return "md:col-span-12";
+    if (artwork.id === "12" || artwork.id === "11") return "md:col-span-6";
   }
   return undefined;
 }
@@ -858,8 +878,9 @@ export function ArtistPassport({
                     <div
                       className={
                         artist.slug === "li-shi" &&
-                        series?.id === "unseen-substance"
-                          ? "mt-12 grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-12 md:gap-y-16"
+                        series?.id &&
+                        LI_SHI_PASSPORT_12_COL_SERIES.has(series.id)
+                          ? "mt-12 grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-12 md:gap-y-14"
                           : "mt-12 grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2"
                       }
                     >
@@ -868,9 +889,9 @@ export function ArtistPassport({
                         locale,
                         artist.slug,
                         l.viewArtworkPassport,
-                        artist.slug === "li-shi" &&
-                          series?.id === "unseen-substance"
-                          ? liShiUnseenSubstanceGridClass
+                        artist.slug === "li-shi" && series?.id
+                          ? (item) =>
+                              liShiPassportArtworkGridClass(series.id, item)
                           : undefined,
                       )}
                     </div>
