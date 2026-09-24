@@ -4,6 +4,8 @@ export type LocalizedText = Record<Locale, string>;
 
 export type ArtistProfile = {
   slug: string;
+  /** Omit from /artists directory listing; passport may remain reachable by URL. */
+  hideFromArtistDirectory?: boolean;
   name: LocalizedText;
   birthYear?: number;
   birthplace: LocalizedText;
@@ -1929,6 +1931,7 @@ If blue-and-white is a visual sign, each traditional motif painted on a porcelai
 
 const elaineErlanWang: ArtistProfile = {
   slug: "elaine-erlan-wang",
+  hideFromArtistDirectory: true,
   name: {
     zh: "王爾蘭",
     fr: "Elaine Erlan Wang",
@@ -2133,6 +2136,10 @@ export function getArtistPassportArtworks(artist: ArtistProfile) {
 
 export function getAllArtists(): ArtistProfile[] {
   return Object.values(artists);
+}
+
+export function getArtistsForDirectory(): ArtistProfile[] {
+  return getAllArtists().filter((artist) => !artist.hideFromArtistDirectory);
 }
 
 export function getArtistBySlug(slug: string): ArtistProfile | null {

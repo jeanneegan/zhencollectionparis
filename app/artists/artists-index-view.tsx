@@ -7,7 +7,12 @@ import { LanguageSwitcher } from "@/app/components/language-switcher";
 import { PageBottomNav } from "@/app/components/page-bottom-nav";
 import { SiteFooter } from "@/app/components/site-footer";
 import { SiteHeader } from "@/app/components/site-header";
-import { getAllArtists, t, type ArtistProfile, type Locale } from "@/app/artists/[slug]/data";
+import {
+  getArtistsForDirectory,
+  t,
+  type ArtistProfile,
+  type Locale,
+} from "@/app/artists/[slug]/data";
 import { getAllCurators, type CuratorProfile } from "@/app/curators/data";
 import { useLocale } from "@/app/lib/use-locale";
 
@@ -202,7 +207,7 @@ export function ArtistsIndexView() {
   const [locale, setLocale] = useLocale();
   const [activeTab, setActiveTab] = useState<DirectoryTab>("artists");
   const l = pageLabels[locale];
-  const artists = getAllArtists();
+  const artists = getArtistsForDirectory();
   const curators = getAllCurators();
   const title = activeTab === "artists" ? l.artistsTitle : l.curatorsTitle;
 
