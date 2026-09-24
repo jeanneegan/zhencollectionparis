@@ -19,7 +19,7 @@ import {
   type Locale,
   getArtistPassportArtworks,
   getArtworkDisplayLayout,
-  formatArtworkTitle,
+  formatArtworkTitleForItem,
   t,
 } from "./data";
 
@@ -335,13 +335,13 @@ function ArtworkCard({
       <article className={`group ${articleGridClass}`}>
         <ArtworkExternalLink
           href={externalUrl}
-          title={formatArtworkTitle(artwork.title, locale)}
+          title={formatArtworkTitleForItem(artwork, locale)}
           locale={locale}
           frameStyle={layout.frameStyle}
         />
         <div className="mt-5">
           <h3 className={passportType.artworkTitle}>
-            {formatArtworkTitle(artwork.title, locale)}
+            {formatArtworkTitleForItem(artwork, locale)}
           </h3>
           {artwork.subtitle ? (
             <p className={`mt-1 ${passportType.artworkMeta} leading-relaxed`}>
@@ -441,8 +441,8 @@ function ArtworkCard({
                     src={view.src}
                     alt={
                       showViewLabels && view.label
-                        ? `${formatArtworkTitle(artwork.title, locale)} · ${t(view.label, locale)}`
-                        : formatArtworkTitle(artwork.title, locale)
+                        ? `${formatArtworkTitleForItem(artwork, locale)} · ${t(view.label, locale)}`
+                        : formatArtworkTitleForItem(artwork, locale)
                     }
                     fill
                     className="object-contain object-center transition-transform duration-700 group-hover:scale-[1.01]"
@@ -456,7 +456,7 @@ function ArtworkCard({
       ) : null}
       <div className="mt-5">
         <h3 className={passportType.artworkTitle}>
-          {formatArtworkTitle(artwork.title, locale)}
+          {formatArtworkTitleForItem(artwork, locale)}
         </h3>
         {artwork.subtitle ? (
           <p className={`mt-1 ${passportType.artworkMeta} leading-relaxed`}>

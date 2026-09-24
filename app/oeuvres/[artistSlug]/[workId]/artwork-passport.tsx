@@ -9,7 +9,7 @@ import { SiteFooter } from "@/app/components/site-footer";
 import { SiteHeader } from "@/app/components/site-header";
 import { MemberWorkspaceLayout } from "@/app/components/member-workspace-layout";
 import {
-  formatArtworkTitle,
+  formatArtworkTitleForItem,
   getArtworkDisplayLayout,
   type Locale,
 } from "@/app/artists/[slug]/data";
@@ -205,7 +205,7 @@ function ArtworkImage({
           >
             <Image
               src={view.src}
-              alt={formatArtworkTitle(passport.title, locale)}
+              alt={formatArtworkTitleForItem(passport, locale)}
               fill
               priority
               className="object-contain object-center"
@@ -252,7 +252,7 @@ export function ArtworkPassportView({
               <>
                 <p className={passportType.heroPassport}>{l.passport}</p>
                 <h1 className={`mt-4 ${passportType.heroName}`}>
-                  {formatArtworkTitle(passport.title, locale)}
+                  {formatArtworkTitleForItem(passport, locale)}
                 </h1>
                 {passport.subtitle ? (
                   <p className={`mt-4 ${passportType.heroTagline}`}>
@@ -504,7 +504,7 @@ export function ArtworkPassportView({
         <header className="border-b border-stone-200 pb-6">
           <p className={passportType.heroPassport}>{l.passport}</p>
           <h1 className={`mt-3 ${passportType.heroName}`}>
-            {formatArtworkTitle(passport.title, locale)}
+            {formatArtworkTitleForItem(passport, locale)}
           </h1>
           <p className={`mt-4 max-w-2xl ${passportType.heroTagline}`}>
             {t(passport.artistName, locale)}

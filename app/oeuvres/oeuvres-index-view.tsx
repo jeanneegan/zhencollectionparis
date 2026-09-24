@@ -2,7 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { getArtistBySlug, formatArtworkTitle, t, type Locale } from "@/app/artists/[slug]/data";
+import {
+  getArtistBySlug,
+  formatArtworkTitleForItem,
+  t,
+  type Locale,
+} from "@/app/artists/[slug]/data";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
 import { PageBottomNav } from "@/app/components/page-bottom-nav";
 import { SiteFooter } from "@/app/components/site-footer";
@@ -68,7 +73,7 @@ export function OeuvresIndexView() {
                     <div className="relative h-24 w-20 shrink-0 overflow-hidden bg-stone-100">
                       <Image
                         src={artwork.image}
-                        alt={formatArtworkTitle(artwork.title, locale)}
+                        alt={formatArtworkTitleForItem(artwork, locale)}
                         fill
                         className="object-contain"
                         sizes="80px"
@@ -80,7 +85,7 @@ export function OeuvresIndexView() {
                       {t(artist.name, locale)}
                     </p>
                     <h2 className="mt-2 text-sm font-medium text-stone-900">
-                      {formatArtworkTitle(artwork.title, locale)}
+                      {formatArtworkTitleForItem(artwork, locale)}
                     </h2>
                     <p className="mt-1 text-xs text-stone-500">
                       {artwork.year} · {t(artwork.medium, locale)}

@@ -38,6 +38,7 @@ export type ArtworkPassport = {
   initiatedBy: LocalizedText;
   initiatedYear: number;
   title: LocalizedText;
+  titleDisplay?: "locale";
   subtitle?: LocalizedText;
   description?: LocalizedText;
   year: number;
@@ -361,6 +362,7 @@ export function getArtworkPassport(
     initiatedBy: ZCP_INITIATOR,
     initiatedYear: enrichment?.initiatedYear ?? holding.acquiredYear,
     title: artwork.title,
+    titleDisplay: artwork.titleDisplay,
     subtitle: artwork.subtitle,
     description: enrichment?.description ?? artwork.description,
     year: artwork.year,

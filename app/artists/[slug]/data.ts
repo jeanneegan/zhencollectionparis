@@ -87,6 +87,8 @@ export type ArtistProfile = {
     };
     displayLayout?: "compact" | "wide" | "half";
     viewsLayout?: "row" | "stack";
+    /** Show only the active locale’s title (zh / fr / en), not mixed lines. */
+    titleDisplay?: "locale";
     hideOnPassport?: boolean;
   }[];
   professionalReputation: {
@@ -2382,9 +2384,10 @@ This series has been created since mid-2023. The changes in environment and mood
       id: "1",
       title: {
         zh: "在 3:30 望见彩色深渊",
-        fr: "I Saw a Colorful Abyss at 3:30",
+        fr: "À 3 h 30, j'ai vu un abîme coloré",
         en: "I Saw a Colorful Abyss at 3:30",
       },
+      titleDisplay: "locale",
       year: 2025,
       medium: {
         zh: "布面油画",
@@ -2401,9 +2404,10 @@ This series has been created since mid-2023. The changes in environment and mood
       id: "2",
       title: {
         zh: "有某种物质在膨胀并筑成一道墙",
-        fr: "Unseen Substance Expanding into Invisible Wall",
+        fr: "Une matière invisible s'étend et dresse un mur",
         en: "Unseen Substance Expanding into Invisible Wall",
       },
+      titleDisplay: "locale",
       year: 2026,
       medium: {
         zh: "布面油画",
@@ -2421,9 +2425,10 @@ This series has been created since mid-2023. The changes in environment and mood
       id: "3",
       title: {
         zh: "六月有红雨",
-        fr: "Red Rain in June",
+        fr: "Pluie rouge en juin",
         en: "Red Rain in June",
       },
+      titleDisplay: "locale",
       year: 2026,
       medium: {
         zh: "布面油画",
@@ -2440,9 +2445,10 @@ This series has been created since mid-2023. The changes in environment and mood
       id: "8",
       title: {
         zh: "请赤身穿过这片洞穴",
-        fr: "Veuillez traverser ces grottes — le paradis que j'ai peint pour vous",
+        fr: "Traversez ces grottes, légèrement — c'est le paradis que j'ai peint pour vous",
         en: "Please pass through these caves with a light posture, it is the paradise I have painted for you.",
       },
+      titleDisplay: "locale",
       year: 2025,
       medium: {
         zh: "布面油画",
@@ -2693,10 +2699,20 @@ export function t(text: LocalizedText, locale: Locale): string {
   return text[locale];
 }
 
-export function formatArtworkTitle(text: LocalizedText, locale: Locale): string {
+export function formatArtworkTitle(
+  text: LocalizedText,
+  locale: Locale,
+  display: "default" | "locale" = "default",
+): string {
   const zh = text.zh.trim();
   const fr = text.fr.trim();
   const en = text.en.trim();
+
+  if (display === "locale") {
+    const primary =
+      locale === "zh" ? zh : locale === "fr" ? fr : en;
+    return primary || en || fr || zh;
+  }
 
   if (locale === "en") {
     return en || fr;
@@ -2714,4 +2730,15 @@ export function formatArtworkTitle(text: LocalizedText, locale: Locale): string 
   }
 
   return fr;
+}
+
+export function formatArtworkTitleForItem(
+  item: { title: LocalizedText; titleDisplay?: "locale" },
+  locale: Locale,
+): string {
+  return formatArtworkTitle(
+    item.title,
+    locale,
+    item.titleDisplay === "locale" ? "locale" : "default",
+  );
 }
