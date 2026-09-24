@@ -2011,10 +2011,374 @@ const elaineErlanWang: ArtistProfile = {
   },
 };
 
+const liShi: ArtistProfile = {
+  slug: "li-shi",
+  name: {
+    zh: "李诗",
+    fr: "Li Shi",
+    en: "Li Shi",
+  },
+  birthYear: 1990,
+  birthplace: {
+    zh: "中国 · 广东湛江",
+    fr: "Chine · Zhanjiang (Guangdong)",
+    en: "China · Zhanjiang, Guangdong",
+  },
+  currentCity: {
+    zh: "深圳",
+    fr: "Shenzhen",
+    en: "Shenzhen",
+  },
+  nationality: {
+    zh: "中国",
+    fr: "Chinoise",
+    en: "Chinese",
+  },
+  practice: {
+    zh: "油画 · 木板 · 纸本 · 当代艺术",
+    fr: "Peinture à l'huile · bois · papier · art contemporain",
+    en: "Oil painting · wood panel · paper · contemporary art",
+  },
+  representedBy: { zh: "", fr: "", en: "" },
+  portrait: "/artists/li-shi/portrait.jpg",
+  tagline: {
+    zh: "从「人与人的关系」出发，以强烈的表现主义笔触构建粘稠又犀利的精神世界。",
+    fr: "Partant des relations humaines, elle construit un monde intérieur visqueux et incisif dans un expressionnisme affirmé.",
+    en: "Starting from human relationships, she builds a viscous yet razor-sharp inner world in an uncompromising Expressionist register.",
+  },
+  contact: {
+    email: "",
+    website: "",
+    instagram: "",
+    wechat: "",
+  },
+  education: [
+    {
+      year: "",
+      institution: {
+        zh: "深圳大学艺术设计学院",
+        fr: "École d'art et de design, Université de Shenzhen",
+        en: "School of Art and Design, Shenzhen University",
+      },
+      degree: {
+        zh: "环境艺术设计",
+        fr: "Art et design environnemental",
+        en: "Environmental Art and Design",
+      },
+      city: { zh: "深圳", fr: "Shenzhen", en: "Shenzhen" },
+    },
+  ],
+  galleries: [],
+  artistStatement: {
+    zh: `李诗（b.1990），毕业于深圳大学艺术设计学院环境艺术设计专业。出生于广东湛江，童年随父母移居深圳并生活至今。她从小在南头九街（现南头古城）长大，深圳作为移民城市的多元特质，使她的成长深受本土文化与外来文化双重浸润，这一特性也贯穿其创作。
+
+大学毕业后从事数年插画工作，2018 年起成为独立艺术家。早期以极具个人特色的插画语言为主；2023—2024 年完成艺术语言的迭代，持续在当代艺术领域探索。
+
+作品充满动势与情感张力，在技法、构图与概念上构建复杂的精神世界，并以毫不妥协的表现主义方式呈现。创作由观察「人与人的关系」起步，逐步深入「存在」议题：朦胧人体、零碎肢体、灵动笔触与层层肌理，诠释情感扭曲与心理冲突，又揉合成合理而粘稠、犀利的画面空间。`,
+    fr: `Li Shi (née en 1990) est diplômée en art et design environnemental de l'École d'art et de design de l'Université de Shenzhen. Née à Zhanjiang (Guangdong), elle s'installe enfant à Shenzhen avec sa famille et y vit depuis. Élevée dans le quartier de Nantou Jiujie (aujourd'hui la vieille ville de Nantou), elle a grandi au carrefour des cultures locales et migrantes propres à Shenzhen — un mélange qui traverse son œuvre.
+
+Après plusieurs années d'illustration professionnelle, elle devient artiste indépendante en 2018. Ses débuts reposent sur une illustration très personnelle ; entre 2023 et 2024, elle renouvelle son langage et poursuit une exploration en art contemporain.
+
+Ses toiles allient énergie cinétique et intensité émotionnelle. Technique, composition et concept composent un monde intérieur dense, rendu sans concession dans un expressionnisme affirmé. Partant des relations humaines, elle approfondit les thèmes existentiels : silhouettes floues, membres fragmentés, gestes fluides et textures superposées traduisent distorsions affectives et conflits psychiques, réunies en un espace pictural cohérent — visqueux et incisif.`,
+    en: `Li Shi (b. 1990) graduated in Environmental Art and Design from the School of Art and Design, Shenzhen University. Born in Zhanjiang, Guangdong, she moved to Shenzhen with her family in childhood and has lived there since. Raised in Nantou Ancient Town (formerly Nantou Jiujie), she grew up within Shenzhen's migrant, multicultural fabric — a blend that runs through her work.
+
+After several years as a professional illustrator, she became an independent artist in 2018. Her early practice was rooted in a highly personal illustrative style; between 2023 and 2024 she evolved her language and continues to explore contemporary art.
+
+Her works combine kinetic energy and emotional intensity. Technique, composition, and concept build a layered inner world rendered in unflinching Expressionism. Starting from observations of human connection, she moves toward existential themes: blurred bodies, fragmented limbs, fluid brushwork, and stacked textures express distortion and conflict, yet fuse into a coherent pictorial space — viscous and razor-sharp.`,
+  },
+  whyChinaFrance: {
+    china: {
+      zh: "南头古城与深圳移民城市的日常，是她观察关系、羁绊与存在的起点。",
+      fr: "La vieille ville de Nantou et le quotidien d'une Shenzhen migrante sont le point de départ de sa réflexion sur les relations, les liens et l'existence.",
+      en: "Nantou Ancient Town and everyday life in migrant Shenzhen are where she begins observing relationships, bonds, and existence.",
+    },
+    france: { zh: "", fr: "", en: "" },
+  },
+  hopeToLeave: { zh: "", fr: "", en: "" },
+  careerTimeline: [
+    {
+      year: "2018",
+      title: {
+        zh: "独立艺术家",
+        fr: "Artiste indépendante",
+        en: "Independent artist",
+      },
+      description: {
+        zh: "结束插画工作后开始个人创作。",
+        fr: "Début de la pratique autonome après plusieurs années d'illustration.",
+        en: "Began independent studio practice after years in illustration.",
+      },
+    },
+    {
+      year: "2023—2024",
+      title: {
+        zh: "语言转型",
+        fr: "Renouvellement du langage",
+        en: "Artistic transition",
+      },
+      description: {
+        zh: "由插画转向当代艺术，启动《胶着的舞蹈》等系列。",
+        fr: "Passage de l'illustration à l'art contemporain ; début de la série « The Dance of Stalemate ».",
+        en: "Shift from illustration to contemporary art; launch of the 'Dance of Stalemate' series.",
+      },
+    },
+  ],
+  exhibitions: [
+    {
+      year: 2024,
+      title: {
+        zh: "胶着的舞蹈",
+        fr: "The Dance of Stalemate",
+        en: "The Dance of Stalemate",
+      },
+      venue: "XILI Art Space",
+      city: { zh: "深圳", fr: "Shenzhen", en: "Shenzhen" },
+      type: "solo",
+    },
+    {
+      year: 2024,
+      title: {
+        zh: "情绪是一种景观 — 驻地艺术特展",
+        fr: "The Landscape of Emotions — resident exhibition",
+        en: "The Landscape of Emotions — resident exhibition",
+      },
+      venue: "罗湖艺展中心",
+      city: { zh: "深圳", fr: "Shenzhen", en: "Shenzhen" },
+      type: "solo",
+    },
+    {
+      year: 2026,
+      title: {
+        zh: "冲积层：个体化的素层自观",
+        fr: "Alluvium: Individualized layer self-observation",
+        en: "Alluvium: Individualized layer self-observation",
+      },
+      venue: "梦卓当代艺术中心",
+      city: { zh: "深圳", fr: "Shenzhen", en: "Shenzhen" },
+      type: "group",
+    },
+    {
+      year: 2025,
+      title: {
+        zh: "第一届山海共生艺术季",
+        fr: "Eco Life Festival",
+        en: "Eco Life Festival",
+      },
+      venue: "木星美术馆 · 梅沙艺术中心",
+      city: { zh: "深圳", fr: "Shenzhen", en: "Shenzhen" },
+      type: "group",
+    },
+    {
+      year: 2023,
+      title: {
+        zh: "台北国际艺术博览会",
+        fr: "ARTTAIPEI",
+        en: "ARTTAIPEI",
+      },
+      venue: "a4g.glogal",
+      city: { zh: "台北", fr: "Taipei", en: "Taipei" },
+      type: "group",
+    },
+    {
+      year: 2018,
+      title: {
+        zh: "第四届「未知的亚洲」日本大阪亚洲艺术博览会 · 评委奖",
+        fr: "UNKNOWN ASIA Osaka 2018 — Prix du jury",
+        en: "UNKNOWN ASIA Osaka 2018 — Jury Award",
+      },
+      venue: "HERBIS HALL",
+      city: { zh: "大阪", fr: "Osaka", en: "Osaka" },
+      type: "group",
+    },
+  ],
+  series: [
+    {
+      id: "unseen-substance",
+      title: {
+        zh: "暗物质",
+        fr: "Unseen Substance",
+        en: "Unseen Substance",
+      },
+      intro: {
+        zh: "隐匿于光影之下、以无形之力牵动万物；如潜意识里的情绪与人际间暗藏的隔阂，构成关系与画面的底层内核。",
+        fr: "Essence cachée, hors de portée de la lumière ; émotions inconscientes et entraves invisibles entre les personnes — le noyau des relations et de l'image.",
+        en: "A hidden essence beyond sight and light; subconscious emotion and invisible divides between people — the core of relation and image.",
+      },
+      period: "2025—2026",
+    },
+    {
+      id: "deep-green",
+      title: {
+        zh: "森绿",
+        fr: "Deep Green",
+        en: "Deep Green",
+      },
+      intro: {
+        zh: "关于生命路径的思考记录；向下生长、探寻水源的根系，尝试触及起点与「无」。",
+        fr: "Carnet de réflexion sur le chemin de la vie — racines qui plongent vers la source, toucher l'origine et le « rien ».",
+        en: "A record of thinking about life's path — roots reaching downward toward the source, touching origin and 'nothingness'.",
+      },
+      period: "2024—2025",
+    },
+    {
+      id: "dance-stalemate",
+      title: {
+        zh: "胶着的舞蹈",
+        fr: "The Dance of Stalemate",
+        en: "The Dance of Stalemate",
+      },
+      intro: {
+        zh: "若「关系」是一种形状，便是具粘性与丝状的流体；在抽离与纠缠之间，用身体语言试验羁绊与僵局。",
+        fr: "Si la « relation » est une forme, c'est un fluide visqueux et filamenteux — entre distance et enchevêtrement, le corps comme outil d'essai.",
+        en: "If 'relationship' is a shape, it is a viscous, filamentous fluid — between detachment and entanglement, body language as experiment.",
+      },
+      period: "2023—2024",
+    },
+  ],
+  artworks: [
+    {
+      id: "1",
+      title: {
+        zh: "在 3:30 望见彩色深渊",
+        fr: "I Saw a Colorful Abyss at 3:30",
+        en: "I Saw a Colorful Abyss at 3:30",
+      },
+      year: 2025,
+      medium: {
+        zh: "布面油画",
+        fr: "Huile sur toile",
+        en: "Oil on canvas",
+      },
+      dimensions: "320 × 280 cm",
+      image: "/artists/li-shi/works/colorful-abyss-2025.jpg",
+      imageAspect: [320, 280],
+      seriesId: "unseen-substance",
+    },
+    {
+      id: "2",
+      title: {
+        zh: "有某种物质在膨胀并筑成一道墙",
+        fr: "Unseen Substance Expanding into Invisible Wall",
+        en: "Unseen Substance Expanding into Invisible Wall",
+      },
+      year: 2026,
+      medium: {
+        zh: "布面油画",
+        fr: "Huile sur toile",
+        en: "Oil on canvas",
+      },
+      dimensions: "180 × 160 cm",
+      image: "/artists/li-shi/works/unseen-wall-2026.jpg",
+      imageAspect: [180, 160],
+      seriesId: "unseen-substance",
+    },
+    {
+      id: "3",
+      title: {
+        zh: "六月有红雨",
+        fr: "Red Rain in June",
+        en: "Red Rain in June",
+      },
+      year: 2026,
+      medium: {
+        zh: "布面油画",
+        fr: "Huile sur toile",
+        en: "Oil on canvas",
+      },
+      dimensions: "150 × 120 cm",
+      image: "/artists/li-shi/works/red-rain-june-2026.jpg",
+      imageAspect: [150, 120],
+      seriesId: "unseen-substance",
+    },
+    {
+      id: "4",
+      title: {
+        zh: "给肉打个活结",
+        fr: "Entangled",
+        en: "Entangled",
+      },
+      year: 2025,
+      medium: {
+        zh: "布面油画",
+        fr: "Huile sur toile",
+        en: "Oil on canvas",
+      },
+      dimensions: "200 × 160 cm",
+      image: "/artists/li-shi/works/entangled-2025.jpg",
+      imageAspect: [200, 160],
+      seriesId: "dance-stalemate",
+    },
+    {
+      id: "5",
+      title: {
+        zh: "去往的天堂是一片深绿",
+        fr: "The Heaven of Deep Green",
+        en: "The Heaven of Deep Green",
+      },
+      year: 2024,
+      medium: {
+        zh: "布面油画",
+        fr: "Huile sur toile",
+        en: "Oil on canvas",
+      },
+      dimensions: "300 × 200 cm",
+      image: "/artists/li-shi/works/heaven-deep-green-2024.jpg",
+      imageAspect: [300, 200],
+      seriesId: "deep-green",
+      displayLayout: "wide",
+    },
+    {
+      id: "6",
+      title: {
+        zh: "胶着的舞蹈 - 5",
+        fr: "The Dance of Stalemate NO.5",
+        en: "The Dance of Stalemate NO.5",
+      },
+      year: 2023,
+      medium: {
+        zh: "布面油画",
+        fr: "Huile sur toile",
+        en: "Oil on canvas",
+      },
+      dimensions: "160 × 90 cm",
+      image: "/artists/li-shi/works/dance-stalemate-5-2023.jpg",
+      imageAspect: [160, 90],
+      seriesId: "dance-stalemate",
+      displayLayout: "wide",
+    },
+    {
+      id: "7",
+      title: {
+        zh: "缸外之物",
+        fr: "Outside of the Vat",
+        en: "Outside of the Vat",
+      },
+      year: 2024,
+      medium: {
+        zh: "布面油画",
+        fr: "Huile sur toile",
+        en: "Oil on canvas",
+      },
+      dimensions: "1500 × 200 cm",
+      image: "/artists/li-shi/works/outside-vat-2024.jpg",
+      imageAspect: [1500, 200],
+      seriesId: "dance-stalemate",
+      displayLayout: "wide",
+    },
+  ],
+  professionalReputation: {
+    galleryRecognition: [],
+    collectorRecognition: [],
+    curatorMediaRecognition: [],
+    publicResonance: [],
+  },
+};
+
 const artists: Record<string, ArtistProfile> = {
   "willy-le-nalbaut": willyLeNalbaut,
   "su-hong": suHong,
   "elaine-erlan-wang": elaineErlanWang,
+  "li-shi": liShi,
 };
 
 export function getArtworkAspectRatio(artwork: {
