@@ -41,7 +41,6 @@ const labels: Record<
     china: string;
     france: string;
     artistStatement: string;
-    curatorSection: string;
     exhibitions: string;
     year: string;
     exhibition: string;
@@ -58,7 +57,6 @@ const labels: Record<
     collectionLink: string;
     viewArtworkPassport: string;
     professionalReputation: string;
-    prizesLabel: string;
     collectorRecognition: string;
     curatorMediaRecognition: string;
     publicResonance: string;
@@ -81,7 +79,6 @@ const labels: Record<
     china: "中国",
     france: "法国",
     artistStatement: "Texte de l'artiste｜创作陈述",
-    curatorSection: "Prix",
     exhibitions: "Expositions｜展览",
     year: "年份",
     exhibition: "展览",
@@ -99,7 +96,6 @@ const labels: Record<
     collectionLink: "咨询 · Inquiry",
     viewArtworkPassport: "Voir le passeport œuvre · 查看作品护照",
     professionalReputation: "Réputation professionnelle｜职业声誉",
-    prizesLabel: "Prix",
     collectorRecognition: "Reconnaissance des collectionneurs · 藏家认可",
     curatorMediaRecognition:
       "Reconnaissance curateurs / médias · 策展人与媒体认可",
@@ -122,7 +118,6 @@ const labels: Record<
     china: "Chine",
     france: "France",
     artistStatement: "Texte de l'artiste｜创作陈述",
-    curatorSection: "Prix",
     exhibitions: "Expositions｜展览",
     year: "Année",
     exhibition: "Exposition",
@@ -140,7 +135,6 @@ const labels: Record<
     collectionLink: "咨询 · Inquiry",
     viewArtworkPassport: "Voir le passeport œuvre · 查看作品护照",
     professionalReputation: "Réputation professionnelle｜职业声誉",
-    prizesLabel: "Prix",
     collectorRecognition: "Reconnaissance des collectionneurs · 藏家认可",
     curatorMediaRecognition:
       "Reconnaissance curateurs / médias · 策展人与媒体认可",
@@ -162,7 +156,6 @@ const labels: Record<
     china: "China",
     france: "France",
     artistStatement: "Artist Statement",
-    curatorSection: "Prix",
     exhibitions: "Exhibitions",
     year: "Year",
     exhibition: "Exhibition",
@@ -179,7 +172,6 @@ const labels: Record<
     collectionLink: "Inquiry",
     viewArtworkPassport: "View artwork passport",
     professionalReputation: "Professional Reputation",
-    prizesLabel: "Prix",
     collectorRecognition: "Collector Recognition",
     curatorMediaRecognition: "Curator / Media Recognition",
     publicResonance: "Public Resonance",
@@ -745,13 +737,9 @@ export function ArtistPassport({
         id="passport-exhibitions"
         className={`${pageWrap} scroll-mt-28 px-6 py-20 md:scroll-mt-32 md:px-10`}
       >
-        <SectionTitle>{l.curatorSection}</SectionTitle>
-
+        <SectionTitle>{l.exhibitions}</SectionTitle>
         <div className="mt-12">
-          <h3 className={passportType.meta}>{l.exhibitions}</h3>
-          <div className="mt-8">
-            <ExhibitionsTable artist={artist} locale={locale} l={l} />
-          </div>
+          <ExhibitionsTable artist={artist} locale={locale} l={l} />
         </div>
       </section>
 
@@ -892,7 +880,7 @@ export function ArtistPassport({
         <div className="mt-16 space-y-20">
           {artist.professionalReputation.curatorMediaRecognition.length > 0 ? (
             <div>
-              <h3 className={passportType.meta}>{l.prizesLabel}</h3>
+              <h3 className={passportType.meta}>{l.curatorMediaRecognition}</h3>
               <div className="mt-8 space-y-6">
                 {artist.professionalReputation.curatorMediaRecognition.map(
                   (item) => (
