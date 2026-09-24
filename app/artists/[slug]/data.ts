@@ -89,6 +89,12 @@ export type ArtistProfile = {
     viewsLayout?: "row" | "stack";
     /** Show only the active locale’s title (zh / fr / en), not mixed lines. */
     titleDisplay?: "locale";
+    /** Extra constraints for passport image frame on desktop. */
+    passportImageStyle?: {
+      maxWidth?: string;
+      maxHeight?: string;
+      marginInline?: "auto";
+    };
     hideOnPassport?: boolean;
   }[];
   professionalReputation: {
@@ -2313,6 +2319,20 @@ Her works combine kinetic energy and emotional intensity. Technique, composition
   ],
   series: [
     {
+      id: "unseen-substance",
+      title: {
+        zh: "暗物质",
+        fr: "Unseen Substance",
+        en: "Unseen Substance",
+      },
+      intro: {
+        zh: `暗物质，是隐匿于世界之下、无法被肉眼与光影捕捉的隐秘存在。它不显露形态，却以无形之力牵动万物；如同潜意识里的情绪、未说出口的执念、人与人之间暗藏的隔阂与纠缠，无形，却构成所有关系与画面的底层内核。`,
+        fr: `La matière obscure est une présence secrète, cachée sous le monde, hors de portée de l'œil et de la lumière. Sans forme visible, elle meut toutes choses d'une force invisible — comme les émotions de l'inconscient, les désirs non dits, les fractures et enchevêtrements cachés entre les personnes : intangible, elle forme pourtant le noyau de toute relation et de toute image.`,
+        en: `Unseen Substance is a hidden essence beyond the reach of sight and light. Formless in form, it shapes all things with an invisible force. Like subconscious emotions, unspoken yearnings, and the hidden divides and entanglements between people, it remains intangible—yet forms the fundamental core of all relational and visual essence.`,
+      },
+      period: "2025—2026",
+    },
+    {
       id: "deep-green",
       title: {
         zh: "森绿",
@@ -2345,20 +2365,6 @@ I would like to dedicate this work to my good friend in heaven.`,
       period: "2024—2025",
     },
     {
-      id: "unseen-substance",
-      title: {
-        zh: "暗物质",
-        fr: "Unseen Substance",
-        en: "Unseen Substance",
-      },
-      intro: {
-        zh: `暗物质，是隐匿于世界之下、无法被肉眼与光影捕捉的隐秘存在。它不显露形态，却以无形之力牵动万物；如同潜意识里的情绪、未说出口的执念、人与人之间暗藏的隔阂与纠缠，无形，却构成所有关系与画面的底层内核。`,
-        fr: `La matière obscure est une présence secrète, cachée sous le monde, hors de portée de l'œil et de la lumière. Sans forme visible, elle meut toutes choses d'une force invisible — comme les émotions de l'inconscient, les désirs non dits, les fractures et enchevêtrements cachés entre les personnes : intangible, elle forme pourtant le noyau de toute relation et de toute image.`,
-        en: `Unseen Substance is a hidden essence beyond the reach of sight and light. Formless in form, it shapes all things with an invisible force. Like subconscious emotions, unspoken yearnings, and the hidden divides and entanglements between people, it remains intangible—yet forms the fundamental core of all relational and visual essence.`,
-      },
-      period: "2025—2026",
-    },
-    {
       id: "dance-stalemate",
       title: {
         zh: "胶着的舞蹈",
@@ -2380,66 +2386,6 @@ This series has been created since mid-2023. The changes in environment and mood
     },
   ],
   artworks: [
-    {
-      id: "5",
-      title: {
-        zh: "去往的天堂是一片深绿",
-        fr: "Le paradis vers lequel l'on va est un vert profond",
-        en: "The Heaven of Deep Green",
-      },
-      titleDisplay: "locale",
-      year: 2024,
-      medium: {
-        zh: "布面油画",
-        fr: "Huile sur toile",
-        en: "Oil on canvas",
-      },
-      dimensions: "300 × 200 cm",
-      image: "/artists/li-shi/works/the-heaven-of-deep-green-2024.jpg",
-      imageAspect: [300, 200],
-      displayLayout: "wide",
-      seriesId: "deep-green",
-    },
-    {
-      id: "10",
-      title: {
-        zh: "我的松在阳光下长大了",
-        fr: "Mon pin a grandi au soleil",
-        en: "My Pine Tree Grew up in the Sunshine",
-      },
-      titleDisplay: "locale",
-      year: 2024,
-      medium: {
-        zh: "布面油画",
-        fr: "Huile sur toile",
-        en: "Oil on canvas",
-      },
-      dimensions: "200 × 100 cm",
-      image: "/artists/li-shi/works/my-pine-tree-grew-up-in-the-sunshine-2024.jpg",
-      imageAspect: [200, 100],
-      displayLayout: "wide",
-      seriesId: "deep-green",
-    },
-    {
-      id: "9",
-      title: {
-        zh: "通幽处",
-        fr: "Le lieu reculé",
-        en: "The Secluded Place",
-      },
-      titleDisplay: "locale",
-      year: 2025,
-      medium: {
-        zh: "布面油画",
-        fr: "Huile sur toile",
-        en: "Oil on canvas",
-      },
-      dimensions: "100 × 100 cm",
-      image: "/artists/li-shi/works/the-secluded-place-2025.jpg",
-      imageAspect: [100, 100],
-      displayLayout: "half",
-      seriesId: "deep-green",
-    },
     {
       id: "1",
       title: {
@@ -2523,6 +2469,80 @@ This series has been created since mid-2023. The changes in environment and mood
       seriesId: "unseen-substance",
     },
     {
+      id: "5",
+      title: {
+        zh: "去往的天堂是一片深绿",
+        fr: "Le paradis vers lequel l'on va est un vert profond",
+        en: "The Heaven of Deep Green",
+      },
+      titleDisplay: "locale",
+      year: 2024,
+      medium: {
+        zh: "布面油画",
+        fr: "Huile sur toile",
+        en: "Oil on canvas",
+      },
+      dimensions: "300 × 200 cm",
+      image: "/artists/li-shi/works/the-heaven-of-deep-green-2024.jpg",
+      imageAspect: [300, 200],
+      displayLayout: "wide",
+      passportImageStyle: {
+        maxWidth: "960px",
+        maxHeight: "min(52vh, 520px)",
+        marginInline: "auto",
+      },
+      seriesId: "deep-green",
+    },
+    {
+      id: "10",
+      title: {
+        zh: "我的松在阳光下长大了",
+        fr: "Mon pin a grandi au soleil",
+        en: "My Pine Tree Grew up in the Sunshine",
+      },
+      titleDisplay: "locale",
+      year: 2024,
+      medium: {
+        zh: "布面油画",
+        fr: "Huile sur toile",
+        en: "Oil on canvas",
+      },
+      dimensions: "200 × 100 cm",
+      image: "/artists/li-shi/works/my-pine-tree-grew-up-in-the-sunshine-2024.jpg",
+      imageAspect: [200, 100],
+      displayLayout: "wide",
+      passportImageStyle: {
+        maxWidth: "100%",
+        maxHeight: "min(48vh, 420px)",
+        marginInline: "auto",
+      },
+      seriesId: "deep-green",
+    },
+    {
+      id: "9",
+      title: {
+        zh: "通幽处",
+        fr: "Le lieu reculé",
+        en: "The Secluded Place",
+      },
+      titleDisplay: "locale",
+      year: 2025,
+      medium: {
+        zh: "布面油画",
+        fr: "Huile sur toile",
+        en: "Oil on canvas",
+      },
+      dimensions: "100 × 100 cm",
+      image: "/artists/li-shi/works/the-secluded-place-2025.jpg",
+      imageAspect: [100, 100],
+      passportImageStyle: {
+        maxWidth: "min(100%, 560px)",
+        maxHeight: "min(56vh, 560px)",
+        marginInline: "auto",
+      },
+      seriesId: "deep-green",
+    },
+    {
       id: "12",
       title: {
         zh: "胶着的舞蹈 - 8",
@@ -2539,7 +2559,15 @@ This series has been created since mid-2023. The changes in environment and mood
       dimensions: "70 × 50 cm",
       image: "/artists/li-shi/works/the-dance-of-stalemate-no-8-2023.jpg",
       imageAspect: [70, 50],
-      displayLayout: "half",
+      layoutPair: {
+        group: "li-shi-stalemate-8-13",
+        role: "main",
+        equal: true,
+      },
+      passportImageStyle: {
+        maxWidth: "min(100%, 400px)",
+        marginInline: "auto",
+      },
       seriesId: "dance-stalemate",
     },
     {
@@ -2559,27 +2587,15 @@ This series has been created since mid-2023. The changes in environment and mood
       dimensions: "70 × 50 cm",
       image: "/artists/li-shi/works/the-dance-of-stalemate-no-13-2023.jpg",
       imageAspect: [70, 50],
-      displayLayout: "half",
-      seriesId: "dance-stalemate",
-    },
-    {
-      id: "7",
-      title: {
-        zh: "缸外之物",
-        fr: "Ce qui est hors de la cuve",
-        en: "Outside of the Vat",
+      layoutPair: {
+        group: "li-shi-stalemate-8-13",
+        role: "side",
+        equal: true,
       },
-      titleDisplay: "locale",
-      year: 2024,
-      medium: {
-        zh: "布面油画",
-        fr: "Huile sur toile",
-        en: "Oil on canvas",
+      passportImageStyle: {
+        maxWidth: "min(100%, 400px)",
+        marginInline: "auto",
       },
-      dimensions: "1500 × 200 cm",
-      image: "/artists/li-shi/works/outside-of-the-vat-2024.jpg",
-      imageAspect: [1500, 200],
-      displayLayout: "wide",
       seriesId: "dance-stalemate",
     },
   ],

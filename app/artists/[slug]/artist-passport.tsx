@@ -423,6 +423,9 @@ function ArtworkCard({
               viewsLayout: artwork.viewsLayout,
               views: artwork.views,
             });
+            const frameStyle = artwork.passportImageStyle
+              ? { ...viewLayout.frameStyle, ...artwork.passportImageStyle }
+              : viewLayout.frameStyle;
 
             return (
               <div key={view.src || `view-${index}`}>
@@ -434,8 +437,12 @@ function ArtworkCard({
                   </p>
                 ) : null}
                 <div
-                  className="relative w-full overflow-hidden bg-stone-100"
-                  style={viewLayout.frameStyle}
+                  className={`relative w-full overflow-hidden bg-stone-100 ${
+                    artwork.passportImageStyle?.marginInline === "auto"
+                      ? "mx-auto"
+                      : ""
+                  }`}
+                  style={frameStyle}
                 >
                   <Image
                     src={view.src}
@@ -512,13 +519,9 @@ function liShiPassportArtworkGridClass(
     }
   }
   if (seriesId === "deep-green") {
-    if (artwork.id === "5") return "md:col-span-12";
-    if (artwork.id === "10") return "md:col-span-8 md:col-start-1";
-    if (artwork.id === "9") return "md:col-span-4 md:max-w-md md:justify-self-end";
-  }
-  if (seriesId === "dance-stalemate") {
-    if (artwork.id === "7") return "md:col-span-12";
-    if (artwork.id === "12" || artwork.id === "11") return "md:col-span-6";
+    if (artwork.id === "5" || artwork.id === "10" || artwork.id === "9") {
+      return "md:col-span-12";
+    }
   }
   return undefined;
 }
@@ -529,6 +532,7 @@ function renderArtworkGridItems(
   artistSlug: string,
   viewArtworkPassportLabel: string,
   getGridClass?: (artwork: ArtistArtwork) => string | undefined,
+  liShi12ColSeries?: boolean,
 ): React.ReactNode[] {
   return artworks.flatMap((artwork, index, list) => {
     const next = list[index + 1];
@@ -545,9 +549,13 @@ function renderArtworkGridItems(
       next?.layoutPair?.group === artwork.layoutPair.group &&
       next.layoutPair.role === "side"
     ) {
-      const pairGridClass = artwork.layoutPair.equal
-        ? "grid grid-cols-1 items-start gap-x-8 gap-y-8 sm:col-span-2 sm:grid-cols-2"
-        : "grid grid-cols-1 items-start gap-x-8 gap-y-8 sm:col-span-2 sm:grid-cols-[minmax(0,1.45fr)_minmax(0,0.85fr)]";
+      const pairGridClass = liShi12ColSeries
+        ? artwork.layoutPair.equal
+          ? "md:col-span-12 grid grid-cols-1 items-start gap-x-10 gap-y-10 md:grid-cols-2"
+          : "md:col-span-12 grid grid-cols-1 items-start gap-x-10 gap-y-10 md:grid-cols-[minmax(0,1.6fr)_minmax(0,0.72fr)] md:items-end"
+        : artwork.layoutPair.equal
+          ? "grid grid-cols-1 items-start gap-x-8 gap-y-8 sm:col-span-2 sm:grid-cols-2"
+          : "grid grid-cols-1 items-start gap-x-8 gap-y-8 sm:col-span-2 sm:grid-cols-[minmax(0,1.45fr)_minmax(0,0.85fr)]";
 
       return [
         <div key={artwork.layoutPair.group} className={pairGridClass}>
@@ -893,6 +901,9 @@ export function ArtistPassport({
                           ? (item) =>
                               liShiPassportArtworkGridClass(series.id, item)
                           : undefined,
+                        artist.slug === "li-shi" &&
+                          series?.id !== undefined &&
+                          LI_SHI_PASSPORT_12_COL_SERIES.has(series.id),
                       )}
                     </div>
                   </div>,
