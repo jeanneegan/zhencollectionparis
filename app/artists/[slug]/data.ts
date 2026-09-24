@@ -2310,9 +2310,9 @@ Her works combine kinetic energy and emotional intensity. Technique, composition
         en: "Unseen Substance",
       },
       intro: {
-        zh: "隐匿于光影之下、以无形之力牵动万物；如潜意识里的情绪与人际间暗藏的隔阂，构成关系与画面的底层内核。",
-        fr: "Essence cachée, hors de portée de la lumière ; émotions inconscientes et entraves invisibles entre les personnes — le noyau des relations et de l'image.",
-        en: "A hidden essence beyond sight and light; subconscious emotion and invisible divides between people — the core of relation and image.",
+        zh: `暗物质，是隐匿于世界之下、无法被肉眼与光影捕捉的隐秘存在。它不显露形态，却以无形之力牵动万物；如同潜意识里的情绪、未说出口的执念、人与人之间暗藏的隔阂与纠缠，无形，却构成所有关系与画面的底层内核。`,
+        fr: `La matière obscure est une présence secrète, cachée sous le monde, hors de portée de l'œil et de la lumière. Sans forme visible, elle meut toutes choses d'une force invisible — comme les émotions de l'inconscient, les désirs non dits, les fractures et enchevêtrements cachés entre les personnes : intangible, elle forme pourtant le noyau de toute relation et de toute image.`,
+        en: `Unseen Substance is a hidden essence beyond the reach of sight and light. Formless in form, it shapes all things with an invisible force. Like subconscious emotions, unspoken yearnings, and the hidden divides and entanglements between people, it remains intangible—yet forms the fundamental core of all relational and visual essence.`,
       },
       period: "2025—2026",
     },
@@ -2324,9 +2324,27 @@ Her works combine kinetic energy and emotional intensity. Technique, composition
         en: "Deep Green",
       },
       intro: {
-        zh: "关于生命路径的思考记录；向下生长、探寻水源的根系，尝试触及起点与「无」。",
-        fr: "Carnet de réflexion sur le chemin de la vie — racines qui plongent vers la source, toucher l'origine et le « rien ».",
-        en: "A record of thinking about life's path — roots reaching downward toward the source, touching origin and 'nothingness'.",
+        zh: `绿，一种静谧的颜色，饱满却淡然。
+
+这个系列是一场关于「生命路径」的思考记录。系列名源自一首歌——Deep Green，仿佛来自某个深谷的空灵的呢喃。从《胶着的舞蹈》这个关于「关系」的系列延续过来，《森绿》便是这向下生长、探寻水源的根系；每一幅景象的呈现便是这路径的描绘，尝试触及最初、本源、起点、无。
+
+「当一个生命已然在褪色，我便真正地成为了 TA 的旁观者，因为我无能为力。TA 在褪成蜡黄色，再褪成苍白，最终褪成『无』——生命的路径，也是我看着我亲爱的朋友一点点消失的路径。一个生命的影像在被旁观者反复播放时，是否已经从『无』重新生长出了路径，嫁接进旁观者的生命路径里——旁观另一个生命的路径，让我开始思考生命的议题，我在这个议题里会触及到什么样新的土壤，我很好奇。」
+
+谨以此作，献给我天国的好友。`,
+        fr: `Le vert, une couleur silencieuse, pleine et pourtant détachée.
+
+Cette série est un carnet de réflexion sur le chemin de la vie. Son titre vient d'une chanson — Deep Green —, comme un murmure éthéré d'une vallée profonde. Prolongeant la série « The Dance of Stalemate », consacrée aux « relations », « Deep Green » en est le système racinaire qui pousse vers le bas et cherche la source ; chaque scène peinte trace ce chemin, tentant de toucher le commencement, l'origine, le point de départ et le néant.
+
+« Quand une vie s'efface, je deviens vraiment le spectateur, impuissant. Elle passe au jaune cire, puis au pâle, enfin au « rien » — chemin de la vie, et chemin par lequel je vois disparaître peu à peu une amie chère. L'image d'une vie, rejouée par le spectateur, a-t-elle regermé un nouveau sentier depuis le « rien », greffé au sien ? Regarder le chemin d'une autre vie m'amène à penser la vie elle-même ; je me demande quelle nouvelle terre j'y toucherai. »
+
+Je dédie cette série à mon amie, là-haut.`,
+        en: `Green, a quiet color, rich but indifferent.
+
+This series is a record of thinking about the path of life. The name comes from a song — Deep Green — as if from the ethereal whisper of a deep valley. Continuing from The Dance of Stalemate, a series about relationships, Deep Green is the root system that grows downward and explores the source of water. Each scene presented is a depiction of this path, trying to touch the beginning, the origin, the starting point, and nothingness.
+
+"When a life is fading, I really become a bystander of it, because I can't do anything. It faded into waxy yellow, then faded into pale, and finally faded into the 'nothingness'. This is the path of life, and also the path I watch my dear friend disappear little by little. When the image of a life is repeatedly played by the bystander, has it grown a new path from the 'nothingness' and grafted into the life path of the bystander? Watching the path of another life makes me start to think about the issue of life. I am curious about what new soil I will touch in this issue."
+
+I would like to dedicate this work to my good friend in heaven.`,
       },
       period: "2024—2025",
     },
@@ -2338,9 +2356,15 @@ Her works combine kinetic energy and emotional intensity. Technique, composition
         en: "The Dance of Stalemate",
       },
       intro: {
-        zh: "若「关系」是一种形状，便是具粘性与丝状的流体；在抽离与纠缠之间，用身体语言试验羁绊与僵局。",
-        fr: "Si la « relation » est une forme, c'est un fluide visqueux et filamenteux — entre distance et enchevêtrement, le corps comme outil d'essai.",
-        en: "If 'relationship' is a shape, it is a viscous, filamentous fluid — between detachment and entanglement, body language as experiment.",
+        zh: `如果「关系」是一种形状，那么就是具有粘性和丝状的流体形状。是博弈但也陷入僵局，胶着，尴尬。
+
+这个系列从 2023 年中旬开始创作。过去几年环境和心境的变化，让李诗开始思考「关系」和「羁绊」这根看似虚无却又沉重的绳索，究竟牵引我们到哪里去。当人们强制不被牵引时，会产生什么？拉扯？粘稠？缠绕？还是坠落？她尝试不再被「以往」和「习惯」牵引，放下习惯的创作语言，将在这个抽离却又纠缠的循环往复的过程里得到的身体语言体现到画布上。屏蔽自己的表意识，沉浸到潜意识里去寻找新的创作语言。绘画只是工具，而她正在用身体语言来试验和探索她的主题——胶着的舞蹈。`,
+        fr: `Si la « relation » est une forme, c'est un fluide visqueux et filamenteux. C'est un jeu, mais aussi une impasse — blocage, malaise.
+
+La série a débuté à la mi-2023. Les changements d'environnement et d'humeur ces dernières années ont amené Li Shi à se demander où mène cette corde de « relations » et de « liens », à la fois légère en apparence et si lourde. Que se passe-t-il quand on refuse d'être tiré·e ? Tension ? Viscosité ? Enchevêtrement ? Chute ? Elle tente de ne plus être guidée par le « passé » et l'« habitude », abandonne son langage créatif habituel, et porte sur la toile le langage corporel né de ce cycle à la fois distancié et entremêlé. Couper la conscience manifeste, plonger dans l'inconscient pour un nouveau langage : la peinture n'est qu'un outil ; c'est avec le corps qu'elle éprouve et explore son thème — The Dance of Stalemate.`,
+        en: `If "relationship" is a shape, then it is a fluid shape with viscosity and filamentous properties. It's a game but also stuck in a stalemate — stuck, awkward.
+
+This series has been created since mid-2023. The changes in environment and mood in the past few years have made Li Shi start to think about where the seemingly empty yet heavy rope of "relationships" and "bonds" actually leads us. What happens when people are forced not to be pulled? Tension? Viscosity? Entanglement? Or falling? She attempts to no longer be pulled by "past" and "habits", let go of the creative language of habits, and reflect the body language obtained in this detached yet entangled cycle on the canvas. Block the apparent consciousness and immerse the subconscious in the search for a new creative language. Painting is just a tool, and she is using body language to experiment and explore her theme — The Dance of Stalemate.`,
       },
       period: "2023—2024",
     },
