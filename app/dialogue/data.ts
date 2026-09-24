@@ -305,6 +305,29 @@ Beyond all this symbolism, the donkey is simply an animal I am fond of—more so
         en: "I imagine that with all the symbolism in Chinese culture hidden behind so many things, you must read my paintings in a completely different way?",
       },
       answerFrom: suHongPortraitAvatar,
+      answer: {
+        zh: `你作品给我第一感受，是画面里有很强的叙事感——不只是停留在「看」的层面，而是让观者去猜想，然后顺着画面里的「线索」往下走。像欧洲传统宗教题材绘画那样，在讲述故事：人物、动作、表情或是看似无关的道具，背后都可能藏着一个事件。我虽然对圣经的内容谈不上熟悉，但每每观之都能感觉到里面有强烈的寓意，仿佛画面之外还有半句话没有说完，看你的作品亦有此种未尽之意。
+
+我私下觉得，绘画作品大体可以分成几类：一类叙事，讲故事；一类纪实，静物、肖像、风景，如实记录；一类装饰，几何图形或者纹饰，为空间填写色彩；还有一类观念，用画面表达思想情绪。你的作品有「叙事」也有「观念」——描绘自己头脑里的「意识流」，讲自己的故事，同时那些具象的「物」还有其隐喻。看到的是人物、动物、风景、器物等，可总觉得那不只是这些。
+
+中国文化中很多成语、歇后语以及一句「俗话说」都蕴涵丰富的意义，「小器物藏着大道理」。《L'âne à ses raisons que les sabots ignorent.》这幅作品用中国思维理解，往浅了说，可以理解为「不随波逐流」；再硬气一点，是「道不同不相为谋」；最高姿态的，几乎就是「曲高和寡」「众人皆醉我独醒」了。
+
+人类的情感无国界。当我看过你的作品之后再去看注解，发现我的感受和你文字表述有很多相似之处，而且我还注意到表述中出现的「现实主义」「荒诞」「戏剧」这几个词，与我绘画想表达的意图一样，有种「画者」所见略同的感觉。`,
+        fr: `Ma première impression de ton travail, c'est une forte dimension narrative — au-delà du simple « regarder », tu invites le spectateur à deviner, puis à suivre les « indices » dans l'image. Comme dans la peinture religieuse traditionnelle européenne, une histoire se raconte : personnages, gestes, expressions, ou objets qui semblent anodins peuvent cacher un événement. Je ne connais pas bien la Bible, mais à chaque fois que je la regarde, j'y sens une symbolique puissante, comme s'il manquait une demi-phrase hors du cadre ; tes tableaux m'offrent la même impression d'inachèvement.
+
+À titre personnel, je distingue grosso modo quatre types de peinture : narrative, qui raconte ; documentaire, nature morte, portrait, paysage, qui enregistre ; décorative, formes géométriques ou motifs, qui colore l'espace ; et conceptuelle, qui exprime une pensée ou une émotion. Ton œuvre mêle « narration » et « idée » — un flux de conscience intérieur, ton propre récit, tandis que les choses concrètes portent aussi une métaphore. On voit figures, animaux, paysages, objets, et pourtant ce n'est jamais seulement cela.
+
+En Chine, beaucoup de chengyu, de xiehouyu et de « comme dit le proverbe » recèlent des sens riches — « les petites choses cachent de grandes vérités ». L'âne à ses raisons que les sabots ignorent, lu avec une sensibilité chinoise, peut signifier, au plus simple, « ne pas suivre la foule » ; plus fermement, « chemins différents, pas d'entente » ; au plus haut, presque « l'art est solitaire » ou « tous ivres, moi seul lucide ».
+
+L'émotion humaine n'a pas de frontières. Après avoir vu tes œuvres puis lu tes textes, j'ai trouvé beaucoup de points communs avec ce que tu dis — et les mots « réalisme », « absurde », « théâtre » que tu emploies rejoignent ce que je cherche aussi dans la peinture : un peu comme si deux peintres se reconnaissaient dans le même regard.`,
+        en: `My first impression of your work is a strong sense of narrative—not only at the level of "looking," but inviting the viewer to guess and then follow the "clues" in the picture. Like traditional European religious painting, it tells a story: figures, gestures, expressions, or seemingly unrelated props may each hide an event. I am not very familiar with the Bible, but whenever I look at it I feel a powerful symbolism, as if half a sentence remains unsaid beyond the frame; your paintings give me that same sense of something left unfinished.
+
+In my own mind, painting falls roughly into a few kinds: narrative, which tells stories; documentary—still life, portrait, landscape—which records; decorative—geometry or pattern—which fills a space with color; and conceptual, which expresses thought or feeling. Your work has both "narrative" and "idea"—a stream of consciousness from your own mind, your own story, while concrete "things" also carry metaphor. We see people, animals, landscapes, objects, yet it never feels like only that.
+
+In Chinese culture, many chengyu, xiehouyu, and "as the saying goes" carry layered meaning—"small objects hold great truths." L'âne à ses raisons que les sabots ignorent., read with a Chinese sensibility, can mean, at a mild level, "not drifting with the crowd"; more firmly, "different paths, no common ground"; at its highest pitch, almost "art too refined for the many" or "all drunk while I alone stay clear."
+
+Human feeling knows no borders. After seeing your work and then reading your notes, I found much in common with what you write—and the words "realism," "absurd," and "theatre" in your text match what I too want to say in painting: a little like two painters seeing the same thing.`,
+      },
     },
     suHongToWilly: {
       questionFrom: suHongPortraitAvatar,
