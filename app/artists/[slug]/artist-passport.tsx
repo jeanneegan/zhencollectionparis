@@ -317,19 +317,22 @@ function ArtworkCard({
   artistSlug,
   viewArtworkPassportLabel,
   articleClass = "",
+  gridClass,
 }: {
   artwork: ArtistArtwork;
   locale: Locale;
   artistSlug: string;
   viewArtworkPassportLabel: string;
   articleClass?: string;
+  gridClass?: string;
 }) {
   const layout = getArtworkDisplayLayout(artwork);
+  const articleGridClass = gridClass ?? (articleClass || layout.articleClass);
   const externalUrl = artwork.externalUrl;
 
   if (externalUrl) {
     return (
-      <article className={`group ${articleClass || layout.articleClass}`}>
+      <article className={`group ${articleGridClass}`}>
         <ArtworkExternalLink
           href={externalUrl}
           title={formatArtworkTitle(artwork.title, locale)}
@@ -398,7 +401,7 @@ function ArtworkCard({
   );
 
   return (
-    <article className={`group ${articleClass || layout.articleClass}`}>
+    <article className={`group ${articleGridClass}`}>
       {viewsWithImages.length > 0 ? (
         <div
           className={`grid gap-4 ${
@@ -492,11 +495,20 @@ function ArtworkCard({
   );
 }
 
+function liShiUnseenSubstanceGridClass(artwork: ArtistArtwork): string | undefined {
+  if (artwork.id === "1") return "md:col-span-12";
+  if (artwork.id === "2" || artwork.id === "3" || artwork.id === "8") {
+    return "md:col-span-4";
+  }
+  return undefined;
+}
+
 function renderArtworkGridItems(
   artworks: ArtistArtwork[],
   locale: Locale,
   artistSlug: string,
   viewArtworkPassportLabel: string,
+  getGridClass?: (artwork: ArtistArtwork) => string | undefined,
 ): React.ReactNode[] {
   return artworks.flatMap((artwork, index, list) => {
     const next = list[index + 1];
@@ -524,12 +536,14 @@ function renderArtworkGridItems(
             locale={locale}
             artistSlug={artistSlug}
             viewArtworkPassportLabel={viewArtworkPassportLabel}
+            gridClass={getGridClass?.(artwork)}
           />
           <ArtworkCard
             artwork={next}
             locale={locale}
             artistSlug={artistSlug}
             viewArtworkPassportLabel={viewArtworkPassportLabel}
+            gridClass={getGridClass?.(next)}
           />
         </div>,
       ];
@@ -542,6 +556,7 @@ function renderArtworkGridItems(
         locale={locale}
         artistSlug={artistSlug}
         viewArtworkPassportLabel={viewArtworkPassportLabel}
+        gridClass={getGridClass?.(artwork)}
       />,
     ];
   });
@@ -840,12 +855,23 @@ export function ArtistPassport({
                         </div>
                       </div>
                     ) : null}
-                    <div className="mt-12 grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2">
+                    <div
+                      className={
+                        artist.slug === "li-shi" &&
+                        series?.id === "unseen-substance"
+                          ? "mt-12 grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-12 md:gap-y-16"
+                          : "mt-12 grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2"
+                      }
+                    >
                       {renderArtworkGridItems(
                         seriesArtworks,
                         locale,
                         artist.slug,
                         l.viewArtworkPassport,
+                        artist.slug === "li-shi" &&
+                          series?.id === "unseen-substance"
+                          ? liShiUnseenSubstanceGridClass
+                          : undefined,
                       )}
                     </div>
                   </div>,

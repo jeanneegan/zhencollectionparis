@@ -85,7 +85,7 @@ export type ArtistProfile = {
       role: "main" | "side";
       equal?: boolean;
     };
-    displayLayout?: "compact" | "wide";
+    displayLayout?: "compact" | "wide" | "half";
     viewsLayout?: "row" | "stack";
     hideOnPassport?: boolean;
   }[];
@@ -2394,6 +2394,7 @@ This series has been created since mid-2023. The changes in environment and mood
       dimensions: "320 × 280 cm",
       image: "/artists/li-shi/works/i-saw-a-colorful-abyss-at-3-30-2025.jpg",
       imageAspect: [320, 280],
+      displayLayout: "wide",
       seriesId: "unseen-substance",
     },
     {
@@ -2413,6 +2414,7 @@ This series has been created since mid-2023. The changes in environment and mood
       image:
         "/artists/li-shi/works/unseen-substance-expanding-into-invisible-wall-2026.jpg",
       imageAspect: [180, 160],
+      displayLayout: "half",
       seriesId: "unseen-substance",
     },
     {
@@ -2431,6 +2433,7 @@ This series has been created since mid-2023. The changes in environment and mood
       dimensions: "150 × 120 cm",
       image: "/artists/li-shi/works/red-rain-in-june-2026.jpg",
       imageAspect: [150, 120],
+      displayLayout: "half",
       seriesId: "unseen-substance",
     },
     {
@@ -2450,6 +2453,7 @@ This series has been created since mid-2023. The changes in environment and mood
       image:
         "/artists/li-shi/works/please-pass-through-these-caves-with-a-light-pos-2025.jpg",
       imageAspect: [170, 160],
+      displayLayout: "half",
       seriesId: "unseen-substance",
     },
     {
@@ -2549,7 +2553,7 @@ export function getArtworkDisplayLayout(artwork: {
   imageAspect?: [number, number];
   views?: unknown[];
   layoutPair?: { role: "main" | "side"; equal?: boolean };
-  displayLayout?: "compact" | "wide";
+  displayLayout?: "compact" | "wide" | "half";
   viewsLayout?: "row" | "stack";
 }): {
   aspect: [number, number];
@@ -2579,10 +2583,30 @@ export function getArtworkDisplayLayout(artwork: {
   }
 
   if (artwork.displayLayout === "wide") {
+    const monumental =
+      width >= 280 && height >= 240 && width / height <= 1.2;
+    const maxHeight = monumental ? "min(72vh, 680px)" : undefined;
+
     return {
       aspect,
       articleClass: "sm:col-span-2",
       imageSizes: "(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 860px",
+      frameStyle: maxHeight
+        ? {
+            aspectRatio,
+            maxHeight,
+            width: `min(100%, calc(${maxHeight} * ${width} / ${height}))`,
+            marginInline: "auto",
+          }
+        : { aspectRatio },
+    };
+  }
+
+  if (artwork.displayLayout === "half") {
+    return {
+      aspect,
+      articleClass: "",
+      imageSizes: "(max-width: 640px) 100vw, (max-width: 1280px) 28vw, 400px",
       frameStyle: { aspectRatio },
     };
   }
