@@ -26,11 +26,6 @@ const spotlightLabels: Record<
     festivalRoute: string;
     festivalTagline: string;
     festivalCta: string;
-    programmeKicker: string;
-    programmeTitle: string;
-    programmeMeta: string;
-    programmeTagline: string;
-    programmeCta: string;
   }
 > = {
   zh: {
@@ -42,12 +37,6 @@ const spotlightLabels: Record<
     festivalTagline:
       "在巴黎、深圳、纽约等城市的咖啡馆、书店、旅店与日常空间发生的国际艺术展",
     festivalCta: "Découvrir le projet · 了解项目",
-    programmeKicker: "OPEN CALL · ZCP 2027",
-    programmeTitle: "ZCP 2027青年艺术家计划 · Prix WE奖",
-    programmeMeta:
-      "24 位入选 · 12 组对话 · ZCP 2027 巴黎艺术展\nPrix WE奖 · 2 个驻地",
-    programmeTagline: "报名 2026.09.21 – 12.20 · 巴黎 · 深圳",
-    programmeCta: "Voir le programme · 了解计划 →",
   },
   fr: {
     editionKicker: "COLLECTION · 收藏",
@@ -58,14 +47,6 @@ const spotlightLabels: Record<
     festivalTagline:
       "Expositions internationales dans cafés, librairies, hôtels et espaces du quotidien à Paris, Shenzhen, New York et au-delà",
     festivalCta: "Découvrir le projet · 了解项目",
-    programmeKicker: "OPEN CALL · ZCP 2027",
-    programmeTitle:
-      "Programme ZCP 2027 pour artistes émergents · Prix WE",
-    programmeMeta:
-      "24 artistes · 12 dialogues · Exposition ZCP Paris 2027\nPrix WE · 2 résidences",
-    programmeTagline:
-      "Candidatures 21 sept. – 20 déc. 2026 · Paris · Shenzhen",
-    programmeCta: "Voir le programme · 了解计划 →",
   },
   en: {
     editionKicker: "COLLECTION",
@@ -76,13 +57,6 @@ const spotlightLabels: Record<
     festivalTagline:
       "International art in cafés, bookshops, hotels, and everyday spaces across Paris, Shenzhen, New York, and beyond",
     festivalCta: "Discover the project",
-    programmeKicker: "OPEN CALL · ZCP 2027",
-    programmeTitle: "ZCP Emerging Artists Programme 2027 · Prix WE",
-    programmeMeta:
-      "24 artists · 12 dialogues · ZCP Paris 2027 show\nPrix WE · 2 residencies",
-    programmeTagline:
-      "Applications 21 Sep – 20 Dec 2026 · Paris · Shenzhen",
-    programmeCta: "View the programme →",
   },
 };
 
@@ -118,38 +92,6 @@ export function HomeView() {
       />
 
       <main className="mx-auto max-w-6xl space-y-8 px-3 py-10 md:space-y-12 md:px-8 md:py-16">
-        <section className={`${cardClass} px-4 py-8 text-center md:px-10 md:py-12`}>
-          <p className={kickerClass}>{l.programmeKicker}</p>
-
-          <h2
-            className={`${
-              useSerif ? serif.className : ""
-            } mx-auto mt-8 max-w-xl text-2xl font-normal leading-tight text-[#5a2323] md:text-3xl`}
-          >
-            {l.programmeTitle}
-          </h2>
-
-          <p className="mt-5 whitespace-pre-line text-sm font-medium tracking-[0.08em] text-stone-700">
-            {l.programmeMeta}
-          </p>
-          <p
-            className={`${
-              useSerif ? serif.className : ""
-            } mx-auto mt-4 max-w-lg text-sm leading-[1.9] text-stone-600`}
-          >
-            {l.programmeTagline}
-          </p>
-
-          <div className="mt-10 flex justify-center">
-            <Link
-              href="/opportunites/emerging-artists-2027"
-              className={spotlightCtaClass}
-            >
-              {l.programmeCta}
-            </Link>
-          </div>
-        </section>
-
         <DialogueCurrentSpotlight locale={locale} />
 
         {latestEdition && editionArtist && editionWork && editionShopUrl ? (
