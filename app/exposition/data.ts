@@ -45,14 +45,6 @@ const expositions: Record<string, Exposition> = {
       fr: "Dates, lieu et durée seront annoncés après confirmation.",
       en: "Dates, venue, and duration will be announced once confirmed.",
     },
-    cta: {
-      href: "/opportunites/emerging-artists-2027",
-      label: {
-        zh: "查看 2027 艺术家计划 · 提交申请",
-        fr: "Voir le programme 2027 · Candidater",
-        en: "View the 2027 programme · Apply",
-      },
-    },
   },
   "cafe-art-print-tour": {
     id: "cafe-art-print-tour",
