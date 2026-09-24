@@ -143,7 +143,7 @@ export function ExpositionIndexView() {
                     </p>
                   ) : null}
                   {exposition.meta ? (
-                    <p className="mt-5 text-xs font-medium tracking-[0.08em] text-stone-500">
+                    <p className="mt-5 whitespace-pre-line text-xs font-medium tracking-[0.08em] text-stone-500">
                       {t(exposition.meta, locale)}
                     </p>
                   ) : null}
