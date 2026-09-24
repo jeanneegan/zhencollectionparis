@@ -32,6 +32,7 @@ const labels: Record<
     currentCity: string;
     nationality: string;
     practice: string;
+    studio: string;
     education: string;
     whyChinaFrance: string;
     whyChina: string;
@@ -69,6 +70,7 @@ const labels: Record<
     currentCity: "现居城市",
     nationality: "国籍",
     practice: "艺术实践",
+    studio: "Atelier · 工作室",
     education: "Formation · 教育背景",
     whyChinaFrance:
       "Pourquoi la Chine / Pourquoi la France｜为什么中国 / 为什么法国",
@@ -108,6 +110,7 @@ const labels: Record<
     currentCity: "Ville actuelle",
     nationality: "Nationalité",
     practice: "Pratique artistique",
+    studio: "Atelier · 工作室",
     education: "Formation · 教育背景",
     whyChinaFrance:
       "Pourquoi la Chine / Pourquoi la France｜为什么中国 / 为什么法国",
@@ -147,6 +150,7 @@ const labels: Record<
     currentCity: "Current City",
     nationality: "Nationality",
     practice: "Practice",
+    studio: "Studio",
     education: "Education",
     whyChinaFrance: "Why China / Why France",
     whyChina: "Why China",
@@ -661,6 +665,16 @@ export function ArtistPassport({
                   {t(artist.practice, locale)}
                 </dd>
               </div>
+              {!artist.studioPhoto &&
+              artist.studio &&
+              (artist.studio.zh || artist.studio.fr || artist.studio.en) ? (
+                <div className="col-span-2 sm:col-span-1">
+                  <dt className={passportType.meta}>{l.studio}</dt>
+                  <dd className={`mt-1 ${passportType.heroValue}`}>
+                    {t(artist.studio, locale)}
+                  </dd>
+                </div>
+              ) : null}
             </dl>
           </div>
         </div>
@@ -852,6 +866,27 @@ export function ArtistPassport({
             return nodes;
           })()}
         </div>
+
+        {artist.studioPhoto ? (
+          <div className="mt-20 sm:col-span-2">
+            <h3 className={passportType.subsectionTitle}>{l.studio}</h3>
+            {artist.studio &&
+            (artist.studio.zh || artist.studio.fr || artist.studio.en) ? (
+              <p className={`mt-3 ${passportType.heroValue}`}>
+                {t(artist.studio, locale)}
+              </p>
+            ) : null}
+            <div className="relative mt-8 aspect-[3/4] w-full max-w-3xl overflow-hidden bg-stone-100 sm:aspect-[4/5]">
+              <Image
+                src={artist.studioPhoto}
+                alt={`${t(artist.name, locale)} · ${l.studio}`}
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 768px) 100vw, 768px"
+              />
+            </div>
+          </div>
+        ) : null}
 
         <div className="mt-16 border border-stone-200 bg-stone-50/30 px-6 py-10 text-center md:px-10">
           <p className={`${passportType.meta} tracking-[0.15em]`}>

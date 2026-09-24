@@ -12,6 +12,8 @@ export type ArtistProfile = {
   currentCity: LocalizedText;
   nationality: LocalizedText;
   practice: LocalizedText;
+  studio?: LocalizedText;
+  studioPhoto?: string;
   representedBy: LocalizedText;
   portrait: string;
   portraitCredit?: string;
@@ -467,673 +469,313 @@ With cynicism and humour, an animal, a god, and a mundane object can appear on t
   artworks: [
     {
       id: "1",
-      title: {
-        zh: "在 3:30 望见彩色深渊",
-        fr: "I Saw a Colorful Abyss at 3:30",
-        en: "I Saw a Colorful Abyss at 3:30",
+      title: { zh: "《PDT》", fr: "« PDT »", en: "« PDT »" },
+      subtitle: {
+        zh: "（2024 年 9 月布鲁塞尔 ADAF 悬挂屏风）",
+        fr: "(Paravent suspendu pour l'ADAF, Bruxelles, Septembre 2024)",
+        en: "(Suspended screen for ADAF, Brussels, September 2024)",
       },
-      year: 2025,
+      description: {
+        fr: `« PDT » est un paravent suspendu représentant une pomme de terre un peu frippée et germée. Sur le recto, une scène de barbecue entre voisins. Leurs trois maisons sont reliées et perchées dans un arbre qui s'appelle l'eucalyptus arc-en-ciel.
+
+Je l'ai réalisé pour l'ADAF, une exposition collective qui a eu lieu en septembre 2024 à Bruxelles. Chaque artiste invité devait créer un objet ou un meuble pouvant être fonctionnel.
+
+Il s'agit de vingt panneaux de bois évidés et peints de chaque côté, reliés par des anneaux en métal à clipser, attachés à une barre en acier et suspendus au plafond.
+
+Le thème de l'exposition était la « maison du peuple » — d'où la pomme de terre, légume peu cher et populaire.`,
+        zh: `《PDT》是一件悬挂式屏风，描绘一颗略显皱缩、发了芽的土豆。正面是邻居们烧烤的场景——三栋房子相连，栖居在一棵名叫「彩虹桉」的树上。
+
+为 2024 年 9 月布鲁塞尔 ADAF 群展而作；每位受邀艺术家须创作一件可用作功能的物件或家具。
+
+作品由二十块掏空并双面绘制的木板组成，以可扣合的金属环相连，固定在钢杆上，悬于天花板。
+
+展览主题为「人民的房子」——土豆因而出现：便宜、大众的蔬菜。`,
+        en: `« PDT » is a suspended screen depicting a slightly wrinkled, sprouted potato. On the front, a barbecue scene between neighbours—their three houses linked and perched in a tree called the rainbow eucalyptus.
+
+I made it for ADAF, a group exhibition in Brussels in September 2024. Each invited artist had to create an object or piece of furniture that could be functional.
+
+It consists of twenty hollowed wood panels painted on both sides, joined by clip-on metal rings, attached to a steel bar and hung from the ceiling.
+
+The exhibition theme was the « people's house »—hence the potato, a cheap, popular vegetable.`,
+      },
+      year: 2024,
       medium: {
-        zh: "布面油画",
-        fr: "Huile sur toile",
-        en: "Oil on canvas",
+        zh: "木板油画、金属环、钢制挂杆与吊缆",
+        fr: "Huile sur panneaux de bois, anneaux en métal, barre et câbles en acier",
+        en: "Oil on wood panels, metal rings, steel bar and cables",
       },
-      dimensions: "320 × 280 cm",
-      image: "/artists/li-shi/works/i-saw-a-colorful-abyss-at-3-30-2025.jpg",
-      imageAspect: [320, 280],
-      seriesId: "unseen-substance",
-    },
-    {
-      id: "2",
-      title: {
-        zh: "有某种物质在膨胀并筑成一道墙",
-        fr: "Unseen Substance Expanding into Invisible Wall",
-        en: "Unseen Substance Expanding into Invisible Wall",
-      },
-      year: 2026,
-      medium: {
-        zh: "布面油画",
-        fr: "Huile sur toile",
-        en: "Oil on canvas",
-      },
-      dimensions: "180 × 160 cm",
-      image: "/artists/li-shi/works/unseen-substance-expanding-into-invisible-wall-2026.jpg",
-      imageAspect: [180, 160],
-      seriesId: "unseen-substance",
+      dimensions: "154 × 123 cm",
+      image: "/artists/willy-le-nalbaut/works/pdt-recto.jpg",
+      imageAspect: [791, 1024],
+      views: [
+        {
+          src: "/artists/willy-le-nalbaut/works/pdt-recto.jpg",
+          label: { zh: "正面 · recto", fr: "Recto", en: "Front" },
+          imageAspect: [791, 1024],
+        },
+        {
+          src: "/artists/willy-le-nalbaut/works/pdt-verso.jpg",
+          label: { zh: "背面 · verso", fr: "Verso", en: "Back" },
+          imageAspect: [788, 1024],
+        },
+      ],
     },
     {
       id: "3",
       title: {
-        zh: "六月有红雨",
-        fr: "Red Rain in June",
-        en: "Red Rain in June",
-      },
-      year: 2026,
-      medium: {
-        zh: "布面油画",
-        fr: "Huile sur toile",
-        en: "Oil on canvas",
-      },
-      dimensions: "150 × 120 cm",
-      image: "/artists/li-shi/works/red-rain-in-june-2026.jpg",
-      imageAspect: [150, 120],
-      seriesId: "unseen-substance",
-    },
-    {
-      id: "4",
-      title: {
-        zh: "04:33",
-        fr: "04:33",
-        en: "04:33",
-      },
-      year: 2026,
-      medium: {
-        zh: "布面油画",
-        fr: "Huile sur toile",
-        en: "Oil on canvas",
-      },
-      dimensions: "70 × 70 cm",
-      image: "/artists/li-shi/works/04-33-2026.jpg",
-      imageAspect: [70, 70],
-      seriesId: "unseen-substance",
-    },
-    {
-      id: "5",
-      title: {
-        zh: "来自太阳的一阵风",
-        fr: "Wind from the Sun",
-        en: "Wind from the Sun",
-      },
-      year: 2026,
-      medium: {
-        zh: "木板油画",
-        fr: "Huile sur bois",
-        en: "Oil on wood panel",
-      },
-      dimensions: "70 × 70 cm",
-      image: "/artists/li-shi/works/wind-from-the-sun-2026.jpg",
-      imageAspect: [70, 70],
-      seriesId: "unseen-substance",
-    },
-    {
-      id: "6",
-      title: {
-        zh: "请赤身穿过这片洞穴",
-        fr: "Veuillez traverser ces grottes — le paradis que j'ai peint pour vous",
-        en: "Please pass through these caves with a light posture, it is the paradise I have painted for you.",
+        zh: "驴自有其理，铁蹄不能知",
+        fr: "L'âne à ses raisons que les sabots ignorent.",
+        en: "The donkey has its reasons that hooves ignore.",
       },
       year: 2025,
       medium: {
-        zh: "布面油画",
-        fr: "Huile sur toile",
-        en: "Oil on canvas",
+        zh: "油画 · 木板",
+        fr: "Huile · bois",
+        en: "Oil · wood panel",
       },
-      dimensions: "170 × 160 cm",
-      image: "/artists/li-shi/works/please-pass-through-these-caves-with-a-light-pos-2025.jpg",
-      imageAspect: [170, 160],
-      seriesId: "deep-green",
-    },
-    {
-      id: "7",
-      title: {
-        zh: "去往的天堂是一片深绿",
-        fr: "The Heaven of Deep Green",
-        en: "The Heaven of Deep Green",
+      dimensions: "31 × 48 cm",
+      image: "/artists/willy-le-nalbaut/works/ane.jpg",
+      imageAspect: [1024, 659],
+      description: {
+        fr: "Dans ce tableau, l'âne est sensé me représenter.",
+        zh: "在这幅画里，驴子应当代表我自己。",
+        en: "In this painting, the donkey is meant to represent me.",
       },
-      year: 2024,
-      medium: {
-        zh: "布面油画",
-        fr: "Huile sur toile",
-        en: "Oil on canvas",
-      },
-      dimensions: "300 × 200 cm",
-      image: "/artists/li-shi/works/the-heaven-of-deep-green-2024.jpg",
-      imageAspect: [300, 200],
-      seriesId: "deep-green",
-      displayLayout: "wide",
-    },
-    {
-      id: "8",
-      title: {
-        zh: "对岸有座山",
-        fr: "I Saw the Mountain",
-        en: "I Saw the Mountain",
-      },
-      year: 2025,
-      medium: {
-        zh: "布面油画",
-        fr: "Huile sur toile",
-        en: "Oil on canvas",
-      },
-      dimensions: "100 × 100 cm",
-      image: "/artists/li-shi/works/i-saw-the-mountain-2025.jpg",
-      imageAspect: [100, 100],
-      seriesId: "deep-green",
-    },
-    {
-      id: "9",
-      title: {
-        zh: "通幽处",
-        fr: "The Secluded Place",
-        en: "The Secluded Place",
-      },
-      year: 2025,
-      medium: {
-        zh: "布面油画",
-        fr: "Huile sur toile",
-        en: "Oil on canvas",
-      },
-      dimensions: "100 × 100 cm",
-      image: "/artists/li-shi/works/the-secluded-place-2025.jpg",
-      imageAspect: [100, 100],
-      seriesId: "deep-green",
-    },
-    {
-      id: "10",
-      title: {
-        zh: "03:51",
-        fr: "03:51",
-        en: "03:51",
-      },
-      year: 2025,
-      medium: {
-        zh: "布面油画",
-        fr: "Huile sur toile",
-        en: "Oil on canvas",
-      },
-      dimensions: "100 × 100 cm",
-      image: "/artists/li-shi/works/03-51-2025.jpg",
-      imageAspect: [100, 100],
-      seriesId: "deep-green",
-    },
-    {
-      id: "11",
-      title: {
-        zh: "我的松在阳光下长大了",
-        fr: "My Pine Tree Grew up in the Sunshine",
-        en: "My Pine Tree Grew up in the Sunshine",
-      },
-      year: 2024,
-      medium: {
-        zh: "布面油画",
-        fr: "Huile sur toile",
-        en: "Oil on canvas",
-      },
-      dimensions: "200 × 100 cm",
-      image: "/artists/li-shi/works/my-pine-tree-grew-up-in-the-sunshine-2024.jpg",
-      imageAspect: [200, 100],
-      seriesId: "deep-green",
-      displayLayout: "wide",
-    },
-    {
-      id: "12",
-      title: {
-        zh: "境",
-        fr: "Vibes",
-        en: "Vibes",
-      },
-      year: 2024,
-      medium: {
-        zh: "布面油画",
-        fr: "Huile sur toile",
-        en: "Oil on canvas",
-      },
-      dimensions: "60 × 60 cm",
-      image: "/artists/li-shi/works/vibes-2024.jpg",
-      imageAspect: [60, 60],
-      seriesId: "deep-green",
     },
     {
       id: "13",
       title: {
-        zh: "流淌的松",
-        fr: "Flow",
-        en: "Flow",
+        zh: "《是 Mitch 啊！》",
+        fr: "« Mais c'est le Mitch ! »",
+        en: "« Mais c'est le Mitch ! »",
       },
       year: 2024,
       medium: {
-        zh: "布面油画",
-        fr: "Huile sur toile",
-        en: "Oil on canvas",
+        zh: "油画 · 木板",
+        fr: "Huile sur bois",
+        en: "Oil on wood panel",
       },
-      dimensions: "60 × 60 cm",
-      image: "/artists/li-shi/works/flow-2024.jpg",
-      imageAspect: [60, 60],
-      seriesId: "deep-green",
-    },
-    {
-      id: "14",
-      title: {
-        zh: "缠绕的松",
-        fr: "Chaos",
-        en: "Chaos",
+      dimensions: "20 × 31 cm",
+      externalUrl: "https://willy-cochon.hotglue.me/?start.head.177452232635",
+      imageAspect: [1010, 646],
+      displayLayout: "compact",
+      layoutPair: { group: "mitch-korrigan", role: "main", equal: true },
+      description: {
+        fr: `Dans ce tableau, je fais un portrait de ma poule Mitch — elle est la seule survivante d'une attaque de renards.
+
+J'utilise une peinture dorée pour faire des liserets ou des traits fins, un peu comme dans certaines peintures représentant la lumière ou le divin, comme dans L'Annonciation ou l'Agneau mystique de Van Eyck.`,
+        zh: `在这幅画里，我为我的母鸡 Mitch 画像——她是一次狐狸袭击中唯一的幸存者。
+
+我用金色颜料画出细线或镶边，有点像某些表现光或神圣性的绘画，如 van Eyck 的《Annunciation》或《Ghent Altarpiece》（神秘羔羊）。`,
+        en: `In this painting I portray my hen Mitch—the sole survivor of a fox attack.
+
+I use gold paint for fine lines or borders, somewhat like paintings that represent light or the divine, as in Van Eyck's Annunciation or the Ghent Altarpiece (Adoration of the Mystic Lamb).`,
       },
-      year: 2024,
-      medium: {
-        zh: "布面油画",
-        fr: "Huile sur toile",
-        en: "Oil on canvas",
-      },
-      dimensions: "60 × 60 cm",
-      image: "/artists/li-shi/works/chaos-2024.jpg",
-      imageAspect: [60, 60],
-      seriesId: "deep-green",
     },
     {
       id: "15",
       title: {
-        zh: "Catching",
-        fr: "Catching",
-        en: "Catching",
+        zh: "《撒一点小精灵》",
+        fr: "« Saupoudrez d'un peu de Korrigan »",
+        en: "« Saupoudrez d'un peu de Korrigan »",
       },
       year: 2024,
       medium: {
-        zh: "布面油画",
+        zh: "油画 · 木板",
+        fr: "Huile sur bois",
+        en: "Oil on wood panel",
+      },
+      dimensions: "20 × 30 cm",
+      image: "/artists/willy-le-nalbaut/works/saupoudrez-dun-peu-de-korrigan.jpg",
+      imageAspect: [1024, 680],
+      displayLayout: "compact",
+      layoutPair: { group: "mitch-korrigan", role: "side", equal: true },
+      description: {
+        fr: `Dans cette peinture, j'ai d'abord commencé par le bouquet de fleurs comme une nature morte ; après l'avoir laissé quelques mois sans y toucher, je suis revenu par derrière pour y rajouter les personnages et le paysage.`,
+        zh: `在这幅画里，我起初以花束作静物起稿；搁置数月未动之后，我又回到画前，在后方添上人物与风景。`,
+        en: `In this painting, I first began with the bouquet of flowers as a still life; after leaving it untouched for several months, I came back to add the figures and the landscape behind it.`,
+      },
+    },
+    {
+      id: "14",
+      title: {
+        zh: "《系好安全带！》",
+        fr: "« Attachez vos ceintures ! »",
+        en: "« Attachez vos ceintures ! »",
+      },
+      year: 2025,
+      medium: {
+        zh: "油画 · 木板",
+        fr: "Huile sur bois",
+        en: "Oil on wood panel",
+      },
+      dimensions: "37.5 × 61.5 cm",
+      image: "/artists/willy-le-nalbaut/works/attachez-vos-ceintures.jpg",
+      imageAspect: [1024, 650],
+      description: {
+        fr: `Dans « Attachez vos ceintures ! », la scène se passe en Bretagne, dans une rue existante. J'ai imaginé un monde où tout serait accessible en monte-escaliers Stannah.
+
+Il reste un morceau d'une couche inférieure en bas à gauche ; et, comme dans la peinture précédente, au centre du tableau, la lumière divine en traits dorés — en référence à Van Eyck ou d'autres peintures religieuses.`,
+        zh: `在《Attachez vos ceintures !》中，场景设在布列塔尼一条真实存在的街道。我设想了一个一切皆可乘 Stannah 楼梯升降机抵达的世界。
+
+左下角仍留有一小块下层画作的痕迹；与上一幅画一样，画面中央是以金色细线表现的神圣之光——参照 van Eyck 或其他宗教绘画。`,
+        en: `In « Attachez vos ceintures ! », the scene takes place in Brittany, in a real street. I imagined a world where everything would be reachable by Stannah stairlifts.
+
+A fragment of an underlying layer remains at the bottom left; and, as in the previous painting, divine light in gold lines at the centre of the canvas—in reference to Van Eyck or other religious paintings.`,
+      },
+    },
+    {
+      id: "7",
+      title: {
+        zh: "《穹顶下的蜗牛》",
+        fr: "« Limaces sous dômes »",
+        en: "Slugs under domes",
+      },
+      year: 2025,
+      medium: {
+        zh: "油画 · 木板",
+        fr: "Huile sur bois",
+        en: "Oil on wood panel",
+      },
+      dimensions: "38 × 46 cm",
+      image: "/artists/willy-le-nalbaut/works/limaces.jpg",
+      imageAspect: [1024, 822],
+      displayLayout: "wide",
+      description: {
+        fr: `La tortue représente la lenteur, et la vitesse à laquelle je peins ; il y a des escargots sur son dos, façon poupée russe. Sa carapace est peinte ; elle est dans mon jardin, entourée de mes chats et de ma poule. On y retrouve tous les éléments : on voit mon atelier à gauche, les plantes, le cerisier, etc. Un élément imaginaire : le chapeau en osier avec la planète et une ampoule qui fait lampe. J'ai voulu faire un damier pour donner un côté métaphysique.`,
+        zh: `乌龟代表缓慢，也代表我作画的速度；它背上有蜗牛，像俄罗斯套娃。龟壳被画了出来；它在我的花园里，被我的猫和母鸡环绕。画中汇集了各种元素：左侧可见我的画室、植物、樱桃树等。一个想象的元素：藤编帽上的星球与充当灯盏的灯泡。我想用棋盘格营造一种形而上的气息。`,
+        en: `The turtle stands for slowness, and for the speed at which I paint; snails on its back, like a Russian doll. Its shell is painted; it is in my garden, surrounded by my cats and my hen. Every element is there: my studio on the left, the plants, the cherry tree, and so on. An imaginary element: the wicker hat with the planet and a light bulb serving as a lamp. I wanted a checkerboard pattern to give a metaphysical feel.`,
+      },
+    },
+    {
+      id: "8",
+      title: {
+        zh: "日安，布鲁塞尔之花女士",
+        fr: "Goeiedag mevroew bloem",
+        en: "Goeiedag mevroew bloem",
+      },
+      year: 2026,
+      medium: {
+        zh: "油画 · 木板",
+        fr: "Huile sur bois",
+        en: "Oil on wood panel",
+      },
+      dimensions: "",
+      image: "/artists/willy-le-nalbaut/works/goeiedag.jpg",
+      imageAspect: [1024, 698],
+      description: {
+        fr: `Dans cette peinture on peut voir Andrea faire de la mini-pelle et sa pote Cake conduire un super poids lourd. Avec la mini-pelle elle creuse des trous pour pouvoir planter des arbres, et le camion ramène des fleurs de Hollande pour pouvoir les planter. Plein d'éléments flottent au-dessus.`,
+        zh: `在这幅画里，Andrea 开着迷你铲，她的朋友 Cake 开着一辆重型卡车。她用迷你铲挖坑种树，卡车从荷兰运来鲜花以便栽种。许多元素漂浮在上方。`,
+        en: `In this painting Andrea is on the mini-digger and her friend Cake is driving a heavy truck. With the mini-digger she digs holes to plant trees, and the lorry brings flowers from Holland to plant them. Many elements float above.`,
+      },
+    },
+    {
+      id: "9",
+      title: {
+        zh: "无题",
+        fr: "sans titre",
+        en: "Untitled",
+      },
+      year: 2025,
+      medium: {
+        zh: "油画 · 画布",
         fr: "Huile sur toile",
         en: "Oil on canvas",
       },
-      dimensions: "60 × 60 cm",
-      image: "/artists/li-shi/works/catching-2024.jpg",
-      imageAspect: [60, 60],
-      seriesId: "deep-green",
+      dimensions: "",
+      image: "/artists/willy-le-nalbaut/works/sans-titre.jpg",
+      imageAspect: [256, 1024],
+      layoutPair: { group: "arbre-moine", role: "main" },
+      description: {
+        fr: `Pendant un moment j'étais fasciné par les plus grands arbres du monde en Californie. En voyant ce format qui au début était dans l'autre sens, je l'ai retourné et je me suis dit que c'était parfait pour peindre un arbre géant. Il y a des personnages en bas à droite pour qu'on se rende compte de l'échelle. Un mangeoir à oiseau à gauche et un bichon-nuage à droite.`,
+        zh: `有一阵子，我着迷于加州世界上最高的那些大树。看见这块画布——起初是横向的——我把它转过来，心想正好可以画一棵巨树。右下方有几个小人，让人感受比例。左边有一只喂鸟器，右边有一只云朵比熊。`,
+        en: `For a while I was fascinated by the tallest trees in the world in California. Seeing this format — which at first was the other way round — I turned it and thought it was perfect for painting a giant tree. There are figures at the bottom right so you can sense the scale. A bird feeder on the left and a cloud bichon on the right.`,
+      },
+    },
+    {
+      id: "11",
+      title: {
+        zh: "《僧侣》",
+        fr: "« Le moine »",
+        en: "The Monk",
+      },
+      year: 2025,
+      medium: {
+        zh: "油画 · 木板",
+        fr: "Huile sur bois",
+        en: "Oil on wood panel",
+      },
+      dimensions: "41 × 33 cm",
+      image: "/artists/willy-le-nalbaut/works/le-moine.jpg",
+      imageAspect: [812, 1024],
+      layoutPair: { group: "arbre-moine", role: "side" },
+      description: {
+        fr: `J'ai fait cette peinture avec la volonté de devenir plus sage. Je médite en lévitation au-dessus d'un tabouret dans un pub. À gauche et à droite, mes signes astrologiques : à droite le taureau, à gauche le serpent (astrologie chinoise). Un ibis pique un billet avec son long bec. Les deux cercles représentent des sous-bocks avec les histoires d'une mouche à l'intérieur.`,
+        zh: `我带着想变得更智慧的愿望画了这幅画。我在一家酒吧里，悬浮在凳子上方冥想。左右两侧是我的星座：右边是金牛，左边是蛇（中国占星）。一只朱鹭用长喙叼走一张钞票。两个圆圈代表杯垫，里面是一只苍蝇的故事。`,
+        en: `I made this painting with the wish to become wiser. I meditate in levitation above a stool in a pub. On the left and right, my astrological signs: the bull on the right and the snake on the left (Chinese astrology). An ibis picks up a banknote with its long beak. The two circles represent beer coasters with the stories of a fly inside.`,
+      },
+    },
+    {
+      id: "10",
+      title: {
+        zh: "《鸟之小水洼》",
+        fr: "« La flaque aux oiseaux »",
+        en: "The puddle with birds",
+      },
+      year: 2025,
+      medium: {
+        zh: "油画 · 木板",
+        fr: "Huile sur bois",
+        en: "Oil on wood panel",
+      },
+      dimensions: "37.5 × 39.5 cm",
+      image: "/artists/willy-le-nalbaut/works/flaque-aux-oiseaux.jpg",
+      imageAspect: [1024, 951],
+      description: {
+        fr: `Je passais devant en bagnole et j'ai vu ces oiseaux se baigner dans cette flaque ; j'ai décidé de les peindre. La scène se passe juste à côté de chez moi, on peut voir les vignes en fond.`,
+        zh: `开车经过时，我看见这些鸟在这片水洼里洗澡，便决定把它们画下来。场景就在我家旁边，背景可见葡萄园。`,
+        en: `I was driving past and saw these birds bathing in the puddle; I decided to paint them. The scene is right next to my home — you can see the vineyards in the background.`,
+      },
+    },
+    {
+      id: "12",
+      title: {
+        zh: "《圣佩德罗之花》",
+        fr: "« Eh-pad flower. »",
+        en: "« Eh-pad flower. »",
+      },
+      year: 2023,
+      medium: {
+        zh: "油画 · 画布",
+        fr: "Huile sur toile",
+        en: "Oil on canvas",
+      },
+      dimensions: "30 × 30 cm",
+      image: "/artists/willy-le-nalbaut/works/eh-pad-flower.jpg",
+      imageAspect: [1011, 1024],
+      description: {
+        fr: `Ceci est une fleur de San Pedro, un cactus d'Amérique du Sud ; la fleur s'ouvre seulement la nuit. Nous en avons un à la maison que nous avons pu observer. On voit un chien qui dort. C'est la nuit...`,
+        zh: `这是圣佩德罗（San Pedro）的花，一种南美洲仙人掌；它的花只在夜间开放。家里有一株，我们得以观察。画中有一只睡着的狗。是夜晚……`,
+        en: `This is a San Pedro flower, a cactus from South America; the flower opens only at night. We have one at home that we were able to observe. A sleeping dog is visible. It is night...`,
+      },
     },
     {
       id: "16",
       title: {
-        zh: "无题",
-        fr: "Sans titre",
-        en: "Untitled",
-      },
-      year: 2024,
-      medium: {
-        zh: "布面油画",
-        fr: "Huile sur toile",
-        en: "Oil on canvas",
-      },
-      dimensions: "60 × 60 cm",
-      image: "/artists/li-shi/works/untitled-2024.jpg",
-      imageAspect: [60, 60],
-      seriesId: "deep-green",
-    },
-    {
-      id: "17",
-      title: {
-        zh: "来自某个午夜",
-        fr: "The Midnight",
-        en: "The Midnight",
-      },
-      year: 2024,
-      medium: {
-        zh: "布面油画",
-        fr: "Huile sur toile",
-        en: "Oil on canvas",
-      },
-      dimensions: "60 × 60 cm",
-      image: "/artists/li-shi/works/the-midnight-2024.jpg",
-      imageAspect: [60, 60],
-      seriesId: "deep-green",
-    },
-    {
-      id: "18",
-      title: {
-        zh: "Colorless",
-        fr: "Sans couleur",
-        en: "Colorless",
-      },
-      year: 2024,
-      medium: {
-        zh: "布面油画",
-        fr: "Huile sur toile",
-        en: "Oil on canvas",
-      },
-      dimensions: "60 × 60 cm",
-      image: "/artists/li-shi/works/colorless-2024.jpg",
-      imageAspect: [60, 60],
-      seriesId: "deep-green",
-    },
-    {
-      id: "19",
-      title: {
-        zh: "有阳光漫进来的清晨",
-        fr: "Hi There! You're here",
-        en: "Hi There! You're here",
-      },
-      year: 2024,
-      medium: {
-        zh: "布面油画",
-        fr: "Huile sur toile",
-        en: "Oil on canvas",
-      },
-      dimensions: "60 × 60 cm",
-      image: "/artists/li-shi/works/hi-there-you-re-here-2024.jpg",
-      imageAspect: [60, 60],
-      seriesId: "deep-green",
-    },
-    {
-      id: "20",
-      title: {
-        zh: "五月波纹",
-        fr: "May Ripple / Deep Green",
-        en: "May Ripple / Deep Green",
-      },
-      year: 2024,
-      medium: {
-        zh: "纸本油画",
-        fr: "Huile sur papier",
-        en: "Oil on paper",
-      },
-      dimensions: "200 × 140 cm",
-      image: "/artists/li-shi/works/may-ripple-deep-green-2024.jpg",
-      imageAspect: [200, 140],
-      seriesId: "deep-green",
-    },
-    {
-      id: "21",
-      title: {
-        zh: "给肉打个活结",
-        fr: "Entangled",
-        en: "Entangled",
+        zh: "表",
+        fr: "Horloge",
+        en: "Clock",
       },
       year: 2025,
       medium: {
-        zh: "布面油画",
-        fr: "Huile sur toile",
-        en: "Oil on canvas",
+        zh: "彩绘钟表 · 镀金金属",
+        fr: "Horloge peinte, métal doré",
+        en: "Painted clock, gilt metal",
       },
-      dimensions: "200 × 160 cm",
-      image: "/artists/li-shi/works/entangled-2025.jpg",
-      imageAspect: [200, 160],
-      seriesId: "dance-stalemate",
-    },
-    {
-      id: "22",
-      title: {
-        zh: "胶着的舞蹈 - 5",
-        fr: "The Dance of Stalemate NO.5",
-        en: "The Dance of Stalemate NO.5",
-      },
-      year: 2023,
-      medium: {
-        zh: "布面油画",
-        fr: "Huile sur toile",
-        en: "Oil on canvas",
-      },
-      dimensions: "160 × 90 cm",
-      image: "/artists/li-shi/works/the-dance-of-stalemate-no-5-2023.jpg",
-      imageAspect: [160, 90],
-      seriesId: "dance-stalemate",
-      displayLayout: "wide",
-    },
-    {
-      id: "23",
-      title: {
-        zh: "胶着的舞蹈 - 3",
-        fr: "The Dance of Stalemate NO.3",
-        en: "The Dance of Stalemate NO.3",
-      },
-      year: 2023,
-      medium: {
-        zh: "布面油画",
-        fr: "Huile sur toile",
-        en: "Oil on canvas",
-      },
-      dimensions: "100 × 100 cm",
-      image: "/artists/li-shi/works/the-dance-of-stalemate-no-3-2023.jpg",
-      imageAspect: [100, 100],
-      seriesId: "dance-stalemate",
-    },
-    {
-      id: "24",
-      title: {
-        zh: "缸外之物",
-        fr: "Outside of the Vat",
-        en: "Outside of the Vat",
-      },
-      year: 2024,
-      medium: {
-        zh: "布面油画",
-        fr: "Huile sur toile",
-        en: "Oil on canvas",
-      },
-      dimensions: "1500 × 200 cm",
-      image: "/artists/li-shi/works/outside-of-the-vat-2024.jpg",
-      imageAspect: [1500, 200],
-      seriesId: "dance-stalemate",
-      displayLayout: "wide",
-    },
-    {
-      id: "25",
-      title: {
-        zh: "胶着的舞蹈 - 4",
-        fr: "The Dance of Stalemate NO.4",
-        en: "The Dance of Stalemate NO.4",
-      },
-      year: 2023,
-      medium: {
-        zh: "布面油画",
-        fr: "Huile sur toile",
-        en: "Oil on canvas",
-      },
-      dimensions: "100 × 100 cm",
-      image: "/artists/li-shi/works/the-dance-of-stalemate-no-4-2023.jpg",
-      imageAspect: [100, 100],
-      seriesId: "dance-stalemate",
-    },
-    {
-      id: "26",
-      title: {
-        zh: "胶着的舞蹈 - 6",
-        fr: "The Dance of Stalemate NO.6",
-        en: "The Dance of Stalemate NO.6",
-      },
-      year: 2023,
-      medium: {
-        zh: "布面油画",
-        fr: "Huile sur toile",
-        en: "Oil on canvas",
-      },
-      dimensions: "100 × 100 cm",
-      image: "/artists/li-shi/works/the-dance-of-stalemate-no-6-2023.jpg",
-      imageAspect: [100, 100],
-      seriesId: "dance-stalemate",
-    },
-    {
-      id: "27",
-      title: {
-        zh: "胶着的舞蹈 - 12/10/11",
-        fr: "The Dance of Stalemate NO.12/10/11",
-        en: "The Dance of Stalemate NO.12/10/11",
-      },
-      year: 2023,
-      medium: {
-        zh: "布面油画",
-        fr: "Huile sur toile",
-        en: "Oil on canvas",
-      },
-      dimensions: "70 × 50 cm",
-      image: "/artists/li-shi/works/the-dance-of-stalemate-no-12-10-11-2023.jpg",
-      imageAspect: [70, 50],
-      seriesId: "dance-stalemate",
-    },
-    {
-      id: "28",
-      title: {
-        zh: "胶着的舞蹈 - 13",
-        fr: "The Dance of Stalemate NO.13",
-        en: "The Dance of Stalemate NO.13",
-      },
-      year: 2023,
-      medium: {
-        zh: "布面油画",
-        fr: "Huile sur toile",
-        en: "Oil on canvas",
-      },
-      dimensions: "70 × 50 cm",
-      image: "/artists/li-shi/works/the-dance-of-stalemate-no-13-2023.jpg",
-      imageAspect: [70, 50],
-      seriesId: "dance-stalemate",
-    },
-    {
-      id: "29",
-      title: {
-        zh: "胶着的舞蹈 - 8",
-        fr: "The Dance of Stalemate NO.8",
-        en: "The Dance of Stalemate NO.8",
-      },
-      year: 2023,
-      medium: {
-        zh: "布面油画",
-        fr: "Huile sur toile",
-        en: "Oil on canvas",
-      },
-      dimensions: "100 × 100 cm",
-      image: "/artists/li-shi/works/the-dance-of-stalemate-no-8-2023.jpg",
-      imageAspect: [100, 100],
-      seriesId: "dance-stalemate",
-    },
-    {
-      id: "30",
-      title: {
-        zh: "胶着的舞蹈 - 9",
-        fr: "The Dance of Stalemate NO.9",
-        en: "The Dance of Stalemate NO.9",
-      },
-      year: 2023,
-      medium: {
-        zh: "布面油画",
-        fr: "Huile sur toile",
-        en: "Oil on canvas",
-      },
-      dimensions: "100 × 100 cm",
-      image: "/artists/li-shi/works/the-dance-of-stalemate-no-9-2023.jpg",
-      imageAspect: [100, 100],
-      seriesId: "dance-stalemate",
-    },
-    {
-      id: "31",
-      title: {
-        zh: "胶着的舞蹈 - 7",
-        fr: "The Dance of Stalemate NO.7",
-        en: "The Dance of Stalemate NO.7",
-      },
-      year: 2023,
-      medium: {
-        zh: "布面油画",
-        fr: "Huile sur toile",
-        en: "Oil on canvas",
-      },
-      dimensions: "100 × 100 cm",
-      image: "/artists/li-shi/works/the-dance-of-stalemate-no-7-2023.jpg",
-      imageAspect: [100, 100],
-      seriesId: "dance-stalemate",
-    },
-    {
-      id: "32",
-      title: {
-        zh: "胶着的舞蹈 - 15",
-        fr: "The Dance of Stalemate NO.15",
-        en: "The Dance of Stalemate NO.15",
-      },
-      year: 2023,
-      medium: {
-        zh: "布面油画",
-        fr: "Huile sur toile",
-        en: "Oil on canvas",
-      },
-      dimensions: "70 × 50 cm",
-      image: "/artists/li-shi/works/the-dance-of-stalemate-no-15-2023.jpg",
-      imageAspect: [70, 50],
-      seriesId: "dance-stalemate",
-    },
-    {
-      id: "33",
-      title: {
-        zh: "胶着的舞蹈 - 20",
-        fr: "The Dance of Stalemate NO.20",
-        en: "The Dance of Stalemate NO.20",
-      },
-      year: 2024,
-      medium: {
-        zh: "布面油画",
-        fr: "Huile sur toile",
-        en: "Oil on canvas",
-      },
-      dimensions: "100 × 100 cm",
-      image: "/artists/li-shi/works/the-dance-of-stalemate-no-20-2024.jpg",
-      imageAspect: [100, 100],
-      seriesId: "dance-stalemate",
-    },
-    {
-      id: "34",
-      title: {
-        zh: "胶着的舞蹈 - 23",
-        fr: "The Dance of Stalemate NO.23",
-        en: "The Dance of Stalemate NO.23",
-      },
-      year: 2024,
-      medium: {
-        zh: "布面油画",
-        fr: "Huile sur toile",
-        en: "Oil on canvas",
-      },
-      dimensions: "100 × 100 cm",
-      image: "/artists/li-shi/works/the-dance-of-stalemate-no-23-2024.jpg",
-      imageAspect: [100, 100],
-      seriesId: "dance-stalemate",
-    },
-    {
-      id: "35",
-      title: {
-        zh: "胶着的舞蹈 - 24",
-        fr: "The Dance of Stalemate NO.24",
-        en: "The Dance of Stalemate NO.24",
-      },
-      year: 2024,
-      medium: {
-        zh: "布面油画",
-        fr: "Huile sur toile",
-        en: "Oil on canvas",
-      },
-      dimensions: "100 × 100 cm",
-      image: "/artists/li-shi/works/the-dance-of-stalemate-no-24-2024.jpg",
-      imageAspect: [100, 100],
-      seriesId: "dance-stalemate",
-    },
-    {
-      id: "36",
-      title: {
-        zh: "The Rhythm in July",
-        fr: "The Rhythm in July",
-        en: "The Rhythm in July",
-      },
-      year: 2023,
-      medium: {
-        zh: "纸本油画",
-        fr: "Huile sur papier",
-        en: "Oil on paper",
-      },
-      dimensions: "180 × 140 cm",
-      image: "/artists/li-shi/works/the-rhythm-in-july-2023.jpg",
-      imageAspect: [180, 140],
-      seriesId: "dance-stalemate",
-    },
-    {
-      id: "37",
-      title: {
-        zh: "The Rhythm in October",
-        fr: "The Rhythm in October",
-        en: "The Rhythm in October",
-      },
-      year: 2023,
-      medium: {
-        zh: "纸本油画",
-        fr: "Huile sur papier",
-        en: "Oil on paper",
-      },
-      dimensions: "200 × 140 cm",
-      image: "/artists/li-shi/works/the-rhythm-in-october-2023.jpg",
-      imageAspect: [200, 140],
-      seriesId: "dance-stalemate",
+      dimensions: "",
+      image: "/artists/willy-le-nalbaut/works/horloge.jpg",
+      imageAspect: [1024, 768],
+      hideOnPassport: true,
     },
   ],
   professionalReputation: {
@@ -2399,6 +2041,12 @@ const liShi: ArtistProfile = {
     fr: "Peinture à l'huile · bois · papier · art contemporain",
     en: "Oil painting · wood panel · paper · contemporary art",
   },
+  studio: {
+    zh: "深圳",
+    fr: "Shenzhen",
+    en: "Shenzhen",
+  },
+  studioPhoto: "/artists/li-shi/studio.jpg",
   representedBy: { zh: "", fr: "", en: "" },
   portrait: "",
   tagline: {
@@ -2744,6 +2392,8 @@ This series has been created since mid-2023. The changes in environment and mood
         en: "Oil on canvas",
       },
       dimensions: "320 × 280 cm",
+      image: "/artists/li-shi/works/i-saw-a-colorful-abyss-at-3-30-2025.jpg",
+      imageAspect: [320, 280],
       seriesId: "unseen-substance",
     },
     {
@@ -2760,6 +2410,9 @@ This series has been created since mid-2023. The changes in environment and mood
         en: "Oil on canvas",
       },
       dimensions: "180 × 160 cm",
+      image:
+        "/artists/li-shi/works/unseen-substance-expanding-into-invisible-wall-2026.jpg",
+      imageAspect: [180, 160],
       seriesId: "unseen-substance",
     },
     {
@@ -2776,6 +2429,27 @@ This series has been created since mid-2023. The changes in environment and mood
         en: "Oil on canvas",
       },
       dimensions: "150 × 120 cm",
+      image: "/artists/li-shi/works/red-rain-in-june-2026.jpg",
+      imageAspect: [150, 120],
+      seriesId: "unseen-substance",
+    },
+    {
+      id: "8",
+      title: {
+        zh: "请赤身穿过这片洞穴",
+        fr: "Veuillez traverser ces grottes — le paradis que j'ai peint pour vous",
+        en: "Please pass through these caves with a light posture, it is the paradise I have painted for you.",
+      },
+      year: 2025,
+      medium: {
+        zh: "布面油画",
+        fr: "Huile sur toile",
+        en: "Oil on canvas",
+      },
+      dimensions: "170 × 160 cm",
+      image:
+        "/artists/li-shi/works/please-pass-through-these-caves-with-a-light-pos-2025.jpg",
+      imageAspect: [170, 160],
       seriesId: "unseen-substance",
     },
     {
