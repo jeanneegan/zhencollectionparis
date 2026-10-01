@@ -419,9 +419,9 @@ export const MOCK_COLLECTOR_HOLDINGS: CollectorHolding[] = [
       en: "Artist's studio",
     },
     location: {
-      zh: "巴黎 · Jeanneegan CUI 私人寓所",
-      fr: "Paris · résidence privée de Jeanneegan CUI",
-      en: "Paris · Jeanneegan CUI private residence",
+      zh: "巴黎 · Jeanneegan 私人寓所",
+      fr: "Paris · résidence privée de Jeanneegan",
+      en: "Paris · Jeanneegan private residence",
     },
     condition: {
       zh: "良好 · 可正常运转",
@@ -429,14 +429,14 @@ export const MOCK_COLLECTOR_HOLDINGS: CollectorHolding[] = [
       en: "Good condition · in working order",
     },
     notes: {
-      zh: "藏家 Jeanneegan CUI 入藏；ZCP 为威利这件可运转的彩绘钟表建立作品护照档案。",
-      fr: "Entrée en collection de Jeanneegan CUI ; Zhen Collection Paris a initié le passeport de cette horloge peinte fonctionnelle de Willy.",
-      en: "Acquired by collector Jeanneegan CUI; Zhen Collection Paris initiated the artwork passport for Willy's functional painted clock.",
+      zh: "藏家 Jeanneegan 入藏；ZCP 为威利这件可运转的彩绘钟表建立作品护照档案。",
+      fr: "Entrée en collection de Jeanneegan ; Zhen Collection Paris a initié le passeport de cette horloge peinte fonctionnelle de Willy.",
+      en: "Acquired by collector Jeanneegan; Zhen Collection Paris initiated the artwork passport for Willy's functional painted clock.",
     },
     collectorName: {
-      zh: "Jeanneegan CUI",
-      fr: "Jeanneegan CUI",
-      en: "Jeanneegan CUI",
+      zh: "Jeanneegan",
+      fr: "Jeanneegan",
+      en: "Jeanneegan",
     },
     passportInitiated: true,
     evaluations: [],

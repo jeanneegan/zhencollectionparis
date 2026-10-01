@@ -217,9 +217,9 @@ So this conversation brings together two artists who meet, and someone who watch
 In life, some people leave and others arrive. But I am always grateful for every encounter — because to have met, even once, already makes a difference.`,
       },
       name: {
-        zh: "Jeanneegan Cui",
-        fr: "Jeanneegan Cui",
-        en: "Jeanneegan Cui",
+        zh: "Jeanneegan",
+        fr: "Jeanneegan",
+        en: "Jeanneegan",
       },
       role: {
         zh: "Fondatrice, Zhen Collection Paris ZCP",
