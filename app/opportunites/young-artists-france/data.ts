@@ -84,14 +84,14 @@ export const programmeSections: ProgrammeSection[] = [
         en: "Ongoing presentation of the artist and their work through the ZCP website, social media, and partners.",
       },
       {
-        zh: "每季度提供一次个性化发展机会推荐，包括驻地、奖项及策展人联系建议。",
-        fr: "Chaque trimestre, recommandations personnalisées : résidences, prix, contacts curateurs.",
-        en: "Each quarter, tailored recommendations: residencies, awards, and curator contacts.",
+        zh: "每年提供一次个性化发展机会推荐，包括驻地、奖项及策展人联系建议。",
+        fr: "Chaque année, recommandations personnalisées : résidences, prix, contacts curateurs.",
+        en: "Once a year, tailored recommendations: residencies, awards, and curator contacts.",
       },
       {
-        zh: "每年向至少四家双方共同确认、适合艺术家作品的画廊介绍其创作，每家跟进一次，并转达实际收到的回复。",
-        fr: "Chaque année, présentation du travail à au moins quatre galeries validées conjointement ; un suivi par galerie et transmission des réponses reçues.",
-        en: "Each year, introduction to at least four mutually agreed galleries suited to the work; one follow-up per gallery and relay of responses received.",
+        zh: "每年向至少一家双方共同确认、适合艺术家作品的画廊介绍其创作，每家跟进一次，并转达实际收到的回复。",
+        fr: "Chaque année, présentation du travail à au moins une galerie validée conjointement ; un suivi par galerie et transmission des réponses reçues.",
+        en: "Each year, introduction to at least one mutually agreed gallery suited to the work; one follow-up per gallery and relay of responses received.",
       },
       {
         zh: "协助梳理原作与版画的价格体系，为国际推广和销售提供参考。",
