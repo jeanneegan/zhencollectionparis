@@ -34,9 +34,9 @@ export const programmeSections: ProgrammeSection[] = [
         en: "Zhen Collection Paris (ZCP) is a recently founded art association in Paris. We are building a network for artistic promotion and cooperation linking France, China, and other international cities.",
       },
       {
-        zh: "我们寻找毕业于艺术院校、目前在法国生活和创作的青年艺术家，与他们建立长期合作。",
-        fr: "Nous recherchons des jeunes artistes diplômés des écoles d'art, vivant et travaillant actuellement en France, pour établir une collaboration de long terme.",
-        en: "We seek young artists who graduated from art schools and currently live and work in France, to build long-term collaboration.",
+        zh: "我们寻找毕业于艺术院校、目前在积极创作的青年艺术家，与他们建立长期合作。",
+        fr: "Nous recherchons des jeunes artistes diplômés des écoles d'art et en pratique active, pour établir une collaboration de long terme.",
+        en: "We seek young artists who graduated from art schools and are actively creating, to build long-term collaboration.",
       },
       {
         zh: "我们的目标是持续为艺术家寻找适合其创作的国际职业发展机会，拓展画廊、策展人、机构及收藏关系，并通过作品销售、版画与其他合作，帮助艺术家逐步建立更稳定、可持续的收入来源，为长期创作提供支持。",
