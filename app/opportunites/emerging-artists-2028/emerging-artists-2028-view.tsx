@@ -92,7 +92,7 @@ function SectionBody({
   );
 }
 
-export function EmergingArtists2027View() {
+export function EmergingArtists2028View() {
   const [locale, setLocale] = useLocale();
   const l = labels[locale];
   const useSerif = locale === "zh" || locale === "fr";

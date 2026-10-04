@@ -1,10 +1,10 @@
 import type { Locale, LocalizedText } from "@/app/artists/[slug]/data";
 
 export const PROGRAMME_PDF_CN =
-  "/documents/ZCP_Emerging_Artists_Programme_2027_CN.pdf";
+  "/documents/ZCP_Emerging_Artists_Programme_2028_CN.pdf";
 
 export const PROGRAMME_PDF_FR =
-  "/documents/ZCP_Emerging_Artists_Programme_2027_FR.pdf";
+  "/documents/ZCP_Emerging_Artists_Programme_2028_FR.pdf";
 
 /** @deprecated Use getProgrammePdfHref(locale) */
 export const PROGRAMME_PDF_HREF = PROGRAMME_PDF_CN;
@@ -45,9 +45,9 @@ export type ProgrammeSection = {
 };
 
 export const programmeTitle: LocalizedText = {
-  zh: "ZCP 2027青年艺术家暨Prix WE奖计划",
-  fr: "ZCP Emerging Artists Programme 2027",
-  en: "ZCP Emerging Artists Programme 2027",
+  zh: "ZCP 2028青年艺术家暨Prix WE奖计划",
+  fr: "ZCP Emerging Artists Programme 2028",
+  en: "ZCP Emerging Artists Programme 2028",
 };
 
 export const programmeSubtitle: LocalizedText = {
@@ -82,9 +82,9 @@ export const programmeStats: ProgrammeStat[] = [
     row: 1,
     value: "1",
     label: {
-      zh: "次 ZCP 2027 巴黎艺术展",
-      fr: "Exposition ZCP Paris 2027",
-      en: "ZCP Paris 2027 exhibition",
+      zh: "次 ZCP 2028 巴黎艺术展",
+      fr: "Exposition ZCP Paris 2028",
+      en: "ZCP Paris 2028 exhibition",
     },
   },
   {
@@ -123,25 +123,25 @@ export const programmeTimeline: ProgrammeTimelineRow[] = [
   {
     label: { zh: "报名时间", fr: "Candidatures", en: "Applications" },
     value: {
-      zh: "2026年9月21日至12月20日",
-      fr: "21 septembre – 20 décembre 2026",
-      en: "21 September – 20 December 2026",
+      zh: "2027年9月21日至12月20日",
+      fr: "21 septembre – 20 décembre 2027",
+      en: "21 September – 20 December 2027",
     },
   },
   {
     label: { zh: "入选公布", fr: "Annonce des sélections", en: "Selection announced" },
     value: {
-      zh: "2026年12月28日",
-      fr: "28 décembre 2026",
-      en: "28 December 2026",
+      zh: "2027年12月28日",
+      fr: "28 décembre 2027",
+      en: "28 December 2027",
     },
   },
   {
     label: { zh: "项目周期", fr: "Durée du programme", en: "Programme period" },
     value: {
-      zh: "2027年1月1日至12月31日",
-      fr: "1er janvier – 31 décembre 2027",
-      en: "1 January – 31 December 2027",
+      zh: "2028年1月1日至12月31日",
+      fr: "1er janvier – 31 décembre 2028",
+      en: "1 January – 31 December 2028",
     },
   },
   {
@@ -165,9 +165,9 @@ export const programmeSections: ProgrammeSection[] = [
         en: "Zhen Collection Paris (ZCP) is a cultural association founded in Paris, dedicated to connecting cities, cultures, and artistic practices. Many emerging artists create work of genuine and distinctive value, yet it is often seen only within their familiar language, city, or cultural context. Entering another art market and cultural sphere requires not only showing the work, but accurate professional documentation, trilingual presentation, sustained dialogue, and real connections with galleries, curators, and art professionals.",
       },
       {
-        zh: "ZCP Emerging Artists Programme 2027 希望选择 24 位具有独立创作意识和发展潜力的青年艺术家，通过专业档案、三语呈现、年度艺术家对话、巴黎线下展览、专业画廊推荐及巴黎—深圳驻地，帮助艺术家在欧洲与中国的不同文化语境中被看见、被了解和被理解，并逐步接触东西方艺术网络与市场。",
-        fr: "Le ZCP Emerging Artists Programme 2027 vise à sélectionner 24 artistes émergents dotés d'une conscience créative autonome et d'un potentiel de développement. Par le dossier professionnel, la présentation en trois langues, les dialogues annuels, une exposition à Paris, des recommandations de galeries et des résidences Paris–Shenzhen, le programme aide les artistes à être vus, compris et accueillis dans des contextes européens et chinois, et à entrer progressivement dans les réseaux et marchés de l'Est et de l'Ouest.",
-        en: "The ZCP Emerging Artists Programme 2027 seeks to select 24 emerging artists with independent creative vision and development potential. Through professional archives, trilingual presentation, annual artist dialogues, an exhibition in Paris, gallery recommendations, and Paris–Shenzhen residencies, the programme helps artists be seen, understood, and engaged across European and Chinese contexts, and to connect gradually with art networks and markets in East and West.",
+        zh: "ZCP Emerging Artists Programme 2028 希望选择 24 位具有独立创作意识和发展潜力的青年艺术家，通过专业档案、三语呈现、年度艺术家对话、巴黎线下展览、专业画廊推荐及巴黎—深圳驻地，帮助艺术家在欧洲与中国的不同文化语境中被看见、被了解和被理解，并逐步接触东西方艺术网络与市场。",
+        fr: "Le ZCP Emerging Artists Programme 2028 vise à sélectionner 24 artistes émergents dotés d'une conscience créative autonome et d'un potentiel de développement. Par le dossier professionnel, la présentation en trois langues, les dialogues annuels, une exposition à Paris, des recommandations de galeries et des résidences Paris–Shenzhen, le programme aide les artistes à être vus, compris et accueillis dans des contextes européens et chinois, et à entrer progressivement dans les réseaux et marchés de l'Est et de l'Ouest.",
+        en: "The ZCP Emerging Artists Programme 2028 seeks to select 24 emerging artists with independent creative vision and development potential. Through professional archives, trilingual presentation, annual artist dialogues, an exhibition in Paris, gallery recommendations, and Paris–Shenzhen residencies, the programme helps artists be seen, understood, and engaged across European and Chinese contexts, and to connect gradually with art networks and markets in East and West.",
       },
       {
         zh: "这不是一次以竞争为目的的短期评选，也不承诺立即带来销售或画廊代理。ZCP 希望与艺术家建立长期的记录、交流与专业连接，让作品跨越语言和地域，遇见新的观众、同行、策展人、画廊及收藏者。",
@@ -254,9 +254,9 @@ export const programmeSections: ProgrammeSection[] = [
             en: "6. Residency interest: Paris or Shenzhen and brief creative direction; no full residency proposal required.",
           },
           {
-            zh: "艺术家资料请合并为一份 PDF，命名为「姓名_ZCP2027_ArtistProfile.pdf」。",
-            fr: "Réunir le dossier artiste en un PDF : « Nom_ZCP2027_ArtistProfile.pdf ».",
-            en: "Merge artist materials in one PDF named « Name_ZCP2027_ArtistProfile.pdf ».",
+            zh: "艺术家资料请合并为一份 PDF，命名为「姓名_ZCP2028_ArtistProfile.pdf」。",
+            fr: "Réunir le dossier artiste en un PDF : « Nom_ZCP2028_ArtistProfile.pdf ».",
+            en: "Merge artist materials in one PDF named « Name_ZCP2028_ArtistProfile.pdf ».",
           },
         ],
       },
@@ -273,14 +273,14 @@ export const programmeSections: ProgrammeSection[] = [
             en: "5–10 works the artist authorizes ZCP to show, promote, and where appropriate offer for sale. For each: title, year, medium, dimensions, original/edition info, availability, suggested retail price and currency, location, framing, clear images; video: link and password.",
           },
           {
-            zh: "请从上述作品中选择一件适合制作艺术版画的作品，作为 ZCP 2027 巴黎艺术展候选作品，并提供高清图像。最终参展作品及印刷文件将在入选后确认。",
-            fr: "Choisir une pièce adaptée à un tirage d'art pour l'Exposition ZCP Paris 2027 et fournir une image HD ; validation après sélection.",
-            en: "Select one work suitable for an art print for the ZCP Paris 2027 exhibition and provide a high-resolution image; final work and print files confirmed after selection.",
+            zh: "请从上述作品中选择一件适合制作艺术版画的作品，作为 ZCP 2028 巴黎艺术展候选作品，并提供高清图像。最终参展作品及印刷文件将在入选后确认。",
+            fr: "Choisir une pièce adaptée à un tirage d'art pour l'Exposition ZCP Paris 2028 et fournir une image HD ; validation après sélection.",
+            en: "Select one work suitable for an art print for the ZCP Paris 2028 exhibition and provide a high-resolution image; final work and print files confirmed after selection.",
           },
           {
-            zh: "作品资料请单独合并为「姓名_ZCP2027_Artworks.pdf」；图片可另行上传「姓名_作品序号_作品名称_年份.jpg」，JPG 或 PNG，单张不超过 10MB。",
-            fr: "Œuvres dans « Nom_ZCP2027_Artworks.pdf » ; images séparées « Nom_Numéro_Titre_Année.jpg », max. 10 Mo.",
-            en: "Works in « Name_ZCP2027_Artworks.pdf »; images separately as « Name_number_title_year.jpg », max 10MB each.",
+            zh: "作品资料请单独合并为「姓名_ZCP2028_Artworks.pdf」；图片可另行上传「姓名_作品序号_作品名称_年份.jpg」，JPG 或 PNG，单张不超过 10MB。",
+            fr: "Œuvres dans « Nom_ZCP2028_Artworks.pdf » ; images séparées « Nom_Numéro_Titre_Année.jpg », max. 10 Mo.",
+            en: "Works in « Name_ZCP2028_Artworks.pdf »; images separately as « Name_number_title_year.jpg », max 10MB each.",
           },
         ],
       },
@@ -309,17 +309,17 @@ export const programmeSections: ProgrammeSection[] = [
         title: { zh: "2. 年度艺术家对话", fr: "2. Dialogues annuels", en: "2. Annual artist dialogues" },
         paragraphs: [
           {
-            zh: "24 位艺术家组成 12 组对话，每组 2 位。2027 年 1 月至 12 月，ZCP 每月组织一组线上对话。每位艺术家原则上参加一次；内容可使用中文、法文或英文，并以视频、文字或图文形式发布和存档。",
-            fr: "24 artistes en 12 binômes. De janvier à décembre 2027, un dialogue en ligne par mois. Chaque artiste participe une fois en principe ; contenus en chinois, français ou anglais, publiés et archivés (vidéo, texte ou image-texte).",
-            en: "24 artists in 12 pairs. From January to December 2027, one online dialogue per month. Each artist participates once in principle; content in Chinese, French, or English, published and archived as video, text, or image-text.",
+            zh: "24 位艺术家组成 12 组对话，每组 2 位。2028 年 1 月至 12 月，ZCP 每月组织一组线上对话。每位艺术家原则上参加一次；内容可使用中文、法文或英文，并以视频、文字或图文形式发布和存档。",
+            fr: "24 artistes en 12 binômes. De janvier à décembre 2028, un dialogue en ligne par mois. Chaque artiste participe une fois en principe ; contenus en chinois, français ou anglais, publiés et archivés (vidéo, texte ou image-texte).",
+            en: "24 artists in 12 pairs. From January to December 2028, one online dialogue per month. Each artist participates once in principle; content in Chinese, French, or English, published and archived as video, text, or image-text.",
           },
         ],
       },
       {
         title: {
-          zh: "3. Prix WE 2027｜年度艺术家奖",
-          fr: "3. Prix WE 2027 — prix artistique annuel",
-          en: "3. Prix WE 2027 — annual artist award",
+          zh: "3. Prix WE 2028｜年度艺术家奖",
+          fr: "3. Prix WE 2028 — prix artistique annuel",
+          en: "3. Prix WE 2028 — annual artist award",
         },
         paragraphs: [
           {
@@ -328,23 +328,23 @@ export const programmeSections: ProgrammeSection[] = [
             en: "Based on the 12 dialogues held throughout the year, the Prix WE is awarded to the two artists whose exchange was most inspiring. The jury considers responses between works, depth of thought, artistic tension, cross-cultural understanding, and collaboration potential.",
           },
           {
-            zh: "两位获奖者保持各自独立的艺术家身份，并分别获得「Lauréat·e du Prix WE 2027」称号与证书，无须另行报名或缴费。获奖艺术家可获得专题呈现、专访文章、巴黎展重点展示及未来项目的优先邀请机会。",
-            fr: "Chaque lauréat·e conserve son identité artistique et reçoit le titre « Lauréat·e du Prix WE 2027 » et un certificat, sans candidature ni frais supplémentaires. Mise en avant éditoriale, article dédié, présentation à l'exposition parisienne et priorité pour futurs projets.",
-            en: "Each laureate keeps an independent artistic identity and receives the title « Lauréat·e du Prix WE 2027 » and a certificate, with no extra application or fee. Benefits may include featured presentation, a dedicated article, highlight at the Paris show, and priority for future projects.",
+            zh: "两位获奖者保持各自独立的艺术家身份，并分别获得「Lauréat·e du Prix WE 2028」称号与证书，无须另行报名或缴费。获奖艺术家可获得专题呈现、专访文章、巴黎展重点展示及未来项目的优先邀请机会。",
+            fr: "Chaque lauréat·e conserve son identité artistique et reçoit le titre « Lauréat·e du Prix WE 2028 » et un certificat, sans candidature ni frais supplémentaires. Mise en avant éditoriale, article dédié, présentation à l'exposition parisienne et priorité pour futurs projets.",
+            en: "Each laureate keeps an independent artistic identity and receives the title « Lauréat·e du Prix WE 2028 » and a certificate, with no extra application or fee. Benefits may include featured presentation, a dedicated article, highlight at the Paris show, and priority for future projects.",
           },
         ],
       },
       {
         title: {
-          zh: "4. ZCP 2027 巴黎艺术展",
-          fr: "4. Exposition ZCP Paris 2027",
-          en: "4. ZCP Paris 2027 exhibition",
+          zh: "4. ZCP 2028 巴黎艺术展",
+          fr: "4. Exposition ZCP Paris 2028",
+          en: "4. ZCP Paris 2028 exhibition",
         },
         paragraphs: [
           {
-            zh: "ZCP 计划于 2027 年在巴黎举办一次青年艺术家年度线下展。具体日期、场地和展期将在确认后公布。每位入选艺术家选择一件代表作品，由 ZCP 统一制作艺术版画参展。ZCP 负责基础版画制作、策展和布展，艺术家无须承担基础版画制作及展览费用。",
-            fr: "Exposition collective à Paris en 2027 ; dates, lieu et durée confirmés ultérieurement. Chaque artiste choisit une œuvre ; ZCP réalise un tirage d'art et prend en charge production de base, commissariat et installation.",
-            en: "ZCP plans a group exhibition in Paris in 2027; dates, venue, and duration to be confirmed. Each artist selects one work; ZCP produces an art print and covers basic production, curating, and installation.",
+            zh: "ZCP 计划于 2028 年在巴黎举办一次青年艺术家年度线下展。具体日期、场地和展期将在确认后公布。每位入选艺术家选择一件代表作品，由 ZCP 统一制作艺术版画参展。ZCP 负责基础版画制作、策展和布展，艺术家无须承担基础版画制作及展览费用。",
+            fr: "Exposition collective à Paris en 2028 ; dates, lieu et durée confirmés ultérieurement. Chaque artiste choisit une œuvre ; ZCP réalise un tirage d'art et prend en charge production de base, commissariat et installation.",
+            en: "ZCP plans a group exhibition in Paris in 2028; dates, venue, and duration to be confirmed. Each artist selects one work; ZCP produces an art print and covers basic production, curating, and installation.",
           },
           {
             zh: "艺术家如希望展出原作，可另行申请。ZCP 将根据策展主题、场地、作品尺寸、安装及安全条件决定是否接收。经确认参展的原作，其往返运输、专业包装、运输保险、海关及清关费用原则上由艺术家承担。未经书面确认，艺术家不得自行寄送原作。如涉及作品或版画销售，ZCP 将与艺术家另行签订协议，明确售价、授权及收益分配。",
@@ -371,9 +371,9 @@ export const programmeSections: ProgrammeSection[] = [
         },
         paragraphs: [
           {
-            zh: "2027 计划结束后，ZCP 可邀请入选艺术家每年进行一次交流，更新个人简历、代表作品、展览经历及最新创作方向。ZCP 将根据艺术家的持续创作情况、资料更新、合作意愿及未来项目的匹配程度，确认是否发出下一年度的续期邀请。",
-            fr: "Après 2027, ZCP peut inviter les artistes à une mise à jour annuelle (CV, œuvres, expositions, direction). La reconduction dépend de la pratique, des mises à jour, de la volonté de collaboration et de l'adéquation aux projets futurs.",
-            en: "After 2027, ZCP may invite selected artists to an annual update of CV, works, exhibitions, and direction. Renewal depends on ongoing practice, updates, willingness to collaborate, and fit with future projects.",
+            zh: "2028 计划结束后，ZCP 可邀请入选艺术家每年进行一次交流，更新个人简历、代表作品、展览经历及最新创作方向。ZCP 将根据艺术家的持续创作情况、资料更新、合作意愿及未来项目的匹配程度，确认是否发出下一年度的续期邀请。",
+            fr: "Après 2028, ZCP peut inviter les artistes à une mise à jour annuelle (CV, œuvres, expositions, direction). La reconduction dépend de la pratique, des mises à jour, de la volonté de collaboration et de l'adéquation aux projets futurs.",
+            en: "After 2028, ZCP may invite selected artists to an annual update of CV, works, exhibitions, and direction. Renewal depends on ongoing practice, updates, willingness to collaborate, and fit with future projects.",
           },
           {
             zh: "获得续期邀请的艺术家，可自愿申请成为或继续成为 ZCP 艺术家会员，并缴纳当年度会费。年度会费暂定为 25 欧元，具体金额以 ZCP 当年度公布的会员规则为准。完成资料更新及会费缴纳后，艺术家进入下一年度持续推广名单。",
@@ -436,7 +436,7 @@ export const programmeSections: ProgrammeSection[] = [
     ],
     paragraphs: [
       {
-        zh: "艺术院校背景是评审参考之一，但不是唯一标准。2027 年度艺术家遴选由 ZCP 组织，并计划邀请来自法国和中国的艺术专业人士及 ZCP 代表共同参与。评审成员如与申请人存在可能影响独立判断的直接关系，应主动说明并回避相关评审。报名审核费仅用于材料接收、整理及评审组织，不影响评审结果。",
+        zh: "艺术院校背景是评审参考之一，但不是唯一标准。2028 年度艺术家遴选由 ZCP 组织，并计划邀请来自法国和中国的艺术专业人士及 ZCP 代表共同参与。评审成员如与申请人存在可能影响独立判断的直接关系，应主动说明并回避相关评审。报名审核费仅用于材料接收、整理及评审组织，不影响评审结果。",
         fr: "La formation en école d'art est un critère parmi d'autres. Sélection organisée par ZCP avec des professionnels de France et de Chine (composition à annoncer). Conflits d'intérêt : déclaration et abstention. Les frais de dossier couvrent réception et organisation de la sélection, sans influence sur le résultat.",
         en: "Art-school background is one reference among others. Selection is organized by ZCP with art professionals from France and China (composition to be announced). Conflicts of interest must be declared and recused. The application fee covers intake and review organization only and does not influence outcomes.",
       },
@@ -447,9 +447,9 @@ export const programmeSections: ProgrammeSection[] = [
     title: { zh: "版权与授权", fr: "Droits et autorisations", en: "Copyright and licensing" },
     paragraphs: [
       {
-        zh: "作品著作权始终归艺术家所有。入选艺术家同意 ZCP 将相关作品图像及对话内容用于本计划的艺术家档案、ZCP 2027 巴黎艺术展、官方网站、社交媒体、新闻传播及项目存档。ZCP 将在合理范围内标注艺术家姓名及作品信息。商业复制、出版或版画销售须另行取得艺术家书面授权，并另行约定销售价格及收益分配。",
-        fr: "Les droits d'auteur restent à l'artiste. Les sélectionné·e·s autorisent ZCP à utiliser images et contenus de dialogue pour dossiers, Exposition ZCP Paris 2027, site, réseaux sociaux, communication et archive du programme, avec attribution. Reproduction commerciale, édition ou vente de tirages : autorisation écrite et accord distinct sur prix et partage.",
-        en: "Copyright remains with the artist. Selected artists authorize ZCP to use work images and dialogue content for programme archives, the ZCP Paris 2027 exhibition, the website, social media, press, and project records, with proper attribution. Commercial reproduction, publication, or print sales require separate written authorization and agreement on price and revenue share.",
+        zh: "作品著作权始终归艺术家所有。入选艺术家同意 ZCP 将相关作品图像及对话内容用于本计划的艺术家档案、ZCP 2028 巴黎艺术展、官方网站、社交媒体、新闻传播及项目存档。ZCP 将在合理范围内标注艺术家姓名及作品信息。商业复制、出版或版画销售须另行取得艺术家书面授权，并另行约定销售价格及收益分配。",
+        fr: "Les droits d'auteur restent à l'artiste. Les sélectionné·e·s autorisent ZCP à utiliser images et contenus de dialogue pour dossiers, Exposition ZCP Paris 2028, site, réseaux sociaux, communication et archive du programme, avec attribution. Reproduction commerciale, édition ou vente de tirages : autorisation écrite et accord distinct sur prix et partage.",
+        en: "Copyright remains with the artist. Selected artists authorize ZCP to use work images and dialogue content for programme archives, the ZCP Paris 2028 exhibition, the website, social media, press, and project records, with proper attribution. Commercial reproduction, publication, or print sales require separate written authorization and agreement on price and revenue share.",
       },
     ],
   },
@@ -486,9 +486,9 @@ export const programmeSections: ProgrammeSection[] = [
     ],
     paragraphs: [
       {
-        zh: "申请人须在 2026 年 12 月 20 日前完成上述步骤。申请材料及报名费全部收到后，申请人将收到报名确认邮件。",
-        fr: "À accomplir avant le 20 décembre 2026. Confirmation par e-mail une fois dossier et paiement reçus.",
-        en: "Complete by 20 December 2026. Confirmation email once materials and payment are received.",
+        zh: "申请人须在 2027 年 12 月 20 日前完成上述步骤。申请材料及报名费全部收到后，申请人将收到报名确认邮件。",
+        fr: "À accomplir avant le 20 décembre 2027. Confirmation par e-mail une fois dossier et paiement reçus.",
+        en: "Complete by 20 December 2027. Confirmation email once materials and payment are received.",
       },
     ],
     note: {

@@ -26,6 +26,11 @@ const nextConfig: NextConfig = {
         destination: "/exposition/:path*",
         permanent: true,
       },
+      {
+        source: "/opportunites/emerging-artists-2027",
+        destination: "/opportunites/emerging-artists-2028",
+        permanent: true,
+      },
     ];
   },
 };
