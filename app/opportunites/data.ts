@@ -77,9 +77,9 @@ export const residencyListings: ResidencyListing[] = [
     href: "/opportunites/young-artists-france",
     openInNewTab: false,
     title: {
-      fr: "ZCP — Jeunes artistes en France",
-      zh: "ZCP 招募在法国的青年艺术家",
-      en: "ZCP Young Artists in France",
+      fr: "ZCP recherche de jeunes artistes",
+      zh: "ZCP 招募青年艺术家",
+      en: "ZCP — Call for young artists",
     },
     location: {
       fr: "Coopération annuelle · dossiers trilingues · Paris",

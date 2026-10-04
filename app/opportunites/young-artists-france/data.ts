@@ -8,9 +8,9 @@ export type ProgrammeSection = {
 };
 
 export const programmeTitle: LocalizedText = {
-  zh: "ZCP 招募在法国的青年艺术家",
-  fr: "ZCP — Recrutement de jeunes artistes en France",
-  en: "ZCP — Call for young artists in France",
+  zh: "ZCP 招募青年艺术家",
+  fr: "ZCP recherche de jeunes artistes",
+  en: "ZCP — Call for young artists",
 };
 
 export const programmeSubtitle: LocalizedText = {

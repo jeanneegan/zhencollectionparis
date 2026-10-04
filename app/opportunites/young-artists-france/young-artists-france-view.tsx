@@ -84,10 +84,10 @@ export function YoungArtistsFranceView() {
   const l = labels[locale];
   const mailSubject = encodeURIComponent(
     locale === "zh"
-      ? "ZCP 法国青年艺术家计划 · 报名"
+      ? "ZCP 招募青年艺术家 · 报名"
       : locale === "fr"
-        ? "ZCP — Jeunes artistes en France · Candidature"
-        : "ZCP Young Artists in France — Application",
+        ? "ZCP recherche de jeunes artistes · Candidature"
+        : "ZCP Young Artists — Application",
   );
 
   return (
