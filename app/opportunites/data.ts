@@ -72,6 +72,22 @@ export const residencyListings: ResidencyListing[] = [
     },
   },
   {
+    id: "zcp-young-artists-france",
+    sectionId: "zcp",
+    href: "/opportunites/young-artists-france",
+    openInNewTab: false,
+    title: {
+      fr: "ZCP — Jeunes artistes en France",
+      zh: "ZCP 招募在法国的青年艺术家",
+      en: "ZCP Young Artists in France",
+    },
+    location: {
+      fr: "Coopération annuelle · dossiers trilingues · Paris",
+      zh: "年度合作 · 三语档案 · 巴黎",
+      en: "Annual partnership · trilingual profiles · Paris",
+    },
+  },
+  {
     id: "zcp-emerging-artists-2027",
     sectionId: "zcp",
     href: "/opportunites/emerging-artists-2027",
