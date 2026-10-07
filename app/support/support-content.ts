@@ -49,21 +49,18 @@ export const supportContent: SupportContent = {
       bullets: {
         zh: [
           "Prix WE · WE 艺术奖",
-          "Emerging Artists Programme · 青年艺术家计划",
           "Expositions · 国际艺术展",
           "Résidences · 艺术家驻地",
           "Éditions & Publications · 限量作品与出版",
         ],
         fr: [
           "Prix WE · WE 艺术奖",
-          "Emerging Artists Programme · 青年艺术家计划",
           "Expositions · 国际艺术展",
           "Résidences · 艺术家驻地",
           "Éditions & Publications · 限量作品与出版",
         ],
         en: [
           "Prix WE",
-          "Emerging Artists Programme",
           "Expositions",
           "Residencies",
           "Editions & publications",

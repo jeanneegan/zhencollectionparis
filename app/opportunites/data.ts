@@ -87,20 +87,4 @@ export const residencyListings: ResidencyListing[] = [
       en: "Annual partnership · trilingual profiles · Paris",
     },
   },
-  {
-    id: "zcp-emerging-artists-2028",
-    sectionId: "zcp",
-    href: "/opportunites/emerging-artists-2028",
-    openInNewTab: false,
-    title: {
-      fr: "ZCP Emerging Artists Programme 2028",
-      zh: "ZCP 2028青年艺术家暨Prix WE奖计划",
-      en: "ZCP Emerging Artists Programme 2028",
-    },
-    location: {
-      fr: "Candidatures · 21 sept. – 20 déc. 2027 · Paris · Shenzhen",
-      zh: "报名 · 2027.09.21 – 2027.12.20 · 巴黎 · 深圳",
-      en: "Applications · Sep 21 – Dec 20, 2027 · Paris · Shenzhen",
-    },
-  },
 ];

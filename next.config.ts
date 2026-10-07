@@ -28,7 +28,12 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/opportunites/emerging-artists-2027",
-        destination: "/opportunites/emerging-artists-2028",
+        destination: "/opportunites",
+        permanent: true,
+      },
+      {
+        source: "/opportunites/emerging-artists-2028",
+        destination: "/opportunites",
         permanent: true,
       },
     ];
