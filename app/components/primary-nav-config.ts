@@ -8,19 +8,19 @@ export type PrimaryNavItem = {
 
 export const primaryNavItems: PrimaryNavItem[] = [
   {
-    id: "conversations",
-    href: "/dialogues",
-    label: "CONVERSATIONS",
-    labelZh: "对话",
-    isActive: (pathname) => pathname.startsWith("/dialogue"),
-  },
-  {
     id: "artists",
     href: "/artists",
     label: "ARTISTS",
     labelZh: "艺术家",
     isActive: (pathname) =>
       pathname === "/artists" || pathname.startsWith("/artists/"),
+  },
+  {
+    id: "conversations",
+    href: "/dialogues",
+    label: "CONVERSATIONS",
+    labelZh: "对话",
+    isActive: (pathname) => pathname.startsWith("/dialogue"),
   },
   {
     id: "collection",
@@ -31,18 +31,20 @@ export const primaryNavItems: PrimaryNavItem[] = [
       pathname === "/editions" || pathname.startsWith("/edition/"),
   },
   {
-    id: "expositions",
-    href: "/exposition",
-    label: "EXPOSITIONS",
-    labelZh: "展览",
+    id: "projects",
+    href: "/projets",
+    label: "PROJETS",
+    labelZh: "项目",
     isActive: (pathname) =>
-      pathname === "/exposition" || pathname.startsWith("/exposition/"),
+      pathname === "/projets" ||
+      pathname.startsWith("/exposition") ||
+      pathname.startsWith("/opportunites"),
   },
   {
-    id: "residencies",
-    href: "/opportunites",
-    label: "RÉSIDENCES",
-    labelZh: "驻地",
-    isActive: (pathname) => pathname.startsWith("/opportunites"),
+    id: "partners",
+    href: "/support#partners",
+    label: "PARTENAIRES",
+    labelZh: "合作伙伴",
+    isActive: (pathname) => pathname.startsWith("/support"),
   },
 ];

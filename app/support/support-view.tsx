@@ -73,7 +73,11 @@ export function SupportView() {
           </div>
 
           {content.subsections.map((subsection) => (
-            <div key={subsection.heading.en} className="mt-10">
+            <div
+              key={subsection.heading.en}
+              id={subsection.anchorId}
+              className={`mt-10 ${subsection.anchorId ? "scroll-mt-28" : ""}`}
+            >
               <h2
                 className={`text-[10px] font-medium uppercase tracking-[0.2em] ${supportHeadingColor}`}
               >

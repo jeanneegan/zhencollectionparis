@@ -1,6 +1,7 @@
 import type { Locale } from "@/app/artists/[slug]/data";
 
 export type SupportSubsection = {
+  anchorId?: string;
   heading: Record<Locale, string>;
   paragraphs?: Record<Locale, string[]>;
   bullets?: Record<Locale, string[]>;
@@ -103,6 +104,7 @@ export const supportContent: SupportContent = {
       },
     },
     {
+      anchorId: "partners",
       heading: {
         zh: "PARTNERS · 合作伙伴",
         fr: "PARTNERS · 合作伙伴",

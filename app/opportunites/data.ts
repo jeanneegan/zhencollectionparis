@@ -71,20 +71,4 @@ export const residencyListings: ResidencyListing[] = [
       en: "Shenzhen · 深圳",
     },
   },
-  {
-    id: "zcp-young-artists-france",
-    sectionId: "zcp",
-    href: "/opportunites/young-artists-france",
-    openInNewTab: false,
-    title: {
-      fr: "ZCP recherche de jeunes artistes",
-      zh: "ZCP 招募青年艺术家",
-      en: "ZCP — Call for young artists",
-    },
-    location: {
-      fr: "Coopération annuelle · dossiers trilingues · Paris",
-      zh: "年度合作 · 三语档案 · 巴黎",
-      en: "Annual partnership · trilingual profiles · Paris",
-    },
-  },
 ];
