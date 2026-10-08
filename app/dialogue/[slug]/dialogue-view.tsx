@@ -107,22 +107,7 @@ export type CollectionArtistRow = {
   image: string;
   aspect: [number, number];
   originalHref: string;
-  editionHref: string;
-  editionProductName: LocalizedText;
-  editionPriceEur?: number;
 };
-
-export type CollectionCompleteOffer = {
-  editionHref: string;
-  editionAction: LocalizedText;
-  editionProductName: LocalizedText;
-  editionProductIncludes?: LocalizedText;
-  editionPriceEur?: number;
-};
-
-function formatCollectionPrice(eur: number): string {
-  return `${eur} euros`;
-}
 
 export type SelectedWork = {
   artistSlug: string;
@@ -138,42 +123,14 @@ export type SelectedWork = {
   aspect: [number, number];
 };
 
-function CollectionCompleteOfferRow({
-  offer,
-  locale,
-}: {
-  offer: CollectionCompleteOffer;
-  locale: Locale;
-}) {
-  return (
-    <div className="border border-stone-200 bg-white px-5 py-6 text-center md:px-6 md:py-7">
-      <div className="space-y-3">
-        <Link href={offer.editionHref} className={dt.actionLink}>
-          {t(offer.editionAction, locale)}
-        </Link>
-        <p className={`whitespace-pre-line ${dt.actionMeta}`}>
-          {t(offer.editionProductName, locale)}
-        </p>
-        {offer.editionProductIncludes ? (
-          <p className={`whitespace-pre-line ${dt.collectionBundleIncludes}`}>
-            {t(offer.editionProductIncludes, locale)}
-          </p>
-        ) : null}
-      </div>
-    </div>
-  );
-}
-
 function CollectionArtistOfferRow({
   row,
   locale,
   originalLabel,
-  editionLabel,
 }: {
   row: CollectionArtistRow;
   locale: Locale;
   originalLabel: LocalizedText;
-  editionLabel: LocalizedText;
 }) {
   return (
     <div className="flex flex-col gap-6 border border-stone-200 bg-white p-5 sm:flex-row sm:items-center sm:gap-8 md:p-6">
@@ -196,22 +153,9 @@ function CollectionArtistOfferRow({
             {t(row.artworkTitle, locale)}
           </p>
         </div>
-        <div className="flex flex-col gap-3">
-          <Link href={row.originalHref} className={dt.actionLink}>
-            {t(originalLabel, locale)}
-          </Link>
-          <div className="space-y-1">
-            <Link href={row.editionHref} className={dt.actionLink}>
-              {t(editionLabel, locale)}
-            </Link>
-            <p className={dt.actionMeta}>
-              {t(row.editionProductName, locale)}
-              {row.editionPriceEur != null
-                ? ` · ${formatCollectionPrice(row.editionPriceEur)}`
-                : null}
-            </p>
-          </div>
-        </div>
+        <Link href={row.originalHref} className={dt.actionLink}>
+          {t(originalLabel, locale)}
+        </Link>
       </div>
     </div>
   );
@@ -488,13 +432,11 @@ export function DialogueView({
   episode,
   selectedWorks,
   collectionArtistRows,
-  collectionCompleteOffer,
   publicMessages,
 }: {
   episode: DialogueEpisode;
   selectedWorks: SelectedWork[];
   collectionArtistRows: CollectionArtistRow[];
-  collectionCompleteOffer?: CollectionCompleteOffer | null;
   publicMessages: DialoguePublicMessage[];
 }) {
   const [locale, setLocale] = useLocale();
@@ -688,19 +630,12 @@ export function DialogueView({
                 ))}
             </div>
             <div className="space-y-6">
-              {collectionCompleteOffer ? (
-                <CollectionCompleteOfferRow
-                  offer={collectionCompleteOffer}
-                  locale={locale}
-                />
-              ) : null}
               {collectionArtistRows.map((row) => (
                 <CollectionArtistOfferRow
                   key={row.artistName}
                   row={row}
                   locale={locale}
                   originalLabel={episode.collectionSupport!.originalAction}
-                  editionLabel={episode.collectionSupport!.editionAction}
                 />
               ))}
             </div>

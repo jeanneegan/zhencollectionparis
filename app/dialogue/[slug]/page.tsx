@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getArtistBySlug } from "@/app/artists/[slug]/data";
-import { getEditionShopUrlForArtwork } from "@/app/edition/data";
 import { getArtworkPassport } from "@/app/lib/artwork-passport";
 import { listDialogueMessagesForEpisode } from "@/app/lib/dialogue-messages-store";
 import { createPageMetadata } from "@/app/lib/site-metadata";
@@ -10,7 +9,6 @@ import { getEpisodeBySlug } from "../data";
 import {
   DialogueView,
   type CollectionArtistRow,
-  type CollectionCompleteOffer,
   type SelectedWork,
 } from "./dialogue-view";
 
@@ -137,10 +135,6 @@ export default async function DialoguePage({ params }: PageProps) {
         const originalHref = passport
           ? `/oeuvres/${entry.artistSlug}/${entry.workId}`
           : `/artists/${entry.artistSlug}`;
-        const editionHref =
-          getEditionShopUrlForArtwork(entry.artistSlug, entry.workId) ??
-          "/editions";
-
         return {
           artistName:
             entry.artistSlug === willySlug
@@ -150,39 +144,17 @@ export default async function DialoguePage({ params }: PageProps) {
           image: artworkImage,
           aspect,
           originalHref,
-          editionHref,
-          editionProductName: entry.editionProductName,
-          ...(entry.editionPriceEur != null
-            ? { editionPriceEur: entry.editionPriceEur }
-            : {}),
         } satisfies CollectionArtistRow;
       })
       .filter((item): item is CollectionArtistRow => item !== null) ?? [];
 
   const publicMessages = await listDialogueMessagesForEpisode(episode.slug);
 
-  const completeConfig = episode.collectionSupport?.completeEdition;
-  let collectionCompleteOffer: CollectionCompleteOffer | null = null;
-  if (completeConfig && collectionArtistRows.length >= 2) {
-    collectionCompleteOffer = {
-      editionHref: completeConfig.editionHref ?? "/editions",
-      editionAction: completeConfig.editionAction,
-      editionProductName: completeConfig.editionProductName,
-      ...(completeConfig.editionProductIncludes
-        ? { editionProductIncludes: completeConfig.editionProductIncludes }
-        : {}),
-      ...(completeConfig.editionPriceEur != null
-        ? { editionPriceEur: completeConfig.editionPriceEur }
-        : {}),
-    };
-  }
-
   return (
     <DialogueView
       episode={episode}
       selectedWorks={selectedWorks}
       collectionArtistRows={collectionArtistRows}
-      collectionCompleteOffer={collectionCompleteOffer}
       publicMessages={publicMessages}
     />
   );

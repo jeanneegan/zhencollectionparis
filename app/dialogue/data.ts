@@ -70,26 +70,13 @@ export type DialogueEpisodeHeader = {
 export type DialogueCollectionArtistOffer = {
   artistSlug: string;
   workId: string;
-  editionPriceEur?: number;
-  editionProductName: LocalizedText;
-};
-
-export type DialogueCollectionCompleteOffer = {
-  editionAction: LocalizedText;
-  editionProductName: LocalizedText;
-  editionProductIncludes?: LocalizedText;
-  editionPriceEur?: number;
-  /** Shop or editions index when no bundle product URL yet */
-  editionHref?: string;
 };
 
 export type DialogueCollectionSupport = {
   sectionTitle: LocalizedText;
   body: LocalizedText;
   originalAction: LocalizedText;
-  editionAction: LocalizedText;
   artists: DialogueCollectionArtistOffer[];
-  completeEdition?: DialogueCollectionCompleteOffer;
 };
 
 export type DialogueEpisode = {
@@ -414,13 +401,13 @@ The work also conveys an upward spirit: the horse's exuberance stands for courag
         en: "COLLECT THE CONVERSATION · 收藏这场对话",
       },
       body: {
-        zh: `收藏本期两位艺术家的原作，或收藏为本次对话特别制作的 ZCP 限量对话版画。
+        zh: `收藏本期两位艺术家的原作。
 
 每一次收藏，都支持艺术家的创作，也支持 ZCP 继续下一场对话。`,
-        fr: `Collectionnez les originaux des deux artistes de cette conversation, ou les estampes en édition limitée ZCP, spécialement réalisées pour ce dialogue.
+        fr: `Collectionnez les originaux des deux artistes de cette conversation.
 
 Chaque acquisition soutient le travail des artistes et permet à ZCP de poursuivre la prochaine conversation.`,
-        en: `Collect the originals by the two artists in this conversation, or the ZCP limited dialogue prints made especially for this episode.
+        en: `Collect the originals by the two artists in this conversation.
 
 Each acquisition supports the artists' work and helps ZCP continue the next conversation.`,
       },
@@ -429,60 +416,16 @@ Each acquisition supports the artists' work and helps ZCP continue the next conv
         fr: "Collectionner l'original",
         en: "Collect original",
       },
-      editionAction: {
-        zh: "收藏限量对话版画",
-        fr: "Collectionner l'estampe dialogue ZCP",
-        en: "Collect ZCP dialogue print",
-      },
       artists: [
         {
           artistSlug: "willy-le-nalbaut",
           workId: "3",
-          editionPriceEur: 169,
-          editionProductName: {
-            zh: "ZCP CONVERSATION 01-A",
-            fr: "ZCP CONVERSATION 01-A",
-            en: "ZCP CONVERSATION 01-A",
-          },
         },
         {
           artistSlug: "su-hong",
           workId: "1",
-          editionPriceEur: 169,
-          editionProductName: {
-            zh: "ZCP CONVERSATION 01-B",
-            fr: "ZCP CONVERSATION 01-B",
-            en: "ZCP CONVERSATION 01-B",
-          },
         },
       ],
-      completeEdition: {
-        editionAction: {
-          zh: "收藏完整对话",
-          fr: "Collectionner la conversation complète · 收藏完整对话",
-          en: "Collect the complete conversation · 收藏完整对话",
-        },
-        editionProductName: {
-          zh: "Willy Le Nalbaut × 苏泓 · Regard de Mélanie Gérin\nZCP CONVERSATION 01 · A + B",
-          fr: "Willy Le Nalbaut × Su Hong · Regard de Mélanie Gérin\nZCP CONVERSATION 01 · A + B",
-          en: "Willy Le Nalbaut × Su Hong · Regard de Mélanie Gérin\nZCP CONVERSATION 01 · A + B",
-        },
-        editionProductIncludes: {
-          zh: `2 幅限量版画
-2 份作品收藏证书
-1 张 Conversation Card · 对话卡
-Digital access to the complete conversation · 完整对话数字访问`,
-          fr: `2 estampes en édition limitée
-2 certificats de collection d'œuvre
-1 Conversation Card · 对话卡
-Accès numérique à la conversation intégrale · 完整对话数字访问`,
-          en: `2 limited-edition prints
-2 artwork collection certificates
-1 Conversation Card · 对话卡
-Digital access to the complete conversation · 完整对话数字访问`,
-        },
-        editionHref: "/editions",
-      },
     },
     isCurrent: true,
     status: "current",
