@@ -103,37 +103,6 @@ export const supportContent: SupportContent = {
         ],
       },
     },
-    {
-      anchorId: "partners",
-      heading: {
-        zh: "PARTNERS · 合作伙伴",
-        fr: "PARTNERS · 合作伙伴",
-        en: "PARTNERS · Partners",
-      },
-      paragraphs: {
-        zh: [
-          "ZCP 与不同城市的画廊、艺术机构、咖啡馆、书店、酒店、企业及独立空间建立合作。",
-          "合作不一定意味着资金支持。",
-          "空间、专业知识、传播、制作、住宿、交通以及人与人的连接，都可以成为艺术项目的一部分。",
-          "Paris · Shenzhen · New York · and beyond",
-          "我们希望建立一个不断生长的国际网络，让艺术进入生活，也让艺术家、作品与人，在不同城市之间持续相遇。",
-        ],
-        fr: [
-          "ZCP collabore avec galeries, institutions, cafés, librairies, hôtels, entreprises et espaces indépendants dans différentes villes.",
-          "Partenariat ne signifie pas nécessairement un soutien financier.",
-          "Espace, expertise, diffusion, production, hébergement, transport et liens humains peuvent tous faire partie d'un projet artistique.",
-          "Paris · Shenzhen · New York · and beyond",
-          "Nous souhaitons construire un réseau international en croissance, pour que l'art entre dans la vie quotidienne et que artistes, œuvres et publics se rencontrent durablement entre les villes.",
-        ],
-        en: [
-          "ZCP works with galleries, art institutions, cafés, bookshops, hotels, companies, and independent spaces in different cities.",
-          "Partnership does not necessarily mean financial support.",
-          "Space, expertise, communication, production, accommodation, travel, and human connection can all be part of an art project.",
-          "Paris · Shenzhen · New York · and beyond",
-          "We hope to build a growing international network so art enters daily life and artists, works, and people continue to meet across cities.",
-        ],
-      },
-    },
   ],
   closing: {
     zh: "Contact us to support or collaborate with ZCP.",

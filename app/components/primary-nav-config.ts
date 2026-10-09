@@ -41,10 +41,10 @@ export const primaryNavItems: PrimaryNavItem[] = [
       pathname.startsWith("/opportunites"),
   },
   {
-    id: "partners",
-    href: "/support#partners",
-    label: "PARTENAIRES",
-    labelZh: "合作伙伴",
-    isActive: (pathname) => pathname.startsWith("/support"),
+    id: "about",
+    href: "/apropos",
+    label: "ABOUT",
+    labelZh: "关于",
+    isActive: (pathname) => pathname.startsWith("/apropos"),
   },
 ];
