@@ -36,7 +36,7 @@ export const primaryNavItems: PrimaryNavItem[] = [
     label: "PROJETS",
     labelZh: "项目",
     isActive: (pathname) =>
-      pathname === "/projets" ||
+      pathname.startsWith("/projets") ||
       pathname.startsWith("/exposition") ||
       pathname.startsWith("/opportunites"),
   },

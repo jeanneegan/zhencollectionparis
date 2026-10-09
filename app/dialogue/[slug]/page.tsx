@@ -6,11 +6,7 @@ import { listDialogueMessagesForEpisode } from "@/app/lib/dialogue-messages-stor
 import { createPageMetadata } from "@/app/lib/site-metadata";
 import { getDialogueShareImage } from "@/app/lib/page-share-image";
 import { getEpisodeBySlug } from "../data";
-import {
-  DialogueView,
-  type CollectionArtistRow,
-  type SelectedWork,
-} from "./dialogue-view";
+import { DialogueView, type SelectedWork } from "./dialogue-view";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -103,58 +99,12 @@ export default async function DialoguePage({ params }: PageProps) {
     })
     .filter((item): item is SelectedWork => item !== null);
 
-  const collectionArtistRows: CollectionArtistRow[] =
-    episode.collectionSupport?.artists
-      .map((entry) => {
-        const artist = getArtistBySlug(entry.artistSlug);
-        const artwork = artist?.artworks.find((item) => item.id === entry.workId);
-        if (!artist || !artwork) {
-          return null;
-        }
-
-        const featuredEntry = featuredWorkMeta.get(
-          `${entry.artistSlug}:${entry.workId}`,
-        );
-        const artworkImage = featuredEntry?.image ?? artwork.image;
-        if (!artworkImage) {
-          return null;
-        }
-
-        const aspectMatch = artwork.dimensions.match(
-          /(\d+(?:\.\d+)?)\s*×\s*(\d+(?:\.\d+)?)/,
-        );
-        const aspect: [number, number] = featuredEntry?.displayAspect
-          ? featuredEntry.displayAspect
-          : artwork.imageAspect
-            ? artwork.imageAspect
-            : aspectMatch
-              ? [Number(aspectMatch[1]), Number(aspectMatch[2])]
-              : [4, 3];
-
-        const passport = getArtworkPassport(entry.artistSlug, entry.workId);
-        const originalHref = passport
-          ? `/oeuvres/${entry.artistSlug}/${entry.workId}`
-          : `/artists/${entry.artistSlug}`;
-        return {
-          artistName:
-            entry.artistSlug === willySlug
-              ? "Willy Le Nalbaut"
-              : "苏泓 Su Hong",
-          artworkTitle: artwork.title,
-          image: artworkImage,
-          aspect,
-          originalHref,
-        } satisfies CollectionArtistRow;
-      })
-      .filter((item): item is CollectionArtistRow => item !== null) ?? [];
-
   const publicMessages = await listDialogueMessagesForEpisode(episode.slug);
 
   return (
     <DialogueView
       episode={episode}
       selectedWorks={selectedWorks}
-      collectionArtistRows={collectionArtistRows}
       publicMessages={publicMessages}
     />
   );

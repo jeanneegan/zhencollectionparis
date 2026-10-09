@@ -67,18 +67,6 @@ export type DialogueEpisodeHeader = {
   date: LocalizedText;
 };
 
-export type DialogueCollectionArtistOffer = {
-  artistSlug: string;
-  workId: string;
-};
-
-export type DialogueCollectionSupport = {
-  sectionTitle: LocalizedText;
-  body: LocalizedText;
-  originalAction: LocalizedText;
-  artists: DialogueCollectionArtistOffer[];
-};
-
 export type DialogueEpisode = {
   slug: string;
   month: string;
@@ -102,7 +90,6 @@ export type DialogueEpisode = {
     displayAspect?: [number, number];
     description?: LocalizedText;
   }[];
-  collectionSupport?: DialogueCollectionSupport;
   isCurrent: boolean;
   status?: "current" | "upcoming" | "archived";
 };
@@ -394,39 +381,6 @@ The work also conveys an upward spirit: the horse's exuberance stands for courag
         },
       },
     ],
-    collectionSupport: {
-      sectionTitle: {
-        zh: "COLLECTIONNER LA CONVERSATION · 收藏这场对话",
-        fr: "COLLECTIONNER LA CONVERSATION · 收藏这场对话",
-        en: "COLLECT THE CONVERSATION · 收藏这场对话",
-      },
-      body: {
-        zh: `收藏本期两位艺术家的原作。
-
-每一次收藏，都支持艺术家的创作，也支持 ZCP 继续下一场对话。`,
-        fr: `Collectionnez les originaux des deux artistes de cette conversation.
-
-Chaque acquisition soutient le travail des artistes et permet à ZCP de poursuivre la prochaine conversation.`,
-        en: `Collect the originals by the two artists in this conversation.
-
-Each acquisition supports the artists' work and helps ZCP continue the next conversation.`,
-      },
-      originalAction: {
-        zh: "收藏原作",
-        fr: "Collectionner l'original",
-        en: "Collect original",
-      },
-      artists: [
-        {
-          artistSlug: "willy-le-nalbaut",
-          workId: "3",
-        },
-        {
-          artistSlug: "su-hong",
-          workId: "1",
-        },
-      ],
-    },
     isCurrent: true,
     status: "current",
   },

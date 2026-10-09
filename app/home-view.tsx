@@ -8,6 +8,7 @@ import { LanguageSwitcher } from "@/app/components/language-switcher";
 import { SiteFooter } from "@/app/components/site-footer";
 import { SiteHeader } from "@/app/components/site-header";
 import { DialogueCurrentSpotlight } from "@/app/components/dialogue-current-spotlight";
+import { FrenchArtistsChinaSpotlight } from "@/app/components/french-artists-china-spotlight";
 import { getEditionShopUrl, getLatestEdition } from "@/app/edition/data";
 import { useLocale } from "@/app/lib/use-locale";
 
@@ -89,6 +90,8 @@ export function HomeView() {
 
       <main className="mx-auto max-w-6xl space-y-8 px-3 py-10 md:space-y-12 md:px-8 md:py-16">
         <DialogueCurrentSpotlight locale={locale} />
+
+        <FrenchArtistsChinaSpotlight locale={locale} />
 
         {latestEdition && editionArtist && editionWork && editionShopUrl ? (
           <section className={`${cardClass} overflow-hidden`}>

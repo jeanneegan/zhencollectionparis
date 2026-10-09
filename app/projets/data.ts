@@ -1,9 +1,13 @@
 import type { Locale, LocalizedText } from "@/app/artists/[slug]/data";
 import { residencyPageIntro } from "@/app/opportunites/data";
 import {
-  programmeSubtitle,
-  programmeTitle,
+  programmeSubtitle as youngArtistsSubtitle,
+  programmeTitle as youngArtistsTitle,
 } from "@/app/opportunites/young-artists-france/data";
+import {
+  programmeSubtitle as frCnSubtitle,
+  programmeTitle as frCnTitle,
+} from "@/app/projets/artistes-francais-en-chine/data";
 
 export type ProjectSection = {
   id: string;
@@ -19,9 +23,9 @@ export const projectsPageTitle: LocalizedText = {
 };
 
 export const projectsPageIntro: LocalizedText = {
-  zh: "ZCP 的展览、驻地与年度艺术家计划，在不同城市之间展开创作、相遇与推广。",
-  fr: "Expositions, résidences et programme annuel des artistes — la création, la rencontre et la visibilité de ZCP entre les villes.",
-  en: "Exhibitions, residencies, and the annual artists programme — ZCP's work across cities for creation, encounter, and visibility.",
+  zh: "ZCP 的年度艺术家计划、法国艺术家走进中国、展览与驻地，在不同城市之间展开创作、相遇与推广。",
+  fr: "Programme annuel des artistes, Artistes français en Chine, expositions et résidences — la création, la rencontre et la visibilité de ZCP entre les villes.",
+  en: "Annual artists programme, French artists in China, exhibitions, and residencies — ZCP's work across cities for creation, encounter, and visibility.",
 };
 
 export const projectSections: ProjectSection[] = [
@@ -34,9 +38,23 @@ export const projectSections: ProjectSection[] = [
       en: "Annual artists programme",
     },
     lead: {
-      zh: `${programmeTitle.zh} — ${programmeSubtitle.zh}`,
-      fr: `${programmeTitle.fr} — ${programmeSubtitle.fr}`,
-      en: `${programmeTitle.en} — ${programmeSubtitle.en}`,
+      zh: `${youngArtistsTitle.zh} — ${youngArtistsSubtitle.zh}`,
+      fr: `${youngArtistsTitle.fr} — ${youngArtistsSubtitle.fr}`,
+      en: `${youngArtistsTitle.en} — ${youngArtistsSubtitle.en}`,
+    },
+  },
+  {
+    id: "artistes-francais-en-chine",
+    href: "/projets/artistes-francais-en-chine",
+    title: {
+      zh: "法国艺术家走进中国",
+      fr: "Artistes français en Chine",
+      en: "French artists in China",
+    },
+    lead: {
+      zh: `${frCnTitle.zh} — ${frCnSubtitle.zh}`,
+      fr: `${frCnTitle.fr} — ${frCnSubtitle.fr}`,
+      en: `${frCnTitle.en} — ${frCnSubtitle.en}`,
     },
   },
   {

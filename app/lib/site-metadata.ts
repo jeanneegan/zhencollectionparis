@@ -23,7 +23,7 @@ export function getSiteUrl() {
     return `https://${process.env.VERCEL_URL}`;
   }
 
-  return "http://localhost:3000";
+  return "http://localhost:3001";
 }
 
 export const defaultDescription =

@@ -101,14 +101,6 @@ const labels: Record<
   },
 };
 
-export type CollectionArtistRow = {
-  artistName: string;
-  artworkTitle: LocalizedText;
-  image: string;
-  aspect: [number, number];
-  originalHref: string;
-};
-
 export type SelectedWork = {
   artistSlug: string;
   artistName: string;
@@ -122,44 +114,6 @@ export type SelectedWork = {
   };
   aspect: [number, number];
 };
-
-function CollectionArtistOfferRow({
-  row,
-  locale,
-  originalLabel,
-}: {
-  row: CollectionArtistRow;
-  locale: Locale;
-  originalLabel: LocalizedText;
-}) {
-  return (
-    <div className="flex flex-col gap-6 border border-stone-200 bg-white p-5 sm:flex-row sm:items-center sm:gap-8 md:p-6">
-      <div
-        className="relative mx-auto w-full max-w-[220px] shrink-0 bg-stone-100 sm:mx-0 sm:w-44"
-        style={{ aspectRatio: `${row.aspect[0]} / ${row.aspect[1]}` }}
-      >
-        <Image
-          src={row.image}
-          alt={t(row.artworkTitle, locale)}
-          fill
-          className="object-contain object-center"
-          sizes="176px"
-        />
-      </div>
-      <div className="min-w-0 flex-1 space-y-4 text-center sm:text-left">
-        <div>
-          <p className={dt.workArtist}>{row.artistName}</p>
-          <p className={`mt-2 ${dt.workTitle}`}>
-            {t(row.artworkTitle, locale)}
-          </p>
-        </div>
-        <Link href={row.originalHref} className={dt.actionLink}>
-          {t(originalLabel, locale)}
-        </Link>
-      </div>
-    </div>
-  );
-}
 
 function SectionLabel({
   children,
@@ -431,12 +385,10 @@ function ObserverBlock({
 export function DialogueView({
   episode,
   selectedWorks,
-  collectionArtistRows,
   publicMessages,
 }: {
   episode: DialogueEpisode;
   selectedWorks: SelectedWork[];
-  collectionArtistRows: CollectionArtistRow[];
   publicMessages: DialoguePublicMessage[];
 }) {
   const [locale, setLocale] = useLocale();
@@ -613,34 +565,6 @@ export function DialogueView({
             ))}
           </div>
         </section>
-
-        {episode.collectionSupport && collectionArtistRows.length > 0 ? (
-          <section className="mt-16 space-y-8">
-            <SectionLabel>
-              {t(episode.collectionSupport.sectionTitle, locale)}
-            </SectionLabel>
-            <div
-              className={`${serif.className} mx-auto max-w-2xl space-y-4 text-center ${dt.collectionIntro}`}
-            >
-              {t(episode.collectionSupport.body, locale)
-                .split(/\n\n+/)
-                .filter(Boolean)
-                .map((paragraph) => (
-                  <p key={paragraph.slice(0, 48)}>{paragraph}</p>
-                ))}
-            </div>
-            <div className="space-y-6">
-              {collectionArtistRows.map((row) => (
-                <CollectionArtistOfferRow
-                  key={row.artistName}
-                  row={row}
-                  locale={locale}
-                  originalLabel={episode.collectionSupport!.originalAction}
-                />
-              ))}
-            </div>
-          </section>
-        ) : null}
 
         <section className="mt-16 border border-dashed border-stone-300 bg-stone-50/30 px-6 py-8">
           <SectionLabel>{l.publicMessages}</SectionLabel>
