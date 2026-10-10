@@ -16,36 +16,25 @@ import {
 import { useLocale } from "@/app/lib/use-locale";
 
 
-const pageLabels: Record<
-  Locale,
-  {
-    title: string;
-    empty: string;
-  }
-> = {
+const pageLabels: Record<Locale, { title: string }> = {
   zh: {
     title: "ZCP RESIDENCIES · 艺术家驻地",
-    empty: "项目筹备中，欢迎持续关注。",
   },
   fr: {
     title: "ZCP RESIDENCIES · 艺术家驻地",
-    empty: "Projets en préparation — restez informés.",
   },
   en: {
     title: "ZCP RESIDENCIES · 艺术家驻地",
-    empty: "Programmes in preparation — follow for updates.",
   },
 };
 
 function ResidencySectionBlock({
   locale,
   sectionId,
-  emptyLabel,
   showSectionTitle,
 }: {
   locale: Locale;
   sectionId: ResidencySectionId;
-  emptyLabel: string;
   showSectionTitle: boolean;
 }) {
   const section = residencySections.find((item) => item.id === sectionId);
@@ -110,9 +99,7 @@ function ResidencySectionBlock({
             </li>
           ))}
         </ul>
-      ) : (
-        <p className="mt-8 text-sm leading-[1.9] text-stone-500">{emptyLabel}</p>
-      )}
+      ) : null}
     </section>
   );
 }
@@ -146,14 +133,7 @@ export function OpportunitesView() {
           <ResidencySectionBlock
             locale={locale}
             sectionId="zcp"
-            emptyLabel={l.empty}
             showSectionTitle={false}
-          />
-          <ResidencySectionBlock
-            locale={locale}
-            sectionId="partner"
-            emptyLabel={l.empty}
-            showSectionTitle
           />
         </div>
 

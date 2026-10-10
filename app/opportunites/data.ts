@@ -1,6 +1,6 @@
 import type { Locale } from "@/app/artists/[slug]/data";
 
-export type ResidencySectionId = "zcp" | "partner";
+export type ResidencySectionId = "zcp";
 
 export type ResidencySection = {
   id: ResidencySectionId;
@@ -28,19 +28,6 @@ export const residencySections: ResidencySection[] = [
       en: "",
     },
   },
-  {
-    id: "partner",
-    title: {
-      fr: "Partner Residencies · 合作驻地",
-      zh: "Partner Residencies · 合作驻地",
-      en: "Partner Residencies · 合作驻地",
-    },
-    description: {
-      fr: "More cities to come · 更多城市持续加入",
-      zh: "More cities to come · 更多城市持续加入",
-      en: "More cities to come · 更多城市持续加入",
-    },
-  },
 ];
 
 export type ResidencyListing = {
@@ -53,15 +40,6 @@ export type ResidencyListing = {
 };
 
 export const residencyListings: ResidencyListing[] = [
-  {
-    id: "zcp-paris",
-    sectionId: "zcp",
-    title: {
-      fr: "Paris · 巴黎",
-      zh: "Paris · 巴黎",
-      en: "Paris · 巴黎",
-    },
-  },
   {
     id: "zcp-shenzhen",
     sectionId: "zcp",
