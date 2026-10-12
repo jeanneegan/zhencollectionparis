@@ -175,7 +175,7 @@ export function ArtistSiteView({ artist }: { artist: ArtistProfile }) {
   const navItems = [
     { id: "home", label: labels.home },
     { id: "works", label: labels.works },
-    { id: "shop", label: labels.shop },
+    { id: "collection", label: labels.collection },
     { id: "bio", label: labels.bio },
     { id: "exhibitions", label: labels.exhibitions },
     { id: "writings", label: labels.writings },
@@ -340,9 +340,9 @@ export function ArtistSiteView({ artist }: { artist: ArtistProfile }) {
           </div>
         </section>
 
-        {/* Shop */}
-        <section id="shop" className="scroll-mt-24 border-t border-neutral-300/50 pt-14 md:pt-20">
-          <ArchiveSectionTitle id="shop-title">{labels.shop}</ArchiveSectionTitle>
+        {/* Collection */}
+        <section id="collection" className="scroll-mt-24 border-t border-neutral-300/50 pt-14 md:pt-20">
+          <ArchiveSectionTitle id="collection-title">{labels.collection}</ArchiveSectionTitle>
 
           {shopItems.length > 0 ? (
             <ul className="mt-12 grid gap-12 sm:grid-cols-2 lg:max-w-4xl">

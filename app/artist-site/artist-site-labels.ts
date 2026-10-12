@@ -5,7 +5,7 @@ export type ArtistSiteLabels = {
   close: string;
   home: string;
   works: string;
-  shop: string;
+  collection: string;
   shopPurchase: string;
   shopEmpty: string;
   shopPlatformCta: string;
@@ -37,10 +37,10 @@ export const artistSiteLabels: Record<Locale, ArtistSiteLabels> = {
     close: "Close · 关闭",
     home: "首页",
     works: "作品与系列",
-    shop: "Shop · 商店",
+    collection: "收藏",
     shopPurchase: "购买",
     shopEmpty:
-      "暂无经 ZCP 商店确认的该艺术家线上 SKU。可在 ZCP 收藏页查看在线购买与出版信息。",
+      "暂无经 ZCP 收藏确认的该艺术家线上 SKU。可在 ZCP 收藏页查看在线购买与出版信息。",
     shopPlatformCta: "前往 ZCP 收藏页",
     bio: "艺术家简介",
     exhibitions: "展览与新闻",
@@ -68,10 +68,10 @@ export const artistSiteLabels: Record<Locale, ArtistSiteLabels> = {
     close: "Close",
     home: "Accueil",
     works: "Œuvres & séries",
-    shop: "Shop · 商店",
+    collection: "Collection",
     shopPurchase: "Acheter",
     shopEmpty:
-      "Aucun SKU en ligne confirmé pour cet artiste dans la boutique ZCP. Consultez la page Collection pour l'achat en ligne et les éditions.",
+      "Aucun SKU en ligne confirmé pour cet artiste dans la collection ZCP. Consultez la page Collection pour l'achat en ligne et les éditions.",
     shopPlatformCta: "Accéder à la collection ZCP",
     bio: "Biographie",
     exhibitions: "Expositions & actualités",
@@ -99,10 +99,10 @@ export const artistSiteLabels: Record<Locale, ArtistSiteLabels> = {
     close: "Close",
     home: "Home",
     works: "Works & series",
-    shop: "Shop · 商店",
+    collection: "Collection",
     shopPurchase: "Purchase",
     shopEmpty:
-      "No confirmed online shop SKU for this artist in the ZCP store yet. See the ZCP Collection page for online purchase and editions.",
+      "No confirmed online collection SKU for this artist at ZCP yet. See the ZCP Collection page for online purchase and editions.",
     shopPlatformCta: "Go to ZCP Collection",
     bio: "Biography",
     exhibitions: "Exhibitions & news",
