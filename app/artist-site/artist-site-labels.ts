@@ -27,7 +27,6 @@ export type ArtistSiteLabels = {
   awardsCategory: string;
   writings: string;
   contact: string;
-  backToZcp: string;
   zcpPassport: string;
   zcpDialogue: string;
   artistStatement: string;
@@ -42,6 +41,8 @@ export type ArtistSiteLabels = {
   solo: string;
   duo: string;
   group: string;
+  /** Text before linked “Zhen Collection Paris” in site footer. */
+  siteMaintainedByPrefix: string;
 };
 
 export const artistSiteLabels: Record<Locale, ArtistSiteLabels> = {
@@ -73,7 +74,6 @@ export const artistSiteLabels: Record<Locale, ArtistSiteLabels> = {
     awardsCategory: "奖项",
     writings: "创作文字与对话",
     contact: "联系",
-    backToZcp: "返回 ZCP",
     zcpPassport: "ZCP 艺术家护照",
     zcpDialogue: "ZCP 完整对话",
     artistStatement: "创作理念",
@@ -88,6 +88,7 @@ export const artistSiteLabels: Record<Locale, ArtistSiteLabels> = {
     solo: "个展",
     duo: "双人展",
     group: "群展",
+    siteMaintainedByPrefix: "网站制作与维护：",
   },
   fr: {
     menu: "Menu",
@@ -117,7 +118,6 @@ export const artistSiteLabels: Record<Locale, ArtistSiteLabels> = {
     awardsCategory: "Annonces",
     writings: "Textes & conversations",
     contact: "Contact",
-    backToZcp: "Retour à ZCP · 返回 ZCP",
     zcpPassport: "Passeport artiste ZCP",
     zcpDialogue: "Conversation ZCP (intégrale)",
     artistStatement: "Démarche",
@@ -132,6 +132,7 @@ export const artistSiteLabels: Record<Locale, ArtistSiteLabels> = {
     solo: "Solo",
     duo: "Duo",
     group: "Collective",
+    siteMaintainedByPrefix: "Site conçu et maintenu par ",
   },
   en: {
     menu: "Menu",
@@ -161,7 +162,6 @@ export const artistSiteLabels: Record<Locale, ArtistSiteLabels> = {
     awardsCategory: "Announcements",
     writings: "Writings & dialogue",
     contact: "Contact",
-    backToZcp: "Back to ZCP · 返回 ZCP",
     zcpPassport: "ZCP Artist Passport",
     zcpDialogue: "Full ZCP conversation",
     artistStatement: "Artist statement",
@@ -176,5 +176,6 @@ export const artistSiteLabels: Record<Locale, ArtistSiteLabels> = {
     solo: "Solo",
     duo: "Duo",
     group: "Group",
+    siteMaintainedByPrefix: "Website created and maintained by ",
   },
 };

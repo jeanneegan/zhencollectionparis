@@ -4,6 +4,7 @@ import { useEffect, useState, type ReactNode } from "react";
 import Link from "next/link";
 import type { Locale } from "@/app/artists/[slug]/data";
 import { archiveDisplay } from "@/app/artist-site/artist-site-fonts";
+import { ArtistSiteFooter } from "@/app/artist-site/artist-site-footer";
 
 const locales: { key: Locale; label: string }[] = [
   { key: "fr", label: "FR" },
@@ -167,8 +168,9 @@ export function ArtistSiteShell({
         </div>
       </aside>
 
-      <div className="md:pl-[17.5rem]">
-        <main className="min-h-screen pt-[3.25rem] md:pt-0">{children}</main>
+      <div className="flex min-h-screen flex-col md:pl-[17.5rem]">
+        <main className="flex-1 pt-[3.25rem] md:pt-0">{children}</main>
+        <ArtistSiteFooter locale={locale} />
       </div>
     </div>
   );
