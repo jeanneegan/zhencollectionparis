@@ -42,7 +42,7 @@ export function ArtistSiteShell({
   onLocaleChange: (locale: Locale) => void;
   menuLabel: string;
   closeLabel: string;
-  navItems: { href: string; label: string }[];
+  navItems: { href: string; label: string; external?: boolean }[];
   linkPrefix: string;
   pathname: string;
   children: ReactNode;
@@ -116,17 +116,33 @@ export function ArtistSiteShell({
         <nav aria-label="Archive" className="mt-12 flex-1">
           <ul className="space-y-1">
             {navItems.map((item) => {
-              const href = item.href === "/" ? homeHref : `${linkPrefix}${item.href}`;
-              const active = isNavActive(item.href, currentPath);
+              const href = item.external
+                ? item.href
+                : item.href === "/"
+                  ? homeHref
+                  : `${linkPrefix}${item.href}`;
+              const active = !item.external && isNavActive(item.href, currentPath);
+              const className = navLinkClass(active);
+
               return (
-                <li key={item.href}>
-                  <Link
-                    href={href}
-                    className={navLinkClass(active)}
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
+                <li key={item.external ? `external-${item.href}` : item.href}>
+                  {item.external ? (
+                    <a
+                      href={href}
+                      className={className}
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={href}
+                      className={className}
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  )}
                 </li>
               );
             })}

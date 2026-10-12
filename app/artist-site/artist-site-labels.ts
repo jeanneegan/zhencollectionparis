@@ -27,6 +27,7 @@ export type ArtistSiteLabels = {
   awardsCategory: string;
   writings: string;
   contact: string;
+  backToZcp: string;
   zcpPassport: string;
   zcpDialogue: string;
   artistStatement: string;
@@ -72,6 +73,7 @@ export const artistSiteLabels: Record<Locale, ArtistSiteLabels> = {
     awardsCategory: "奖项",
     writings: "创作文字与对话",
     contact: "联系",
+    backToZcp: "返回 ZCP",
     zcpPassport: "ZCP 艺术家护照",
     zcpDialogue: "ZCP 完整对话",
     artistStatement: "创作理念",
@@ -115,6 +117,7 @@ export const artistSiteLabels: Record<Locale, ArtistSiteLabels> = {
     awardsCategory: "Annonces",
     writings: "Textes & conversations",
     contact: "Contact",
+    backToZcp: "Retour à ZCP · 返回 ZCP",
     zcpPassport: "Passeport artiste ZCP",
     zcpDialogue: "Conversation ZCP (intégrale)",
     artistStatement: "Démarche",
@@ -158,6 +161,7 @@ export const artistSiteLabels: Record<Locale, ArtistSiteLabels> = {
     awardsCategory: "Announcements",
     writings: "Writings & dialogue",
     contact: "Contact",
+    backToZcp: "Back to ZCP · 返回 ZCP",
     zcpPassport: "ZCP Artist Passport",
     zcpDialogue: "Full ZCP conversation",
     artistStatement: "Artist statement",

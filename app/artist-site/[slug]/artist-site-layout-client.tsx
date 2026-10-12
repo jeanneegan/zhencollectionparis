@@ -6,6 +6,7 @@ import type { ArtistProfile } from "@/app/artists/[slug]/data";
 import { formatArtworkTitleForItem } from "@/app/artists/[slug]/data";
 import { ArtistSiteProvider } from "@/app/artist-site/artist-site-context";
 import { useArtistSiteLocale } from "@/app/artist-site/artist-site-ui";
+import { zcpPublicUrl } from "@/app/lib/zcp-public-site";
 import { ArtistSiteShell } from "./artist-site-shell";
 
 export function ArtistSiteLayoutClient({
@@ -33,6 +34,7 @@ export function ArtistSiteLayoutClient({
     { href: "/texts", label: labels.texts },
     { href: "/shop", label: labels.shop },
     { href: "/contact", label: labels.contact },
+    { href: zcpPublicUrl("/"), label: labels.backToZcp, external: true },
   ];
 
   return (
