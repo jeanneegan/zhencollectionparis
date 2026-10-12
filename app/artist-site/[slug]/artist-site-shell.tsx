@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, type ReactNode } from "react";
+import Link from "next/link";
 import type { Locale } from "@/app/artists/[slug]/data";
 import { archiveDisplay } from "@/app/artist-site/artist-site-fonts";
 
@@ -10,6 +11,21 @@ const locales: { key: Locale; label: string }[] = [
   { key: "en", label: "EN" },
 ];
 
+function normalizePath(pathname: string, linkPrefix: string): string {
+  if (linkPrefix && pathname.startsWith(linkPrefix)) {
+    const rest = pathname.slice(linkPrefix.length);
+    return rest === "" ? "/" : rest;
+  }
+  return pathname || "/";
+}
+
+function isNavActive(routePath: string, current: string): boolean {
+  if (routePath === "/") {
+    return current === "/";
+  }
+  return current === routePath || current.startsWith(`${routePath}/`);
+}
+
 export function ArtistSiteShell({
   siteTitle,
   locale,
@@ -17,6 +33,8 @@ export function ArtistSiteShell({
   menuLabel,
   closeLabel,
   navItems,
+  linkPrefix,
+  pathname,
   children,
 }: {
   siteTitle: string;
@@ -24,10 +42,14 @@ export function ArtistSiteShell({
   onLocaleChange: (locale: Locale) => void;
   menuLabel: string;
   closeLabel: string;
-  navItems: { id: string; label: string }[];
+  navItems: { href: string; label: string }[];
+  linkPrefix: string;
+  pathname: string;
   children: ReactNode;
 }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const currentPath = normalizePath(pathname, linkPrefix);
+  const homeHref = linkPrefix || "/";
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -36,19 +58,21 @@ export function ArtistSiteShell({
     };
   }, [menuOpen]);
 
-  const navLinkClass =
-    "block py-2 text-[13px] leading-snug text-neutral-800 transition-opacity hover:opacity-60";
+  const navLinkClass = (active: boolean) =>
+    `block py-2 text-[13px] leading-snug transition-opacity hover:opacity-60 ${
+      active ? "text-neutral-900" : "text-neutral-800"
+    }`;
 
   return (
     <div className="min-h-screen bg-[#f6f4ef] text-neutral-900">
       <div className="fixed inset-x-0 top-0 z-40 flex items-center justify-between bg-[#ddd9d2] px-5 py-4 md:hidden">
-        <a
-          href="#home"
+        <Link
+          href={homeHref}
           className={`${archiveDisplay.className} text-lg tracking-tight`}
           onClick={() => setMenuOpen(false)}
         >
           {siteTitle}
-        </a>
+        </Link>
         <button
           type="button"
           className="text-[11px] uppercase tracking-[0.2em] text-neutral-700"
@@ -73,13 +97,13 @@ export function ArtistSiteShell({
         }`}
       >
         <div className="flex items-start justify-between gap-4">
-          <a
-            href="#home"
+          <Link
+            href={homeHref}
             className={`${archiveDisplay.className} text-xl leading-tight tracking-tight text-neutral-900`}
             onClick={() => setMenuOpen(false)}
           >
             {siteTitle}
-          </a>
+          </Link>
           <button
             type="button"
             className="text-[11px] uppercase tracking-[0.2em] text-neutral-600 md:hidden"
@@ -91,17 +115,21 @@ export function ArtistSiteShell({
 
         <nav aria-label="Archive" className="mt-12 flex-1">
           <ul className="space-y-1">
-            {navItems.map((item) => (
-              <li key={item.id}>
-                <a
-                  href={`#${item.id}`}
-                  className={navLinkClass}
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
+            {navItems.map((item) => {
+              const href = item.href === "/" ? homeHref : `${linkPrefix}${item.href}`;
+              const active = isNavActive(item.href, currentPath);
+              return (
+                <li key={item.href}>
+                  <Link
+                    href={href}
+                    className={navLinkClass(active)}
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
 

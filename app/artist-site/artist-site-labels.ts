@@ -5,11 +5,23 @@ export type ArtistSiteLabels = {
   close: string;
   home: string;
   works: string;
-  collection: string;
+  shop: string;
   shopPurchase: string;
   shopEmpty: string;
   shopPlatformCta: string;
   bio: string;
+  news: string;
+  texts: string;
+  featuredWorks: string;
+  latestNews: string;
+  viewAll: string;
+  emptyNews: string;
+  emptyTexts: string;
+  emptyWorks: string;
+  backToWorks: string;
+  backToNews: string;
+  backToTexts: string;
+  seriesWorks: string;
   exhibitions: string;
   exhibitionCategory: string;
   awardsCategory: string;
@@ -37,12 +49,24 @@ export const artistSiteLabels: Record<Locale, ArtistSiteLabels> = {
     close: "Close · 关闭",
     home: "首页",
     works: "作品与系列",
-    collection: "收藏",
+    shop: "版画与购买",
     shopPurchase: "购买",
     shopEmpty:
       "暂无经 ZCP 收藏确认的该艺术家线上 SKU。可在 ZCP 收藏页查看在线购买与出版信息。",
     shopPlatformCta: "前往 ZCP 收藏页",
     bio: "艺术家简介",
+    news: "展览与新闻",
+    texts: "创作文字与对话",
+    featuredWorks: "代表作品",
+    latestNews: "最新动态",
+    viewAll: "查看全部",
+    emptyNews: "暂无展览或新闻条目。",
+    emptyTexts: "暂无文字或对话条目。",
+    emptyWorks: "暂无作品条目。",
+    backToWorks: "返回作品与系列",
+    backToNews: "返回展览与新闻",
+    backToTexts: "返回创作文字与对话",
+    seriesWorks: "系列作品",
     exhibitions: "展览与新闻",
     exhibitionCategory: "展览",
     awardsCategory: "奖项",
@@ -68,12 +92,24 @@ export const artistSiteLabels: Record<Locale, ArtistSiteLabels> = {
     close: "Close",
     home: "Accueil",
     works: "Œuvres & séries",
-    collection: "Collection",
+    shop: "Estampes & achat",
     shopPurchase: "Acheter",
     shopEmpty:
       "Aucun SKU en ligne confirmé pour cet artiste dans la collection ZCP. Consultez la page Collection pour l'achat en ligne et les éditions.",
     shopPlatformCta: "Accéder à la collection ZCP",
     bio: "Biographie",
+    news: "Expositions & actualités",
+    texts: "Textes & conversations",
+    featuredWorks: "Œuvres représentatives",
+    latestNews: "Actualités",
+    viewAll: "Tout voir",
+    emptyNews: "Aucune exposition ou actualité pour le moment.",
+    emptyTexts: "Aucun texte ou conversation pour le moment.",
+    emptyWorks: "Aucune œuvre pour le moment.",
+    backToWorks: "Retour aux œuvres",
+    backToNews: "Retour aux actualités",
+    backToTexts: "Retour aux textes",
+    seriesWorks: "Œuvres de la série",
     exhibitions: "Expositions & actualités",
     exhibitionCategory: "Expositions",
     awardsCategory: "Annonces",
@@ -99,12 +135,24 @@ export const artistSiteLabels: Record<Locale, ArtistSiteLabels> = {
     close: "Close",
     home: "Home",
     works: "Works & series",
-    collection: "Collection",
+    shop: "Prints & purchase",
     shopPurchase: "Purchase",
     shopEmpty:
       "No confirmed online collection SKU for this artist at ZCP yet. See the ZCP Collection page for online purchase and editions.",
     shopPlatformCta: "Go to ZCP Collection",
     bio: "Biography",
+    news: "Exhibitions & news",
+    texts: "Writings & dialogue",
+    featuredWorks: "Featured works",
+    latestNews: "Latest",
+    viewAll: "View all",
+    emptyNews: "No exhibitions or news entries yet.",
+    emptyTexts: "No writings or dialogue entries yet.",
+    emptyWorks: "No works listed yet.",
+    backToWorks: "Back to works",
+    backToNews: "Back to news",
+    backToTexts: "Back to writings",
+    seriesWorks: "Works in series",
     exhibitions: "Exhibitions & news",
     exhibitionCategory: "Exhibitions",
     awardsCategory: "Announcements",
