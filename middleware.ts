@@ -6,6 +6,11 @@ import {
   isAuthenticatedSession,
   SESSION_COOKIE,
 } from "@/app/lib/auth";
+import {
+  artistSiteRewritePath,
+  isArtistSiteStaticAssetPath,
+  resolveArtistSiteSlugFromHost,
+} from "@/app/lib/artist-site-host";
 import { resolvePostLoginPath } from "@/app/lib/return-to";
 
 const PROTECTED_PREFIXES = [
@@ -17,9 +22,21 @@ const PROTECTED_PREFIXES = [
 ] as const;
 
 export function middleware(request: NextRequest) {
+  const host = request.headers.get("host") ?? "";
+  const artistSiteSlug = resolveArtistSiteSlugFromHost(host);
+  const { pathname, search } = request.nextUrl;
+
+  if (artistSiteSlug) {
+    if (!isArtistSiteStaticAssetPath(pathname)) {
+      const url = request.nextUrl.clone();
+      url.pathname = artistSiteRewritePath(artistSiteSlug, pathname);
+      return NextResponse.rewrite(url);
+    }
+    return NextResponse.next();
+  }
+
   const session = request.cookies.get(SESSION_COOKIE)?.value;
   const isAuthed = isAuthenticatedSession(session);
-  const { pathname, search } = request.nextUrl;
   const member = getMemberBySession(session);
 
   const isProtected = PROTECTED_PREFIXES.some((prefix) => pathname.startsWith(prefix));
@@ -64,6 +81,7 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
+    "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:avif|gif|ico|jpe?g|mp4|png|svg|webp|woff2?)$).*)",
     "/espace/:path*",
     "/galerie/:path*",
     "/commentateur/:path*",
