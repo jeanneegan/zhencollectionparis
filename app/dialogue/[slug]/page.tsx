@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getArtistBySlug } from "@/app/artists/[slug]/data";
+import {
+  getArtistBySlug,
+  shouldShowPublicArtworkImage,
+} from "@/app/artists/[slug]/data";
 import { getArtworkPassport } from "@/app/lib/artwork-passport";
 import { listDialogueMessagesForEpisode } from "@/app/lib/dialogue-messages-store";
 import { createPageMetadata } from "@/app/lib/site-metadata";
@@ -58,8 +61,9 @@ export default async function DialoguePage({ params }: PageProps) {
         return null;
       }
 
-      const artworkImage = image ?? artwork.image;
-      if (!artworkImage) {
+      const showImage = shouldShowPublicArtworkImage(artistSlug, artworkId);
+      const artworkImage = showImage ? (image ?? artwork.image) : undefined;
+      if (showImage && !artworkImage) {
         return null;
       }
 
@@ -87,11 +91,12 @@ export default async function DialoguePage({ params }: PageProps) {
         artistName:
           artistSlug === willySlug ? "Willy Le Nalbaut" : "苏泓 Su Hong",
         href,
+        showImage: Boolean(artworkImage),
         artwork: {
           title: artwork.title,
           medium: artwork.medium,
           year: artwork.year,
-          image: artworkImage,
+          image: artworkImage ?? "",
           ...(description ? { description } : {}),
         },
         aspect,

@@ -5,6 +5,7 @@ import Link from "next/link";
 import {
   getArtistBySlug,
   formatArtworkTitleForItem,
+  shouldShowPublicArtworkImage,
   t,
   type Locale,
 } from "@/app/artists/[slug]/data";
@@ -69,7 +70,8 @@ export function OeuvresIndexView() {
                 className="border border-stone-200 bg-white p-5 transition-colors hover:border-stone-400"
               >
                 <div className="flex items-start gap-4">
-                  {artwork.image ? (
+                  {artwork.image &&
+                  shouldShowPublicArtworkImage(artistSlug, workId) ? (
                     <div className="relative h-24 w-20 shrink-0 overflow-hidden bg-stone-100">
                       <Image
                         src={artwork.image}

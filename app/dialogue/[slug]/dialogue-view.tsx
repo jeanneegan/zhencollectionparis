@@ -105,6 +105,7 @@ export type SelectedWork = {
   artistSlug: string;
   artistName: string;
   href: string;
+  showImage: boolean;
   artwork: {
     title: LocalizedText;
     medium: LocalizedText;
@@ -483,25 +484,27 @@ export function DialogueView({
             <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-8">
               {selectedWorks.map((item) => (
                 <Link
-                  key={`${item.artistSlug}-${item.artwork.image}`}
+                  key={`${item.artistSlug}-${item.artwork.title.en}`}
                   href={item.href}
                   className="group mx-auto flex w-full max-w-md flex-col"
                 >
-                  <div
-                    className="relative w-full overflow-hidden bg-stone-100"
-                    style={{
-                      aspectRatio: `${item.aspect[0]} / ${item.aspect[1]}`,
-                    }}
-                  >
-                    <Image
-                      src={item.artwork.image}
-                      alt={formatArtworkTitle(item.artwork.title, locale)}
-                      fill
-                      className="object-contain object-center transition-transform group-hover:scale-[1.01]"
-                      sizes="(max-width: 768px) 100vw, 448px"
-                    />
-                  </div>
-                  <div className="mt-4 text-center">
+                  {item.showImage ? (
+                    <div
+                      className="relative w-full overflow-hidden bg-stone-100"
+                      style={{
+                        aspectRatio: `${item.aspect[0]} / ${item.aspect[1]}`,
+                      }}
+                    >
+                      <Image
+                        src={item.artwork.image}
+                        alt={formatArtworkTitle(item.artwork.title, locale)}
+                        fill
+                        className="object-contain object-center transition-transform group-hover:scale-[1.01]"
+                        sizes="(max-width: 768px) 100vw, 448px"
+                      />
+                    </div>
+                  ) : null}
+                  <div className={item.showImage ? "mt-4 text-center" : "text-center"}>
                     <p className={dt.workArtist}>{item.artistName}</p>
                     <p className={`mt-2 ${dt.workTitle}`}>
                       {formatArtworkTitle(item.artwork.title, locale)}

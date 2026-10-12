@@ -1,5 +1,9 @@
 import type { ArtistProfile } from "@/app/artists/[slug]/data";
-import { getArtistPassportArtworks, t } from "@/app/artists/[slug]/data";
+import {
+  getArtistBySlug,
+  getArtistPassportArtworks,
+  t,
+} from "@/app/artists/[slug]/data";
 import {
   ARTIST_SITE_SUBDOMAIN_TO_SLUG,
   getArtistSiteProductionOrigin,
@@ -31,6 +35,19 @@ export function artistSiteCanonicalUrl(slug: string, path: string): string {
     return `${origin}/`;
   }
   return `${origin}${path.startsWith("/") ? path : `/${path}`}`;
+}
+
+/** ZCP-hosted microsite or `contact.website` when set. */
+export function getArtistOfficialSiteUrl(slug: string): string | null {
+  const sub = getArtistSiteSubdomain(slug);
+  if (sub) {
+    return `${getArtistSiteProductionOrigin(sub)}/`;
+  }
+  const website = getArtistBySlug(slug)?.contact.website?.trim();
+  if (!website) {
+    return null;
+  }
+  return website.replace(/\/$/, "") + "/";
 }
 
 /** Path prefix for Next.js `Link` on main site vs subdomain. */

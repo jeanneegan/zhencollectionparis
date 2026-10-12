@@ -6,6 +6,8 @@ export type ArtistProfile = {
   slug: string;
   /** Omit from /artists directory listing; passport may remain reachable by URL. */
   hideFromArtistDirectory?: boolean;
+  /** Public site: hide artwork images except these artwork ids (titles still shown). */
+  publicWorkImageAllowlist?: string[];
   name: LocalizedText;
   birthYear?: number;
   birthplace: LocalizedText;
@@ -111,6 +113,7 @@ export type ArtistProfile = {
 
 const willyLeNalbaut: ArtistProfile = {
   slug: "willy-le-nalbaut",
+  publicWorkImageAllowlist: ["3"],
   name: {
     zh: "威利·勒纳尔博",
     fr: "Willy Le Nalbaut",
@@ -151,7 +154,7 @@ const willyLeNalbaut: ArtistProfile = {
   contact: {
     email: "willylenalbaut@gmail.com",
     phone: "06.07.26.46.55",
-    website: "",
+    website: "https://willy-cochon.hotglue.me",
     instagram: "",
     wechat: "",
   },
@@ -2756,6 +2759,18 @@ export function getArtworkDisplayLayout(artwork: {
 
 export function getArtistPassportArtworks(artist: ArtistProfile) {
   return artist.artworks.filter((artwork) => !artwork.hideOnPassport);
+}
+
+export function shouldShowPublicArtworkImage(
+  artistSlug: string,
+  artworkId: string,
+): boolean {
+  const artist = getArtistBySlug(artistSlug);
+  const allowlist = artist?.publicWorkImageAllowlist;
+  if (!allowlist) {
+    return true;
+  }
+  return allowlist.includes(artworkId);
 }
 
 export function getAllArtists(): ArtistProfile[] {

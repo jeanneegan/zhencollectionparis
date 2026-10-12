@@ -20,6 +20,7 @@ import {
   getArtistPassportArtworks,
   getArtworkDisplayLayout,
   formatArtworkTitleForItem,
+  shouldShowPublicArtworkImage,
   t,
 } from "./data";
 
@@ -329,6 +330,71 @@ function ArtworkCard({
   const layout = getArtworkDisplayLayout(artwork);
   const articleGridClass = gridClass ?? (articleClass || layout.articleClass);
   const externalUrl = artwork.externalUrl;
+  const showImage = shouldShowPublicArtworkImage(artistSlug, artwork.id);
+
+  const artworkCaption = (
+    <>
+      <h3 className={passportType.artworkTitle}>
+        {formatArtworkTitleForItem(artwork, locale)}
+      </h3>
+      {artwork.subtitle ? (
+        <p className={`mt-1 ${passportType.artworkMeta} leading-relaxed`}>
+          {t(artwork.subtitle, locale)}
+        </p>
+      ) : null}
+      <p className={`mt-1 ${passportType.caption}`}>{artwork.year}</p>
+      <p className={`mt-2 ${passportType.artworkMeta} leading-relaxed`}>
+        {t(artwork.medium, locale)}
+      </p>
+      {artwork.dimensions ? (
+        <p className={`mt-1 ${passportType.metaPlain}`}>{artwork.dimensions}</p>
+      ) : null}
+      {artwork.description ? (
+        <div className={`mt-4 space-y-3 ${passportType.body}`}>
+          {t(artwork.description, locale)
+            .split(/\n\n+/)
+            .filter(Boolean)
+            .map((paragraph) => (
+              <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+            ))}
+        </div>
+      ) : null}
+    </>
+  );
+
+  const artworkPassportLink = hasArtworkPassport(artistSlug, artwork.id) ? (
+    <Link
+      href={`/oeuvres/${artistSlug}/${artwork.id}?from=${encodeURIComponent(`artist:${artistSlug}`)}`}
+      className="mt-4 inline-block text-[11px] tracking-[0.08em] text-stone-500 transition-colors hover:text-stone-900"
+    >
+      {viewArtworkPassportLabel}
+    </Link>
+  ) : null;
+
+  if (!showImage) {
+    return (
+      <article className={`group ${articleGridClass}`}>
+        <div className="mt-0">
+          {artworkCaption}
+          {externalUrl ? (
+            <a
+              href={externalUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-block text-[11px] tracking-[0.08em] text-stone-500 transition-colors hover:text-stone-900"
+            >
+              {locale === "zh"
+                ? "在线观看作品"
+                : locale === "fr"
+                  ? "Voir l'œuvre en ligne"
+                  : "View work online"}
+            </a>
+          ) : null}
+          {artworkPassportLink}
+        </div>
+      </article>
+    );
+  }
 
   if (externalUrl) {
     return (
@@ -340,41 +406,8 @@ function ArtworkCard({
           frameStyle={layout.frameStyle}
         />
         <div className="mt-5">
-          <h3 className={passportType.artworkTitle}>
-            {formatArtworkTitleForItem(artwork, locale)}
-          </h3>
-          {artwork.subtitle ? (
-            <p className={`mt-1 ${passportType.artworkMeta} leading-relaxed`}>
-              {t(artwork.subtitle, locale)}
-            </p>
-          ) : null}
-          <p className={`mt-1 ${passportType.caption}`}>{artwork.year}</p>
-          <p className={`mt-2 ${passportType.artworkMeta} leading-relaxed`}>
-            {t(artwork.medium, locale)}
-          </p>
-          {artwork.dimensions ? (
-            <p className={`mt-1 ${passportType.metaPlain}`}>
-              {artwork.dimensions}
-            </p>
-          ) : null}
-          {artwork.description ? (
-            <div className={`mt-4 space-y-3 ${passportType.body}`}>
-              {t(artwork.description, locale)
-                .split(/\n\n+/)
-                .filter(Boolean)
-                .map((paragraph) => (
-                  <p key={paragraph.slice(0, 48)}>{paragraph}</p>
-                ))}
-            </div>
-          ) : null}
-          {hasArtworkPassport(artistSlug, artwork.id) ? (
-            <Link
-              href={`/oeuvres/${artistSlug}/${artwork.id}?from=${encodeURIComponent(`artist:${artistSlug}`)}`}
-              className="mt-4 inline-block text-[11px] tracking-[0.08em] text-stone-500 transition-colors hover:text-stone-900"
-            >
-              {viewArtworkPassportLabel}
-            </Link>
-          ) : null}
+          {artworkCaption}
+          {artworkPassportLink}
         </div>
       </article>
     );
@@ -462,41 +495,8 @@ function ArtworkCard({
         </div>
       ) : null}
       <div className="mt-5">
-        <h3 className={passportType.artworkTitle}>
-          {formatArtworkTitleForItem(artwork, locale)}
-        </h3>
-        {artwork.subtitle ? (
-          <p className={`mt-1 ${passportType.artworkMeta} leading-relaxed`}>
-            {t(artwork.subtitle, locale)}
-          </p>
-        ) : null}
-        <p className={`mt-1 ${passportType.caption}`}>{artwork.year}</p>
-        <p className={`mt-2 ${passportType.artworkMeta} leading-relaxed`}>
-          {t(artwork.medium, locale)}
-        </p>
-        {artwork.dimensions ? (
-          <p className={`mt-1 ${passportType.metaPlain}`}>
-            {artwork.dimensions}
-          </p>
-        ) : null}
-        {artwork.description ? (
-          <div className={`mt-4 space-y-3 ${passportType.body}`}>
-            {t(artwork.description, locale)
-              .split(/\n\n+/)
-              .filter(Boolean)
-              .map((paragraph) => (
-                <p key={paragraph.slice(0, 48)}>{paragraph}</p>
-              ))}
-          </div>
-        ) : null}
-        {hasArtworkPassport(artistSlug, artwork.id) ? (
-          <Link
-            href={`/oeuvres/${artistSlug}/${artwork.id}?from=${encodeURIComponent(`artist:${artistSlug}`)}`}
-            className="mt-4 inline-block text-[11px] tracking-[0.08em] text-stone-500 transition-colors hover:text-stone-900"
-          >
-            {viewArtworkPassportLabel}
-          </Link>
-        ) : null}
+        {artworkCaption}
+        {artworkPassportLink}
       </div>
     </article>
   );
@@ -616,7 +616,7 @@ export function ArtistPassport({
     <>
       {!member ? (
         <div className="mx-auto max-w-7xl px-6 pt-8 md:px-10">
-          <SiteTopLinks locale={locale} showAgreement />
+          <SiteTopLinks locale={locale} artistSlug={artist.slug} />
         </div>
       ) : null}
 

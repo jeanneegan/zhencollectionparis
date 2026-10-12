@@ -11,6 +11,7 @@ import { MemberWorkspaceLayout } from "@/app/components/member-workspace-layout"
 import {
   formatArtworkTitleForItem,
   getArtworkDisplayLayout,
+  shouldShowPublicArtworkImage,
   type Locale,
 } from "@/app/artists/[slug]/data";
 import type { MockMember } from "@/app/lib/auth";
@@ -231,6 +232,10 @@ export function ArtworkPassportView({
   const l = labels[locale];
   const pageWrap = member ? "w-full" : "mx-auto max-w-7xl";
   const description = passport.description ? t(passport.description, locale) : "";
+  const showWorkImage = shouldShowPublicArtworkImage(
+    passport.artistSlug,
+    passport.workId,
+  );
 
   const passportContent = (
     <>
@@ -238,10 +243,16 @@ export function ArtworkPassportView({
         id="passport-work"
         className="scroll-mt-28 border-b border-stone-200 bg-white md:scroll-mt-32"
       >
-        <div className={`${pageWrap} grid grid-cols-1 md:grid-cols-2`}>
-          <div className="bg-stone-100 p-6 md:min-h-[520px] md:p-10">
-            <ArtworkImage passport={passport} locale={locale} />
-          </div>
+        <div
+          className={`${pageWrap} grid grid-cols-1 ${
+            showWorkImage ? "md:grid-cols-2" : ""
+          }`}
+        >
+          {showWorkImage ? (
+            <div className="bg-stone-100 p-6 md:min-h-[520px] md:p-10">
+              <ArtworkImage passport={passport} locale={locale} />
+            </div>
+          ) : null}
 
           <div
             className={`flex flex-col justify-center ${
