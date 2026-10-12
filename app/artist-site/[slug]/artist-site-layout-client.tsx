@@ -5,7 +5,8 @@ import { usePathname } from "next/navigation";
 import type { ArtistProfile } from "@/app/artists/[slug]/data";
 import { formatArtworkTitleForItem } from "@/app/artists/[slug]/data";
 import { ArtistSiteProvider } from "@/app/artist-site/artist-site-context";
-import { useArtistSiteLocale } from "@/app/artist-site/artist-site-ui";
+import { artistSiteLabels } from "@/app/artist-site/artist-site-labels";
+import { useLocale } from "@/app/lib/use-locale";
 import { ArtistSiteShell } from "./artist-site-shell";
 
 export function ArtistSiteLayoutClient({
@@ -18,7 +19,8 @@ export function ArtistSiteLayoutClient({
   children: ReactNode;
 }) {
   const pathname = usePathname();
-  const { locale, setLocale, labels } = useArtistSiteLocale();
+  const [locale, setLocale] = useLocale();
+  const labels = artistSiteLabels[locale];
 
   const siteTitle = formatArtworkTitleForItem(
     { title: artist.name, titleDisplay: "locale" },
@@ -36,7 +38,12 @@ export function ArtistSiteLayoutClient({
   ];
 
   return (
-    <ArtistSiteProvider artist={artist} linkPrefix={linkPrefix}>
+    <ArtistSiteProvider
+      artist={artist}
+      linkPrefix={linkPrefix}
+      locale={locale}
+      setLocale={setLocale}
+    >
       <ArtistSiteShell
         siteTitle={siteTitle}
         locale={locale}

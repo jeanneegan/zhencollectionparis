@@ -51,7 +51,7 @@ export const artistSiteLabels: Record<Locale, ArtistSiteLabels> = {
     close: "Close · 关闭",
     home: "首页",
     works: "作品与系列",
-    shop: "版画与购买",
+    shop: "作品收藏",
     shopPurchase: "购买",
     shopEmpty:
       "暂无经 ZCP 收藏确认的该艺术家线上 SKU。可在 ZCP 收藏页查看在线购买与出版信息。",
@@ -95,7 +95,7 @@ export const artistSiteLabels: Record<Locale, ArtistSiteLabels> = {
     close: "Close",
     home: "Accueil",
     works: "Œuvres & séries",
-    shop: "Estampes & achat",
+    shop: "Collection · 作品收藏",
     shopPurchase: "Acheter",
     shopEmpty:
       "Aucun SKU en ligne confirmé pour cet artiste dans la collection ZCP. Consultez la page Collection pour l'achat en ligne et les éditions.",
@@ -139,7 +139,7 @@ export const artistSiteLabels: Record<Locale, ArtistSiteLabels> = {
     close: "Close",
     home: "Home",
     works: "Works & series",
-    shop: "Prints & purchase",
+    shop: "Collection · 作品收藏",
     shopPurchase: "Purchase",
     shopEmpty:
       "No confirmed online collection SKU for this artist at ZCP yet. See the ZCP Collection page for online purchase and editions.",

@@ -13,16 +13,11 @@ import {
 import { archiveDisplay } from "@/app/artist-site/artist-site-fonts";
 import { artistSiteLabels } from "@/app/artist-site/artist-site-labels";
 import { notoSerifSc as serif } from "@/app/lib/noto-serif-sc";
-import { useLocale } from "@/app/lib/use-locale";
+
+export { useArtistSiteLocale } from "@/app/artist-site/artist-site-context";
 
 export function bodyFont(locale: Locale): string {
   return locale === "zh" || locale === "fr" ? serif.className : "";
-}
-
-export function useArtistSiteLocale() {
-  const [locale, setLocale] = useLocale();
-  const labels = artistSiteLabels[locale];
-  return { locale, setLocale, labels };
 }
 
 export function ArtistSitePageMain({ children }: { children: ReactNode }) {
