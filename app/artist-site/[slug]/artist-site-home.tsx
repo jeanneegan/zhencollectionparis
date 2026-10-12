@@ -7,7 +7,7 @@ import {
   getArtworkDisplayLayout,
   t,
 } from "@/app/artists/[slug]/data";
-import { archiveDisplay } from "@/app/artist-site/artist-site-fonts";
+import { artistSiteNameFontClass } from "@/app/artist-site/artist-site-fonts";
 import { useArtistSite } from "@/app/artist-site/artist-site-context";
 import { bodyFont, useArtistSiteLocale } from "@/app/artist-site/artist-site-ui";
 
@@ -26,7 +26,9 @@ export function ArtistSiteHomePage() {
     <section className="flex min-h-[calc(100dvh-3.25rem)] flex-col items-center justify-center px-5 pb-20 pt-12 md:min-h-[calc(100dvh-4rem)] md:px-12 md:pb-28 md:pt-16 lg:px-16">
       <header className="mb-8 w-full max-w-4xl text-center md:mb-12">
         <h1
-          className={`${archiveDisplay.className} text-[clamp(2.75rem,9vw,4.75rem)] font-normal leading-[1.02] tracking-tight text-neutral-900`}
+          className={`${artistSiteNameFontClass(locale)} text-[clamp(2.75rem,9vw,4.75rem)] font-normal leading-[1.02] text-neutral-900 ${
+            locale === "zh" ? "tracking-normal" : "tracking-tight"
+          }`}
         >
           {displayName}
         </h1>

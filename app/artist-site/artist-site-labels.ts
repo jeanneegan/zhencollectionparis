@@ -95,7 +95,7 @@ export const artistSiteLabels: Record<Locale, ArtistSiteLabels> = {
     close: "Close",
     home: "Accueil",
     works: "Œuvres & séries",
-    shop: "Collection · 作品收藏",
+    shop: "Collection",
     shopPurchase: "Acheter",
     shopEmpty:
       "Aucun SKU en ligne confirmé pour cet artiste dans la collection ZCP. Consultez la page Collection pour l'achat en ligne et les éditions.",
@@ -139,7 +139,7 @@ export const artistSiteLabels: Record<Locale, ArtistSiteLabels> = {
     close: "Close",
     home: "Home",
     works: "Works & series",
-    shop: "Collection · 作品收藏",
+    shop: "Collection",
     shopPurchase: "Purchase",
     shopEmpty:
       "No confirmed online collection SKU for this artist at ZCP yet. See the ZCP Collection page for online purchase and editions.",

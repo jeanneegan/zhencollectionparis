@@ -3,7 +3,7 @@
 import { useEffect, useState, type ReactNode } from "react";
 import Link from "next/link";
 import type { Locale } from "@/app/artists/[slug]/data";
-import { archiveDisplay } from "@/app/artist-site/artist-site-fonts";
+import { artistSiteNameFontClass } from "@/app/artist-site/artist-site-fonts";
 import { ArtistSiteFooter } from "@/app/artist-site/artist-site-footer";
 
 const locales: { key: Locale; label: string }[] = [
@@ -63,13 +63,14 @@ export function ArtistSiteShell({
     `block py-2 text-[13px] leading-snug transition-opacity hover:opacity-60 ${
       active ? "text-neutral-900" : "text-neutral-800"
     }`;
+  const nameFont = artistSiteNameFontClass(locale);
 
   return (
     <div className="min-h-screen bg-[#f6f4ef] text-neutral-900">
       <div className="fixed inset-x-0 top-0 z-40 flex items-center justify-between bg-[#ddd9d2] px-5 py-4 md:hidden">
         <Link
           href={homeHref}
-          className={`${archiveDisplay.className} text-lg tracking-tight`}
+          className={`${nameFont} text-lg ${locale === "zh" ? "tracking-normal" : "tracking-tight"}`}
           onClick={() => setMenuOpen(false)}
         >
           {siteTitle}
@@ -100,7 +101,9 @@ export function ArtistSiteShell({
         <div className="flex items-start justify-between gap-4">
           <Link
             href={homeHref}
-            className={`${archiveDisplay.className} text-xl leading-tight tracking-tight text-neutral-900`}
+            className={`${nameFont} text-xl leading-tight text-neutral-900 ${
+              locale === "zh" ? "tracking-normal" : "tracking-tight"
+            }`}
             onClick={() => setMenuOpen(false)}
           >
             {siteTitle}
