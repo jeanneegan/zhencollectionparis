@@ -14,6 +14,7 @@ import type { MockMember } from "@/app/lib/auth";
 import { getEpisodeBySlug } from "@/app/dialogue/data";
 import { hasArtworkPassport } from "@/app/lib/artwork-passport";
 import { useLocale } from "@/app/lib/use-locale";
+import { notoSerifSc as serif } from "@/app/lib/noto-serif-sc";
 import {
   type ArtistProfile,
   type Locale,
@@ -54,9 +55,10 @@ const labels: Record<
     group: string;
     careerTimeline: string;
     selectedWorks: string;
-    collectionInquiry: string;
-    collectionNote: string;
-    collectionLink: string;
+    collectionSection: {
+      title: string;
+      items: { title: string; detail: string }[];
+    };
     viewArtworkPassport: string;
     professionalReputation: string;
     collectorRecognition: string;
@@ -93,10 +95,14 @@ const labels: Record<
     group: "群展",
     careerTimeline: "Chronologie professionnelle｜职业时间轴",
     selectedWorks: "Œuvres sélectionnées｜作品",
-    collectionInquiry: "Inquiry · 咨询",
-    collectionNote:
-      "关于该艺术家的咨询与合作 · Inquiry and collaboration regarding this artist",
-    collectionLink: "咨询 · Inquiry",
+    collectionSection: {
+      title: "收藏",
+      items: [
+        { title: "法国画廊", detail: "Galeries en France" },
+        { title: "中国画廊", detail: "Galeries en Chine" },
+        { title: "版画", detail: "Print" },
+      ],
+    },
     viewArtworkPassport: "Voir le passeport œuvre · 查看作品护照",
     professionalReputation: "Réputation professionnelle｜职业声誉",
     collectorRecognition: "Reconnaissance des collectionneurs · 藏家认可",
@@ -133,10 +139,14 @@ const labels: Record<
     group: "Collectif",
     careerTimeline: "Chronologie professionnelle｜职业时间轴",
     selectedWorks: "Œuvres sélectionnées｜作品",
-    collectionInquiry: "Inquiry · 咨询",
-    collectionNote:
-      "关于该艺术家的咨询与合作 · Inquiry and collaboration regarding this artist",
-    collectionLink: "咨询 · Inquiry",
+    collectionSection: {
+      title: "收藏",
+      items: [
+        { title: "法国画廊", detail: "Galeries en France" },
+        { title: "中国画廊", detail: "Galeries en Chine" },
+        { title: "版画", detail: "Print" },
+      ],
+    },
     viewArtworkPassport: "Voir le passeport œuvre · 查看作品护照",
     professionalReputation: "Réputation professionnelle｜职业声誉",
     collectorRecognition: "Reconnaissance des collectionneurs · 藏家认可",
@@ -172,9 +182,14 @@ const labels: Record<
     group: "Group",
     careerTimeline: "Career Timeline",
     selectedWorks: "Selected Works",
-    collectionInquiry: "Inquiry",
-    collectionNote: "Inquiry and collaboration regarding this artist",
-    collectionLink: "Inquiry",
+    collectionSection: {
+      title: "Collection",
+      items: [
+        { title: "French galleries", detail: "法国画廊" },
+        { title: "Chinese galleries", detail: "中国画廊" },
+        { title: "Print", detail: "版画" },
+      ],
+    },
     viewArtworkPassport: "View artwork passport",
     professionalReputation: "Professional Reputation",
     collectorRecognition: "Collector Recognition",
@@ -945,24 +960,6 @@ export function ArtistPassport({
             </div>
           </div>
         ) : null}
-
-        <div className="mt-16 border border-stone-200 bg-stone-50/30 px-6 py-10 text-center md:px-10">
-          <p className={`${passportType.meta} tracking-[0.15em]`}>
-            {l.collectionInquiry}
-          </p>
-          <p className={`mx-auto mt-4 max-w-md ${passportType.body}`}>
-            {l.collectionNote}
-          </p>
-          <div className="mt-6 flex justify-center">
-            <Link
-              href={`/collection?artist=${artist.slug}`}
-              className="inline-flex items-center gap-2 rounded-full border border-stone-300 px-6 py-2.5 text-xs font-medium tracking-[0.12em] text-stone-700 transition-colors hover:border-stone-900 hover:text-stone-900"
-            >
-              {l.collectionLink}
-              <span aria-hidden>→</span>
-            </Link>
-          </div>
-        </div>
       </section>
 
       <div className={`${pageWrap} px-6 md:px-10`}>
@@ -1062,6 +1059,32 @@ export function ArtistPassport({
             </div>
           ) : null}
         </div>
+      </section>
+
+      <section className={`${pageWrap} px-6 pb-20 md:px-10`}>
+        <h2
+          className={`${
+            locale === "en" ? "" : serif.className
+          } text-center text-2xl font-normal tracking-wide text-stone-900 md:text-3xl`}
+        >
+          {l.collectionSection.title}
+        </h2>
+        <ul className="mt-8 grid grid-cols-1 divide-y divide-stone-200 border border-stone-200 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+          {l.collectionSection.items.map((item) => (
+            <li key={item.title} className="bg-white px-4 py-8 text-center">
+              <p
+                className={`${
+                  locale === "en" ? "" : serif.className
+                } text-lg font-normal tracking-wide text-stone-900`}
+              >
+                {item.title}
+              </p>
+              <p className="mt-3 text-[10px] font-medium uppercase tracking-[0.22em] text-stone-400">
+                {item.detail}
+              </p>
+            </li>
+          ))}
+        </ul>
       </section>
     </>
   );
