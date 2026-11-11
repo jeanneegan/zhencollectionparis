@@ -18,9 +18,6 @@ export function SiteFooter({
       >
         <SiteFooterNav locale={locale} />
         <SiteSocialLinks />
-        <p className="text-[11px] text-stone-400">
-          Paris × Chine · 巴黎 × 中国 · Conversations · Rencontres · Une autre voix
-        </p>
       </div>
     </footer>
   );

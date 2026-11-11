@@ -30,9 +30,9 @@ export const aboutSections: AboutSection[] = [
     id: "who-we-are",
     title: { en: "Who We Are", fr: "Who We Are", zh: "Who We Are" },
     subtitle: {
-      en: "Who we are, values and mission",
-      fr: "Qui nous sommes, valeurs et mission",
-      zh: "我们是谁、理念与使命",
+      en: "Our identity, our values and our mission",
+      fr: "Notre identité, nos valeurs et notre mission",
+      zh: "我们的身份、价值观与使命",
     },
     paragraphs: {
       zh: [
@@ -64,11 +64,11 @@ export const aboutSections: AboutSection[] = [
   },
   {
     id: "archive",
-    title: { en: "Archive", fr: "Archive", zh: "Archive" },
+    title: { en: "Our History", fr: "Our History", zh: "Our History" },
     subtitle: {
-      en: "ZCP activities and projects over the years",
-      fr: "Activités et projets ZCP au fil des années",
-      zh: "ZCP 历年活动与项目记录",
+      en: "Our history, our activities and our projects",
+      fr: "Notre histoire, nos activités et nos projets",
+      zh: "我们的历史、活动与项目",
     },
     paragraphs: {
       zh: [
@@ -136,9 +136,9 @@ export const aboutSections: AboutSection[] = [
     id: "participate",
     title: { en: "Participate", fr: "Participate", zh: "Participate" },
     subtitle: {
-      en: "How artists, authors, and spaces can join",
-      fr: "Comment artistes, auteurs et espaces peuvent participer",
-      zh: "艺术家、作者和空间如何参与",
+      en: "How to contribute and take part in our initiatives",
+      fr: "Comment contribuer et participer à nos initiatives",
+      zh: "如何贡献并参与我们的计划",
     },
     paragraphs: {
       zh: [
@@ -162,9 +162,9 @@ export const aboutSections: AboutSection[] = [
     id: "partners",
     title: { en: "Partners", fr: "Partners", zh: "Partners" },
     subtitle: {
-      en: "Galleries, institutions, and spaces across cities",
-      fr: "Galeries, institutions et espaces dans différentes villes",
-      zh: "跨城市的画廊、机构与空间",
+      en: "Our cultural and institutional partners",
+      fr: "Nos partenaires culturels et institutionnels",
+      zh: "我们的文化与机构合作伙伴",
     },
     paragraphs: {
       zh: [
@@ -204,9 +204,9 @@ export const aboutSections: AboutSection[] = [
     id: "association",
     title: { en: "Association", fr: "Association", zh: "Association" },
     subtitle: {
-      en: "French association information",
-      fr: "Informations sur l'association",
-      zh: "法国协会信息",
+      en: "Status, governance and legal information",
+      fr: "Statut, gouvernance et informations légales",
+      zh: "章程、治理与法律信息",
     },
     paragraphs: {
       zh: [

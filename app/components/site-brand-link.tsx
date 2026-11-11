@@ -12,7 +12,7 @@ export function SiteBrandLink({ className = "" }: { className?: string }) {
       <span className="mt-1 block text-[11px] font-medium tracking-[0.28em] text-stone-500">
         <span className="uppercase">ZCP</span>
         <span className="ml-2 uppercase tracking-[0.12em] text-stone-600">
-          Home
+          Asso
         </span>
       </span>
     </Link>

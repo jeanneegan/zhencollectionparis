@@ -23,14 +23,6 @@ export const primaryNavItems: PrimaryNavItem[] = [
     isActive: (pathname) => pathname.startsWith("/dialogue"),
   },
   {
-    id: "collection",
-    href: "/editions",
-    label: "COLLECTION",
-    labelZh: "收藏",
-    isActive: (pathname) =>
-      pathname === "/editions" || pathname.startsWith("/edition/"),
-  },
-  {
     id: "projects",
     href: "/projets",
     label: "PROJETS",

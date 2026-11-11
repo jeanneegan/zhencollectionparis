@@ -58,20 +58,6 @@ export const projectSections: ProjectSection[] = [
     },
   },
   {
-    id: "expositions",
-    href: "/exposition",
-    title: {
-      zh: "展览",
-      fr: "Expositions",
-      en: "Exhibitions",
-    },
-    lead: {
-      zh: "巴黎臻藏艺术展与公共项目，让艺术进入日常空间与城市生活。",
-      fr: "Expositions et projets publics de Zhen Collection Paris — l'art dans les espaces du quotidien et la vie urbaine.",
-      en: "Zhen Collection Paris exhibitions and public programmes — art in everyday spaces and city life.",
-    },
-  },
-  {
     id: "residencies",
     href: "/opportunites",
     title: {
